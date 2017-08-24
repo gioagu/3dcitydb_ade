@@ -1,7 +1,7 @@
-3D City Database Utilities
+3D City Database Utilities Package
 ================
 
-The 3D City Database Utilities for PostgreSQL is a set of stored procedures, views and updatable views for the free and open-source [3D City Database](http://www.3dcitydb.org). The 3D City Database Utilities are meant to provide additional functionalities and help data management of data stored in the 3D City Database. Originally developed within the [Energy ADE] (https://github.com/gioagu/3dcitydb/.....) extension for the 3DCityDB, they are now provided as a separate package which can be installed and used independently.
+The 3D City Database Utilities Package for PostgreSQL is a set of stored procedures, views and updatable views for the free and open-source [3D City Database](http://www.3dcitydb.org). The 3D City Database Utilities are meant to provide additional functionalities and help data management of data stored in the 3D City Database. Originally developed within the [Energy ADE] (https://github.com/gioagu/3dcitydb/.....) extension for the 3DCityDB, they are now provided as a separate package which can be installed and used independently.
 
 The 3D City Database Utilities are developed by [AIT](https://www.ait.ac.at/en/) - Austrian Institute of Technology, [Center for Energy](https://www.ait.ac.at/en/about-the-ait/center/center-for-energy), [Smart Cities and Regions Research Field](https://www.ait.ac.at/en/research-fields/smart-cities-and-regions).
 
