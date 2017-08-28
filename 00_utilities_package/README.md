@@ -17,7 +17,7 @@ System requirements
 
 Documentation
 -------------
-Documentation of the 3DCityDB Utilities Package is available [here](https://github.com/gioagu/3dcitydb_ade/tree/master/00_utilities_package/manual/3DCityDB_Utilities_Package_Documentation.pdf).
+Documentation of the 3DCityDB Utilities Package is available [here](https://github.com/gioagu/3dcitydb_ade/tree/master/00_utilities_package/manual/).
 
 However, the user is encouraged to keep a copy of the 3DCityDB at hand. The 3DCityDB documentation can be accessed on-line [here](https://github.com/3dcitydb/3dcitydb/tree/master/Documentation).
 Finally, a very useful hands-on tutorial for beginners, where the most important steps to set up the 3DCtyDB and use the Importer/Exporter are described, can be retrieved [here](https://github.com/3dcitydb/tutorials).
