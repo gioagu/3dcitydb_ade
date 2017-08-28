@@ -13,8 +13,8 @@ License
 
 Latest release
 --------------
-The current release of the 3DCityDB extension implements the [Utility Network ADE v.0.9.4](https://github.com/TatjanaKutzner/CityGML-UtilityNetwork-ADE) and the current release of the software is Alfa 1.
-Download the SQL scripts for PostgreSQL/PostGIS [here](https://github.com/gioagu/3dcitydb/03_utilitynetwork/).
+The current release of the 3DCityDB extension implements the [Utility Network ADE v.0.9.4](https://github.com/TatjanaKutzner/CityGML-UtilityNetwork-ADE) and the current release of the software is Beta.
+Download the SQL scripts for PostgreSQL/PostGIS [here](https://github.com/gioagu/3dcitydb_ade/tree/master/03_utility_network_ade/postgresql).
 
 System requirements
 -------------------
@@ -24,7 +24,7 @@ System requirements
 
 Documentation
 -------------
-Documentation for the 3D City Database Extension for the Utility Network ADE is planned but currently not available. Nevertheless, the design and implementation principles are the same as for the Energy ADE. Therefore the user is highly invited to read the documentation for the 3D City Database Extension for the Energy ADE which can be downloaded [here](https://github.com/gioagu/3dcitydb/03_energy_ade/xxxxxxxx).
+Documentation for the 3D City Database Extension for the Utility Network ADE is planned but currently not available. Nevertheless, the design and implementation principles are the same as for the Energy ADE. Therefore the user is highly invited to read the documentation for the 3D City Database Extension for the Energy ADE which can be downloaded [here](https://github.com/gioagu/3dcitydb_ade/tree/master/02_energy_ade/manual) and contains also detailed information about installation of an ADE. Finally, several diagrams (OO-to-ER-model mapping, ER-diagrams) are available [here](https://github.com/gioagu/3dcitydb_ade/tree/master/03_utility_network_ade/diagrams).
 
 In addition, the user is encouraged to keep a copy of the 3DCityDB at hand. It can be accessed on-line [here](https://github.com/3dcitydb/3dcitydb/tree/master/Documentation). Finally, a very useful hands-on tutorial for beginners, where the most important steps to set up the 3DCtyDB and use the Importer/Exporter are described, can be retrieved [here](https://github.com/3dcitydb/tutorials).
 

@@ -13,8 +13,8 @@ License
 
 Latest release
 --------------
-The current release of the 3DCityDB extension implements the [Energy ADE v.0.8](https://github.com/cstb/citygml-energy/tree/v0.8) and the current release of the software is Beta 1.
-Download the SQL scripts for PostgreSQL/PostGIS [here](https://github.com/gioagu/3dcitydb_energy_ade/tree/master/postgresql).
+The current release of the 3DCityDB extension implements the [Energy ADE v.0.8](https://github.com/cstb/citygml-energy/tree/v0.8). 
+Download the SQL scripts for PostgreSQL/PostGIS [here](https://github.com/gioagu/3dcitydb_ade/tree/master/02_energy_ade/postgresql).
 
 System requirements
 -------------------
@@ -24,7 +24,7 @@ System requirements
 
 Documentation
 -------------
-A complete and comprehensive documentation on the 3D City Database Extension for the Energy ADE is available with the software and can be downloaded [here](https://github.com/gioagu/3dcitydb_energy_ade/0.8/manual).
+A complete and comprehensive documentation on the 3D City Database Extension for the Energy ADE is available with the software and can be downloaded [here](https://github.com/gioagu/3dcitydb_ade/tree/master/02_energy_ade/manual).
 
 However, the user is encouraged to keep a copy of the 3DCityDB and of the Energy ADE documentation at hand. The 3DCityDB documentation can be accessed on-line [here](https://github.com/3dcitydb/3dcitydb/tree/master/Documentation), while the Energy ADE documentation [here](https://github.com/cstb/citygml-energy/tree/v0.8/doc/guidelines).
 Finally, a very useful hands-on tutorial for beginners, where the most important steps to set up the 3DCtyDB and use the Importer/Exporter are described, can be retrieved [here](https://github.com/3dcitydb/tutorials).

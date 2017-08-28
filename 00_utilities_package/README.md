@@ -1,9 +1,9 @@
 3D City Database Utilities Package
 ================
 
-The 3D City Database Utilities Package for PostgreSQL is a set of stored procedures, views and updatable views for the free and open-source [3D City Database](http://www.3dcitydb.org). The 3D City Database Utilities are meant to provide additional functionalities and help data management of data stored in the 3D City Database. Originally developed within the [Energy ADE] (https://github.com/gioagu/3dcitydb/.....) extension for the 3DCityDB, they are now provided as a separate package which can be installed and used independently.
+The 3D City Database Utilities Package for PostgreSQL is a set of stored procedures, views and updatable views for the free and open-source [3D City Database](http://www.3dcitydb.org). The 3D City Database Utilities are meant to provide additional functionalities and help data management of data stored in the 3D City Database. Originally developed within the Energy ADE for the 3DCityDB, they are now provided as a separate package which can be installed and used independently.
 
-The 3D City Database Utilities are developed by [AIT](https://www.ait.ac.at/en/) - Austrian Institute of Technology, [Center for Energy](https://www.ait.ac.at/en/about-the-ait/center/center-for-energy), [Smart Cities and Regions Research Field](https://www.ait.ac.at/en/research-fields/smart-cities-and-regions).
+The 3D City Database Utilities Package is developed by [AIT](https://www.ait.ac.at/en/) - Austrian Institute of Technology, [Center for Energy](https://www.ait.ac.at/en/about-the-ait/center/center-for-energy), [Smart Cities and Regions Research Field](https://www.ait.ac.at/en/research-fields/smart-cities-and-regions).
 
 License
 -------
@@ -17,7 +17,7 @@ System requirements
 
 Documentation
 -------------
-Documentation is included in the 3D City Database Extension for the Energy ADE and can be downloaded [here](https://github.com/gioagu/3dcitydb_energy_ade/0.8/manual).
+Documentation of the 3DCityDB Utilities Package is available [here](https://github.com/gioagu/3dcitydb_ade/tree/master/00_utilities_package/manual/3DCityDB_Utilities_Package_Documentation.pdf).
 
 However, the user is encouraged to keep a copy of the 3DCityDB at hand. The 3DCityDB documentation can be accessed on-line [here](https://github.com/3dcitydb/3dcitydb/tree/master/Documentation).
 Finally, a very useful hands-on tutorial for beginners, where the most important steps to set up the 3DCtyDB and use the Importer/Exporter are described, can be retrieved [here](https://github.com/3dcitydb/tutorials).
