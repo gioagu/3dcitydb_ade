@@ -5,7 +5,7 @@ This Git repository contains a number of additional utilities, extensions, etc. 
 
 
 
-Originally developed within the [Energy ADE](https://github.com/gioagu/3dcitydb_ade/tree/master/02_energy_ade) for the 3DCityDB, the Metadata Module is now provided as a separate package which can be installed and used also for other ADEs (e.g. the [Utility Network ADE](https://github.com/gioagu/3dcitydb_ade/tree/master/03_utility_network_ade)) 
+Originally developed within the [Energy ADE](https://github.com/gioagu/3dcitydb_ade/tree/master/02_energy_ade) for the 3DCityDB, the software is now provided as a set of modular packages. Currently, it consists of the *Utilities Package*, the *Metadata module*, the *Energy ADE* and the *Utility Network ADE* for PostgreSQL / PostGIS. 
 
 License
 -------
