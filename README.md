@@ -1,4 +1,4 @@
-3D City Database
+3D City Database "plus"
 ================
 
 This Git repository contains a number of additional utilities, extensions, etc. to the free and open-source [3D City Database](http://www.3dcitydb.org). They are meant to extend and enhance the 3DCityDB.
