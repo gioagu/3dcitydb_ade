@@ -1044,7 +1044,7 @@ IF classname IS NOT NULL THEN
 	--    nrg8_chiller
 	--    nrg8_air_compressor
 	-- get the system operation ids referencing the energy conversion system
-	FOR so_id IN EXECUTE format('SELECT id FROM %I.nrg8_system_operation WHERE nrg8_conv_system_id = %L', schema_name, cs_id) LOOP
+	FOR so_id IN EXECUTE format('SELECT id FROM %I.nrg8_system_operation WHERE nrg_conv_system_id = %L', schema_name, cs_id) LOOP
 		IF so_id IS NOT NULL THEN
 			-- delete system operation
 			EXECUTE 'SELECT citydb_pkg.nrg8_delete_system_operation($1, $2)' USING so_id, schema_name;
