@@ -877,7 +877,7 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 ----------------------------------------------------------------
--- Function UTN9_INSERT_NETWORK_TO_NETWORK_FEATURE
+-- Function #UTN9_INSERT_NETWORK_TO_NETWORK_FEATURE
 ----------------------------------------------------------------
 -- DROP FUNCTION IF EXISTS citydb_pkg.utn9_insert_network_to_network_feature (integer, integer) CASCADE;
 CREATE OR REPLACE FUNCTION citydb_pkg.utn9_insert_network_to_network_feature (
@@ -906,7 +906,7 @@ p_network_id,
 p_network_feature_id
 );
 EXCEPTION
-	WHEN OTHERS THEN RAISE NOTICE 'citydb_pkg.utn9_insert_network_to_network_feature (network_id: %, network_feature_id: %): %', network_id, network_feature_id SQLERRM;
+	WHEN OTHERS THEN RAISE NOTICE 'citydb_pkg.utn9_insert_network_to_network_feature (network_id: %, network_feature_id: %): %', network_id, network_feature_id, SQLERRM;
 END;
 $$ LANGUAGE 'plpgsql';
 
@@ -1138,7 +1138,7 @@ p_comm_class_parent_id,
 p_comm_class_id
 ) ;
 EXCEPTION
-	WHEN OTHERS THEN RAISE NOTICE 'citydb_pkg.utn9_insert_comm_class_to_comm_class (comm_class_parent_id: %, comm_class_id): %', comm_class_parent_id, comm_class_id, SQLERRM;
+	WHEN OTHERS THEN RAISE NOTICE 'citydb_pkg.utn9_insert_comm_class_to_comm_class (comm_class_parent_id: %, comm_class_id: %): %', comm_class_parent_id, comm_class_id, SQLERRM;
 END;
 $$ LANGUAGE 'plpgsql';
 
