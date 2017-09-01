@@ -877,7 +877,7 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 ----------------------------------------------------------------
--- Function #UTN9_INSERT_NETWORK_TO_NETWORK_FEATURE
+-- Function UTN9_INSERT_NETWORK_TO_NETWORK_FEATURE
 ----------------------------------------------------------------
 -- DROP FUNCTION IF EXISTS citydb_pkg.utn9_insert_network_to_network_feature (integer, integer) CASCADE;
 CREATE OR REPLACE FUNCTION citydb_pkg.utn9_insert_network_to_network_feature (
