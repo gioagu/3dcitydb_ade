@@ -6442,7 +6442,7 @@ acquisition_method varchar DEFAULT NULL,
 interpolation_type varchar DEFAULT NULL,
 quality_description text DEFAULT NULL,
 source varchar DEFAULT NULL,
-time_array numeric[] DEFAULT NULL,
+time_array timestamptz[] DEFAULT NULL,
 values_array numeric[] DEFAULT NULL,
 values_unit varchar DEFAULT NULL,
 array_length integer DEFAULT NULL,
@@ -6462,7 +6462,7 @@ DECLARE
   p_interpolation_type    varchar                  := interpolation_type   ;
   p_quality_description   text                     := quality_description  ;
   p_source                varchar                  := source               ;
-  p_time_array            numeric[]                := time_array           ;
+  p_time_array            timestamptz[]            := time_array           ;
   p_values_array          numeric[]                := values_array         ;
   p_values_unit           varchar                  := values_unit          ;
   p_array_length          integer                  := array_length         ;
@@ -6535,31 +6535,31 @@ schema_name varchar DEFAULT 'citydb'::varchar
 RETURNS integer AS
 $BODY$
 DECLARE
-  p_id                    integer                  := id                   ;
-  p_gmlid                 varchar                  := gmlid                ;
-  p_gmlid_codespace       varchar                  := gmlid_codespace      ;
-  p_name                  varchar                  := name                 ;
-  p_name_codespace        varchar                  := name_codespace       ;
-  p_description           text                     := description          ;
-  p_acquisition_method    varchar                  := acquisition_method   ;
-  p_interpolation_type    varchar                  := interpolation_type   ;
-  p_quality_description   text                     := quality_description  ;
-  p_source                varchar                  := source               ;
-  p_values_unit           varchar                  := values_unit          ;
-  p_temporal_extent_begin timestamp with time zone := temporal_extent_begin;
-  p_temporal_extent_end   timestamp with time zone := temporal_extent_end  ;
-  p_time_interval         numeric                  := time_interval        ;
-  p_time_interval_unit    varchar                  := time_interval_unit   ;
+  p_id                    integer     := id                   ;
+  p_gmlid                 varchar     := gmlid                ;
+  p_gmlid_codespace       varchar     := gmlid_codespace      ;
+  p_name                  varchar     := name                 ;
+  p_name_codespace        varchar     := name_codespace       ;
+  p_description           text        := description          ;
+  p_acquisition_method    varchar     := acquisition_method   ;
+  p_interpolation_type    varchar     := interpolation_type   ;
+  p_quality_description   text        := quality_description  ;
+  p_source                varchar     := source               ;
+  p_values_unit           varchar     := values_unit          ;
+  p_temporal_extent_begin timestamptz := temporal_extent_begin;
+  p_temporal_extent_end   timestamptz := temporal_extent_end  ;
+  p_time_interval         numeric     := time_interval        ;
+  p_time_interval_unit    varchar     := time_interval_unit   ;
 --
-  p_file_path             varchar                  := file_path            ;
-  p_file_name             varchar                  := file_name            ;
-  p_file_extension        varchar                  := file_extension       ;
-  p_nbr_header_lines      integer                  := nbr_header_lines     ;
-  p_field_sep             varchar                  := field_sep            ;
-  p_record_sep            varchar                  := record_sep           ;
-  p_dec_symbol            varchar                  := dec_symbol           ;
-  p_value_col_nbr         integer                  := value_col_nbr        ;
-  p_is_compressed         numeric(1)               := is_compressed        ;
+  p_file_path             varchar     := file_path            ;
+  p_file_name             varchar     := file_name            ;
+  p_file_extension        varchar     := file_extension       ;
+  p_nbr_header_lines      integer     := nbr_header_lines     ;
+  p_field_sep             varchar     := field_sep            ;
+  p_record_sep            varchar     := record_sep           ;
+  p_dec_symbol            varchar     := dec_symbol           ;
+  p_value_col_nbr         integer     := value_col_nbr        ;
+  p_is_compressed         numeric(1)  := is_compressed        ;
 --
   p_schema_name varchar := schema_name;
   class_name varchar DEFAULT 'RegularTimeSeriesFile'::varchar;
@@ -6992,7 +6992,7 @@ CREATE OR REPLACE FUNCTION citydb_view.nrg8_insert_time_series(
   interpolation_type    varchar DEFAULT NULL,
   quality_description   text DEFAULT NULL,
   source                varchar DEFAULT NULL,
-  time_array            numeric[] DEFAULT NULL,
+  time_array            timestamptz[] DEFAULT NULL,
   values_array          numeric[] DEFAULT NULL,
   values_unit           varchar DEFAULT NULL,
   array_length          integer DEFAULT NULL,
@@ -7017,35 +7017,35 @@ CREATE OR REPLACE FUNCTION citydb_view.nrg8_insert_time_series(
 RETURNS integer
 AS $$
 DECLARE
-  p_id                    integer    := id                    ;
-  p_gmlid                 varchar    := gmlid                 ;
-  p_gmlid_codespace       varchar    := gmlid_codespace       ;
-  p_name                  varchar    := name                  ;
-  p_name_codespace        varchar    := name_codespace        ;
-  p_description           text       := description           ;
-  p_acquisition_method    varchar    := acquisition_method    ;
-  p_interpolation_type    varchar    := interpolation_type    ;
-  p_quality_description   text       := quality_description   ;
-  p_source                varchar    := source                ;
-  p_time_array            numeric[]  := time_array            ;
-  p_values_array          numeric[]  := values_array          ;
-  p_values_unit           varchar    := values_unit           ;
-  p_array_length          integer    := array_length          ;
-  p_temporal_extent_begin timestamp with time zone := temporal_extent_begin ;
-  p_temporal_extent_end   timestamp with time zone := temporal_extent_end   ;
-  p_time_interval         numeric    := time_interval         ;
-  p_time_interval_unit    varchar    := time_interval_unit    ;
+  p_id                    integer       := id                    ;
+  p_gmlid                 varchar       := gmlid                 ;
+  p_gmlid_codespace       varchar       := gmlid_codespace       ;
+  p_name                  varchar       := name                  ;
+  p_name_codespace        varchar       := name_codespace        ;
+  p_description           text          := description           ;
+  p_acquisition_method    varchar       := acquisition_method    ;
+  p_interpolation_type    varchar       := interpolation_type    ;
+  p_quality_description   text          := quality_description   ;
+  p_source                varchar       := source                ;
+  p_time_array            timestamptz[] := time_array            ;
+  p_values_array          numeric[]     := values_array          ;
+  p_values_unit           varchar       := values_unit           ;
+  p_array_length          integer       := array_length          ;
+  p_temporal_extent_begin timestamptz   := temporal_extent_begin ;
+  p_temporal_extent_end   timestamptz   := temporal_extent_end   ;
+  p_time_interval         numeric       := time_interval         ;
+  p_time_interval_unit    varchar       := time_interval_unit    ;
 --
-  p_file_path             varchar    := file_path             ;
-  p_file_name             varchar    := file_name             ;
-  p_file_extension        varchar    := file_extension        ;
-  p_nbr_header_lines      integer    := nbr_header_lines      ;
-  p_field_sep             varchar    := field_sep             ;
-  p_record_sep            varchar    := record_sep            ;
-  p_dec_symbol            varchar    := dec_symbol            ;
-  p_time_col_nbr          integer    := time_col_nbr          ;
-  p_value_col_nbr         integer    := value_col_nbr         ;
-  p_is_compressed         numeric(1) := is_compressed         ;
+  p_file_path             varchar       := file_path             ;
+  p_file_name             varchar       := file_name             ;
+  p_file_extension        varchar       := file_extension        ;
+  p_nbr_header_lines      integer       := nbr_header_lines      ;
+  p_field_sep             varchar       := field_sep             ;
+  p_record_sep            varchar       := record_sep            ;
+  p_dec_symbol            varchar       := dec_symbol            ;
+  p_time_col_nbr          integer       := time_col_nbr          ;
+  p_value_col_nbr         integer       := value_col_nbr         ;
+  p_is_compressed         numeric(1)    := is_compressed         ;
 --
 	p_schema_name varchar := schema_name;
   class_name varchar := classname;
@@ -7148,6 +7148,7 @@ CASE class_name
 ELSE
 	RAISE EXCEPTION 'classname "%" not valid', class_name USING HINT = 'Valid values are "RegularTimeSeries", "IrregularTimeSeries", "RegularTimeSeriesFile" and "IrregularTimeSeriesFile"';
 END CASE;
+RETURN inserted_id;
 EXCEPTION
   WHEN OTHERS THEN RAISE NOTICE 'citydb_view.nrg8_insert_time_series(): %', SQLERRM;
 END;
