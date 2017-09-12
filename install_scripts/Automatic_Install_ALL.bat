@@ -27,9 +27,9 @@ cd .\02_energy_ade
 cd ..
 REM pause
 
-REM cd .\03_utility_network_ade
-REM "%PGBIN%\psql" -h %PGHOST% -p %PGPORT% -d "%CITYDB%" -U %PGUSER% -f "INSTALL_Utility_Network_ADE.sql"
-REM cd ..
+cd .\03_utility_network_ade
+"%PGBIN%\psql" -h %PGHOST% -p %PGPORT% -d "%CITYDB%" -U %PGUSER% -f "INSTALL_Utility_Network_ADE.sql"
+cd ..
 REM pause
 
 @ECHO ON
