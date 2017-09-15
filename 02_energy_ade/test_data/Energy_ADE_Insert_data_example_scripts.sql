@@ -25,7 +25,7 @@
 -- ****************************************************************
 -- ****************************************************************
 --
--- SQL examples on how to insert ADE data into the 3DCityDB 
+-- SQL examples of how to insert ADE data into the 3DCityDB 
 --
 -- ****************************************************************
 --
@@ -42,7 +42,7 @@
 -- In this example it is also shown how to use the
 -- "_ts" prefixed updatable views.
 --
--- For each case, an example is given also how to delete the data.
+-- For each case, an example is given of how to delete the data, too.
 --
 -- For more details, please refer to the documentation of the 
 -- 3DCityDB extension for the Energy ADE which can be downloaded
