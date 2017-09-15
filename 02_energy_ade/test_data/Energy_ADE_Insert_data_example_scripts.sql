@@ -34,18 +34,18 @@
 -- operation, different possibilities, in decreasing level
 -- of complexity, are shown.
 --
--- The first examples inserts a RegularTimeSeries object.
+-- EXAMPLE 1 inserts a RegularTimeSeries object.
 --
--- The second example inserts a RegularTimeSeriesFile object
+-- EXAMPLE 2 example inserts a RegularTimeSeriesFile object
 --
--- The third example shows how to insert a EnergyDemand object.
+-- EXAMPLE 3 shows how to insert an EnergyDemand object.
 -- In this last example, it is also shown how to use the
 -- "_ts" prefixed updatable views.
 --
 -- For each case, an example is given also how to delete the data.
 --
 -- For more details, please refer to the documentation of the 
--- 3DCityDB exstension for the Energy ADE which can be downloaded
+-- 3DCityDB extension for the Energy ADE which can be downloaded
 -- from
 -- https://github.com/gioagu/3dcitydb_ade/tree/master/02_energy_ade/manual.
 --
@@ -354,8 +354,8 @@ is_compressed := 0);
 -- *******
 -- ******* EXAMPLE 3: Insert an EnergyDemand object (with an associated RegularTimeSeriesFile object)
 -- ******* All attributes are stored into three tables in the citydb schema (nrg8_energy_demand, nrg8_time_series and nrg8_time_series_file)
--- ******* Please note: for the sake of clarity, not all possible combinations (as shown in the previous examples) are shown.
--- ******* Keep in mind that from MODE 3 onwards, the user alternatively avoid to the set the IDs.
+-- ******* Please note: for the sake of simplicity, not all possible combinations (as shown in the previous examples) are shown.
+-- ******* Keep in mind that from MODE 3 onwards, the user can alternatively avoid to the set the IDs.
 -- ******* In addition, in this example, the EnergyDemand object is not linked to any CityObject (i.e. the cityobject_id field is set to NULL)
 -- *******
 
