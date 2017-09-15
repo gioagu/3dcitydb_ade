@@ -1,6 +1,6 @@
 -- 3D City Database extension for the Energy ADE v. 0.8
 --
---                     August 2017
+--                     September 2017
 --
 -- 3D City Database: http://www.3dcitydb.org/ 
 -- Energy ADE: https://github.com/cstb/citygml-energy
@@ -29,17 +29,17 @@
 --
 -- ****************************************************************
 --
--- This file contains three simple examples of how to 
+-- This file contains three examples of how to 
 -- insert ADE data into the 3DCityDB. For each insert
 -- operation, different possibilities, in decreasing level
 -- of complexity, are shown.
 --
 -- EXAMPLE 1 inserts a RegularTimeSeries object.
 --
--- EXAMPLE 2 example inserts a RegularTimeSeriesFile object
+-- EXAMPLE 2 inserts a RegularTimeSeriesFile object
 --
 -- EXAMPLE 3 shows how to insert an EnergyDemand object.
--- In this last example, it is also shown how to use the
+-- In this example it is also shown how to use the
 -- "_ts" prefixed updatable views.
 --
 -- For each case, an example is given also how to delete the data.
@@ -52,7 +52,7 @@
 -- ****************************************************************
 
 -- *******
--- ******* EXAMPLE 1: Insert a Regular Time Series. All attributes are stored into one single table in the citydb schema (nrg8_time_series)
+-- ******* EXAMPLE 1: Insert a RegularTimeSeries object. All attributes are stored into one single table in the citydb schema (nrg8_time_series)
 -- *******
 
 -- INSERT MODE 1a: Standard SQL INSERT statement (NOT RECOMMENDED)
@@ -170,9 +170,10 @@ SELECT citydb_view.nrg8_insert_regular_time_series(
   temporal_extent_end := '2015-12-31 23:59',
   time_interval := 1,
   time_interval_unit := 'month');
+  
 -- *******
--- ******* EXAMPLE 2: Insert a Regular Time Series File.
--- ******* All attributes are stored into two linked tables in the citydb schema (nrg8_time_series and nrg8_time_series_file)
+-- ******* EXAMPLE 2: Insert a RegularTimeSeriesFile object.
+-- ******* All attributes are stored into two tables in the citydb schema (nrg8_time_series and nrg8_time_series_file)
 -- *******
 
 -- INSERT MODE 1a: Standard SQL INSERT statement (NOT RECOMMENDED)
@@ -354,7 +355,7 @@ is_compressed := 0);
 -- *******
 -- ******* EXAMPLE 3: Insert an EnergyDemand object (with an associated RegularTimeSeriesFile object)
 -- ******* All attributes are stored into three tables in the citydb schema (nrg8_energy_demand, nrg8_time_series and nrg8_time_series_file)
--- ******* Please note: for the sake of simplicity, not all possible combinations (as shown in the previous examples) are shown.
+-- ******* Please note: for the sake of simplicity, not all possible combinations are shown.
 -- ******* Keep in mind that from MODE 3 onwards, the user can alternatively avoid to the set the IDs.
 -- ******* In addition, in this example, the EnergyDemand object is not linked to any CityObject (i.e. the cityobject_id field is set to NULL)
 -- *******
