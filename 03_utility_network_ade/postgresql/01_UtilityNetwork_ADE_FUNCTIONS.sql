@@ -54,7 +54,7 @@ BEGIN
 -- execute the stored procedure to set the srid of the new geometry columns
 PERFORM citydb_pkg.change_ade_column_srid('utn9_network_feature', 'geom', 'GEOMETRYZ', schema_name);
 PERFORM citydb_pkg.change_ade_column_srid('utn9_node', 'point_geom', 'POINTZ', schema_name);
-PERFORM citydb_pkg.change_ade_column_srid('utn9_link', 'line_geom', 'POINTZ', schema_name);
+PERFORM citydb_pkg.change_ade_column_srid('utn9_link', 'line_geom', 'LINESTRINGZ', schema_name);
 
 RAISE NOTICE 'Geometry columns of UtilityNetworks ADE set to current database SRID';
 EXCEPTION
