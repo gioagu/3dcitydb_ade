@@ -115,8 +115,14 @@ INSERT INTO citydb.objectclass (id, superclass_id, baseclass_id, is_ade_class, c
 (348, 346, 3, 1, 'TechDevice'                    , 'ntw9_network_feature'     ),
 (349, 346, 3, 1, 'MeasurementDevice'             , 'ntw9_network_feature'     ),
 (350, 346, 3, 1, 'ConstrollerDevice'             , 'ntw9_network_feature'     ),
-(351, 346, 3, 1, 'AnyDevice'                     , 'ntw9_network_feature'     )
--- New classes?
+(351, 346, 3, 1, 'AnyDevice'                     , 'ntw9_network_feature'     ),
+-- MediumSupply
+(352,   1, 1, 1, '_MediumSupply'                 , 'ntw9_medium_supply'       ),
+(353, 352, 1, 1, 'LiquidMediumSupply'            , 'ntw9_medium_supply'       ),
+(354, 352, 1, 1, 'GaseousMediumSupply'           , 'ntw9_medium_supply'       ),
+(355, 352, 1, 1, 'SolidMediumSupply'             , 'ntw9_medium_supply'       ),
+(356, 352, 1, 1, 'ElectricalMediumSupply'        , 'ntw9_medium_supply'       ),
+(357, 352, 1, 1, 'OpticalMediumSupply'           , 'ntw9_medium_supply'       )
 ;
 
 -- Add entry into table SCHEMA_TO_OBJECTCLASS
@@ -128,10 +134,7 @@ INSERT INTO citydb.schema_to_objectclass (schema_id,objectclass_id) SELECT r.id,
 
 -- Add entries into Lookup tables (Codelists and Enumerations)
 
-
-
-
-
+-- STILL TO DO
 
 
 -- ***********************************************************************

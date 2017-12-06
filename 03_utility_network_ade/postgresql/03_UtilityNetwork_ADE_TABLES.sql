@@ -759,10 +759,10 @@ CREATE TABLE         citydb.utn9_material (
 );
 -- ALTER TABLE citydb.utn9_material OWNER TO postgres;
 
-CREATE INDEX utn9_mat_gmlid_inx         ON citydb.utn9_material USING btree (gmlid, gmlid_codespace);
-CREATE INDEX utn9_mat_objclass_id_fkx   ON citydb.utn9_material USING btree (objectclass_id);
 CREATE INDEX utn9_mat_mat_parent_id_fkx ON citydb.utn9_material USING btree (material_parent_id);
 CREATE INDEX utn9_mat_mat_root_id_fkx   ON citydb.utn9_material USING btree (material_root_id);
+CREATE INDEX utn9_mat_gmlid_inx         ON citydb.utn9_material USING btree (gmlid, gmlid_codespace);
+CREATE INDEX utn9_mat_objclass_id_fkx   ON citydb.utn9_material USING btree (objectclass_id);
 CREATE INDEX utn9_mat_mat_id_fkx        ON citydb.utn9_material USING btree (material_id);
 
 COMMENT ON TABLE citydb.utn9_material IS 'Material';
@@ -898,6 +898,8 @@ ALTER TABLE IF EXISTS citydb.utn9_role_in_network ADD CONSTRAINT utn9_role_in_nt
 ALTER TABLE IF EXISTS citydb.utn9_commodity ADD CONSTRAINT utn9_comm_objclass_fk FOREIGN KEY (objectclass_id) REFERENCES citydb.objectclass (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
 
 -- FOREIGN KEY constraint on Table COMMODITY_CLASSIFIER
+--ALTER TABLE IF EXISTS citydb.utn9_commodity_classifier ADD CONSTRAINT utn9_comm_classt_utn_comm_class_fk1 FOREIGN KEY (comm_classifier_parent_id) REFERENCES citydb.utn9_commodity_classifier (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
+--ALTER TABLE IF EXISTS citydb.utn9_commodity_classifier ADD CONSTRAINT utn9_comm_class_utn_comm_class_fk2 FOREIGN KEY (comm_classifier_root_id) REFERENCES citydb.utn9_commodity_classifier (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
 ALTER TABLE IF EXISTS citydb.utn9_commodity_classifier ADD CONSTRAINT utn9_comm_class_objclass_fk FOREIGN KEY (objectclass_id) REFERENCES citydb.objectclass (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
 ALTER TABLE IF EXISTS citydb.utn9_commodity_classifier ADD CONSTRAINT utn9_comm_class_utn_comm_fk FOREIGN KEY (commodity_id) REFERENCES citydb.utn9_commodity (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
 ALTER TABLE IF EXISTS citydb.utn9_commodity_classifier ADD CONSTRAINT utn9_comm_class_utn_mat_fk FOREIGN KEY (material_id) REFERENCES citydb.utn9_material (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
@@ -908,9 +910,10 @@ ALTER TABLE IF EXISTS citydb.utn9_comm_class_to_comm_class ADD CONSTRAINT utn9_c
 ALTER TABLE IF EXISTS citydb.utn9_comm_class_to_comm_class ADD CONSTRAINT utn9_comm_class_to_comm_class_fk2 FOREIGN KEY (comm_class_id) REFERENCES citydb.utn9_commodity (id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
 
 -- FOREIGN KEY constraint on Table MATERIAL
-ALTER TABLE IF EXISTS citydb.utn9_material ADD CONSTRAINT utn9_material_objclass_fk FOREIGN KEY (objectclass_id) REFERENCES citydb.objectclass (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
-ALTER TABLE IF EXISTS citydb.utn9_material ADD CONSTRAINT utn9_mat_utn_mat_fk1 FOREIGN KEY (material_id) REFERENCES citydb.utn9_material (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
---ADD FK for parent and root material_id.
+ALTER TABLE IF EXISTS citydb.utn9_material ADD CONSTRAINT utn9_mat_utn_mat_fk1 FOREIGN KEY (material_parent_id) REFERENCES citydb.utn9_material (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
+ALTER TABLE IF EXISTS citydb.utn9_material ADD CONSTRAINT utn9_mat_utn_mat_fk2 FOREIGN KEY (material_root_id) REFERENCES citydb.utn9_material (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
+ALTER TABLE IF EXISTS citydb.utn9_material ADD CONSTRAINT utn9_mat_objclass_fk FOREIGN KEY (objectclass_id) REFERENCES citydb.objectclass (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
+ALTER TABLE IF EXISTS citydb.utn9_material ADD CONSTRAINT utn9_mat_utn_mat_fk3 FOREIGN KEY (material_id) REFERENCES citydb.utn9_material (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
 
 -- FOREIGN KEY constraint on Table NETWORK_FEAT_TO_MATERIAL
 ALTER TABLE IF EXISTS citydb.utn9_network_feat_to_material ADD CONSTRAINT utn9_ntw_feat_to_mat_fk1 FOREIGN KEY (network_feature_id) REFERENCES citydb.utn9_network_feature (id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;

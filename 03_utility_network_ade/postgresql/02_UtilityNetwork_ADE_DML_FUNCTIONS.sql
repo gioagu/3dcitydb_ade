@@ -761,29 +761,30 @@ $$ LANGUAGE 'plpgsql';
 ----------------------------------------------------------------
 -- DROP FUNCTION IF EXISTS citydb_pkg.utn9_insert_distrib_element (integer, integer, numeric, numeric, numeric, numeric, varchar, numeric, varchar, numeric, varchar, numeric, varchar, numeric, varchar, numeric, varchar, numeric, varchar, numeric, numeric, varchar, varchar) CASCADE;
 CREATE OR REPLACE FUNCTION citydb_pkg.utn9_insert_distrib_element (
-  id   integer,
-  objectclass_id   integer,
-  is_gravity   numeric DEFAULT NULL,
-  is_transmission  numeric DEFAULT NULL,
-  is_communication numeric DEFAULT NULL,
-  ext_width numeric DEFAULT NULL,
-  ext_width_unit   varchar DEFAULT NULL,
-  ext_heigth   numeric DEFAULT NULL,
-  ext_heigth_unit  varchar DEFAULT NULL,
-  ext_diameter numeric DEFAULT NULL,
-  ext_diameter_unit varchar DEFAULT NULL,
-  int_width numeric DEFAULT NULL,
-  int_width_unit   varchar DEFAULT NULL,
-  int_heigth   numeric DEFAULT NULL,
-  int_heigth_unit  varchar DEFAULT NULL,
-  int_diameter numeric DEFAULT NULL,
-  int_diameter_unit varchar DEFAULT NULL,
-  cross_section numeric DEFAULT NULL,
-  cross_section_unit   varchar DEFAULT NULL,
-  slope_range_from numeric DEFAULT NULL,
-  slope_range_to   numeric DEFAULT NULL,
-  slope_range_unit varchar DEFAULT NULL,
-  profile_name varchar DEFAULT NULL,
+  id                 integer,
+  objectclass_id     integer,
+	function_of_line   varchar DEFAULT NULL,
+  is_gravity         numeric DEFAULT NULL,
+  is_transmission    numeric DEFAULT NULL,
+  is_communication   numeric DEFAULT NULL,
+  ext_width          numeric DEFAULT NULL,
+  ext_width_unit     varchar DEFAULT NULL,
+  ext_heigth         numeric DEFAULT NULL,
+  ext_heigth_unit    varchar DEFAULT NULL,
+  ext_diameter       numeric DEFAULT NULL,
+  ext_diameter_unit  varchar DEFAULT NULL,
+  int_width          numeric DEFAULT NULL,
+  int_width_unit     varchar DEFAULT NULL,
+  int_heigth         numeric DEFAULT NULL,
+  int_heigth_unit    varchar DEFAULT NULL,
+  int_diameter       numeric DEFAULT NULL,
+  int_diameter_unit  varchar DEFAULT NULL,
+  cross_section      numeric DEFAULT NULL,
+  cross_section_unit varchar DEFAULT NULL,
+  slope_range_from   numeric DEFAULT NULL,
+  slope_range_to     numeric DEFAULT NULL,
+  slope_range_unit   varchar DEFAULT NULL,
+  profile_name       varchar DEFAULT NULL,
 --	
   schema_name varchar DEFAULT 'citydb'::varchar
 )
@@ -915,16 +916,16 @@ $$ LANGUAGE 'plpgsql';
 ----------------------------------------------------------------
 -- DROP FUNCTION IF EXISTS citydb_pkg.utn9_insert_medium_supply (integer, integer, varchar, numeric, numeric, varchar, numeric, numeric, varchar, integer) CASCADE;
 CREATE OR REPLACE FUNCTION citydb_pkg.utn9_insert_medium_supply (
-  objectclass_id integer,
-  id integer DEFAULT NULL,
-  type  varchar DEFAULT NULL,
-  cur_supply_flow_rate  numeric DEFAULT NULL,
+  objectclass_id            integer,
+  id                        integer DEFAULT NULL,
+  type                      varchar DEFAULT NULL,
+  cur_supply_flow_rate      numeric DEFAULT NULL,
   cur_supply_flow_rate_unit numeric DEFAULT NULL,
-  cur_supply_status varchar DEFAULT NULL,
-  pot_supply_flow_rate  numeric DEFAULT NULL,
+  cur_supply_status         varchar DEFAULT NULL,
+  pot_supply_flow_rate      numeric DEFAULT NULL,
   pot_supply_flow_rate_unit numeric DEFAULT NULL,
-  pot_supply_status varchar DEFAULT NULL,
-  cityobject_id integer DEFAULT NULL,
+  pot_supply_status         varchar DEFAULT NULL,
+  cityobject_id             integer DEFAULT NULL,
 --	
   schema_name varchar DEFAULT 'citydb'::varchar
 )
@@ -1030,34 +1031,34 @@ $$ LANGUAGE 'plpgsql';
 ----------------------------------------------------------------
 -- DROP FUNCTION IF EXISTS citydb_pkg.utn9_insert_role_in_network (integer, integer, varchar, varchar, varchar, varchar, text, varchar, varchar, integer, integer) CASCADE;
 CREATE OR REPLACE FUNCTION citydb_pkg.utn9_insert_role_in_network (
-  objectclass_id   integer,
-  id   integer DEFAULT NULL,
-  gmlid varchar DEFAULT NULL,
-  gmlid_codespace  varchar DEFAULT NULL,
-  name varchar DEFAULT NULL,
-  name_codespace   varchar DEFAULT NULL,
-  description  text DEFAULT NULL,
-  function varchar DEFAULT NULL,
-  usage varchar DEFAULT NULL,
-  cityobject_id integer DEFAULT NULL,
-  network_id   integer DEFAULT NULL,
+  objectclass_id  integer,
+  id              integer DEFAULT NULL,
+  gmlid           varchar DEFAULT NULL,
+  gmlid_codespace varchar DEFAULT NULL,
+  name            varchar DEFAULT NULL,
+  name_codespace  varchar DEFAULT NULL,
+  description     text    DEFAULT NULL,
+  function        varchar DEFAULT NULL,
+  usage           varchar DEFAULT NULL,
+  cityobject_id   integer DEFAULT NULL,
+  network_id      integer DEFAULT NULL,
 --	
   schema_name varchar DEFAULT 'citydb'::varchar
 )
 RETURNS integer
 AS $$
 DECLARE
-  p_id integer := id;
-  p_objectclass_id integer := objectclass_id;
-  p_gmlid  varchar := gmlid;
+  p_id              integer := id;
+  p_objectclass_id  integer := objectclass_id;
+  p_gmlid           varchar := gmlid;
   p_gmlid_codespace varchar := gmlid_codespace;
-  p_name   varchar := name;
-  p_name_codespace varchar := name_codespace;
-  p_description text:= description;
-  p_function   varchar := function;
-  p_usage  varchar := usage;
-  p_cityobject_id  integer := cityobject_id;
-  p_network_id integer := network_id;
+  p_name            varchar := name;
+  p_name_codespace  varchar := name_codespace;
+  p_description     text    := description;
+  p_function        varchar := function;
+  p_usage           varchar := usage;
+  p_cityobject_id   integer := cityobject_id;
+  p_network_id      integer := network_id;
 --	
   p_schema_name varchar := schema_name;
   seq_name varchar;
@@ -1147,40 +1148,40 @@ $$ LANGUAGE 'plpgsql';
 ----------------------------------------------------------------
 -- DROP FUNCTION IF EXISTS citydb_pkg.utn9_insert_network_feature (integer, integer, integer, integer, varchar, varchar, varchar, date, varchar, varchar, varchar, integer, integer, geometry) CASCADE;
 CREATE OR REPLACE FUNCTION citydb_pkg.utn9_insert_network_feature (
-  id integer,
-  objectclass_id integer,
+  id                    integer,
+  objectclass_id        integer,
   ntw_feature_parent_id integer DEFAULT NULL,
   ntw_feature_root_id   integer DEFAULT NULL,
-  class varchar DEFAULT NULL,
-  function  varchar DEFAULT NULL,
-  usage varchar DEFAULT NULL,
-  year_of_construction  date DEFAULT NULL,
-  status varchar DEFAULT NULL,
-  location_quality  varchar DEFAULT NULL,
-  elevation_quality varchar DEFAULT NULL,
-  cityobject_id integer DEFAULT NULL,
-  prot_element_id   integer DEFAULT NULL,
-  geom  geometry DEFAULT NULL, 
+  class                 varchar DEFAULT NULL,
+  function              varchar DEFAULT NULL,
+  usage                 varchar DEFAULT NULL,
+  year_of_construction  date    DEFAULT NULL,
+  status                varchar DEFAULT NULL,
+  location_quality      varchar DEFAULT NULL,
+  elevation_quality     varchar DEFAULT NULL,
+  cityobject_id         integer DEFAULT NULL,
+  prot_element_id       integer DEFAULT NULL,
+  geom                  geometry DEFAULT NULL, 
 --	
   schema_name varchar DEFAULT 'citydb'::varchar
 )
 RETURNS integer
 AS $$
 DECLARE
-  p_id integer  := id;
-  p_objectclass_id integer  := objectclass_id;
-  p_ntw_feature_parent_id integer  := ntw_feature_parent_id;
-  p_ntw_feature_root_id   integer  := ntw_feature_root_id;
-  p_class varchar  := class;
-  p_function  varchar  := function;
-  p_usage varchar  := usage;
-  p_year_of_construction  date := year_of_construction;
-  p_status varchar  := status;
-  p_location_quality  varchar  := location_quality;
-  p_elevation_quality varchar  := elevation_quality;
-  p_cityobject_id integer  := cityobject_id;
-  p_prot_element_id   integer  := prot_element_id;
-  p_geom  geometry := geom;
+  p_id                     integer  := id;
+  p_objectclass_id         integer  := objectclass_id;
+  p_ntw_feature_parent_id  integer  := ntw_feature_parent_id;
+  p_ntw_feature_root_id    integer  := ntw_feature_root_id;
+  p_class                  varchar  := class;
+  p_function               varchar  := function;
+  p_usage                  varchar  := usage;
+  p_year_of_construction   date     := year_of_construction;
+  p_status                 varchar  := status;
+  p_location_quality       varchar  := location_quality;
+  p_elevation_quality      varchar  := elevation_quality;
+  p_cityobject_id          integer  := cityobject_id;
+  p_prot_element_id        integer  := prot_element_id;
+  p_geom                   geometry := geom;
 --	
   p_schema_name varchar := schema_name;
   inserted_id integer;
@@ -1264,34 +1265,34 @@ $$ LANGUAGE 'plpgsql';
 ----------------------------------------------------------------
 -- DROP FUNCTION IF EXISTS citydb_pkg.utn9_insert_material (integer, integer, integer, integer, varchar, varchar, varchar, varchar, text, varchar, integer) CASCADE;
 CREATE OR REPLACE FUNCTION citydb_pkg.utn9_insert_material (
-  objectclass_id   integer,
-  id   integer DEFAULT NULL,
-  material_parent_id   integer DEFAULT NULL,
-  material_root_id integer DEFAULT NULL,
-  gmlid varchar DEFAULT NULL,
-  gmlid_codespace  varchar DEFAULT NULL,
-  name varchar DEFAULT NULL,
-  name_codespace   varchar DEFAULT NULL,
-  description  text DEFAULT NULL,
-  type varchar DEFAULT NULL,
-  material_id  integer DEFAULT NULL,
+  objectclass_id     integer,
+  id                 integer DEFAULT NULL,
+  material_parent_id integer DEFAULT NULL,
+  material_root_id   integer DEFAULT NULL,
+  gmlid              varchar DEFAULT NULL,
+  gmlid_codespace    varchar DEFAULT NULL,
+  name               varchar DEFAULT NULL,
+  name_codespace     varchar DEFAULT NULL,
+  description        text    DEFAULT NULL,
+  type               varchar DEFAULT NULL,
+  material_id        integer DEFAULT NULL,
 --	
   schema_name varchar DEFAULT 'citydb'::varchar
 )
 RETURNS integer
 AS $$
 DECLARE
-  p_id integer := id;
+  p_id                 integer := id;
   p_material_parent_id integer := material_parent_id;
   p_material_root_id   integer := material_root_id;
-  p_objectclass_id integer := objectclass_id;
-  p_gmlid  varchar := gmlid;
-  p_gmlid_codespace varchar := gmlid_codespace;
-  p_name   varchar := name;
-  p_name_codespace varchar := name_codespace;
-  p_description text:= description;
-  p_type   varchar := type;
-  p_material_id integer := material_id;
+  p_objectclass_id     integer := objectclass_id;
+  p_gmlid              varchar := gmlid;
+  p_gmlid_codespace    varchar := gmlid_codespace;
+  p_name               varchar := name;
+  p_name_codespace     varchar := name_codespace;
+  p_description        text    := description;
+  p_type               varchar := type;
+  p_material_id        integer := material_id;
 --
   p_schema_name varchar := schema_name;
   seq_name varchar;
@@ -1307,8 +1308,7 @@ IF p_gmlid IS NULL THEN
   p_gmlid='UUID_'||uuid_generate_v4();
 END IF;
 
-EXECUTE format('
-INSERT INTO %I.utn9_material (
+EXECUTE format('INSERT INTO %I.utn9_material (
  id,
  material_parent_id,
  material_root_id,
@@ -1588,43 +1588,44 @@ $$ LANGUAGE 'plpgsql';
 ----------------------------------------------------------------
 -- DROP FUNCTION IF EXISTS citydb_pkg.utn9_insert_protective_element (integer, integer, numeric, varchar, numeric, varchar, numeric, varchar, numeric, varchar, numeric, varchar, numeric, varchar, numeric, varchar) CASCADE;
 CREATE OR REPLACE FUNCTION citydb_pkg.utn9_insert_protective_element (
-  id   integer,
-  objectclass_id   integer,
-  ext_width numeric DEFAULT NULL,
-  ext_width_unit   varchar DEFAULT NULL,
-  ext_heigth   numeric DEFAULT NULL,
-  ext_heigth_unit  varchar DEFAULT NULL,
-  ext_diameter numeric DEFAULT NULL,
+  id                integer,
+  objectclass_id    integer,
+  ext_width         numeric DEFAULT NULL,
+  ext_width_unit    varchar DEFAULT NULL,
+  ext_heigth        numeric DEFAULT NULL,
+  ext_heigth_unit   varchar DEFAULT NULL,
+  ext_diameter      numeric DEFAULT NULL,
   ext_diameter_unit varchar DEFAULT NULL,
-  int_width numeric DEFAULT NULL,
-  int_width_unit   varchar DEFAULT NULL,
-  int_heigth   numeric DEFAULT NULL,
-  int_heigth_unit  varchar DEFAULT NULL,
-  int_diameter numeric DEFAULT NULL,
+  int_width         numeric DEFAULT NULL,
+  int_width_unit    varchar DEFAULT NULL,
+  int_heigth        numeric DEFAULT NULL,
+  int_heigth_unit   varchar DEFAULT NULL,
+  int_diameter      numeric DEFAULT NULL,
   int_diameter_unit varchar DEFAULT NULL,
-  width numeric DEFAULT NULL,
-  width_unit   varchar DEFAULT NULL, 
-  schema_name varchar DEFAULT 'citydb'::varchar
+  width             numeric DEFAULT NULL,
+  width_unit        varchar DEFAULT NULL,
+--	
+  schema_name       varchar DEFAULT 'citydb'::varchar
 )
 RETURNS integer
 AS $$
 DECLARE
-  p_id integer := id;
-  p_objectclass_id integer := objectclass_id;
-  p_ext_width  numeric := ext_width;
-  p_ext_width_unit varchar := ext_width_unit;
-  p_ext_heigth numeric := ext_heigth;
-  p_ext_heigth_unit varchar := ext_heigth_unit;
-  p_ext_diameter   numeric := ext_diameter;
-  p_ext_diameter_unit  varchar := ext_diameter_unit;
-  p_int_width  numeric := int_width;
-  p_int_width_unit varchar := int_width_unit;
-  p_int_heigth numeric := int_heigth;
-  p_int_heigth_unit varchar := int_heigth_unit;
-  p_int_diameter   numeric := int_diameter;
-  p_int_diameter_unit  varchar := int_diameter_unit;
-  p_width  numeric := width;
-  p_width_unit varchar := width_unit;
+  p_id                integer := id;
+  p_objectclass_id    integer := objectclass_id;
+  p_ext_width         numeric := ext_width;
+  p_ext_width_unit    varchar := ext_width_unit;
+  p_ext_heigth        numeric := ext_heigth;
+  p_ext_heigth_unit   varchar := ext_heigth_unit;
+  p_ext_diameter      numeric := ext_diameter;
+  p_ext_diameter_unit varchar := ext_diameter_unit;
+  p_int_width         numeric := int_width;
+  p_int_width_unit    varchar := int_width_unit;
+  p_int_heigth        numeric := int_heigth;
+  p_int_heigth_unit   varchar := int_heigth_unit;
+  p_int_diameter      numeric := int_diameter;
+  p_int_diameter_unit varchar := int_diameter_unit;
+  p_width             numeric := width;
+  p_width_unit        varchar := width_unit;
 --
   p_schema_name varchar := schema_name;
   inserted_id integer;
@@ -1776,31 +1777,32 @@ $$ LANGUAGE 'plpgsql';
 ----------------------------------------------------------------
 -- DROP FUNCTION IF EXISTS citydb_pkg.utn9_insert_storage (integer, varchar, numeric, varchar, numeric, numeric, varchar, numeric, varchar, integer) CASCADE;
 CREATE OR REPLACE FUNCTION citydb_pkg.utn9_insert_storage (
-  id   integer DEFAULT NULL,
-  type varchar DEFAULT NULL,
-  max_capacity numeric DEFAULT NULL,
+  id                integer DEFAULT NULL,
+  type              varchar DEFAULT NULL,
+  max_capacity      numeric DEFAULT NULL,
   max_capacity_unit varchar DEFAULT NULL,
-  fill_level   numeric DEFAULT NULL,
-  inflow_rate  numeric DEFAULT NULL,
-  inflow_rate_unit varchar DEFAULT NULL,
-  outflow_rate numeric DEFAULT NULL,
+  fill_level        numeric DEFAULT NULL,
+  inflow_rate       numeric DEFAULT NULL,
+  inflow_rate_unit  varchar DEFAULT NULL,
+  outflow_rate      numeric DEFAULT NULL,
   outflow_rate_unit varchar DEFAULT NULL,
-  medium_supply_id integer DEFAULT NULL, 
+  medium_supply_id  integer DEFAULT NULL,
+--	
   schema_name varchar DEFAULT 'citydb'::varchar
 )
 RETURNS integer
 AS $$
 DECLARE
-  p_id integer := id;
-  p_type   varchar := type;
-  p_max_capacity   numeric := max_capacity;
-  p_max_capacity_unit  varchar := max_capacity_unit;
-  p_fill_level numeric := fill_level;
-  p_inflow_rate numeric := inflow_rate;
-  p_inflow_rate_unit   varchar := inflow_rate_unit;
-  p_outflow_rate   numeric := outflow_rate;
-  p_outflow_rate_unit  varchar := outflow_rate_unit;
-  p_medium_supply_id   integer := medium_supply_id;
+  p_id                integer := id;
+  p_type              varchar := type;
+  p_max_capacity      numeric := max_capacity;
+  p_max_capacity_unit varchar := max_capacity_unit;
+  p_fill_level        numeric := fill_level;
+  p_inflow_rate       numeric := inflow_rate;
+  p_inflow_rate_unit  varchar := inflow_rate_unit;
+  p_outflow_rate      numeric := outflow_rate;
+  p_outflow_rate_unit varchar := outflow_rate_unit;
+  p_medium_supply_id  integer := medium_supply_id;
 --
   p_schema_name varchar := schema_name;
   seq_name varchar;
@@ -1993,7 +1995,10 @@ INSERT INTO %I.utn9_commodity (
  bandwidth_range_unit,
  optical_mode
 ) VALUES (
-%L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L
+%L, %L, %L, %L, %L, %L, %L, %L, %L, %L,
+%L, %L, %L, %L, %L, %L, %L, %L, %L, %L, 
+%L, %L, %L, %L, %L, %L, %L, %L, %L, %L, 
+%L, %L, %L, %L, %L, %L, %L, %L, %L, %L
 ) RETURNING id',
 p_schema_name,
 p_id, 
@@ -2048,27 +2053,28 @@ $$ LANGUAGE 'plpgsql';
 ----------------------------------------------------------------
 -- DROP FUNCTION IF EXISTS citydb_pkg.utn9_insert_network (integer, integer, integer, integer, varchar, varchar, varchar, integer) CASCADE;
 CREATE OR REPLACE FUNCTION citydb_pkg.utn9_insert_network (
-  id   integer,
-  objectclass_id   integer,
+  id                integer,
+  objectclass_id    integer,
   network_parent_id integer DEFAULT NULL,
-  network_root_id  integer DEFAULT NULL,
-  class varchar DEFAULT NULL,
-  function varchar DEFAULT NULL,
-  usage varchar DEFAULT NULL,
-  commodity_id integer DEFAULT NULL, 
-  schema_name varchar DEFAULT 'citydb'::varchar
+  network_root_id   integer DEFAULT NULL,
+  class             varchar DEFAULT NULL,
+  function          varchar DEFAULT NULL,
+  usage             varchar DEFAULT NULL,
+  commodity_id      integer DEFAULT NULL,
+--	
+  schema_name       varchar DEFAULT 'citydb'::varchar
 )
 RETURNS integer
 AS $$
 DECLARE
-  p_id integer := id;
-  p_objectclass_id integer := objectclass_id;
-  p_network_parent_id  integer := network_parent_id;
-  p_network_root_id integer := network_root_id;
-  p_class  varchar := class;
-  p_function   varchar := function;
-  p_usage  varchar := usage;
-  p_commodity_id   integer := commodity_id;
+  p_id                integer := id;
+  p_objectclass_id    integer := objectclass_id;
+  p_network_parent_id integer := network_parent_id;
+  p_network_root_id   integer := network_root_id;
+  p_class             varchar := class;
+  p_function          varchar := function;
+  p_usage             varchar := usage;
+  p_commodity_id      integer := commodity_id;
 --	
   p_schema_name varchar := schema_name;
   inserted_id integer;
@@ -2118,24 +2124,25 @@ CREATE OR REPLACE FUNCTION citydb_pkg.utn9_insert_node (
   connection_signature varchar DEFAULT NULL,
   link_control varchar DEFAULT NULL,
   feat_graph_id integer DEFAULT NULL,
-  point_geom   geometry DEFAULT NULL, 
+  point_geom   geometry DEFAULT NULL,
+--  
   schema_name varchar DEFAULT 'citydb'::varchar
 )
 RETURNS integer
 AS $$
 DECLARE
-  p_id   integer  := id;
-  p_objectclass_id   integer  := objectclass_id;
-  p_gmlid varchar  := gmlid;
-  p_gmlid_codespace  varchar  := gmlid_codespace;
-  p_name varchar  := name;
-  p_name_codespace   varchar  := name_codespace;
-  p_description  text := description;
-  p_type varchar  := type;
+  p_id                   integer  := id;
+  p_objectclass_id       integer  := objectclass_id;
+  p_gmlid                varchar  := gmlid;
+  p_gmlid_codespace      varchar  := gmlid_codespace;
+  p_name                 varchar  := name;
+  p_name_codespace       varchar  := name_codespace;
+  p_description          text     := description;
+  p_type                 varchar  := type;
   p_connection_signature varchar  := connection_signature;
-  p_link_control varchar  := link_control;
-  p_feat_graph_id integer  := feat_graph_id;
-  p_point_geom   geometry := point_geom;
+  p_link_control         varchar  := link_control;
+  p_feat_graph_id        integer  := feat_graph_id;
+  p_point_geom           geometry := point_geom;
 --	
   p_schema_name varchar := schema_name;
   seq_name varchar;
@@ -2193,32 +2200,32 @@ $$ LANGUAGE 'plpgsql';
 ----------------------------------------------------------------
 -- DROP FUNCTION IF EXISTS citydb_pkg.utn9_insert_hollow_space (integer, integer, varchar, varchar, varchar, varchar, text, integer) CASCADE;
 CREATE OR REPLACE FUNCTION citydb_pkg.utn9_insert_hollow_space (
-  objectclass_id   integer,
-  id   integer DEFAULT NULL,
-  hol_spc_parent_id  integer DEFAULT NULL,
-  hol_spc_root_id    integer DEFAULT NULL,
-  gmlid varchar DEFAULT NULL,
-  gmlid_codespace  varchar DEFAULT NULL,
-  name varchar DEFAULT NULL,
-  name_codespace   varchar DEFAULT NULL,
-  description  text DEFAULT NULL,
-  ntw_feature_id   integer DEFAULT NULL,
+  objectclass_id    integer,
+  id                integer DEFAULT NULL,
+  hol_spc_parent_id integer DEFAULT NULL,
+  hol_spc_root_id   integer DEFAULT NULL,
+  gmlid             varchar DEFAULT NULL,
+  gmlid_codespace   varchar DEFAULT NULL,
+  name              varchar DEFAULT NULL,
+  name_codespace    varchar DEFAULT NULL,
+  description       text DEFAULT NULL,
+  ntw_feature_id    integer DEFAULT NULL,
 --
   schema_name varchar DEFAULT 'citydb'::varchar
 )
 RETURNS integer
 AS $$
 DECLARE
-  p_id integer := id;
-  p_objectclass_id integer := objectclass_id;
-  p_hol_spc_parent_id  integer := hol_spc_parent_id;
-  p_hol_spc_root_id    integer := hol_spc_root_id;
-  p_gmlid  varchar := gmlid;
-  p_gmlid_codespace varchar := gmlid_codespace;
-  p_name   varchar := name;
-  p_name_codespace varchar := name_codespace;
-  p_description text:= description;
-  p_ntw_feature_id integer := ntw_feature_id;
+  p_id                integer := id;
+  p_objectclass_id    integer := objectclass_id;
+  p_hol_spc_parent_id integer := hol_spc_parent_id;
+  p_hol_spc_root_id   integer := hol_spc_root_id;
+  p_gmlid             varchar := gmlid;
+  p_gmlid_codespace   varchar := gmlid_codespace;
+  p_name              varchar := name;
+  p_name_codespace    varchar := name_codespace;
+  p_description       text    := description;
+  p_ntw_feature_id    integer := ntw_feature_id;
 --
   p_schema_name varchar := schema_name;
   seq_name varchar;
@@ -2265,6 +2272,45 @@ EXCEPTION
 	WHEN OTHERS THEN RAISE NOTICE 'citydb_pkg.utn9_insert_hollow_space (id: %): %', p_id, SQLERRM;
 END;
 $$ LANGUAGE 'plpgsql';
+
+----------------------------------------------------------------
+-- Function UTN9_INSERT_SUPPLY_AREA_TO_CITYOBJECT
+----------------------------------------------------------------
+DROP FUNCTION IF EXISTS    citydb_pkg.utn9_insert_supply_area_to_cityobject (integer, integer, varchar, varchar) CASCADE;
+CREATE OR REPLACE FUNCTION citydb_pkg.utn9_insert_supply_area_to_cityobject (
+  supply_area_id       integer,
+  cityobject_id        integer,
+  role                 varchar DEFAULT 'supplies'::varchar,
+--  
+  schema_name          varchar DEFAULT 'citydb'::varchar
+)
+RETURNS void
+AS $$
+DECLARE
+  p_supply_area_id     integer := supply_area_id;
+  p_cityobject_id      integer := cityobject_id;
+  p_role               varchar := role;
+--  
+  p_schema_name        varchar := schema_name;
+BEGIN
+EXECUTE format('INSERT INTO %I.group_to_cityobject (
+ cityobjectgroup_id,
+ cityobject_id,
+ role 
+) VALUES (
+%L, %L, %L
+)',
+ p_schema_name,
+ p_supply_area_id,
+ p_cityobject_id,
+ p_role
+);
+EXCEPTION
+	WHEN OTHERS THEN RAISE NOTICE 'citydb_pkg.utn9_insert_supply_area_to_cityobject (supply_area_id: %, cityobject_id %): %', supply_area_id, cityobject_id, SQLERRM;
+END;
+$$
+LANGUAGE 'plpgsql';
+
 
 -- ***********************************************************************
 -- ***********************************************************************
