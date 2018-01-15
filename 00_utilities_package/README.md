@@ -13,7 +13,7 @@ System requirements
 -------------------
 * PostgreSQL DBMS >= 9.1 
 * PostGIS extension >= 2.0
-* 3DCityDB = 3.3.0
+* 3DCityDB >= 3.3.1
 
 Documentation
 -------------
