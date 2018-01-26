@@ -126,7 +126,6 @@ END;
 $BODY$
 LANGUAGE plpgsql VOLATILE;
 
-
 ---------------------------------------------------------------
 -- Function DELETE_BUILDING_UNIT
 ---------------------------------------------------------------
@@ -1504,49 +1503,49 @@ CREATE OR REPLACE FUNCTION citydb_view.nrg8_insert_building_part(
   reason_for_update      varchar(4000) DEFAULT NULL,
   lineage                varchar(256) DEFAULT NULL,
 --
-  building_parent_id integer DEFAULT NULL,
-  building_root_id integer DEFAULT NULL,
-  class varchar(256) DEFAULT NULL,
-  class_codespace varchar(4000) DEFAULT NULL,
-  function varchar(1000) DEFAULT NULL,
-  function_codespace varchar(4000) DEFAULT NULL,
-  usage varchar(1000) DEFAULT NULL,
-  usage_codespace varchar(4000) DEFAULT NULL,
-  year_of_construction date DEFAULT NULL,
-  year_of_demolition date DEFAULT NULL,
-  roof_type varchar(256) DEFAULT NULL,
-  roof_type_codespace varchar(4000) DEFAULT NULL,
-  measured_height double precision DEFAULT NULL,
-  measured_height_unit varchar(4000) DEFAULT NULL,
-  storeys_above_ground numeric(8) DEFAULT NULL,
-  storeys_below_ground numeric(8) DEFAULT NULL,
+  building_parent_id          integer DEFAULT NULL,
+  building_root_id            integer DEFAULT NULL,
+  class                       varchar(256) DEFAULT NULL,
+  class_codespace             varchar(4000) DEFAULT NULL,
+  function                    varchar(1000) DEFAULT NULL,
+  function_codespace          varchar(4000) DEFAULT NULL,
+  usage                       varchar(1000) DEFAULT NULL,
+  usage_codespace             varchar(4000) DEFAULT NULL,
+  year_of_construction        date DEFAULT NULL,
+  year_of_demolition          date DEFAULT NULL,
+  roof_type                   varchar(256) DEFAULT NULL,
+  roof_type_codespace         varchar(4000) DEFAULT NULL,
+  measured_height             double precision DEFAULT NULL,
+  measured_height_unit        varchar(4000) DEFAULT NULL,
+  storeys_above_ground        numeric(8) DEFAULT NULL,
+  storeys_below_ground        numeric(8) DEFAULT NULL,
   storey_heights_above_ground varchar(4000) DEFAULT NULL,
-  storey_heights_ag_unit varchar(4000) DEFAULT NULL,
+  storey_heights_ag_unit      varchar(4000) DEFAULT NULL,
   storey_heights_below_ground varchar(4000) DEFAULT NULL,
-  storey_heights_bg_unit varchar(4000) DEFAULT NULL,
-  lod1_terrain_intersection public.geometry DEFAULT NULL,
-  lod2_terrain_intersection public.geometry DEFAULT NULL,
-  lod3_terrain_intersection public.geometry DEFAULT NULL,
-  lod4_terrain_intersection public.geometry DEFAULT NULL,
-  lod2_multi_curve public.geometry DEFAULT NULL,
-  lod3_multi_curve public.geometry DEFAULT NULL,
-  lod4_multi_curve public.geometry DEFAULT NULL,
-  lod0_footprint_id integer DEFAULT NULL,
-  lod0_roofprint_id integer DEFAULT NULL,
-  lod1_multi_surface_id integer DEFAULT NULL,
-  lod2_multi_surface_id integer DEFAULT NULL,
-  lod3_multi_surface_id integer DEFAULT NULL,
-  lod4_multi_surface_id integer DEFAULT NULL,
-  lod1_solid_id integer DEFAULT NULL,
-  lod2_solid_id integer DEFAULT NULL,
-  lod3_solid_id integer DEFAULT NULL,
-  lod4_solid_id integer DEFAULT NULL,
+  storey_heights_bg_unit      varchar(4000) DEFAULT NULL,
+  lod1_terrain_intersection   public.geometry DEFAULT NULL,
+  lod2_terrain_intersection   public.geometry DEFAULT NULL,
+  lod3_terrain_intersection   public.geometry DEFAULT NULL,
+  lod4_terrain_intersection   public.geometry DEFAULT NULL,
+  lod2_multi_curve            public.geometry DEFAULT NULL,
+  lod3_multi_curve            public.geometry DEFAULT NULL,
+  lod4_multi_curve            public.geometry DEFAULT NULL,
+  lod0_footprint_id           integer DEFAULT NULL,
+  lod0_roofprint_id           integer DEFAULT NULL,
+  lod1_multi_surface_id       integer DEFAULT NULL,
+  lod2_multi_surface_id       integer DEFAULT NULL,
+  lod3_multi_surface_id       integer DEFAULT NULL,
+  lod4_multi_surface_id       integer DEFAULT NULL,
+  lod1_solid_id               integer DEFAULT NULL,
+  lod2_solid_id               integer DEFAULT NULL,
+  lod3_solid_id               integer DEFAULT NULL,
+  lod4_solid_id               integer DEFAULT NULL,
 --
-  type varchar DEFAULT NULL,
+  type           varchar DEFAULT NULL,
   type_codespace varchar DEFAULT NULL,
-  constr_weight varchar DEFAULT NULL,
-  is_landmarked numeric(1) DEFAULT NULL,
-  ref_point public.geometry DEFAULT NULL,
+  constr_weight  varchar DEFAULT NULL,
+  is_landmarked  numeric(1) DEFAULT NULL,
+  ref_point      public.geometry DEFAULT NULL,
 --
   schema_name varchar DEFAULT 'citydb'::varchar
 )
@@ -6978,7 +6977,7 @@ $BODY$
 LANGUAGE plpgsql VOLATILE;
 
 ---------------------------------------------------------------
--- Function INSERT_TIME_SERIES (generic) class_name att IS NOT NULL
+-- Function INSERT_TIME_SERIES (generic) classname att IS NOT NULL
 ---------------------------------------------------------------
 CREATE OR REPLACE FUNCTION citydb_view.nrg8_insert_time_series(
   classname             varchar,

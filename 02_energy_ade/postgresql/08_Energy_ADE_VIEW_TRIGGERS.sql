@@ -9848,40 +9848,45 @@ BEGIN
 IF TG_ARGV[0] IS NOT NULL THEN
 	p_schema_name=TG_ARGV[0];
 END IF;
-ts_id=citydb_view.nrg8_insert_time_series(
-classname            :=NEW.ts_classname            ,
-id                   :=NEW.ts_id                   ,
-gmlid                :=NEW.ts_gmlid                ,
-gmlid_codespace      :=NEW.ts_gmlid_codespace      ,
-name                 :=NEW.ts_name                 ,
-name_codespace       :=NEW.ts_name_codespace       ,
-description          :=NEW.ts_description          ,
-acquisition_method   :=NEW.ts_acquisition_method   ,
-interpolation_type   :=NEW.ts_interpolation_type   ,
-quality_description  :=NEW.ts_quality_description  ,
-source               :=NEW.ts_source               ,
-time_array           :=NEW.ts_time_array           ,
-values_array         :=NEW.ts_values_array         ,
-values_unit          :=NEW.ts_values_unit          ,
-array_length         :=NEW.ts_array_length         ,
-temporal_extent_begin:=NEW.ts_temporal_extent_begin,
-temporal_extent_end  :=NEW.ts_temporal_extent_end  ,
-time_interval        :=NEW.ts_time_interval        ,
-time_interval_unit   :=NEW.ts_time_interval_unit   ,
---
-file_path            :=NEW.ts_file_path            ,
-file_name            :=NEW.ts_file_name            ,
-file_extension       :=NEW.ts_file_extension       ,
-nbr_header_lines     :=NEW.ts_nbr_header_lines     ,
-field_sep            :=NEW.ts_field_sep            ,
-record_sep           :=NEW.ts_record_sep           ,
-dec_symbol           :=NEW.ts_dec_symbol           ,
-time_col_nbr         :=NEW.ts_time_col_nbr         ,
-value_col_nbr        :=NEW.ts_value_col_nbr        ,
-is_compressed        :=NEW.ts_is_compressed        ,
---
-schema_name          :=p_schema_name
+IF NEW.ts_classname IS NOT NULL THEN 
+ ts_id=citydb_view.nrg8_insert_time_series(
+  classname            :=NEW.ts_classname            ,
+  id                   :=NEW.ts_id                   ,
+  gmlid                :=NEW.ts_gmlid                ,
+  gmlid_codespace      :=NEW.ts_gmlid_codespace      ,
+  name                 :=NEW.ts_name                 ,
+  name_codespace       :=NEW.ts_name_codespace       ,
+  description          :=NEW.ts_description          ,
+  acquisition_method   :=NEW.ts_acquisition_method   ,
+  interpolation_type   :=NEW.ts_interpolation_type   ,
+  quality_description  :=NEW.ts_quality_description  ,
+  source               :=NEW.ts_source               ,
+  time_array           :=NEW.ts_time_array           ,
+  values_array         :=NEW.ts_values_array         ,
+  values_unit          :=NEW.ts_values_unit          ,
+  array_length         :=NEW.ts_array_length         ,
+  temporal_extent_begin:=NEW.ts_temporal_extent_begin,
+  temporal_extent_end  :=NEW.ts_temporal_extent_end  ,
+  time_interval        :=NEW.ts_time_interval        ,
+  time_interval_unit   :=NEW.ts_time_interval_unit   ,
+  --
+  file_path            :=NEW.ts_file_path            ,
+  file_name            :=NEW.ts_file_name            ,
+  file_extension       :=NEW.ts_file_extension       ,
+  nbr_header_lines     :=NEW.ts_nbr_header_lines     ,
+  field_sep            :=NEW.ts_field_sep            ,
+  record_sep           :=NEW.ts_record_sep           ,
+  dec_symbol           :=NEW.ts_dec_symbol           ,
+  time_col_nbr         :=NEW.ts_time_col_nbr         ,
+  value_col_nbr        :=NEW.ts_value_col_nbr        ,
+  is_compressed        :=NEW.ts_is_compressed        ,
+  --
+  schema_name          :=p_schema_name
 );
+ELSE
+ ts_id=NULL;
+END IF;
+
 inserted_id=citydb_view.nrg8_insert_weather_data(
 id                   :=NEW.id,
 gmlid                :=NEW.gmlid,
@@ -10075,40 +10080,46 @@ BEGIN
 IF TG_ARGV[0] IS NOT NULL THEN
 	p_schema_name=TG_ARGV[0];
 END IF;
-ts_id=citydb_view.nrg8_insert_time_series(
-classname            :=NEW.ts_classname            ,
-id                   :=NEW.ts_id                   ,
-gmlid                :=NEW.ts_gmlid                ,
-gmlid_codespace      :=NEW.ts_gmlid_codespace      ,
-name                 :=NEW.ts_name                 ,
-name_codespace       :=NEW.ts_name_codespace       ,
-description          :=NEW.ts_description          ,
-acquisition_method   :=NEW.ts_acquisition_method   ,
-interpolation_type   :=NEW.ts_interpolation_type   ,
-quality_description  :=NEW.ts_quality_description  ,
-source               :=NEW.ts_source               ,
-time_array           :=NEW.ts_time_array           ,
-values_array         :=NEW.ts_values_array         ,
-values_unit          :=NEW.ts_values_unit          ,
-array_length         :=NEW.ts_array_length         ,
-temporal_extent_begin:=NEW.ts_temporal_extent_begin,
-temporal_extent_end  :=NEW.ts_temporal_extent_end  ,
-time_interval        :=NEW.ts_time_interval        ,
-time_interval_unit   :=NEW.ts_time_interval_unit   ,
---
-file_path            :=NEW.ts_file_path            ,
-file_name            :=NEW.ts_file_name            ,
-file_extension       :=NEW.ts_file_extension       ,
-nbr_header_lines     :=NEW.ts_nbr_header_lines     ,
-field_sep            :=NEW.ts_field_sep            ,
-record_sep           :=NEW.ts_record_sep           ,
-dec_symbol           :=NEW.ts_dec_symbol           ,
-time_col_nbr         :=NEW.ts_time_col_nbr         ,
-value_col_nbr        :=NEW.ts_value_col_nbr        ,
-is_compressed        :=NEW.ts_is_compressed        ,
---
-schema_name          :=p_schema_name
+
+IF NEW.ts_classname IS NOT NULL THEN 
+ ts_id=citydb_view.nrg8_insert_time_series(
+  classname            :=NEW.ts_classname            ,
+  id                   :=NEW.ts_id                   ,
+  gmlid                :=NEW.ts_gmlid                ,
+  gmlid_codespace      :=NEW.ts_gmlid_codespace      ,
+  name                 :=NEW.ts_name                 ,
+  name_codespace       :=NEW.ts_name_codespace       ,
+  description          :=NEW.ts_description          ,
+  acquisition_method   :=NEW.ts_acquisition_method   ,
+  interpolation_type   :=NEW.ts_interpolation_type   ,
+  quality_description  :=NEW.ts_quality_description  ,
+  source               :=NEW.ts_source               ,
+  time_array           :=NEW.ts_time_array           ,
+  values_array         :=NEW.ts_values_array         ,
+  values_unit          :=NEW.ts_values_unit          ,
+  array_length         :=NEW.ts_array_length         ,
+  temporal_extent_begin:=NEW.ts_temporal_extent_begin,
+  temporal_extent_end  :=NEW.ts_temporal_extent_end  ,
+  time_interval        :=NEW.ts_time_interval        ,
+  time_interval_unit   :=NEW.ts_time_interval_unit   ,
+  --
+  file_path            :=NEW.ts_file_path            ,
+  file_name            :=NEW.ts_file_name            ,
+  file_extension       :=NEW.ts_file_extension       ,
+  nbr_header_lines     :=NEW.ts_nbr_header_lines     ,
+  field_sep            :=NEW.ts_field_sep            ,
+  record_sep           :=NEW.ts_record_sep           ,
+  dec_symbol           :=NEW.ts_dec_symbol           ,
+  time_col_nbr         :=NEW.ts_time_col_nbr         ,
+  value_col_nbr        :=NEW.ts_value_col_nbr        ,
+  is_compressed        :=NEW.ts_is_compressed        ,
+  --
+  schema_name          :=p_schema_name
 );
+ELSE
+ ts_id=NULL;
+END IF;
+
 inserted_id=citydb_view.nrg8_insert_time_series_schedule(
 id                   :=NEW.id,
 gmlid                :=NEW.gmlid,
@@ -10295,40 +10306,46 @@ BEGIN
 IF TG_ARGV[0] IS NOT NULL THEN
 	p_schema_name=TG_ARGV[0];
 END IF;
-ts_id=citydb_view.nrg8_insert_time_series(
-classname            :=NEW.ts_classname            ,
-id                   :=NEW.ts_id                   ,
-gmlid                :=NEW.ts_gmlid                ,
-gmlid_codespace      :=NEW.ts_gmlid_codespace      ,
-name                 :=NEW.ts_name                 ,
-name_codespace       :=NEW.ts_name_codespace       ,
-description          :=NEW.ts_description          ,
-acquisition_method   :=NEW.ts_acquisition_method   ,
-interpolation_type   :=NEW.ts_interpolation_type   ,
-quality_description  :=NEW.ts_quality_description  ,
-source               :=NEW.ts_source               ,
-time_array           :=NEW.ts_time_array           ,
-values_array         :=NEW.ts_values_array         ,
-values_unit          :=NEW.ts_values_unit          ,
-array_length         :=NEW.ts_array_length         ,
-temporal_extent_begin:=NEW.ts_temporal_extent_begin,
-temporal_extent_end  :=NEW.ts_temporal_extent_end  ,
-time_interval        :=NEW.ts_time_interval        ,
-time_interval_unit   :=NEW.ts_time_interval_unit   ,
---
-file_path            :=NEW.ts_file_path            ,
-file_name            :=NEW.ts_file_name            ,
-file_extension       :=NEW.ts_file_extension       ,
-nbr_header_lines     :=NEW.ts_nbr_header_lines     ,
-field_sep            :=NEW.ts_field_sep            ,
-record_sep           :=NEW.ts_record_sep           ,
-dec_symbol           :=NEW.ts_dec_symbol           ,
-time_col_nbr         :=NEW.ts_time_col_nbr         ,
-value_col_nbr        :=NEW.ts_value_col_nbr        ,
-is_compressed        :=NEW.ts_is_compressed        ,
---
-schema_name          :=p_schema_name
+
+IF NEW.ts_classname IS NOT NULL THEN 
+ ts_id=citydb_view.nrg8_insert_time_series(
+  classname            :=NEW.ts_classname            ,
+  id                   :=NEW.ts_id                   ,
+  gmlid                :=NEW.ts_gmlid                ,
+  gmlid_codespace      :=NEW.ts_gmlid_codespace      ,
+  name                 :=NEW.ts_name                 ,
+  name_codespace       :=NEW.ts_name_codespace       ,
+  description          :=NEW.ts_description          ,
+  acquisition_method   :=NEW.ts_acquisition_method   ,
+  interpolation_type   :=NEW.ts_interpolation_type   ,
+  quality_description  :=NEW.ts_quality_description  ,
+  source               :=NEW.ts_source               ,
+  time_array           :=NEW.ts_time_array           ,
+  values_array         :=NEW.ts_values_array         ,
+  values_unit          :=NEW.ts_values_unit          ,
+  array_length         :=NEW.ts_array_length         ,
+  temporal_extent_begin:=NEW.ts_temporal_extent_begin,
+  temporal_extent_end  :=NEW.ts_temporal_extent_end  ,
+  time_interval        :=NEW.ts_time_interval        ,
+  time_interval_unit   :=NEW.ts_time_interval_unit   ,
+  --
+  file_path            :=NEW.ts_file_path            ,
+  file_name            :=NEW.ts_file_name            ,
+  file_extension       :=NEW.ts_file_extension       ,
+  nbr_header_lines     :=NEW.ts_nbr_header_lines     ,
+  field_sep            :=NEW.ts_field_sep            ,
+  record_sep           :=NEW.ts_record_sep           ,
+  dec_symbol           :=NEW.ts_dec_symbol           ,
+  time_col_nbr         :=NEW.ts_time_col_nbr         ,
+  value_col_nbr        :=NEW.ts_value_col_nbr        ,
+  is_compressed        :=NEW.ts_is_compressed        ,
+  --
+  schema_name          :=p_schema_name
 );
+ELSE
+ ts_id=NULL;
+END IF;
+
 inserted_id=citydb_view.nrg8_insert_final_energy(
 id                          :=NEW.id,
 gmlid                       :=NEW.gmlid,
@@ -10536,40 +10553,46 @@ BEGIN
 IF TG_ARGV[0] IS NOT NULL THEN
 	p_schema_name=TG_ARGV[0];
 END IF;
-ts_id=citydb_view.nrg8_insert_time_series(
-classname            :=NEW.ts_classname            ,
-id                   :=NEW.ts_id                   ,
-gmlid                :=NEW.ts_gmlid                ,
-gmlid_codespace      :=NEW.ts_gmlid_codespace      ,
-name                 :=NEW.ts_name                 ,
-name_codespace       :=NEW.ts_name_codespace       ,
-description          :=NEW.ts_description          ,
-acquisition_method   :=NEW.ts_acquisition_method   ,
-interpolation_type   :=NEW.ts_interpolation_type   ,
-quality_description  :=NEW.ts_quality_description  ,
-source               :=NEW.ts_source               ,
-time_array           :=NEW.ts_time_array           ,
-values_array         :=NEW.ts_values_array         ,
-values_unit          :=NEW.ts_values_unit          ,
-array_length         :=NEW.ts_array_length         ,
-temporal_extent_begin:=NEW.ts_temporal_extent_begin,
-temporal_extent_end  :=NEW.ts_temporal_extent_end  ,
-time_interval        :=NEW.ts_time_interval        ,
-time_interval_unit   :=NEW.ts_time_interval_unit   ,
---
-file_path            :=NEW.ts_file_path            ,
-file_name            :=NEW.ts_file_name            ,
-file_extension       :=NEW.ts_file_extension       ,
-nbr_header_lines     :=NEW.ts_nbr_header_lines     ,
-field_sep            :=NEW.ts_field_sep            ,
-record_sep           :=NEW.ts_record_sep           ,
-dec_symbol           :=NEW.ts_dec_symbol           ,
-time_col_nbr         :=NEW.ts_time_col_nbr         ,
-value_col_nbr        :=NEW.ts_value_col_nbr        ,
-is_compressed        :=NEW.ts_is_compressed        ,
---
-schema_name          :=p_schema_name
+
+IF NEW.ts_classname IS NOT NULL THEN 
+ ts_id=citydb_view.nrg8_insert_time_series(
+  classname            :=NEW.ts_classname            ,
+  id                   :=NEW.ts_id                   ,
+  gmlid                :=NEW.ts_gmlid                ,
+  gmlid_codespace      :=NEW.ts_gmlid_codespace      ,
+  name                 :=NEW.ts_name                 ,
+  name_codespace       :=NEW.ts_name_codespace       ,
+  description          :=NEW.ts_description          ,
+  acquisition_method   :=NEW.ts_acquisition_method   ,
+  interpolation_type   :=NEW.ts_interpolation_type   ,
+  quality_description  :=NEW.ts_quality_description  ,
+  source               :=NEW.ts_source               ,
+  time_array           :=NEW.ts_time_array           ,
+  values_array         :=NEW.ts_values_array         ,
+  values_unit          :=NEW.ts_values_unit          ,
+  array_length         :=NEW.ts_array_length         ,
+  temporal_extent_begin:=NEW.ts_temporal_extent_begin,
+  temporal_extent_end  :=NEW.ts_temporal_extent_end  ,
+  time_interval        :=NEW.ts_time_interval        ,
+  time_interval_unit   :=NEW.ts_time_interval_unit   ,
+  --
+  file_path            :=NEW.ts_file_path            ,
+  file_name            :=NEW.ts_file_name            ,
+  file_extension       :=NEW.ts_file_extension       ,
+  nbr_header_lines     :=NEW.ts_nbr_header_lines     ,
+  field_sep            :=NEW.ts_field_sep            ,
+  record_sep           :=NEW.ts_record_sep           ,
+  dec_symbol           :=NEW.ts_dec_symbol           ,
+  time_col_nbr         :=NEW.ts_time_col_nbr         ,
+  value_col_nbr        :=NEW.ts_value_col_nbr        ,
+  is_compressed        :=NEW.ts_is_compressed        ,
+  --
+  schema_name          :=p_schema_name
 );
+ELSE
+ ts_id=NULL;
+END IF;
+
 inserted_id=citydb_view.nrg8_insert_energy_demand(
 id                   :=NEW.id,
 gmlid                :=NEW.gmlid,
@@ -10730,20 +10753,6 @@ CREATE TRIGGER nrg8_tr_upd_energy_demand_ts
 --**************************************************************
 --**************************************************************
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ----------------------------------------------------------------
 -- Function TR_DEL_DAILY_SCHEDULE_TS
 ----------------------------------------------------------------
@@ -10782,40 +10791,46 @@ BEGIN
 IF TG_ARGV[0] IS NOT NULL THEN
 	p_schema_name=TG_ARGV[0];
 END IF;
-ts_id=citydb_view.nrg8_insert_time_series(
-classname            :=NEW.ts_classname            ,
-id                   :=NEW.ts_id                   ,
-gmlid                :=NEW.ts_gmlid                ,
-gmlid_codespace      :=NEW.ts_gmlid_codespace      ,
-name                 :=NEW.ts_name                 ,
-name_codespace       :=NEW.ts_name_codespace       ,
-description          :=NEW.ts_description          ,
-acquisition_method   :=NEW.ts_acquisition_method   ,
-interpolation_type   :=NEW.ts_interpolation_type   ,
-quality_description  :=NEW.ts_quality_description  ,
-source               :=NEW.ts_source               ,
-time_array           :=NEW.ts_time_array           ,
-values_array         :=NEW.ts_values_array         ,
-values_unit          :=NEW.ts_values_unit          ,
-array_length         :=NEW.ts_array_length         ,
-temporal_extent_begin:=NEW.ts_temporal_extent_begin,
-temporal_extent_end  :=NEW.ts_temporal_extent_end  ,
-time_interval        :=NEW.ts_time_interval        ,
-time_interval_unit   :=NEW.ts_time_interval_unit   ,
---
-file_path            :=NEW.ts_file_path            ,
-file_name            :=NEW.ts_file_name            ,
-file_extension       :=NEW.ts_file_extension       ,
-nbr_header_lines     :=NEW.ts_nbr_header_lines     ,
-field_sep            :=NEW.ts_field_sep            ,
-record_sep           :=NEW.ts_record_sep           ,
-dec_symbol           :=NEW.ts_dec_symbol           ,
-time_col_nbr         :=NEW.ts_time_col_nbr         ,
-value_col_nbr        :=NEW.ts_value_col_nbr        ,
-is_compressed        :=NEW.ts_is_compressed        ,
---
-schema_name          :=p_schema_name
+
+IF NEW.ts_classname IS NOT NULL THEN 
+ ts_id=citydb_view.nrg8_insert_time_series(
+  classname            :=NEW.ts_classname            ,
+  id                   :=NEW.ts_id                   ,
+  gmlid                :=NEW.ts_gmlid                ,
+  gmlid_codespace      :=NEW.ts_gmlid_codespace      ,
+  name                 :=NEW.ts_name                 ,
+  name_codespace       :=NEW.ts_name_codespace       ,
+  description          :=NEW.ts_description          ,
+  acquisition_method   :=NEW.ts_acquisition_method   ,
+  interpolation_type   :=NEW.ts_interpolation_type   ,
+  quality_description  :=NEW.ts_quality_description  ,
+  source               :=NEW.ts_source               ,
+  time_array           :=NEW.ts_time_array           ,
+  values_array         :=NEW.ts_values_array         ,
+  values_unit          :=NEW.ts_values_unit          ,
+  array_length         :=NEW.ts_array_length         ,
+  temporal_extent_begin:=NEW.ts_temporal_extent_begin,
+  temporal_extent_end  :=NEW.ts_temporal_extent_end  ,
+  time_interval        :=NEW.ts_time_interval        ,
+  time_interval_unit   :=NEW.ts_time_interval_unit   ,
+  --
+  file_path            :=NEW.ts_file_path            ,
+  file_name            :=NEW.ts_file_name            ,
+  file_extension       :=NEW.ts_file_extension       ,
+  nbr_header_lines     :=NEW.ts_nbr_header_lines     ,
+  field_sep            :=NEW.ts_field_sep            ,
+  record_sep           :=NEW.ts_record_sep           ,
+  dec_symbol           :=NEW.ts_dec_symbol           ,
+  time_col_nbr         :=NEW.ts_time_col_nbr         ,
+  value_col_nbr        :=NEW.ts_value_col_nbr        ,
+  is_compressed        :=NEW.ts_is_compressed        ,
+  --
+  schema_name          :=p_schema_name
 );
+ELSE
+ ts_id=NULL;
+END IF;
+
 inserted_id=citydb_view.nrg8_insert_daily_schedule(
 id                :=NEW.id,
 day_type          :=NEW.day_type,
@@ -10956,49 +10971,6 @@ CREATE TRIGGER nrg8_tr_upd_daily_schedule_ts
 	EXECUTE PROCEDURE citydb_view.nrg8_tr_upd_daily_schedule_ts ('citydb');
 --**************************************************************
 --**************************************************************
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 DO
 $$
