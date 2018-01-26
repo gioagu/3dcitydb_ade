@@ -2297,6 +2297,88 @@ FROM
   citydb.utn9_storage s;
 --ALTER VIEW citydb_view.utn9_storage OWNER TO postgres;
 
+----------------------------------------------------------------
+-- View UTN9_NETWORK_COMMODITY
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.utn9_network_commodity CASCADE;
+CREATE OR REPLACE VIEW citydb_view.utn9_network_commodity AS
+SELECT 
+  co.id,
+  co.objectclass_id,
+  o1.classname,
+  co.gmlid,
+  co.gmlid_codespace,
+  co.name,
+  co.name_codespace,
+  co.description,
+  co.envelope,
+  co.creation_date,
+  co.termination_date,
+  co.relative_to_terrain,
+  co.relative_to_water,
+  co.last_modification_date,
+  co.updating_person,
+  co.reason_for_update,
+  co.lineage,
+  n.network_parent_id,
+  n.network_root_id,
+  n.class,
+  n.function,
+  n.usage,
+  com.id                           AS com_id,
+  com.objectclass_id               AS com_objectclass_id,
+  o2.classname                     AS com_classname,
+  com.gmlid                        AS com_gmlid,
+  com.gmlid_codespace              AS com_gmlid_codespace,
+  com.name                         AS com_name,
+  com.name_codespace               AS com_name_codespace,
+  com.description                  AS com_description,
+  com.owner                        AS com_owner,
+  com.type                         AS com_type,
+  com.is_corrosive                 AS com_is_corrosive,
+  com.is_explosive                 AS com_is_explosive,
+  com.is_lighter_than_air          AS com_is_lighter_than_air,
+  com.flammability_ratio           AS com_flammability_ratio,
+  com.elec_conductivity_range_from AS com_elec_conductivity_range_from,
+  com.elec_conductivity_range_to   AS com_elec_conductivity_range_to,
+  com.elec_conductivity_range_unit AS com_elec_conductivity_range_unit,
+  com.concentration                AS com_concentration,
+  com.concentration_unit           AS com_concentration_unit,
+  com.ph_value_range_from          AS com_ph_value_range_from,
+  com.ph_value_range_to            AS com_ph_value_range_to,
+  com.ph_value_range_unit          AS com_ph_value_range_unit,
+  com.temperature_range_from       AS com_temperature_range_from,
+  com.temperature_range_to         AS com_temperature_range_to,
+  com.temperature_range_unit       AS com_temperature_range_unit,
+  com.flow_rate_range_from         AS com_flow_rate_range_from,
+  com.flow_rate_range_to           AS com_flow_rate_range_to,
+  com.flow_rate_range_unit         AS com_flow_rate_range_unit,
+  com.pressure_range_from          AS com_pressure_range_from,
+  com.pressure_range_to            AS com_pressure_range_to,
+  com.pressure_range_unit          AS com_pressure_range_unit,
+  com.voltage_range_from           AS com_voltage_range_from,
+  com.voltage_range_to             AS com_voltage_range_to,
+  com.voltage_range_unit           AS com_voltage_range_unit,
+  com.amperage_range_from          AS com_amperage_range_from,
+  com.amperage_range_to            AS com_amperage_range_to,
+  com.amperage_range_unit          AS com_amperage_range_unit,
+  com.bandwidth_range_from         AS com_bandwidth_range_from,
+  com.bandwidth_range_to           AS com_bandwidth_range_to,
+  com.bandwidth_range_unit         AS com_bandwidth_range_unit,
+  com.optical_mode                 AS com_optical_mode
+FROM
+  (citydb.utn9_commodity com
+  INNER JOIN citydb.objectclass o2 ON (com.objectclass_id = o2.id))
+  RIGHT OUTER JOIN citydb.utn9_network n ON (n.commodity_id = com.id),
+  citydb.cityobject co,
+  citydb.objectclass o1
+WHERE
+  co.id = n.id AND 
+  co.objectclass_id = o1.id;
+--ALTER VIEW citydb_view.utn9_network_commodity OWNER TO postgres;
+COMMENT ON VIEW citydb_view.utn9_network_commodity IS 'This view joins the network table with the commodity one';
+
+
 -- ***********************************************************************
 -- ***********************************************************************
 
