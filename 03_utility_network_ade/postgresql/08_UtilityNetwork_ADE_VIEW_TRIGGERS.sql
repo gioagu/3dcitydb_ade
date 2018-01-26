@@ -1109,220 +1109,6 @@ name_codespace               :=NEW.name_codespace              ,
 description                  :=NEW.description                 ,
 owner                        :=NEW.owner                       ,
 type                         :=NEW.type                        ,
-is_corrosive                 :=NEW.is_corrosive                ,
-is_explosive                 :=NEW.is_explosive                ,
-is_lighter_than_air          :=NEW.is_lighter_than_air         ,
-flammability_ratio           :=NEW.flammability_ratio          ,
-elec_conductivity_range_from :=NEW.elec_conductivity_range_from,
-elec_conductivity_range_to   :=NEW.elec_conductivity_range_to  ,
-elec_conductivity_range_unit :=NEW.elec_conductivity_range_unit,
-concentration                :=NEW.concentration               ,
-concentration_unit           :=NEW.concentration_unit          ,
-ph_value_range_from          :=NEW.ph_value_range_from         ,
-ph_value_range_to            :=NEW.ph_value_range_to           ,
-ph_value_range_unit          :=NEW.ph_value_range_unit         ,
-temperature_range_from       :=NEW.temperature_range_from      ,
-temperature_range_to         :=NEW.temperature_range_to        ,
-temperature_range_unit       :=NEW.temperature_range_unit      ,
-flow_rate_range_from         :=NEW.flow_rate_range_from        ,
-flow_rate_range_to           :=NEW.flow_rate_range_to          ,
-flow_rate_range_unit         :=NEW.flow_rate_range_unit        ,
-pressure_range_from          :=NEW.pressure_range_from         ,
-pressure_range_to            :=NEW.pressure_range_to           ,
-pressure_range_unit          :=NEW.pressure_range_unit         ,
-voltage_range_from           :=NEW.voltage_range_from          ,
-voltage_range_to             :=NEW.voltage_range_to            ,
-voltage_range_unit           :=NEW.voltage_range_unit          ,
-amperage_range_from          :=NEW.amperage_range_from         ,
-amperage_range_to            :=NEW.amperage_range_to           ,
-amperage_range_unit          :=NEW.amperage_range_unit         ,
-bandwidth_range_from         :=NEW.bandwidth_range_from        ,
-bandwidth_range_to           :=NEW.bandwidth_range_to          ,
-bandwidth_range_unit         :=NEW.bandwidth_range_unit        ,
-optical_mode                 :=NEW.optical_mode                ,
---
-schema_name          :=p_schema_name
-);
---RAISE NOTICE 'Inserted record with id: %', inserted_id;
-RETURN NEW;
-EXCEPTION
-	WHEN OTHERS THEN RAISE NOTICE 'citydb_view.utn9_tr_ins_commodity_electrical_medium (id: %): %', inserted_id, SQLERRM;
-END;
-$BODY$
-LANGUAGE plpgsql VOLATILE;
-
-----------------------------------------------------------------
--- Function TR_UPD_COMMODITY_ELECTRICAL_MEDIUM
-----------------------------------------------------------------
-DROP FUNCTION IF EXISTS    citydb_view.utn9_tr_upd_commodity_electrical_medium() CASCADE;
-CREATE OR REPLACE FUNCTION citydb_view.utn9_tr_upd_commodity_electrical_medium()
-  RETURNS trigger AS
-$BODY$
-DECLARE
-  p_schema_name varchar DEFAULT 'citydb'::varchar;
-  updated_id integer;
-BEGIN
-IF TG_ARGV[0] IS NOT NULL THEN
-	p_schema_name=TG_ARGV[0];
-END IF;
-EXECUTE format('UPDATE %I.utn9_commodity AS t SET
-gmlid                        =%L,
-gmlid_codespace              =%L,
-name                         =%L,
-name_codespace               =%L,
-description                  =%L,
-owner                        =%L,
-type                         =%L,
-is_corrosive                 =%L,
-is_explosive                 =%L,
-is_lighter_than_air          =%L,
-flammability_ratio           =%L,
-elec_conductivity_range_from =%L,
-elec_conductivity_range_to   =%L,
-elec_conductivity_range_unit =%L,
-concentration                =%L,
-concentration_unit           =%L,
-ph_value_range_from          =%L,
-ph_value_range_to            =%L,
-ph_value_range_unit          =%L,
-temperature_range_from       =%L,
-temperature_range_to         =%L,
-temperature_range_unit       =%L,
-flow_rate_range_from         =%L,
-flow_rate_range_to           =%L,
-flow_rate_range_unit         =%L,
-pressure_range_from          =%L,
-pressure_range_to            =%L,
-pressure_range_unit          =%L,
-voltage_range_from           =%L,
-voltage_range_to             =%L,
-voltage_range_unit           =%L,
-amperage_range_from          =%L,
-amperage_range_to            =%L,
-amperage_range_unit          =%L,
-bandwidth_range_from         =%L,
-bandwidth_range_to           =%L,
-bandwidth_range_unit         =%L,
-optical_mode                 =%L
-WHERE t.id=%L RETURNING id',
-p_schema_name,
-NEW.gmlid                       ,
-NEW.gmlid_codespace             ,
-NEW.name                        ,
-NEW.name_codespace              ,
-NEW.description                 ,
-NEW.owner                       ,
-NEW.type                        ,
-NEW.is_corrosive                ,
-NEW.is_explosive                ,
-NEW.is_lighter_than_air         ,
-NEW.flammability_ratio          ,
-NEW.elec_conductivity_range_from,
-NEW.elec_conductivity_range_to  ,
-NEW.elec_conductivity_range_unit,
-NEW.concentration               ,
-NEW.concentration_unit          ,
-NEW.ph_value_range_from         ,
-NEW.ph_value_range_to           ,
-NEW.ph_value_range_unit         ,
-NEW.temperature_range_from      ,
-NEW.temperature_range_to        ,
-NEW.temperature_range_unit      ,
-NEW.flow_rate_range_from        ,
-NEW.flow_rate_range_to          ,
-NEW.flow_rate_range_unit        ,
-NEW.pressure_range_from         ,
-NEW.pressure_range_to           ,
-NEW.pressure_range_unit         ,
-NEW.voltage_range_from          ,
-NEW.voltage_range_to            ,
-NEW.voltage_range_unit          ,
-NEW.amperage_range_from         ,
-NEW.amperage_range_to           ,
-NEW.amperage_range_unit         ,
-NEW.bandwidth_range_from        ,
-NEW.bandwidth_range_to          ,
-NEW.bandwidth_range_unit        ,
-NEW.optical_mode                ,
-OLD.id
-) INTO updated_id;
--- RAISE NOTICE 'Updated record with id: %', updated_id;
-RETURN NEW;
-EXCEPTION
-  WHEN OTHERS THEN RAISE NOTICE 'citydb_view.utn9_tr_upd_commodity_electrical_medium (id: %): %', updated_id, SQLERRM;
-END;
-$BODY$
-LANGUAGE plpgsql VOLATILE;
-
-----------------------------------------------------------------
--- Triggers for view UTN_COMMODITY_ELECTRICAL_MEDIUM
-----------------------------------------------------------------
-DROP TRIGGER IF EXISTS utn9_tr_del_commodity_electrical_medium ON citydb_view.utn9_commodity_electrical_medium;
-CREATE TRIGGER utn9_tr_del_commodity_electrical_medium
-	INSTEAD OF DELETE ON citydb_view.utn9_commodity_electrical_medium
-	FOR EACH ROW
-	EXECUTE PROCEDURE citydb_view.utn9_tr_del_commodity_electrical_medium ('citydb');
-
-DROP TRIGGER IF EXISTS utn9_tr_ins_commodity_electrical_medium ON citydb_view.utn9_commodity_electrical_medium;
-CREATE TRIGGER utn9_tr_ins_commodity_electrical_medium
-	INSTEAD OF INSERT ON citydb_view.utn9_commodity_electrical_medium
-	FOR EACH ROW
-	EXECUTE PROCEDURE citydb_view.utn9_tr_ins_commodity_electrical_medium ('citydb');
-
-DROP TRIGGER IF EXISTS utn9_tr_upd_commodity_electrical_medium ON citydb_view.utn9_commodity_electrical_medium;
-CREATE TRIGGER utn9_tr_upd_commodity_electrical_medium
-	INSTEAD OF UPDATE ON citydb_view.utn9_commodity_electrical_medium
-	FOR EACH ROW
-	EXECUTE PROCEDURE citydb_view.utn9_tr_upd_commodity_electrical_medium ('citydb');
---**************************************************************
---**************************************************************
-
-----------------------------------------------------------------
--- Function TR_DEL_COMMODITY_ELECTRICAL_MEDIUM
-----------------------------------------------------------------
-DROP FUNCTION IF EXISTS    citydb_view.utn9_tr_del_commodity_electrical_medium() CASCADE;
-CREATE OR REPLACE FUNCTION citydb_view.utn9_tr_del_commodity_electrical_medium()
-  RETURNS trigger AS
-$BODY$
-DECLARE
-	p_schema_name varchar DEFAULT 'citydb'::varchar;
-	deleted_id integer;
-BEGIN
-IF TG_ARGV[0] IS NOT NULL THEN
-	p_schema_name=TG_ARGV[0];
-END IF;
-deleted_id=citydb_pkg.utn9_delete_commodity(OLD.id, p_schema_name);
--- RAISE NOTICE 'Deleted record with id: %', deleted_id;
-RETURN OLD;
-EXCEPTION
-	WHEN OTHERS THEN RAISE NOTICE 'citydb_view.utn9_tr_del_commodity_electrical_medium (id: %): %', deleted_id, SQLERRM;
-END;
-$BODY$
-LANGUAGE plpgsql VOLATILE;
-
-----------------------------------------------------------------
--- Function TR_INS_COMMODITY_ELECTRICAL_MEDIUM
-----------------------------------------------------------------
-DROP FUNCTION IF EXISTS    citydb_view.utn9_tr_ins_commodity_electrical_medium() CASCADE;
-CREATE OR REPLACE FUNCTION citydb_view.utn9_tr_ins_commodity_electrical_medium()
-  RETURNS trigger AS
-$BODY$
-DECLARE
-	p_schema_name varchar DEFAULT 'citydb'::varchar;
-	inserted_id integer;
-BEGIN
-IF TG_ARGV[0] IS NOT NULL THEN
-	p_schema_name=TG_ARGV[0];
-END IF;
-inserted_id=citydb_view.utn9_insert_commodity_electrical_medium(
-id                           :=NEW.id                          ,
-gmlid                        :=NEW.gmlid                       ,
-gmlid_codespace              :=NEW.gmlid_codespace             ,
-name                         :=NEW.name                        ,
-name_codespace               :=NEW.name_codespace              ,
-description                  :=NEW.description                 ,
-owner                        :=NEW.owner                       ,
-type                         :=NEW.type                        ,
 --is_corrosive                 :=NEW.is_corrosive                ,
 --is_explosive                 :=NEW.is_explosive                ,
 --is_lighter_than_air          :=NEW.is_lighter_than_air         ,
@@ -9288,6 +9074,523 @@ CREATE TRIGGER utn9_tr_upd_role_in_network
 --**************************************************************
 --**************************************************************
 
+----------------------------------------------------------------
+-- Function TR_DEL_COMMODITY
+----------------------------------------------------------------
+DROP FUNCTION IF EXISTS    citydb_view.utn9_tr_del_commodity() CASCADE;
+CREATE OR REPLACE FUNCTION citydb_view.utn9_tr_del_commodity()
+  RETURNS trigger AS
+$BODY$
+DECLARE
+	p_schema_name varchar DEFAULT 'citydb'::varchar;
+	deleted_id integer;
+BEGIN
+IF TG_ARGV[0] IS NOT NULL THEN
+	p_schema_name=TG_ARGV[0];
+END IF;
+deleted_id=citydb_pkg.utn9_delete_commodity(OLD.id, p_schema_name);
+-- RAISE NOTICE 'Deleted record with id: %', deleted_id;
+RETURN OLD;
+EXCEPTION
+	WHEN OTHERS THEN RAISE NOTICE 'citydb_view.utn9_tr_del_commodity (id: %): %', deleted_id, SQLERRM;
+END;
+$BODY$
+LANGUAGE plpgsql VOLATILE;
+
+----------------------------------------------------------------
+-- Function TR_INS_COMMODITY
+----------------------------------------------------------------
+DROP FUNCTION IF EXISTS    citydb_view.utn9_tr_ins_commodity() CASCADE;
+CREATE OR REPLACE FUNCTION citydb_view.utn9_tr_ins_commodity()
+  RETURNS trigger AS
+$BODY$
+DECLARE
+	p_schema_name varchar DEFAULT 'citydb'::varchar;
+	inserted_id integer;
+BEGIN
+IF TG_ARGV[0] IS NOT NULL THEN
+	p_schema_name=TG_ARGV[0];
+END IF;
+
+inserted_id=citydb_view.utn9_insert_commodity(
+classname                    :=NEW.classname                   ,
+id                           :=NEW.id                          ,
+gmlid                        :=NEW.gmlid                       ,
+gmlid_codespace              :=NEW.gmlid_codespace             ,
+name                         :=NEW.name                        ,
+name_codespace               :=NEW.name_codespace              ,
+description                  :=NEW.description                 ,
+owner                        :=NEW.owner                       ,
+type                         :=NEW.type                        ,
+is_corrosive                 :=NEW.is_corrosive                ,
+is_explosive                 :=NEW.is_explosive                ,
+is_lighter_than_air          :=NEW.is_lighter_than_air         ,
+flammability_ratio           :=NEW.flammability_ratio          ,
+elec_conductivity_range_from :=NEW.elec_conductivity_range_from,
+elec_conductivity_range_to   :=NEW.elec_conductivity_range_to  ,
+elec_conductivity_range_unit :=NEW.elec_conductivity_range_unit,
+concentration                :=NEW.concentration               ,
+concentration_unit           :=NEW.concentration_unit          ,
+ph_value_range_from          :=NEW.ph_value_range_from         ,
+ph_value_range_to            :=NEW.ph_value_range_to           ,
+ph_value_range_unit          :=NEW.ph_value_range_unit         ,
+temperature_range_from       :=NEW.temperature_range_from      ,
+temperature_range_to         :=NEW.temperature_range_to        ,
+temperature_range_unit       :=NEW.temperature_range_unit      ,
+flow_rate_range_from         :=NEW.flow_rate_range_from        ,
+flow_rate_range_to           :=NEW.flow_rate_range_to          ,
+flow_rate_range_unit         :=NEW.flow_rate_range_unit        ,
+pressure_range_from          :=NEW.pressure_range_from         ,
+pressure_range_to            :=NEW.pressure_range_to           ,
+pressure_range_unit          :=NEW.pressure_range_unit         ,
+voltage_range_from           :=NEW.voltage_range_from          ,
+voltage_range_to             :=NEW.voltage_range_to            ,
+voltage_range_unit           :=NEW.voltage_range_unit          ,
+amperage_range_from          :=NEW.amperage_range_from         ,
+amperage_range_to            :=NEW.amperage_range_to           ,
+amperage_range_unit          :=NEW.amperage_range_unit         ,
+bandwidth_range_from         :=NEW.bandwidth_range_from        ,
+bandwidth_range_to           :=NEW.bandwidth_range_to          ,
+bandwidth_range_unit         :=NEW.bandwidth_range_unit        ,
+optical_mode                 :=NEW.optical_mode                ,
+--
+schema_name          :=p_schema_name
+);
+--RAISE NOTICE 'Inserted record with id: %', inserted_id;
+RETURN NEW;
+EXCEPTION
+	WHEN OTHERS THEN RAISE NOTICE 'citydb_view.utn9_tr_ins_commodity (id: %): %', inserted_id, SQLERRM;
+END;
+$BODY$
+LANGUAGE plpgsql VOLATILE;
+
+----------------------------------------------------------------
+-- Function TR_UPD_COMMODITY
+----------------------------------------------------------------
+DROP FUNCTION IF EXISTS    citydb_view.utn9_tr_upd_commodity() CASCADE;
+CREATE OR REPLACE FUNCTION citydb_view.utn9_tr_upd_commodity()
+  RETURNS trigger AS
+$BODY$
+DECLARE
+  p_schema_name varchar DEFAULT 'citydb'::varchar;
+  updated_id integer;
+BEGIN
+IF TG_ARGV[0] IS NOT NULL THEN
+	p_schema_name=TG_ARGV[0];
+END IF; 
+EXECUTE format('UPDATE %I.utn9_commodity AS t SET
+gmlid                        =%L,
+gmlid_codespace              =%L,
+name                         =%L,
+name_codespace               =%L,
+description                  =%L,
+owner                        =%L,
+type                         =%L,
+is_corrosive                 =%L,
+is_explosive                 =%L,
+is_lighter_than_air          =%L,
+flammability_ratio           =%L,
+elec_conductivity_range_from =%L,
+elec_conductivity_range_to   =%L,
+elec_conductivity_range_unit =%L,
+concentration                =%L,
+concentration_unit           =%L,
+ph_value_range_from          =%L,
+ph_value_range_to            =%L,
+ph_value_range_unit          =%L,
+temperature_range_from       =%L,
+temperature_range_to         =%L,
+temperature_range_unit       =%L,
+flow_rate_range_from         =%L,
+flow_rate_range_to           =%L,
+flow_rate_range_unit         =%L,
+pressure_range_from          =%L,
+pressure_range_to            =%L,
+pressure_range_unit          =%L,
+voltage_range_from           =%L,
+voltage_range_to             =%L,
+voltage_range_unit           =%L,
+amperage_range_from          =%L,
+amperage_range_to            =%L,
+amperage_range_unit          =%L,
+bandwidth_range_from         =%L,
+bandwidth_range_to           =%L,
+bandwidth_range_unit         =%L,
+optical_mode                 =%L
+WHERE t.id=%L RETURNING id',
+p_schema_name,
+NEW.gmlid                       ,
+NEW.gmlid_codespace             ,
+NEW.name                        ,
+NEW.name_codespace              ,
+NEW.description                 ,
+NEW.owner                       ,
+NEW.type                        ,
+NEW.is_corrosive                ,
+NEW.is_explosive                ,
+NEW.is_lighter_than_air         ,
+NEW.flammability_ratio          ,
+NEW.elec_conductivity_range_from,
+NEW.elec_conductivity_range_to  ,
+NEW.elec_conductivity_range_unit,
+NEW.concentration               ,
+NEW.concentration_unit          ,
+NEW.ph_value_range_from         ,
+NEW.ph_value_range_to           ,
+NEW.ph_value_range_unit         ,
+NEW.temperature_range_from      ,
+NEW.temperature_range_to        ,
+NEW.temperature_range_unit      ,
+NEW.flow_rate_range_from        ,
+NEW.flow_rate_range_to          ,
+NEW.flow_rate_range_unit        ,
+NEW.pressure_range_from         ,
+NEW.pressure_range_to           ,
+NEW.pressure_range_unit         ,
+NEW.voltage_range_from          ,
+NEW.voltage_range_to            ,
+NEW.voltage_range_unit          ,
+NEW.amperage_range_from         ,
+NEW.amperage_range_to           ,
+NEW.amperage_range_unit         ,
+NEW.bandwidth_range_from        ,
+NEW.bandwidth_range_to          ,
+NEW.bandwidth_range_unit        ,
+NEW.optical_mode                ,
+OLD.id
+) INTO updated_id;
+-- RAISE NOTICE 'Updated record with id: %', updated_id;
+RETURN NEW;
+EXCEPTION
+  WHEN OTHERS THEN RAISE NOTICE 'citydb_view.utn9_tr_upd_commodity (id: %): %', updated_id, SQLERRM;
+END;
+$BODY$
+LANGUAGE plpgsql VOLATILE;
+
+----------------------------------------------------------------
+-- Triggers for view UTN_COMMODITY
+----------------------------------------------------------------
+DROP TRIGGER IF EXISTS utn9_tr_del_commodity ON citydb_view.utn9_commodity;
+CREATE TRIGGER utn9_tr_del_commodity
+	INSTEAD OF DELETE ON citydb_view.utn9_commodity
+	FOR EACH ROW
+	EXECUTE PROCEDURE citydb_view.utn9_tr_del_commodity ('citydb');
+
+DROP TRIGGER IF EXISTS utn9_tr_ins_commodity ON citydb_view.utn9_commodity;
+CREATE TRIGGER utn9_tr_ins_commodity
+	INSTEAD OF INSERT ON citydb_view.utn9_commodity
+	FOR EACH ROW
+	EXECUTE PROCEDURE citydb_view.utn9_tr_ins_commodity ('citydb');
+
+DROP TRIGGER IF EXISTS utn9_tr_upd_commodity ON citydb_view.utn9_commodity;
+CREATE TRIGGER utn9_tr_upd_commodity
+	INSTEAD OF UPDATE ON citydb_view.utn9_commodity
+	FOR EACH ROW
+	EXECUTE PROCEDURE citydb_view.utn9_tr_upd_commodity ('citydb');
+--**************************************************************
+--**************************************************************
+
+----------------------------------------------------------------
+-- Function TR_DEL_NETWORK_COMMODITY
+----------------------------------------------------------------
+DROP FUNCTION IF EXISTS    citydb_view.utn9_tr_del_network_commodity() CASCADE;
+CREATE OR REPLACE FUNCTION citydb_view.utn9_tr_del_network_commodity()
+  RETURNS trigger AS
+$BODY$
+DECLARE
+	p_schema_name varchar DEFAULT 'citydb'::varchar;
+	deleted_id integer;
+BEGIN
+IF TG_ARGV[0] IS NOT NULL THEN
+	p_schema_name=TG_ARGV[0];
+END IF;
+deleted_id=citydb_pkg.utn9_delete_network(OLD.id, p_schema_name);
+-- RAISE NOTICE 'Deleted record with id: %', deleted_id;
+RETURN OLD;
+EXCEPTION
+	WHEN OTHERS THEN RAISE NOTICE 'citydb_view.utn9_tr_del_network_commodity (id: %): %', deleted_id, SQLERRM;
+END;
+$BODY$
+LANGUAGE plpgsql VOLATILE;
+
+----------------------------------------------------------------
+-- Function TR_INS_NETWORK_COMMODITY
+----------------------------------------------------------------
+DROP FUNCTION IF EXISTS    citydb_view.utn9_tr_ins_network_commodity() CASCADE;
+CREATE OR REPLACE FUNCTION citydb_view.utn9_tr_ins_network_commodity()
+  RETURNS trigger AS
+$BODY$
+DECLARE
+    com_id integer;
+	p_schema_name varchar DEFAULT 'citydb'::varchar;
+	inserted_id integer;
+BEGIN
+IF TG_ARGV[0] IS NOT NULL THEN
+	p_schema_name=TG_ARGV[0];
+END IF;
+
+IF NEW.com_classname IS NOT NULL THEN
+ com_id=citydb_view.utn9_insert_commodity(
+   classname                    :=NEW.com_classname                   ,
+   id                           :=NEW.com_id                          ,
+   gmlid                        :=NEW.com_gmlid                       ,
+   gmlid_codespace              :=NEW.com_gmlid_codespace             ,
+   name                         :=NEW.com_name                        ,
+   name_codespace               :=NEW.com_name_codespace              ,
+   description                  :=NEW.com_description                 ,
+   owner                        :=NEW.com_owner                       ,
+   type                         :=NEW.com_type                        ,
+   is_corrosive                 :=NEW.com_is_corrosive                ,
+   is_explosive                 :=NEW.com_is_explosive                ,
+   is_lighter_than_air          :=NEW.com_is_lighter_than_air         ,
+   flammability_ratio           :=NEW.com_flammability_ratio          ,
+   elec_conductivity_range_from :=NEW.com_elec_conductivity_range_from,
+   elec_conductivity_range_to   :=NEW.com_elec_conductivity_range_to  ,
+   elec_conductivity_range_unit :=NEW.com_elec_conductivity_range_unit,
+   concentration                :=NEW.com_concentration               ,
+   concentration_unit           :=NEW.com_concentration_unit          ,
+   ph_value_range_from          :=NEW.com_ph_value_range_from         ,
+   ph_value_range_to            :=NEW.com_ph_value_range_to           ,
+   ph_value_range_unit          :=NEW.com_ph_value_range_unit         ,
+   temperature_range_from       :=NEW.com_temperature_range_from      ,
+   temperature_range_to         :=NEW.com_temperature_range_to        ,
+   temperature_range_unit       :=NEW.com_temperature_range_unit      ,
+   flow_rate_range_from         :=NEW.com_flow_rate_range_from        ,
+   flow_rate_range_to           :=NEW.com_flow_rate_range_to          ,
+   flow_rate_range_unit         :=NEW.com_flow_rate_range_unit        ,
+   pressure_range_from          :=NEW.com_pressure_range_from         ,
+   pressure_range_to            :=NEW.com_pressure_range_to           ,
+   pressure_range_unit          :=NEW.com_pressure_range_unit         ,
+   voltage_range_from           :=NEW.com_voltage_range_from          ,
+   voltage_range_to             :=NEW.com_voltage_range_to            ,
+   voltage_range_unit           :=NEW.com_voltage_range_unit          ,
+   amperage_range_from          :=NEW.com_amperage_range_from         ,
+   amperage_range_to            :=NEW.com_amperage_range_to           ,
+   amperage_range_unit          :=NEW.com_amperage_range_unit         ,
+   bandwidth_range_from         :=NEW.com_bandwidth_range_from        ,
+   bandwidth_range_to           :=NEW.com_bandwidth_range_to          ,
+   bandwidth_range_unit         :=NEW.com_bandwidth_range_unit        ,
+   optical_mode                 :=NEW.com_optical_mode                ,
+--
+   schema_name          :=p_schema_name
+);
+ELSE
+ com_id=NULL;
+END IF;
+
+inserted_id=citydb_view.utn9_insert_network(
+  id                     :=NEW.id                    ,
+  gmlid                  :=NEW.gmlid                 ,
+  gmlid_codespace        :=NEW.gmlid_codespace       ,
+  name                   :=NEW.name                  ,
+  name_codespace         :=NEW.name_codespace        ,
+  description            :=NEW.description           ,
+  envelope               :=NEW.envelope              ,
+  creation_date          :=NEW.creation_date         ,
+  termination_date       :=NEW.termination_date      ,
+  relative_to_terrain    :=NEW.relative_to_terrain   ,
+  relative_to_water      :=NEW.relative_to_water     ,
+  last_modification_date :=NEW.last_modification_date,
+  updating_person        :=NEW.updating_person       ,
+  reason_for_update      :=NEW.reason_for_update     ,
+  lineage                :=NEW.lineage               ,
+  network_parent_id      :=NEW.network_parent_id     ,
+  network_root_id        :=NEW.network_root_id       ,
+  class                  :=NEW.class                 ,
+  function               :=NEW.function              ,
+  usage                  :=NEW.usage                 ,
+  commodity_id           :=com_id                    ,
+--
+  schema_name          :=p_schema_name
+);
+
+--RAISE NOTICE 'Inserted record with id: %', inserted_id;
+RETURN NEW;
+EXCEPTION
+	WHEN OTHERS THEN RAISE NOTICE 'citydb_view.utn9_tr_ins_network_commodity (id: %): %', inserted_id, SQLERRM;
+END;
+$BODY$
+LANGUAGE plpgsql VOLATILE;
+
+----------------------------------------------------------------
+-- Function TR_UPD_NETWORK_COMMODITY
+----------------------------------------------------------------
+DROP FUNCTION IF EXISTS    citydb_view.utn9_tr_upd_network_commodity() CASCADE;
+CREATE OR REPLACE FUNCTION citydb_view.utn9_tr_upd_network_commodity()
+  RETURNS trigger AS
+$BODY$
+DECLARE
+  p_schema_name varchar DEFAULT 'citydb'::varchar;
+  updated_id integer;
+BEGIN
+IF TG_ARGV[0] IS NOT NULL THEN
+	p_schema_name=TG_ARGV[0];
+END IF;
+
+EXECUTE format('UPDATE %I.utn9_commodity AS t SET
+gmlid                        =%L,
+gmlid_codespace              =%L,
+name                         =%L,
+name_codespace               =%L,
+description                  =%L,
+owner                        =%L,
+type                         =%L,
+is_corrosive                 =%L,
+is_explosive                 =%L,
+is_lighter_than_air          =%L,
+flammability_ratio           =%L,
+elec_conductivity_range_from =%L,
+elec_conductivity_range_to   =%L,
+elec_conductivity_range_unit =%L,
+concentration                =%L,
+concentration_unit           =%L,
+ph_value_range_from          =%L,
+ph_value_range_to            =%L,
+ph_value_range_unit          =%L,
+temperature_range_from       =%L,
+temperature_range_to         =%L,
+temperature_range_unit       =%L,
+flow_rate_range_from         =%L,
+flow_rate_range_to           =%L,
+flow_rate_range_unit         =%L,
+pressure_range_from          =%L,
+pressure_range_to            =%L,
+pressure_range_unit          =%L,
+voltage_range_from           =%L,
+voltage_range_to             =%L,
+voltage_range_unit           =%L,
+amperage_range_from          =%L,
+amperage_range_to            =%L,
+amperage_range_unit          =%L,
+bandwidth_range_from         =%L,
+bandwidth_range_to           =%L,
+bandwidth_range_unit         =%L,
+optical_mode                 =%L
+WHERE t.id=%L RETURNING id',
+p_schema_name,
+NEW.gmlid                       ,
+NEW.gmlid_codespace             ,
+NEW.name                        ,
+NEW.name_codespace              ,
+NEW.description                 ,
+NEW.owner                       ,
+NEW.type                        ,
+NEW.is_corrosive                ,
+NEW.is_explosive                ,
+NEW.is_lighter_than_air         ,
+NEW.flammability_ratio          ,
+NEW.elec_conductivity_range_from,
+NEW.elec_conductivity_range_to  ,
+NEW.elec_conductivity_range_unit,
+NEW.concentration               ,
+NEW.concentration_unit          ,
+NEW.ph_value_range_from         ,
+NEW.ph_value_range_to           ,
+NEW.ph_value_range_unit         ,
+NEW.temperature_range_from      ,
+NEW.temperature_range_to        ,
+NEW.temperature_range_unit      ,
+NEW.flow_rate_range_from        ,
+NEW.flow_rate_range_to          ,
+NEW.flow_rate_range_unit        ,
+NEW.pressure_range_from         ,
+NEW.pressure_range_to           ,
+NEW.pressure_range_unit         ,
+NEW.voltage_range_from          ,
+NEW.voltage_range_to            ,
+NEW.voltage_range_unit          ,
+NEW.amperage_range_from         ,
+NEW.amperage_range_to           ,
+NEW.amperage_range_unit         ,
+NEW.bandwidth_range_from        ,
+NEW.bandwidth_range_to          ,
+NEW.bandwidth_range_unit        ,
+NEW.optical_mode                ,
+OLD.com_id
+) INTO updated_id;
+
+EXECUTE format('UPDATE %I.cityobject AS t SET
+gmlid                 =%L,
+gmlid_codespace       =%L,
+name                  =%L,
+name_codespace        =%L,
+description           =%L,
+envelope              =%L,
+creation_date         =%L,
+termination_date      =%L,
+relative_to_terrain   =%L,
+relative_to_water     =%L,
+last_modification_date=%L,
+updating_person       =%L,
+reason_for_update     =%L,
+lineage               =%L
+WHERE t.id=%L RETURNING id',
+p_schema_name,
+NEW.gmlid,
+NEW.gmlid_codespace,
+NEW.name,
+NEW.name_codespace,
+NEW.description,
+NEW.envelope,
+NEW.creation_date,
+NEW.termination_date,
+NEW.relative_to_terrain,
+NEW.relative_to_water,
+NEW.last_modification_date,
+NEW.updating_person,
+NEW.reason_for_update,
+NEW.lineage,
+OLD.id
+) INTO updated_id;
+
+EXECUTE format('UPDATE %I.utn9_network AS t SET
+network_parent_id =%L,
+network_root_id   =%L,
+class             =%L,
+function          =%L,
+usage             =%L,
+commodity_id      =%L
+WHERE t.id=%L RETURNING id',
+p_schema_name,
+NEW.network_parent_id,
+NEW.network_root_id  ,
+NEW.class            ,
+NEW.function         ,
+NEW.usage            ,
+NEW.commodity_id     ,
+OLD.id
+) INTO updated_id;
+
+-- RAISE NOTICE 'Updated record with id: %', updated_id;
+RETURN NEW;
+EXCEPTION
+  WHEN OTHERS THEN RAISE NOTICE 'citydb_view.utn9_tr_upd_network_commodity (id: %): %', updated_id, SQLERRM;
+END;
+$BODY$
+LANGUAGE plpgsql VOLATILE;
+
+----------------------------------------------------------------
+-- Triggers for view UTN_NETWORK_COMMODITY
+----------------------------------------------------------------
+DROP TRIGGER IF EXISTS utn9_tr_del_network_commodity ON citydb_view.utn9_network_commodity;
+CREATE TRIGGER utn9_tr_del_network_commodity
+	INSTEAD OF DELETE ON citydb_view.utn9_network_commodity
+	FOR EACH ROW
+	EXECUTE PROCEDURE citydb_view.utn9_tr_del_network_commodity ('citydb');
+
+DROP TRIGGER IF EXISTS utn9_tr_ins_network_commodity ON citydb_view.utn9_network_commodity;
+CREATE TRIGGER utn9_tr_ins_network_commodity
+	INSTEAD OF INSERT ON citydb_view.utn9_network_commodity
+	FOR EACH ROW
+	EXECUTE PROCEDURE citydb_view.utn9_tr_ins_network_commodity ('citydb');
+
+DROP TRIGGER IF EXISTS utn9_tr_upd_network_commodity ON citydb_view.utn9_network_commodity;
+CREATE TRIGGER utn9_tr_upd_network_commodity
+	INSTEAD OF UPDATE ON citydb_view.utn9_network_commodity
+	FOR EACH ROW
+	EXECUTE PROCEDURE citydb_view.utn9_tr_upd_network_commodity ('citydb');
+--**************************************************************
+--**************************************************************
 
 -- ***********************************************************************
 -- ***********************************************************************

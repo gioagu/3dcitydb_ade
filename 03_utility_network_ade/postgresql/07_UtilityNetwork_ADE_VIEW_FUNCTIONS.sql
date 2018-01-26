@@ -1171,28 +1171,6 @@ END;
 $BODY$
 LANGUAGE plpgsql VOLATILE;
 
-
-
--- ---------------------------------------------------------------
--- -- Function UTN9_DELETE_xxx
--- ---------------------------------------------------------------
--- CREATE OR REPLACE FUNCTION citydb_view.utn9_delete_xxx(
-  -- IN id integer,
-  -- IN schema_name varchar DEFAULT 'citydb'::varchar
--- )
--- RETURNS integer AS
--- $BODY$
--- DECLARE
-	-- deleted_id integer;
--- BEGIN
--- deleted_id=citydb_pkg.utn9_delete_xxx(id, schema_name);
--- RETURN deleted_id;
--- EXCEPTION
-	-- WHEN OTHERS THEN RAISE NOTICE 'citydb_view.utn9_delete_xxx (id: %): %', id, SQLERRM;
--- END;
--- $BODY$
--- LANGUAGE plpgsql VOLATILE;
-
 -- ***********************************************************************
 -- ***********************************************************************
 
@@ -1597,154 +1575,6 @@ EXCEPTION
 END;
 $BODY$
 LANGUAGE plpgsql VOLATILE;
-
--- ---------------------------------------------------------------
--- -- Function UTN9_INSERT_COMMODITY
--- ---------------------------------------------------------------
--- CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_commodity_xxx(
-  -- id                           integer DEFAULT NULL,
-  -- gmlid                        varchar DEFAULT NULL,
-  -- gmlid_codespace              varchar DEFAULT NULL,
-  -- name                         varchar DEFAULT NULL,
-  -- name_codespace               varchar DEFAULT NULL,
-  -- description                  text    DEFAULT NULL,
-  -- owner                        varchar DEFAULT NULL,
-  -- type                         varchar DEFAULT NULL,
-  -- is_corrosive                 numeric DEFAULT NULL,
-  -- is_explosive                 numeric DEFAULT NULL,
-  -- is_lighter_than_air          numeric DEFAULT NULL,
-  -- flammability_ratio           numeric DEFAULT NULL,
-  -- elec_conductivity_range_from numeric DEFAULT NULL,
-  -- elec_conductivity_range_to   numeric DEFAULT NULL,
-  -- elec_conductivity_range_unit varchar DEFAULT NULL,
-  -- concentration                numeric DEFAULT NULL,
-  -- concentration_unit           varchar DEFAULT NULL,
-  -- ph_value_range_from          numeric DEFAULT NULL,
-  -- ph_value_range_to            numeric DEFAULT NULL,
-  -- ph_value_range_unit          varchar DEFAULT NULL,
-  -- temperature_range_from       numeric DEFAULT NULL,
-  -- temperature_range_to         numeric DEFAULT NULL,
-  -- temperature_range_unit       varchar DEFAULT NULL,
-  -- flow_rate_range_from         numeric DEFAULT NULL,
-  -- flow_rate_range_to           numeric DEFAULT NULL,
-  -- flow_rate_range_unit         varchar DEFAULT NULL,
-  -- pressure_range_from          numeric DEFAULT NULL,
-  -- pressure_range_to            numeric DEFAULT NULL,
-  -- pressure_range_unit          varchar DEFAULT NULL,
-  -- voltage_range_from           numeric DEFAULT NULL,
-  -- voltage_range_to             numeric DEFAULT NULL,
-  -- voltage_range_unit           varchar DEFAULT NULL,
-  -- amperage_range_from          numeric DEFAULT NULL,
-  -- amperage_range_to            numeric DEFAULT NULL,
-  -- amperage_range_unit          varchar DEFAULT NULL,
-  -- bandwidth_range_from         numeric DEFAULT NULL,
-  -- bandwidth_range_to           numeric DEFAULT NULL,
-  -- bandwidth_range_unit         varchar DEFAULT NULL,
-  -- optical_mode                 varchar DEFAULT NULL, 
--- --
-  -- schema_name              varchar DEFAULT 'citydb'::varchar
--- )
--- RETURNS integer AS
--- $BODY$
--- DECLARE
-  -- p_id                           integer           := id;
-  -- p_gmlid                        character varying := gmlid;
-  -- p_gmlid_codespace              character varying := gmlid_codespace;
-  -- p_name                         character varying := name;
-  -- p_name_codespace               character varying := name_codespace;
-  -- p_description                  text              := description;
-  -- p_owner                        varchar := owner;
-  -- p_type                         varchar := type;
-  -- p_is_corrosive                 numeric := is_corrosive;
-  -- p_is_explosive                 numeric := is_explosive;
-  -- p_is_lighter_than_air          numeric := is_lighter_than_air;
-  -- p_flammability_ratio           numeric := flammability_ratio;
-  -- p_elec_conductivity_range_from numeric := elec_conductivity_range_from;
-  -- p_elec_conductivity_range_to   numeric := elec_conductivity_range_to;
-  -- p_elec_conductivity_range_unit varchar := elec_conductivity_range_unit;
-  -- p_concentration                numeric := concentration;
-  -- p_concentration_unit           varchar := concentration_unit;
-  -- p_ph_value_range_from          numeric := ph_value_range_from;
-  -- p_ph_value_range_to            numeric := ph_value_range_to;
-  -- p_ph_value_range_unit          varchar := ph_value_range_unit;
-  -- p_temperature_range_from       numeric := temperature_range_from;
-  -- p_temperature_range_to         numeric := temperature_range_to;
-  -- p_temperature_range_unit       varchar := temperature_range_unit;
-  -- p_flow_rate_range_from         numeric := flow_rate_range_from;
-  -- p_flow_rate_range_to           numeric := flow_rate_range_to;
-  -- p_flow_rate_range_unit         varchar := flow_rate_range_unit;
-  -- p_pressure_range_from          numeric := pressure_range_from;
-  -- p_pressure_range_to            numeric := pressure_range_to;
-  -- p_pressure_range_unit          varchar := pressure_range_unit;
-  -- p_voltage_range_from           numeric := voltage_range_from;
-  -- p_voltage_range_to             numeric := voltage_range_to;
-  -- p_voltage_range_unit           varchar := voltage_range_unit;
-  -- p_amperage_range_from          numeric := amperage_range_from;
-  -- p_amperage_range_to            numeric := amperage_range_to;
-  -- p_amperage_range_unit          varchar := amperage_range_unit;
-  -- p_bandwidth_range_from         numeric := bandwidth_range_from;
-  -- p_bandwidth_range_to           numeric := bandwidth_range_to;
-  -- p_bandwidth_range_unit         varchar := bandwidth_range_unit;
-  -- p_optical_mode                 varchar := optical_mode;
--- --
-  -- p_schema_name varchar := schema_name;
-  -- class_name varchar DEFAULT 'Construction'::varchar;
-  -- db_prefix varchar DEFAULT 'utn9';
-  -- objectclass_id integer;
-  -- inserted_id integer;
--- BEGIN
--- objectclass_id=citydb_pkg.objectclass_classname_to_id(class_name, db_prefix, p_schema_name);
-
--- inserted_id=citydb_pkg.utn9_insert_commodity(
-    -- id                           :=p_id,
-    -- objectclass_id               :=objectclass_id,  -- objectclass ID
-    -- gmlid                        :=p_gmlid,
-    -- gmlid_codespace              :=p_gmlid_codespace,
-    -- name                         :=p_name,
-    -- name_codespace               :=p_name_codespace,
-    -- description                  :=p_description,
-    -- owner                        :=owner,
-    -- type                         :=type,
-    -- is_corrosive                 :=is_corrosive,
-    -- is_explosive                 :=is_explosive,
-    -- is_lighter_than_air          :=is_lighter_than_air,
-    -- flammability_ratio           :=flammability_ratio,
-    -- elec_conductivity_range_from :=elec_conductivity_range_from,
-    -- elec_conductivity_range_to   :=elec_conductivity_range_to,
-    -- elec_conductivity_range_unit :=elec_conductivity_range_unit,
-    -- concentration                :=concentration,
-    -- concentration_unit           :=concentration_unit,
-    -- ph_value_range_from          :=ph_value_range_from,
-    -- ph_value_range_to            :=ph_value_range_to,
-    -- ph_value_range_unit          :=ph_value_range_unit,
-    -- temperature_range_from       :=temperature_range_from,
-    -- temperature_range_to         :=temperature_range_to,
-    -- temperature_range_unit       :=temperature_range_unit,
-    -- flow_rate_range_from         :=flow_rate_range_from,
-    -- flow_rate_range_to           :=flow_rate_range_to,
-    -- flow_rate_range_unit         :=flow_rate_range_unit,
-    -- pressure_range_from          :=pressure_range_from,
-    -- pressure_range_to            :=pressure_range_to,
-    -- pressure_range_unit          :=pressure_range_unit,
-    -- voltage_range_from           :=voltage_range_from,
-    -- voltage_range_to             :=voltage_range_to,
-    -- voltage_range_unit           :=voltage_range_unit,
-    -- amperage_range_from          :=amperage_range_from,
-    -- amperage_range_to            :=amperage_range_to,
-    -- amperage_range_unit          :=amperage_range_unit,
-    -- bandwidth_range_from         :=bandwidth_range_from,
-    -- bandwidth_range_to           :=bandwidth_range_to,
-    -- bandwidth_range_unit         :=bandwidth_range_unit,
-    -- optical_mode                 :=optical_mode,
--- --
-    -- schema_name             :=p_schema_name  -- schema name
--- );
--- RETURN inserted_id;
--- EXCEPTION
-	-- WHEN OTHERS THEN RAISE NOTICE 'citydb_view.utn9_insert_commodity_xxx(): %', SQLERRM;
--- END;
--- $BODY$
--- LANGUAGE plpgsql VOLATILE;
 
 ---------------------------------------------------------------
 -- Function UTN9_INSERT_COMMODITY_ELECTRICAL_MEDIUM
@@ -3697,12 +3527,12 @@ DECLARE
   p_reason_for_update      varchar(4000)               := reason_for_update     ;
   p_lineage                varchar(256)                := lineage               ;
 --
-  p_network_parent_id integer := network_parent_id;
-  p_network_root_id   integer := network_root_id;
-  p_class             varchar := class;
-  p_function          varchar := function;
-  p_usage             varchar := usage;
-  p_commodity_id      integer := commodity_id;
+  p_network_parent_id      integer := network_parent_id;
+  p_network_root_id        integer := network_root_id;
+  p_class                  varchar := class;
+  p_function               varchar := function;
+  p_usage                  varchar := usage;
+  p_commodity_id           integer := commodity_id;
 --
   p_schema_name varchar := schema_name;
   class_name varchar DEFAULT 'Network'::varchar;
@@ -7071,6 +6901,333 @@ EXCEPTION
 END;
 $BODY$
 LANGUAGE plpgsql VOLATILE;
+
+---------------------------------------------------------------
+-- Function INSERT_COMMODITY (generic) com_classname att IS NOT NULL
+---------------------------------------------------------------
+CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_commodity(
+classname                    varchar,
+--  
+id                           integer DEFAULT NULL,
+gmlid                        varchar DEFAULT NULL,
+gmlid_codespace              varchar DEFAULT NULL,
+name                         varchar DEFAULT NULL,
+name_codespace               varchar DEFAULT NULL,
+description                  text    DEFAULT NULL,
+owner                        varchar DEFAULT NULL,
+type                         varchar DEFAULT NULL,
+is_corrosive                 numeric(1) DEFAULT NULL,
+is_explosive                 numeric(1) DEFAULT NULL,
+is_lighter_than_air          numeric(1) DEFAULT NULL,
+flammability_ratio           numeric DEFAULT NULL,
+elec_conductivity_range_from numeric DEFAULT NULL,
+elec_conductivity_range_to   numeric DEFAULT NULL,	
+elec_conductivity_range_unit varchar DEFAULT NULL,
+concentration                numeric DEFAULT NULL,
+concentration_unit           varchar DEFAULT NULL,	
+ph_value_range_from          numeric DEFAULT NULL,
+ph_value_range_to            numeric DEFAULT NULL,
+ph_value_range_unit          varchar DEFAULT NULL,	
+temperature_range_from       numeric DEFAULT NULL,
+temperature_range_to         numeric DEFAULT NULL,
+temperature_range_unit       varchar DEFAULT NULL,	
+flow_rate_range_from         numeric DEFAULT NULL,
+flow_rate_range_to           numeric DEFAULT NULL,
+flow_rate_range_unit         varchar DEFAULT NULL,		
+pressure_range_from          numeric DEFAULT NULL,
+pressure_range_to            numeric DEFAULT NULL,
+pressure_range_unit          varchar DEFAULT NULL,
+voltage_range_from           numeric DEFAULT NULL,
+voltage_range_to             numeric DEFAULT NULL,
+voltage_range_unit           varchar DEFAULT NULL,
+amperage_range_from          numeric DEFAULT NULL,
+amperage_range_to            numeric DEFAULT NULL,
+amperage_range_unit          varchar DEFAULT NULL,
+bandwidth_range_from         numeric DEFAULT NULL,
+bandwidth_range_to           numeric DEFAULT NULL,
+bandwidth_range_unit         varchar DEFAULT NULL,
+optical_mode	             varchar DEFAULT NULL,
+--
+schema_name varchar DEFAULT 'citydb'::varchar
+)
+RETURNS integer
+AS $$
+DECLARE
+p_id                           integer    :=id                          ;
+p_gmlid                        varchar    :=gmlid                       ;
+p_gmlid_codespace              varchar    :=gmlid_codespace             ;
+p_name                         varchar    :=name                        ;
+p_name_codespace               varchar    :=name_codespace              ;
+p_description                  text       :=description                 ;
+p_owner                        varchar    :=owner                       ;
+p_type                         varchar    :=type                        ;
+p_is_corrosive                 numeric(1) :=is_corrosive                ;
+p_is_explosive                 numeric(1) :=is_explosive                ;
+p_is_lighter_than_air          numeric(1) :=is_lighter_than_air         ;
+p_flammability_ratio           numeric    :=flammability_ratio          ;
+p_elec_conductivity_range_from numeric    :=elec_conductivity_range_from;
+p_elec_conductivity_range_to   numeric    :=elec_conductivity_range_to  ;	
+p_elec_conductivity_range_unit varchar    :=elec_conductivity_range_unit;
+p_concentration                numeric    :=concentration               ;
+p_concentration_unit           varchar    :=concentration_unit          ;	
+p_ph_value_range_from          numeric    :=ph_value_range_from         ;
+p_ph_value_range_to            numeric    :=ph_value_range_to           ;
+p_ph_value_range_unit          varchar    :=ph_value_range_unit         ;	
+p_temperature_range_from       numeric    :=temperature_range_from      ;
+p_temperature_range_to         numeric    :=temperature_range_to        ;
+p_temperature_range_unit       varchar    :=temperature_range_unit      ;	
+p_flow_rate_range_from         numeric    :=flow_rate_range_from        ;
+p_flow_rate_range_to           numeric    :=flow_rate_range_to          ;
+p_flow_rate_range_unit         varchar    :=flow_rate_range_unit        ;		
+p_pressure_range_from          numeric    :=pressure_range_from         ;
+p_pressure_range_to            numeric    :=pressure_range_to           ;
+p_pressure_range_unit          varchar    :=pressure_range_unit         ;
+p_voltage_range_from           numeric    :=voltage_range_from          ;
+p_voltage_range_to             numeric    :=voltage_range_to            ;
+p_voltage_range_unit           varchar    :=voltage_range_unit          ;
+p_amperage_range_from          numeric    :=amperage_range_from         ;
+p_amperage_range_to            numeric    :=amperage_range_to           ;
+p_amperage_range_unit          varchar    :=amperage_range_unit         ;
+p_bandwidth_range_from         numeric    :=bandwidth_range_from        ;
+p_bandwidth_range_to           numeric    :=bandwidth_range_to          ;
+p_bandwidth_range_unit         varchar    :=bandwidth_range_unit        ;
+p_optical_mode	               varchar    :=optical_mode	            ; 
+--
+p_schema_name varchar := schema_name;
+class_name varchar    := classname;
+db_prefix varchar DEFAULT 'utn9';
+inserted_id integer;
+BEGIN
+
+CASE class_name
+	WHEN 'ElectricalMedium' THEN
+		inserted_id=citydb_view.utn9_insert_commodity_electrical_medium (
+          id                           := p_id,
+          gmlid                        := p_gmlid,
+          gmlid_codespace              := p_gmlid_codespace,
+          name                         := p_name,
+          name_codespace               := p_name_codespace,
+          description                  := p_description,
+          owner                        := owner,
+          type                         := type,
+--          is_corrosive                 := is_corrosive,
+--          is_explosive                 := is_explosive,
+--          is_lighter_than_air          := is_lighter_than_air,
+--          flammability_ratio           := flammability_ratio,
+--          elec_conductivity_range_from := elec_conductivity_range_from,
+--          elec_conductivity_range_to   := elec_conductivity_range_to,
+--          elec_conductivity_range_unit := elec_conductivity_range_unit,
+--          concentration                := concentration,
+--          concentration_unit           := concentration_unit,
+--          ph_value_range_from          := ph_value_range_from,
+--          ph_value_range_to            := ph_value_range_to,
+--          ph_value_range_unit          := ph_value_range_unit,
+--          temperature_range_from       := temperature_range_from,
+--          temperature_range_to         := temperature_range_to,
+--          temperature_range_unit       := temperature_range_unit,
+--          flow_rate_range_from         := flow_rate_range_from,
+--          flow_rate_range_to           := flow_rate_range_to,
+--          flow_rate_range_unit         := flow_rate_range_unit,
+--          pressure_range_from          := pressure_range_from,
+--          pressure_range_to            := pressure_range_to,
+--          pressure_range_unit          := pressure_range_unit,
+          voltage_range_from           := voltage_range_from,
+          voltage_range_to             := voltage_range_to,
+          voltage_range_unit           := voltage_range_unit,
+          amperage_range_from          := amperage_range_from,
+          amperage_range_to            := amperage_range_to,
+          amperage_range_unit          := amperage_range_unit,
+          bandwidth_range_from         := bandwidth_range_from,
+          bandwidth_range_to           := bandwidth_range_to,
+          bandwidth_range_unit         := bandwidth_range_unit,
+          optical_mode                 := optical_mode,
+          --		
+	      schema_name                  :=p_schema_name
+		);
+	WHEN 'GaseousMedium' THEN
+		inserted_id=citydb_view.utn9_insert_commodity_gaseous_medium (
+          id                           := p_id,
+          gmlid                        := p_gmlid,
+          gmlid_codespace              := p_gmlid_codespace,
+          name                         := p_name,
+          name_codespace               := p_name_codespace,
+          description                  := p_description,
+          owner                        := owner,
+          type                         := type,
+--          is_corrosive                 := is_corrosive,
+          is_explosive                 := is_explosive,
+          is_lighter_than_air          := is_lighter_than_air,
+--          flammability_ratio           := flammability_ratio,
+          elec_conductivity_range_from := elec_conductivity_range_from,
+          elec_conductivity_range_to   := elec_conductivity_range_to,
+          elec_conductivity_range_unit := elec_conductivity_range_unit,
+          concentration                := concentration,
+          concentration_unit           := concentration_unit,
+--          ph_value_range_from          := ph_value_range_from,
+--          ph_value_range_to            := ph_value_range_to,
+--          ph_value_range_unit          := ph_value_range_unit,
+--          temperature_range_from       := temperature_range_from,
+--          temperature_range_to         := temperature_range_to,
+--          temperature_range_unit       := temperature_range_unit,
+--          flow_rate_range_from         := flow_rate_range_from,
+--          flow_rate_range_to           := flow_rate_range_to,
+--          flow_rate_range_unit         := flow_rate_range_unit,
+          pressure_range_from          := pressure_range_from,
+          pressure_range_to            := pressure_range_to,
+          pressure_range_unit          := pressure_range_unit,
+--          voltage_range_from           := voltage_range_from,
+--          voltage_range_to             := voltage_range_to,
+--          voltage_range_unit           := voltage_range_unit,
+--          amperage_range_from          := amperage_range_from,
+--          amperage_range_to            := amperage_range_to,
+--          amperage_range_unit          := amperage_range_unit,
+--          bandwidth_range_from         := bandwidth_range_from,
+--          bandwidth_range_to           := bandwidth_range_to,
+--          bandwidth_range_unit         := bandwidth_range_unit,
+--          optical_mode                 := optical_mode,
+          --		
+	      schema_name                  :=p_schema_name
+		);
+	WHEN 'LiquidMedium' THEN
+		inserted_id=citydb_view.utn9_insert_commodity_liquid_medium (
+          id                           := p_id,
+          gmlid                        := p_gmlid,
+          gmlid_codespace              := p_gmlid_codespace,
+          name                         := p_name,
+          name_codespace               := p_name_codespace,
+          description                  := p_description,
+          owner                        := owner,
+          type                         := type,
+          is_corrosive                 := is_corrosive,
+          is_explosive                 := is_explosive,
+          is_lighter_than_air          := is_lighter_than_air,
+          flammability_ratio           := flammability_ratio,
+          elec_conductivity_range_from := elec_conductivity_range_from,
+          elec_conductivity_range_to   := elec_conductivity_range_to,
+          elec_conductivity_range_unit := elec_conductivity_range_unit,
+--          concentration                := concentration,
+--          concentration_unit           := concentration_unit,
+          ph_value_range_from          := ph_value_range_from,
+          ph_value_range_to            := ph_value_range_to,
+          ph_value_range_unit          := ph_value_range_unit,
+          temperature_range_from       := temperature_range_from,
+          temperature_range_to         := temperature_range_to,
+          temperature_range_unit       := temperature_range_unit,
+          flow_rate_range_from         := flow_rate_range_from,
+          flow_rate_range_to           := flow_rate_range_to,
+          flow_rate_range_unit         := flow_rate_range_unit,
+          pressure_range_from          := pressure_range_from,
+          pressure_range_to            := pressure_range_to,
+          pressure_range_unit          := pressure_range_unit,
+--          voltage_range_from           := voltage_range_from,
+--          voltage_range_to             := voltage_range_to,
+--          voltage_range_unit           := voltage_range_unit,
+--          amperage_range_from          := amperage_range_from,
+--          amperage_range_to            := amperage_range_to,
+--          amperage_range_unit          := amperage_range_unit,
+--          bandwidth_range_from         := bandwidth_range_from,
+--          bandwidth_range_to           := bandwidth_range_to,
+--          bandwidth_range_unit         := bandwidth_range_unit,
+--          optical_mode                 := optical_mode,
+          --		
+	      schema_name                  :=p_schema_name
+		);
+	WHEN 'OpticalMedium' THEN
+		inserted_id=citydb_view.utn9_insert_commodity_optical_medium (
+          id                           := p_id,
+          gmlid                        := p_gmlid,
+          gmlid_codespace              := p_gmlid_codespace,
+          name                         := p_name,
+          name_codespace               := p_name_codespace,
+          description                  := p_description,
+          owner                        := owner,
+          type                         := type,
+--        is_corrosive                 := is_corrosive,
+--        is_explosive                 := is_explosive,
+--        is_lighter_than_air          := is_lighter_than_air,
+--        flammability_ratio           := flammability_ratio,
+--        elec_conductivity_range_from := elec_conductivity_range_from,
+--        elec_conductivity_range_to   := elec_conductivity_range_to,
+--        elec_conductivity_range_unit := elec_conductivity_range_unit,
+--        concentration                := concentration,
+--        concentration_unit           := concentration_unit,
+--        ph_value_range_from          := ph_value_range_from,
+--        ph_value_range_to            := ph_value_range_to,
+--        ph_value_range_unit          := ph_value_range_unit,
+--        temperature_range_from       := temperature_range_from,
+--        temperature_range_to         := temperature_range_to,
+--        temperature_range_unit       := temperature_range_unit,
+--        flow_rate_range_from         := flow_rate_range_from,
+--        flow_rate_range_to           := flow_rate_range_to,
+--        flow_rate_range_unit         := flow_rate_range_unit,
+--        pressure_range_from          := pressure_range_from,
+--        pressure_range_to            := pressure_range_to,
+--        pressure_range_unit          := pressure_range_unit,
+--        voltage_range_from           := voltage_range_from,
+--        voltage_range_to             := voltage_range_to,
+--        voltage_range_unit           := voltage_range_unit,
+--        amperage_range_from          := amperage_range_from,
+--        amperage_range_to            := amperage_range_to,
+--        amperage_range_unit          := amperage_range_unit,
+          bandwidth_range_from         := bandwidth_range_from,
+          bandwidth_range_to           := bandwidth_range_to,
+          bandwidth_range_unit         := bandwidth_range_unit,
+          optical_mode                 := optical_mode,
+          --		
+	      schema_name                  :=p_schema_name
+		);
+	WHEN 'SolidMedium' THEN
+		inserted_id=citydb_view.utn9_insert_commodity_solid_medium (
+          id                           := p_id,
+          gmlid                        := p_gmlid,
+          gmlid_codespace              := p_gmlid_codespace,
+          name                         := p_name,
+          name_codespace               := p_name_codespace,
+          description                  := p_description,
+          owner                        := owner,
+          type                         := type,
+--          is_corrosive                 := is_corrosive,
+          is_explosive                 := is_explosive,
+--          is_lighter_than_air          := is_lighter_than_air,
+          flammability_ratio           := flammability_ratio,
+          elec_conductivity_range_from := elec_conductivity_range_from,
+          elec_conductivity_range_to   := elec_conductivity_range_to,
+          elec_conductivity_range_unit := elec_conductivity_range_unit,
+          concentration                := concentration,
+          concentration_unit           := concentration_unit,
+--          ph_value_range_from          := ph_value_range_from,
+--          ph_value_range_to            := ph_value_range_to,
+--          ph_value_range_unit          := ph_value_range_unit,
+--          temperature_range_from       := temperature_range_from,
+--          temperature_range_to         := temperature_range_to,
+--          temperature_range_unit       := temperature_range_unit,
+--          flow_rate_range_from         := flow_rate_range_from,
+--          flow_rate_range_to           := flow_rate_range_to,
+--          flow_rate_range_unit         := flow_rate_range_unit,
+          pressure_range_from          := pressure_range_from,
+          pressure_range_to            := pressure_range_to,
+          pressure_range_unit          := pressure_range_unit,
+--          voltage_range_from           := voltage_range_from,
+--          voltage_range_to             := voltage_range_to,
+--          voltage_range_unit           := voltage_range_unit,
+--          amperage_range_from          := amperage_range_from,
+--          amperage_range_to            := amperage_range_to,
+--          amperage_range_unit          := amperage_range_unit,
+--          bandwidth_range_from         := bandwidth_range_from,
+--          bandwidth_range_to           := bandwidth_range_to,
+--          bandwidth_range_unit         := bandwidth_range_unit,
+--          optical_mode                 := optical_mode,
+          --		
+	      schema_name                  :=p_schema_name
+		);
+	ELSE
+	RAISE EXCEPTION 'classname "%" not valid', class_name USING HINT = 'Valid values are "ElectricalMedium", "GaseousMedium", "LiquidMedium", "OpticalMedium", "SolidMedium"';
+END CASE;
+RETURN inserted_id;
+EXCEPTION
+  WHEN OTHERS THEN RAISE NOTICE 'citydb_view.utn9_insert_commodity(): %', SQLERRM;
+END;
+$$ LANGUAGE plpgsql VOLATILE;
 
 -- ***********************************************************************
 -- ***********************************************************************
