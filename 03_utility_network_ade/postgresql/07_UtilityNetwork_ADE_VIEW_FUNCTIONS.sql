@@ -3562,15 +3562,15 @@ inserted_id=citydb_pkg.insert_cityobject(
     schema_name           :=p_schema_name
 );
 
-inserted_id=citydb_pkg.utn9_insert_network(
-    id                           :=p_id,
+PERFORM citydb_pkg.utn9_insert_network(
+    id                           :=inserted_id,
     objectclass_id               :=objectclass_id,  -- objectclass ID
     network_parent_id            :=p_network_parent_id,
-    network_root_id  		         :=p_network_root_id  ,
-    class            		         :=p_class            ,
-    function         		         :=p_function         ,
-    usage            		         :=p_usage            ,
-    commodity_id     		         :=p_commodity_id     ,
+    network_root_id  		     :=p_network_root_id  ,
+    class            		     :=p_class            ,
+    function         		     :=p_function         ,
+    usage            		     :=p_usage            ,
+    commodity_id     		     :=p_commodity_id     ,
 --
     schema_name             :=p_schema_name  -- schema name
 );
@@ -3740,8 +3740,8 @@ inserted_id=citydb_pkg.insert_cityobject(
     schema_name           :=p_schema_name
 );
 
-inserted_id=citydb_pkg.utn9_insert_network_feature(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_network_feature(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
     ntw_feature_parent_id :=p_ntw_feature_parent_id,
     ntw_feature_root_id  	:=p_ntw_feature_root_id  ,
@@ -3861,8 +3861,8 @@ inserted_id=citydb_pkg.insert_cityobject(
     schema_name           :=p_schema_name
 );
 
-inserted_id=citydb_pkg.utn9_insert_network_feature(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_network_feature(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
     ntw_feature_parent_id :=p_ntw_feature_parent_id,
     ntw_feature_root_id  	:=p_ntw_feature_root_id  ,
@@ -3982,8 +3982,8 @@ inserted_id=citydb_pkg.insert_cityobject(
     schema_name           :=p_schema_name
 );
 
-inserted_id=citydb_pkg.utn9_insert_network_feature(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_network_feature(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
     ntw_feature_parent_id :=p_ntw_feature_parent_id,
     ntw_feature_root_id  	:=p_ntw_feature_root_id  ,
@@ -4103,8 +4103,8 @@ inserted_id=citydb_pkg.insert_cityobject(
     schema_name           :=p_schema_name
 );
 
-inserted_id=citydb_pkg.utn9_insert_network_feature(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_network_feature(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
     ntw_feature_parent_id :=p_ntw_feature_parent_id,
     ntw_feature_root_id  	:=p_ntw_feature_root_id  ,
@@ -4224,8 +4224,8 @@ inserted_id=citydb_pkg.insert_cityobject(
     schema_name           :=p_schema_name
 );
 
-inserted_id=citydb_pkg.utn9_insert_network_feature(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_network_feature(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
     ntw_feature_parent_id :=p_ntw_feature_parent_id,
     ntw_feature_root_id  	:=p_ntw_feature_root_id  ,
@@ -4345,8 +4345,8 @@ inserted_id=citydb_pkg.insert_cityobject(
     schema_name           :=p_schema_name
 );
 
-inserted_id=citydb_pkg.utn9_insert_network_feature(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_network_feature(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
     ntw_feature_parent_id :=p_ntw_feature_parent_id,
     ntw_feature_root_id  	:=p_ntw_feature_root_id  ,
@@ -4466,8 +4466,8 @@ inserted_id=citydb_pkg.insert_cityobject(
     schema_name           :=p_schema_name
 );
 
-inserted_id=citydb_pkg.utn9_insert_network_feature(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_network_feature(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
     ntw_feature_parent_id :=p_ntw_feature_parent_id,
     ntw_feature_root_id  	:=p_ntw_feature_root_id  ,
@@ -4587,8 +4587,8 @@ inserted_id=citydb_pkg.insert_cityobject(
     schema_name           :=p_schema_name
 );
 
-inserted_id=citydb_pkg.utn9_insert_network_feature(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_network_feature(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
     ntw_feature_parent_id :=p_ntw_feature_parent_id,
     ntw_feature_root_id  	:=p_ntw_feature_root_id  ,
@@ -4754,8 +4754,8 @@ inserted_id=citydb_pkg.insert_cityobject(
     schema_name           :=p_schema_name
 );
 
-inserted_id=citydb_pkg.utn9_insert_network_feature(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_network_feature(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
     ntw_feature_parent_id :=p_ntw_feature_parent_id,
     ntw_feature_root_id  	:=p_ntw_feature_root_id  ,
@@ -4773,8 +4773,8 @@ inserted_id=citydb_pkg.utn9_insert_network_feature(
     schema_name             :=p_schema_name  -- schema name
 );
 
-inserted_id=citydb_pkg.utn9_insert_distribution_element(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_distribution_element(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
 		function_of_line      :=p_function_of_line  ,
 --  is_gravity            :=p_is_gravity        ,
@@ -4950,8 +4950,8 @@ inserted_id=citydb_pkg.insert_cityobject(
     schema_name           :=p_schema_name
 );
 
-inserted_id=citydb_pkg.utn9_insert_network_feature(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_network_feature(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
     ntw_feature_parent_id :=p_ntw_feature_parent_id,
     ntw_feature_root_id  	:=p_ntw_feature_root_id  ,
@@ -4969,8 +4969,8 @@ inserted_id=citydb_pkg.utn9_insert_network_feature(
     schema_name             :=p_schema_name  -- schema name
 );
 
-inserted_id=citydb_pkg.utn9_insert_distribution_element(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_distribution_element(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
 		function_of_line      :=p_function_of_line  ,
     is_gravity            :=p_is_gravity        ,
@@ -5146,8 +5146,8 @@ inserted_id=citydb_pkg.insert_cityobject(
     schema_name           :=p_schema_name
 );
 
-inserted_id=citydb_pkg.utn9_insert_network_feature(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_network_feature(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
     ntw_feature_parent_id :=p_ntw_feature_parent_id,
     ntw_feature_root_id  	:=p_ntw_feature_root_id  ,
@@ -5165,8 +5165,8 @@ inserted_id=citydb_pkg.utn9_insert_network_feature(
     schema_name             :=p_schema_name  -- schema name
 );
 
-inserted_id=citydb_pkg.utn9_insert_distribution_element(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_distribution_element(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
 		function_of_line      :=p_function_of_line  ,
     is_gravity            :=p_is_gravity        ,
@@ -5342,8 +5342,8 @@ inserted_id=citydb_pkg.insert_cityobject(
     schema_name           :=p_schema_name
 );
 
-inserted_id=citydb_pkg.utn9_insert_network_feature(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_network_feature(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
     ntw_feature_parent_id :=p_ntw_feature_parent_id,
     ntw_feature_root_id  	:=p_ntw_feature_root_id  ,
@@ -5361,8 +5361,8 @@ inserted_id=citydb_pkg.utn9_insert_network_feature(
     schema_name             :=p_schema_name  -- schema name
 );
 
-inserted_id=citydb_pkg.utn9_insert_distribution_element(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_distribution_element(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
 		function_of_line      :=p_function_of_line  ,
     is_gravity            :=p_is_gravity        ,
@@ -5487,7 +5487,7 @@ DECLARE
   p_prot_element_id        integer  := prot_element_id;
   p_geom                   geometry := geom;	
 --
-	p_function_of_line   varchar := function_of_line  ;
+  p_function_of_line   varchar := function_of_line  ;
   p_is_gravity         numeric := is_gravity        ;
 --  p_is_transmission    numeric := is_transmission   ;
 --  p_is_communication   numeric := is_communication  ;
@@ -5538,8 +5538,8 @@ inserted_id=citydb_pkg.insert_cityobject(
     schema_name           :=p_schema_name
 );
 
-inserted_id=citydb_pkg.utn9_insert_network_feature(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_network_feature(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
     ntw_feature_parent_id :=p_ntw_feature_parent_id,
     ntw_feature_root_id  	:=p_ntw_feature_root_id  ,
@@ -5557,8 +5557,8 @@ inserted_id=citydb_pkg.utn9_insert_network_feature(
     schema_name             :=p_schema_name  -- schema name
 );
 
-inserted_id=citydb_pkg.utn9_insert_distribution_element(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_distribution_element(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
 		function_of_line      :=p_function_of_line  ,
     is_gravity            :=p_is_gravity        ,
@@ -5734,8 +5734,8 @@ inserted_id=citydb_pkg.insert_cityobject(
     schema_name           :=p_schema_name
 );
 
-inserted_id=citydb_pkg.utn9_insert_network_feature(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_network_feature(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
     ntw_feature_parent_id :=p_ntw_feature_parent_id,
     ntw_feature_root_id  	:=p_ntw_feature_root_id  ,
@@ -5753,8 +5753,8 @@ inserted_id=citydb_pkg.utn9_insert_network_feature(
     schema_name             :=p_schema_name  -- schema name
 );
 
-inserted_id=citydb_pkg.utn9_insert_distribution_element(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_distribution_element(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
 		function_of_line      :=p_function_of_line  ,
     is_gravity            :=p_is_gravity        ,
@@ -5930,8 +5930,8 @@ inserted_id=citydb_pkg.insert_cityobject(
     schema_name           :=p_schema_name
 );
 
-inserted_id=citydb_pkg.utn9_insert_network_feature(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_network_feature(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
     ntw_feature_parent_id :=p_ntw_feature_parent_id,
     ntw_feature_root_id  	:=p_ntw_feature_root_id  ,
@@ -5949,7 +5949,7 @@ inserted_id=citydb_pkg.utn9_insert_network_feature(
     schema_name             :=p_schema_name  -- schema name
 );
 
-inserted_id=citydb_pkg.utn9_insert_distribution_element(
+PERFORM citydb_pkg.utn9_insert_distribution_element(
     id                    :=p_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
 		function_of_line      :=p_function_of_line  ,
@@ -6110,8 +6110,8 @@ inserted_id=citydb_pkg.insert_cityobject(
     schema_name           :=p_schema_name
 );
 
-inserted_id=citydb_pkg.utn9_insert_network_feature(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_network_feature(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
     ntw_feature_parent_id :=p_ntw_feature_parent_id,
     ntw_feature_root_id  	:=p_ntw_feature_root_id  ,
@@ -6129,8 +6129,8 @@ inserted_id=citydb_pkg.utn9_insert_network_feature(
     schema_name             :=p_schema_name  -- schema name
 );
 
-inserted_id=citydb_pkg.utn9_insert_protective_element(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_protective_element(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
 --  ext_width             :=p_ext_width        ,
 --  ext_width_unit        :=p_ext_width_unit   ,
@@ -6282,8 +6282,8 @@ inserted_id=citydb_pkg.insert_cityobject(
     schema_name           :=p_schema_name
 );
 
-inserted_id=citydb_pkg.utn9_insert_network_feature(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_network_feature(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
     ntw_feature_parent_id :=p_ntw_feature_parent_id,
     ntw_feature_root_id  	:=p_ntw_feature_root_id  ,
@@ -6301,8 +6301,8 @@ inserted_id=citydb_pkg.utn9_insert_network_feature(
     schema_name             :=p_schema_name  -- schema name
 );
 
-inserted_id=citydb_pkg.utn9_insert_protective_element(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_protective_element(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
     ext_width             :=p_ext_width        ,
     ext_width_unit        :=p_ext_width_unit   ,
@@ -6454,8 +6454,8 @@ inserted_id=citydb_pkg.insert_cityobject(
     schema_name           :=p_schema_name
 );
 
-inserted_id=citydb_pkg.utn9_insert_network_feature(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_network_feature(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
     ntw_feature_parent_id :=p_ntw_feature_parent_id,
     ntw_feature_root_id  	:=p_ntw_feature_root_id  ,
@@ -6473,8 +6473,8 @@ inserted_id=citydb_pkg.utn9_insert_network_feature(
     schema_name             :=p_schema_name  -- schema name
 );
 
-inserted_id=citydb_pkg.utn9_insert_protective_element(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_protective_element(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
     ext_width             :=p_ext_width        ,
     ext_width_unit        :=p_ext_width_unit   ,
@@ -6626,8 +6626,8 @@ inserted_id=citydb_pkg.insert_cityobject(
     schema_name           :=p_schema_name
 );
 
-inserted_id=citydb_pkg.utn9_insert_network_feature(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_network_feature(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
     ntw_feature_parent_id :=p_ntw_feature_parent_id,
     ntw_feature_root_id  	:=p_ntw_feature_root_id  ,
@@ -6645,8 +6645,8 @@ inserted_id=citydb_pkg.utn9_insert_network_feature(
     schema_name             :=p_schema_name  -- schema name
 );
 
-inserted_id=citydb_pkg.utn9_insert_protective_element(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_protective_element(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
     ext_width             :=p_ext_width        ,
     ext_width_unit        :=p_ext_width_unit   ,
