@@ -1317,7 +1317,6 @@ CREATE OR REPLACE VIEW citydb_view.utn9_supply_area_to_cityobject AS
 	co.id = gtc.cityobject_id AND
 	co.objectclass_id = o1.id AND
 	o2.classname='SupplyArea';
-ALTER TABLE citydb_view.group_to_cityobject OWNER TO postgres;
 --ALTER VIEW citydb_view.utn9_supply_area_to_cityobject OWNER TO postgres;	
 	
 ----------------------------------------------------------------
