@@ -156,7 +156,7 @@ EXECUTE format('SELECT citydb_pkg.utn9_delete_network_feature(id, %L) FROM %I.ut
 
 -- Delete the depending hollow_spaces(s)
 EXECUTE format('SELECT id FROM %I.utn9_hollow_space WHERE ntw_feature_id=%L', schema_name, o_id) INTO hs_id;
-EXECUTE 'SELECT citydb_pkg.utn9_delete_hollow_space($1, $2)' USING schema_name, hs_id;
+EXECUTE 'SELECT citydb_pkg.utn9_delete_hollow_space($1, $2)' USING hs_id, schema_name;
 
 -- No need to delete reference to material (on delete cascade in m:n table)
 -- No need to delete reference to network (on delete cascade in m:n table)
@@ -164,7 +164,7 @@ EXECUTE 'SELECT citydb_pkg.utn9_delete_hollow_space($1, $2)' USING schema_name, 
 -- Delete the depending feature_graph (topology)
 EXECUTE format('SELECT id FROM %I.utn9_feature_graph WHERE ntw_feature_id=%L', schema_name, o_id) INTO fg_id;
 IF fg_id IS NOT NULL THEN
-  EXECUTE 'SELECT citydb_pkg.utn9_delete_feature_graph($1, $2)' USING schema_name, fg_id;
+  EXECUTE 'SELECT citydb_pkg.utn9_delete_feature_graph($1, $2)' USING fg_id, schema_name;
 END IF;
 
 -- Delete the network_feature itself
