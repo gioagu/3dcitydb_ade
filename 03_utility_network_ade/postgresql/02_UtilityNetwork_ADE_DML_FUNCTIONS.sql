@@ -763,20 +763,20 @@ $$ LANGUAGE 'plpgsql';
 CREATE OR REPLACE FUNCTION citydb_pkg.utn9_insert_distrib_element (
   id                 integer,
   objectclass_id     integer,
-	function_of_line   varchar DEFAULT NULL,
+  function_of_line   varchar DEFAULT NULL,
   is_gravity         numeric DEFAULT NULL,
   is_transmission    numeric DEFAULT NULL,
   is_communication   numeric DEFAULT NULL,
   ext_width          numeric DEFAULT NULL,
   ext_width_unit     varchar DEFAULT NULL,
-  ext_heigth         numeric DEFAULT NULL,
-  ext_heigth_unit    varchar DEFAULT NULL,
+  ext_height         numeric DEFAULT NULL,
+  ext_height_unit    varchar DEFAULT NULL,
   ext_diameter       numeric DEFAULT NULL,
   ext_diameter_unit  varchar DEFAULT NULL,
   int_width          numeric DEFAULT NULL,
   int_width_unit     varchar DEFAULT NULL,
-  int_heigth         numeric DEFAULT NULL,
-  int_heigth_unit    varchar DEFAULT NULL,
+  int_height         numeric DEFAULT NULL,
+  int_height_unit    varchar DEFAULT NULL,
   int_diameter       numeric DEFAULT NULL,
   int_diameter_unit  varchar DEFAULT NULL,
   cross_section      numeric DEFAULT NULL,
@@ -798,14 +798,14 @@ DECLARE
   p_is_communication   numeric := is_communication;
   p_ext_width  numeric := ext_width;
   p_ext_width_unit varchar := ext_width_unit;
-  p_ext_heigth numeric := ext_heigth;
-  p_ext_heigth_unit varchar := ext_heigth_unit;
+  p_ext_height numeric := ext_height;
+  p_ext_height_unit varchar := ext_height_unit;
   p_ext_diameter   numeric := ext_diameter;
   p_ext_diameter_unit  varchar := ext_diameter_unit;
   p_int_width  numeric := int_width;
   p_int_width_unit varchar := int_width_unit;
-  p_int_heigth numeric := int_heigth;
-  p_int_heigth_unit varchar := int_heigth_unit;
+  p_int_height numeric := int_height;
+  p_int_height_unit varchar := int_height_unit;
   p_int_diameter   numeric := int_diameter;
   p_int_diameter_unit  varchar := int_diameter_unit;
   p_cross_section  numeric := cross_section;
@@ -827,14 +827,14 @@ INSERT INTO %I.utn9_distrib_element (
  is_communication,
  ext_width,
  ext_width_unit,
- ext_heigth,
- ext_heigth_unit,
+ ext_height,
+ ext_height_unit,
  ext_diameter,
  ext_diameter_unit,
  int_width,
  int_width_unit,
- int_heigth,
- int_heigth_unit,
+ int_height,
+ int_height_unit,
  int_diameter,
  int_diameter_unit,
  cross_section,
@@ -854,14 +854,14 @@ p_is_transmission,
 p_is_communication, 
 p_ext_width, 
 p_ext_width_unit, 
-p_ext_heigth, 
-p_ext_heigth_unit, 
+p_ext_height, 
+p_ext_height_unit, 
 p_ext_diameter, 
 p_ext_diameter_unit, 
 p_int_width, 
 p_int_width_unit, 
-p_int_heigth, 
-p_int_heigth_unit, 
+p_int_height, 
+p_int_height_unit, 
 p_int_diameter, 
 p_int_diameter_unit, 
 p_cross_section, 
@@ -1592,14 +1592,14 @@ CREATE OR REPLACE FUNCTION citydb_pkg.utn9_insert_protective_element (
   objectclass_id    integer,
   ext_width         numeric DEFAULT NULL,
   ext_width_unit    varchar DEFAULT NULL,
-  ext_heigth        numeric DEFAULT NULL,
-  ext_heigth_unit   varchar DEFAULT NULL,
+  ext_height        numeric DEFAULT NULL,
+  ext_height_unit   varchar DEFAULT NULL,
   ext_diameter      numeric DEFAULT NULL,
   ext_diameter_unit varchar DEFAULT NULL,
   int_width         numeric DEFAULT NULL,
   int_width_unit    varchar DEFAULT NULL,
-  int_heigth        numeric DEFAULT NULL,
-  int_heigth_unit   varchar DEFAULT NULL,
+  int_height        numeric DEFAULT NULL,
+  int_height_unit   varchar DEFAULT NULL,
   int_diameter      numeric DEFAULT NULL,
   int_diameter_unit varchar DEFAULT NULL,
   width             numeric DEFAULT NULL,
@@ -1614,14 +1614,14 @@ DECLARE
   p_objectclass_id    integer := objectclass_id;
   p_ext_width         numeric := ext_width;
   p_ext_width_unit    varchar := ext_width_unit;
-  p_ext_heigth        numeric := ext_heigth;
-  p_ext_heigth_unit   varchar := ext_heigth_unit;
+  p_ext_height        numeric := ext_height;
+  p_ext_height_unit   varchar := ext_height_unit;
   p_ext_diameter      numeric := ext_diameter;
   p_ext_diameter_unit varchar := ext_diameter_unit;
   p_int_width         numeric := int_width;
   p_int_width_unit    varchar := int_width_unit;
-  p_int_heigth        numeric := int_heigth;
-  p_int_heigth_unit   varchar := int_heigth_unit;
+  p_int_height        numeric := int_height;
+  p_int_height_unit   varchar := int_height_unit;
   p_int_diameter      numeric := int_diameter;
   p_int_diameter_unit varchar := int_diameter_unit;
   p_width             numeric := width;
@@ -1636,14 +1636,14 @@ INSERT INTO %I.utn9_protective_element (
  objectclass_id,
  ext_width,
  ext_width_unit,
- ext_heigth,
- ext_heigth_unit,
+ ext_height,
+ ext_height_unit,
  ext_diameter,
  ext_diameter_unit,
  int_width,
  int_width_unit,
- int_heigth,
- int_heigth_unit,
+ int_height,
+ int_height_unit,
  int_diameter,
  int_diameter_unit,
  width,
@@ -1656,14 +1656,14 @@ p_id,
 p_objectclass_id, 
 p_ext_width, 
 p_ext_width_unit, 
-p_ext_heigth, 
-p_ext_heigth_unit, 
+p_ext_height, 
+p_ext_height_unit, 
 p_ext_diameter, 
 p_ext_diameter_unit, 
 p_int_width, 
 p_int_width_unit, 
-p_int_heigth, 
-p_int_heigth_unit, 
+p_int_height, 
+p_int_height_unit, 
 p_int_diameter, 
 p_int_diameter_unit, 
 p_width, 

@@ -4652,14 +4652,14 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_distrib_elem_cable(
   is_communication   numeric DEFAULT NULL,
 --ext_width          numeric DEFAULT NULL,
 --ext_width_unit     varchar DEFAULT NULL,
---ext_heigth         numeric DEFAULT NULL,
---ext_heigth_unit    varchar DEFAULT NULL,
+--ext_height         numeric DEFAULT NULL,
+--ext_height_unit    varchar DEFAULT NULL,
 --ext_diameter       numeric DEFAULT NULL,
 --ext_diameter_unit  varchar DEFAULT NULL,
 --int_width          numeric DEFAULT NULL,
 --int_width_unit     varchar DEFAULT NULL,
---int_heigth         numeric DEFAULT NULL,
---int_heigth_unit    varchar DEFAULT NULL,
+--int_height         numeric DEFAULT NULL,
+--int_height_unit    varchar DEFAULT NULL,
 --int_diameter       numeric DEFAULT NULL,
 --int_diameter_unit  varchar DEFAULT NULL,
   cross_section      numeric DEFAULT NULL,
@@ -4709,14 +4709,14 @@ DECLARE
   p_is_communication   numeric := is_communication  ;
 --p_ext_width          numeric := ext_width         ;
 --p_ext_width_unit     varchar := ext_width_unit    ;
---p_ext_heigth         numeric := ext_heigth        ;
---p_ext_heigth_unit    varchar := ext_heigth_unit   ;
+--p_ext_height         numeric := ext_height        ;
+--p_ext_height_unit    varchar := ext_height_unit   ;
 --p_ext_diameter       numeric := ext_diameter      ;
 --p_ext_diameter_unit  varchar := ext_diameter_unit ;
 --p_int_width          numeric := int_width         ;
 --p_int_width_unit     varchar := int_width_unit    ;
---p_int_heigth         numeric := int_heigth        ;
---p_int_heigth_unit    varchar := int_heigth_unit   ;
+--p_int_height         numeric := int_height        ;
+--p_int_height_unit    varchar := int_height_unit   ;
 --p_int_diameter       numeric := int_diameter      ;
 --p_int_diameter_unit  varchar := int_diameter_unit ;
   p_cross_section      numeric := cross_section     ;
@@ -4773,7 +4773,7 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
     schema_name             :=p_schema_name  -- schema name
 );
 
-PERFORM citydb_pkg.utn9_insert_distribution_element(
+PERFORM citydb_pkg.utn9_insert_distrib_element(
     id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
 		function_of_line      :=p_function_of_line  ,
@@ -4782,14 +4782,14 @@ PERFORM citydb_pkg.utn9_insert_distribution_element(
   	is_communication      :=p_is_communication  ,
 --	ext_width             :=p_ext_width         ,
 --	ext_width_unit        :=p_ext_width_unit    ,
---	ext_heigth            :=p_ext_heigth        ,
---	ext_heigth_unit       :=p_ext_heigth_unit   ,
+--	ext_height            :=p_ext_height        ,
+--	ext_height_unit       :=p_ext_height_unit   ,
 --	ext_diameter          :=p_ext_diameter      ,
 --	ext_diameter_unit     :=p_ext_diameter_unit ,
 --	int_width             :=p_int_width         ,
 --	int_width_unit        :=p_int_width_unit    ,
---	int_heigth            :=p_int_heigth        ,
---	int_heigth_unit       :=p_int_heigth_unit   ,
+--	int_height            :=p_int_height        ,
+--	int_height_unit       :=p_int_height_unit   ,
 --	int_diameter          :=p_int_diameter      ,
 --	int_diameter_unit     :=p_int_diameter_unit ,
   	cross_section         :=p_cross_section     ,
@@ -4848,14 +4848,14 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_distrib_elem_canal(
 --is_communication   numeric DEFAULT NULL,
   ext_width          numeric DEFAULT NULL,
   ext_width_unit     varchar DEFAULT NULL,
-  ext_heigth         numeric DEFAULT NULL,
-  ext_heigth_unit    varchar DEFAULT NULL,
+  ext_height         numeric DEFAULT NULL,
+  ext_height_unit    varchar DEFAULT NULL,
   ext_diameter       numeric DEFAULT NULL,
   ext_diameter_unit  varchar DEFAULT NULL,
 --int_width          numeric DEFAULT NULL,
 --int_width_unit     varchar DEFAULT NULL,
---int_heigth         numeric DEFAULT NULL,
---int_heigth_unit    varchar DEFAULT NULL,
+--int_height         numeric DEFAULT NULL,
+--int_height_unit    varchar DEFAULT NULL,
 --int_diameter       numeric DEFAULT NULL,
 --int_diameter_unit  varchar DEFAULT NULL,
 --cross_section      numeric DEFAULT NULL,
@@ -4905,14 +4905,14 @@ DECLARE
 --p_is_communication   numeric := is_communication  ;
   p_ext_width          numeric := ext_width         ;
   p_ext_width_unit     varchar := ext_width_unit    ;
-  p_ext_heigth         numeric := ext_heigth        ;
-  p_ext_heigth_unit    varchar := ext_heigth_unit   ;
+  p_ext_height         numeric := ext_height        ;
+  p_ext_height_unit    varchar := ext_height_unit   ;
   p_ext_diameter       numeric := ext_diameter      ;
   p_ext_diameter_unit  varchar := ext_diameter_unit ;
 --p_int_width          numeric := int_width         ;
 --p_int_width_unit     varchar := int_width_unit    ;
---p_int_heigth         numeric := int_heigth        ;
---p_int_heigth_unit    varchar := int_heigth_unit   ;
+--p_int_height         numeric := int_height        ;
+--p_int_height_unit    varchar := int_height_unit   ;
 --p_int_diameter       numeric := int_diameter      ;
 --p_int_diameter_unit  varchar := int_diameter_unit ;
 --p_cross_section      numeric := cross_section     ;
@@ -4969,7 +4969,7 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
     schema_name             :=p_schema_name  -- schema name
 );
 
-PERFORM citydb_pkg.utn9_insert_distribution_element(
+PERFORM citydb_pkg.utn9_insert_distrib_element(
     id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
 		function_of_line      :=p_function_of_line  ,
@@ -4978,14 +4978,14 @@ PERFORM citydb_pkg.utn9_insert_distribution_element(
 --	is_communication      :=p_is_communication  ,
   	ext_width             :=p_ext_width         ,
   	ext_width_unit        :=p_ext_width_unit    ,
-  	ext_heigth            :=p_ext_heigth        ,
-  	ext_heigth_unit       :=p_ext_heigth_unit   ,
+  	ext_height            :=p_ext_height        ,
+  	ext_height_unit       :=p_ext_height_unit   ,
   	ext_diameter          :=p_ext_diameter      ,
   	ext_diameter_unit     :=p_ext_diameter_unit ,
 --	int_width             :=p_int_width         ,
 --	int_width_unit        :=p_int_width_unit    ,
---	int_heigth            :=p_int_heigth        ,
---	int_heigth_unit       :=p_int_heigth_unit   ,
+--	int_height            :=p_int_height        ,
+--	int_height_unit       :=p_int_height_unit   ,
 --	int_diameter          :=p_int_diameter      ,
 --	int_diameter_unit     :=p_int_diameter_unit ,
 --	cross_section         :=p_cross_section     ,
@@ -5044,14 +5044,14 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_distrib_elem_canal_s
 --  is_communication   numeric DEFAULT NULL,
   ext_width          numeric DEFAULT NULL,
   ext_width_unit     varchar DEFAULT NULL,
-  ext_heigth         numeric DEFAULT NULL,
-  ext_heigth_unit    varchar DEFAULT NULL,
+  ext_height         numeric DEFAULT NULL,
+  ext_height_unit    varchar DEFAULT NULL,
   ext_diameter       numeric DEFAULT NULL,
   ext_diameter_unit  varchar DEFAULT NULL,
 --  int_width          numeric DEFAULT NULL,
 --  int_width_unit     varchar DEFAULT NULL,
---  int_heigth         numeric DEFAULT NULL,
---  int_heigth_unit    varchar DEFAULT NULL,
+--  int_height         numeric DEFAULT NULL,
+--  int_height_unit    varchar DEFAULT NULL,
 --  int_diameter       numeric DEFAULT NULL,
 --  int_diameter_unit  varchar DEFAULT NULL,
 --  cross_section      numeric DEFAULT NULL,
@@ -5101,14 +5101,14 @@ DECLARE
 --p_is_communication   numeric := is_communication  ;
   p_ext_width          numeric := ext_width         ;
   p_ext_width_unit     varchar := ext_width_unit    ;
-  p_ext_heigth         numeric := ext_heigth        ;
-  p_ext_heigth_unit    varchar := ext_heigth_unit   ;
+  p_ext_height         numeric := ext_height        ;
+  p_ext_height_unit    varchar := ext_height_unit   ;
   p_ext_diameter       numeric := ext_diameter      ;
   p_ext_diameter_unit  varchar := ext_diameter_unit ;
 --p_int_width          numeric := int_width         ;
 --p_int_width_unit     varchar := int_width_unit    ;
---p_int_heigth         numeric := int_heigth        ;
---p_int_heigth_unit    varchar := int_heigth_unit   ;
+--p_int_height         numeric := int_height        ;
+--p_int_height_unit    varchar := int_height_unit   ;
 --p_int_diameter       numeric := int_diameter      ;
 --p_int_diameter_unit  varchar := int_diameter_unit ;
 --p_cross_section      numeric := cross_section     ;
@@ -5165,7 +5165,7 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
     schema_name             :=p_schema_name  -- schema name
 );
 
-PERFORM citydb_pkg.utn9_insert_distribution_element(
+PERFORM citydb_pkg.utn9_insert_distrib_element(
     id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
 		function_of_line      :=p_function_of_line  ,
@@ -5174,14 +5174,14 @@ PERFORM citydb_pkg.utn9_insert_distribution_element(
 --	is_communication      :=p_is_communication  ,
   	ext_width             :=p_ext_width         ,
   	ext_width_unit        :=p_ext_width_unit    ,
-  	ext_heigth            :=p_ext_heigth        ,
-  	ext_heigth_unit       :=p_ext_heigth_unit   ,
+  	ext_height            :=p_ext_height        ,
+  	ext_height_unit       :=p_ext_height_unit   ,
   	ext_diameter          :=p_ext_diameter      ,
   	ext_diameter_unit     :=p_ext_diameter_unit ,
 --	int_width             :=p_int_width         ,
 --	int_width_unit        :=p_int_width_unit    ,
---	int_heigth            :=p_int_heigth        ,
---	int_heigth_unit       :=p_int_heigth_unit   ,
+--	int_height            :=p_int_height        ,
+--	int_height_unit       :=p_int_height_unit   ,
 --	int_diameter          :=p_int_diameter      ,
 --	int_diameter_unit     :=p_int_diameter_unit ,
 --	cross_section         :=p_cross_section     ,
@@ -5240,14 +5240,14 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_distrib_elem_canal_c
 --  is_communication   numeric DEFAULT NULL,
   ext_width          numeric DEFAULT NULL,
   ext_width_unit     varchar DEFAULT NULL,
-  ext_heigth         numeric DEFAULT NULL,
-  ext_heigth_unit    varchar DEFAULT NULL,
+  ext_height         numeric DEFAULT NULL,
+  ext_height_unit    varchar DEFAULT NULL,
   ext_diameter       numeric DEFAULT NULL,
   ext_diameter_unit  varchar DEFAULT NULL,
 --  int_width          numeric DEFAULT NULL,
 --  int_width_unit     varchar DEFAULT NULL,
---  int_heigth         numeric DEFAULT NULL,
---  int_heigth_unit    varchar DEFAULT NULL,
+--  int_height         numeric DEFAULT NULL,
+--  int_height_unit    varchar DEFAULT NULL,
 --  int_diameter       numeric DEFAULT NULL,
 --  int_diameter_unit  varchar DEFAULT NULL,
 --  cross_section      numeric DEFAULT NULL,
@@ -5297,14 +5297,14 @@ DECLARE
 --p_is_communication   numeric := is_communication  ;
   p_ext_width          numeric := ext_width         ;
   p_ext_width_unit     varchar := ext_width_unit    ;
-  p_ext_heigth         numeric := ext_heigth        ;
-  p_ext_heigth_unit    varchar := ext_heigth_unit   ;
+  p_ext_height         numeric := ext_height        ;
+  p_ext_height_unit    varchar := ext_height_unit   ;
   p_ext_diameter       numeric := ext_diameter      ;
   p_ext_diameter_unit  varchar := ext_diameter_unit ;
 --p_int_width          numeric := int_width         ;
 --p_int_width_unit     varchar := int_width_unit    ;
---p_int_heigth         numeric := int_heigth        ;
---p_int_heigth_unit    varchar := int_heigth_unit   ;
+--p_int_height         numeric := int_height        ;
+--p_int_height_unit    varchar := int_height_unit   ;
 --p_int_diameter       numeric := int_diameter      ;
 --p_int_diameter_unit  varchar := int_diameter_unit ;
 --p_cross_section      numeric := cross_section     ;
@@ -5361,7 +5361,7 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
     schema_name             :=p_schema_name  -- schema name
 );
 
-PERFORM citydb_pkg.utn9_insert_distribution_element(
+PERFORM citydb_pkg.utn9_insert_distrib_element(
     id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
 		function_of_line      :=p_function_of_line  ,
@@ -5370,14 +5370,14 @@ PERFORM citydb_pkg.utn9_insert_distribution_element(
 --	is_communication      :=p_is_communication  ,
   	ext_width             :=p_ext_width         ,
   	ext_width_unit        :=p_ext_width_unit    ,
-  	ext_heigth            :=p_ext_heigth        ,
-  	ext_heigth_unit       :=p_ext_heigth_unit   ,
+  	ext_height            :=p_ext_height        ,
+  	ext_height_unit       :=p_ext_height_unit   ,
   	ext_diameter          :=p_ext_diameter      ,
   	ext_diameter_unit     :=p_ext_diameter_unit ,
 --	int_width             :=p_int_width         ,
 --	int_width_unit        :=p_int_width_unit    ,
---	int_heigth            :=p_int_heigth        ,
---	int_heigth_unit       :=p_int_heigth_unit   ,
+--	int_height            :=p_int_height        ,
+--	int_height_unit       :=p_int_height_unit   ,
 --	int_diameter          :=p_int_diameter      ,
 --	int_diameter_unit     :=p_int_diameter_unit ,
 --	cross_section         :=p_cross_section     ,
@@ -5436,14 +5436,14 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_distrib_elem_pipe_ot
 --is_communication   numeric DEFAULT NULL,
   ext_width          numeric DEFAULT NULL,
   ext_width_unit     varchar DEFAULT NULL,
-  ext_heigth         numeric DEFAULT NULL,
-  ext_heigth_unit    varchar DEFAULT NULL,
+  ext_height         numeric DEFAULT NULL,
+  ext_height_unit    varchar DEFAULT NULL,
   ext_diameter       numeric DEFAULT NULL,
   ext_diameter_unit  varchar DEFAULT NULL,
 --int_width          numeric DEFAULT NULL,
 --int_width_unit     varchar DEFAULT NULL,
---int_heigth         numeric DEFAULT NULL,
---int_heigth_unit    varchar DEFAULT NULL,
+--int_height         numeric DEFAULT NULL,
+--int_height_unit    varchar DEFAULT NULL,
 --int_diameter       numeric DEFAULT NULL,
 --int_diameter_unit  varchar DEFAULT NULL,
 --cross_section      numeric DEFAULT NULL,
@@ -5493,14 +5493,14 @@ DECLARE
 --  p_is_communication   numeric := is_communication  ;
     p_ext_width          numeric := ext_width         ;
     p_ext_width_unit     varchar := ext_width_unit    ;
-    p_ext_heigth         numeric := ext_heigth        ;
-    p_ext_heigth_unit    varchar := ext_heigth_unit   ;
+    p_ext_height         numeric := ext_height        ;
+    p_ext_height_unit    varchar := ext_height_unit   ;
     p_ext_diameter       numeric := ext_diameter      ;
     p_ext_diameter_unit  varchar := ext_diameter_unit ;
 --  p_int_width          numeric := int_width         ;
 --  p_int_width_unit     varchar := int_width_unit    ;
---  p_int_heigth         numeric := int_heigth        ;
---  p_int_heigth_unit    varchar := int_heigth_unit   ;
+--  p_int_height         numeric := int_height        ;
+--  p_int_height_unit    varchar := int_height_unit   ;
 --  p_int_diameter       numeric := int_diameter      ;
 --  p_int_diameter_unit  varchar := int_diameter_unit ;
 --  p_cross_section      numeric := cross_section     ;
@@ -5557,23 +5557,23 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
     schema_name             :=p_schema_name  -- schema name
 );
 
-PERFORM citydb_pkg.utn9_insert_distribution_element(
+PERFORM citydb_pkg.utn9_insert_distrib_element(
     id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
-		function_of_line      :=p_function_of_line  ,
+    function_of_line      :=p_function_of_line  ,
     is_gravity            :=p_is_gravity        ,
 --		is_transmission       :=p_is_transmission   ,
 --		is_communication      :=p_is_communication  ,
   		ext_width             :=p_ext_width         ,
   		ext_width_unit        :=p_ext_width_unit    ,
-  		ext_heigth            :=p_ext_heigth        ,
-  		ext_heigth_unit       :=p_ext_heigth_unit   ,
+  		ext_height            :=p_ext_height        ,
+  		ext_height_unit       :=p_ext_height_unit   ,
   		ext_diameter          :=p_ext_diameter      ,
   		ext_diameter_unit     :=p_ext_diameter_unit ,
 --		int_width             :=p_int_width         ,
 --		int_width_unit        :=p_int_width_unit    ,
---		int_heigth            :=p_int_heigth        ,
---		int_heigth_unit       :=p_int_heigth_unit   ,
+--		int_height            :=p_int_height        ,
+--		int_height_unit       :=p_int_height_unit   ,
 --		int_diameter          :=p_int_diameter      ,
 --		int_diameter_unit     :=p_int_diameter_unit ,
 --		cross_section         :=p_cross_section     ,
@@ -5597,33 +5597,33 @@ LANGUAGE plpgsql VOLATILE;
 -- Function UTN9_INSERT_NTW_FEAT_DISTRIB_ELEM_PIPE_ROUND
 ---------------------------------------------------------------
 CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_distrib_elem_pipe_round(
-  id                     integer DEFAULT NULL,
-  gmlid                  varchar(256) DEFAULT NULL,
-  gmlid_codespace        varchar(1000) DEFAULT NULL,
-  name                   varchar(1000) DEFAULT NULL,
-  name_codespace         varchar(4000) DEFAULT NULL,
-  description            varchar(4000) DEFAULT NULL,
-  envelope               geometry DEFAULT NULL,
-  creation_date          timestamp(0) with time zone DEFAULT NULL,
-  termination_date       timestamp(0) with time zone DEFAULT NULL,
-  relative_to_terrain    varchar(256) DEFAULT NULL,
-  relative_to_water      varchar(256) DEFAULT NULL,
-  last_modification_date timestamp with time zone DEFAULT NULL,
-  updating_person        varchar(256) DEFAULT NULL,
-  reason_for_update      varchar(4000) DEFAULT NULL,
-  lineage                varchar(256) DEFAULT NULL,
+  id                     integer        DEFAULT NULL,
+  gmlid                  varchar(256)   DEFAULT NULL,
+  gmlid_codespace        varchar(1000)  DEFAULT NULL,
+  name                   varchar(1000)  DEFAULT NULL,
+  name_codespace         varchar(4000)  DEFAULT NULL,
+  description            varchar(4000)  DEFAULT NULL,
+  envelope               geometry       DEFAULT NULL,
+  creation_date          timestamptz(0) DEFAULT NULL,
+  termination_date       timestamptz(0) DEFAULT NULL,
+  relative_to_terrain    varchar(256)   DEFAULT NULL,
+  relative_to_water      varchar(256)   DEFAULT NULL,
+  last_modification_date timestamptz    DEFAULT NULL,
+  updating_person        varchar(256)   DEFAULT NULL,
+  reason_for_update      varchar(4000)  DEFAULT NULL,
+  lineage                varchar(256)   DEFAULT NULL,
 --	
-  ntw_feature_parent_id integer DEFAULT NULL,
-  ntw_feature_root_id   integer DEFAULT NULL,
-  class                 varchar DEFAULT NULL,
-  function              varchar DEFAULT NULL,
-  usage                 varchar DEFAULT NULL,
-  year_of_construction  date    DEFAULT NULL,
-  status                varchar DEFAULT NULL,
-  location_quality      varchar DEFAULT NULL,
-  elevation_quality     varchar DEFAULT NULL,
-  cityobject_id         integer DEFAULT NULL,
-  prot_element_id       integer DEFAULT NULL,
+  ntw_feature_parent_id integer  DEFAULT NULL,
+  ntw_feature_root_id   integer  DEFAULT NULL,
+  class                 varchar  DEFAULT NULL,
+  function              varchar  DEFAULT NULL,
+  usage                 varchar  DEFAULT NULL,
+  year_of_construction  date     DEFAULT NULL,
+  status                varchar  DEFAULT NULL,
+  location_quality      varchar  DEFAULT NULL,
+  elevation_quality     varchar  DEFAULT NULL,
+  cityobject_id         integer  DEFAULT NULL,
+  prot_element_id       integer  DEFAULT NULL,
   geom                  geometry DEFAULT NULL,	
 --
   function_of_line   varchar DEFAULT NULL,
@@ -5632,14 +5632,14 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_distrib_elem_pipe_ro
 --is_communication   numeric DEFAULT NULL,
   ext_width          numeric DEFAULT NULL,
   ext_width_unit     varchar DEFAULT NULL,
-  ext_heigth         numeric DEFAULT NULL,
-  ext_heigth_unit    varchar DEFAULT NULL,
+  ext_height         numeric DEFAULT NULL,
+  ext_height_unit    varchar DEFAULT NULL,
   ext_diameter       numeric DEFAULT NULL,
   ext_diameter_unit  varchar DEFAULT NULL,
 --int_width          numeric DEFAULT NULL,
 --int_width_unit     varchar DEFAULT NULL,
---int_heigth         numeric DEFAULT NULL,
---int_heigth_unit    varchar DEFAULT NULL,
+--int_height         numeric DEFAULT NULL,
+--int_height_unit    varchar DEFAULT NULL,
   int_diameter       numeric DEFAULT NULL,
   int_diameter_unit  varchar DEFAULT NULL,
 --cross_section      numeric DEFAULT NULL,
@@ -5654,21 +5654,21 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_distrib_elem_pipe_ro
 RETURNS integer AS
 $BODY$
 DECLARE
-  p_id                     integer                     := id                    ;
-  p_gmlid                  varchar(256)                := gmlid                 ;
-  p_gmlid_codespace        varchar(1000)               := gmlid_codespace       ;
-  p_name                   varchar(1000)               := name                  ;
-  p_name_codespace         varchar(4000)               := name_codespace        ;
-  p_description            varchar(4000)               := description           ;
-  p_envelope               geometry                    := envelope              ;
-  p_creation_date          timestamp(0) with time zone := creation_date         ;
-  p_termination_date       timestamp(0) with time zone := termination_date      ;
-  p_relative_to_terrain    varchar(256)                := relative_to_terrain   ;
-  p_relative_to_water      varchar(256)                := relative_to_water     ;
-  p_last_modification_date timestamp with time zone    := last_modification_date;
-  p_updating_person        varchar(256)                := updating_person       ;
-  p_reason_for_update      varchar(4000)               := reason_for_update     ;
-  p_lineage                varchar(256)                := lineage               ;
+  p_id                     integer        := id                    ;
+  p_gmlid                  varchar(256)   := gmlid                 ;
+  p_gmlid_codespace        varchar(1000)  := gmlid_codespace       ;
+  p_name                   varchar(1000)  := name                  ;
+  p_name_codespace         varchar(4000)  := name_codespace        ;
+  p_description            varchar(4000)  := description           ;
+  p_envelope               geometry       := envelope              ;
+  p_creation_date          timestamptz(0) := creation_date         ;
+  p_termination_date       timestamptz(0) := termination_date      ;
+  p_relative_to_terrain    varchar(256)   := relative_to_terrain   ;
+  p_relative_to_water      varchar(256)   := relative_to_water     ;
+  p_last_modification_date timestamptz    := last_modification_date;
+  p_updating_person        varchar(256)   := updating_person       ;
+  p_reason_for_update      varchar(4000)  := reason_for_update     ;
+  p_lineage                varchar(256)   := lineage               ;
 --
   p_ntw_feature_parent_id  integer  := ntw_feature_parent_id;
   p_ntw_feature_root_id    integer  := ntw_feature_root_id;
@@ -5683,20 +5683,20 @@ DECLARE
   p_prot_element_id        integer  := prot_element_id;
   p_geom                   geometry := geom;	
 --
-	p_function_of_line   varchar := function_of_line  ;
-  p_is_gravity         numeric := is_gravity        ;
+    p_function_of_line   varchar := function_of_line  ;
+    p_is_gravity         numeric := is_gravity        ;
 --  p_is_transmission    numeric := is_transmission   ;
 --  p_is_communication   numeric := is_communication  ;
     p_ext_width          numeric := ext_width         ;
     p_ext_width_unit     varchar := ext_width_unit    ;
-    p_ext_heigth         numeric := ext_heigth        ;
-    p_ext_heigth_unit    varchar := ext_heigth_unit   ;
+    p_ext_height         numeric := ext_height        ;
+    p_ext_height_unit    varchar := ext_height_unit   ;
     p_ext_diameter       numeric := ext_diameter      ;
     p_ext_diameter_unit  varchar := ext_diameter_unit ;
 --  p_int_width          numeric := int_width         ;
 --  p_int_width_unit     varchar := int_width_unit    ;
---  p_int_heigth         numeric := int_heigth        ;
---  p_int_heigth_unit    varchar := int_heigth_unit   ;
+--  p_int_height         numeric := int_height        ;
+--  p_int_height_unit    varchar := int_height_unit   ;
     p_int_diameter       numeric := int_diameter      ;
     p_int_diameter_unit  varchar := int_diameter_unit ;
 --  p_cross_section      numeric := cross_section     ;
@@ -5753,23 +5753,23 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
     schema_name             :=p_schema_name  -- schema name
 );
 
-PERFORM citydb_pkg.utn9_insert_distribution_element(
+PERFORM citydb_pkg.utn9_insert_distrib_element(
     id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
-		function_of_line      :=p_function_of_line  ,
+    function_of_line      :=p_function_of_line  ,
     is_gravity            :=p_is_gravity        ,
 --		is_transmission       :=p_is_transmission   ,
 --		is_communication      :=p_is_communication  ,
   		ext_width             :=p_ext_width         ,
   		ext_width_unit        :=p_ext_width_unit    ,
-  		ext_heigth            :=p_ext_heigth        ,
-  		ext_heigth_unit       :=p_ext_heigth_unit   ,
+  		ext_height            :=p_ext_height        ,
+  		ext_height_unit       :=p_ext_height_unit   ,
   		ext_diameter          :=p_ext_diameter      ,
   		ext_diameter_unit     :=p_ext_diameter_unit ,
 --		int_width             :=p_int_width         ,
 --		int_width_unit        :=p_int_width_unit    ,
---		int_heigth            :=p_int_heigth        ,
---		int_heigth_unit       :=p_int_heigth_unit   ,
+--		int_height            :=p_int_height        ,
+--		int_height_unit       :=p_int_height_unit   ,
   		int_diameter          :=p_int_diameter      ,
   		int_diameter_unit     :=p_int_diameter_unit ,
 --		cross_section         :=p_cross_section     ,
@@ -5793,21 +5793,21 @@ LANGUAGE plpgsql VOLATILE;
 -- Function UTN9_INSERT_NTW_FEAT_DISTRIB_ELEM_PIPE_RECT
 ---------------------------------------------------------------
 CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_distrib_elem_pipe_rect(
-  id                     integer DEFAULT NULL,
-  gmlid                  varchar(256) DEFAULT NULL,
-  gmlid_codespace        varchar(1000) DEFAULT NULL,
-  name                   varchar(1000) DEFAULT NULL,
-  name_codespace         varchar(4000) DEFAULT NULL,
-  description            varchar(4000) DEFAULT NULL,
-  envelope               geometry DEFAULT NULL,
-  creation_date          timestamp(0) with time zone DEFAULT NULL,
-  termination_date       timestamp(0) with time zone DEFAULT NULL,
-  relative_to_terrain    varchar(256) DEFAULT NULL,
-  relative_to_water      varchar(256) DEFAULT NULL,
-  last_modification_date timestamp with time zone DEFAULT NULL,
-  updating_person        varchar(256) DEFAULT NULL,
-  reason_for_update      varchar(4000) DEFAULT NULL,
-  lineage                varchar(256) DEFAULT NULL,
+  id                     integer        DEFAULT NULL,
+  gmlid                  varchar(256)   DEFAULT NULL,
+  gmlid_codespace        varchar(1000)  DEFAULT NULL,
+  name                   varchar(1000)  DEFAULT NULL,
+  name_codespace         varchar(4000)  DEFAULT NULL,
+  description            varchar(4000)  DEFAULT NULL,
+  envelope               geometry       DEFAULT NULL,
+  creation_date          timestamptz(0) DEFAULT NULL,
+  termination_date       timestamptz(0) DEFAULT NULL,
+  relative_to_terrain    varchar(256)   DEFAULT NULL,
+  relative_to_water      varchar(256)   DEFAULT NULL,
+  last_modification_date timestamptz    DEFAULT NULL,
+  updating_person        varchar(256)   DEFAULT NULL,
+  reason_for_update      varchar(4000)  DEFAULT NULL,
+  lineage                varchar(256)   DEFAULT NULL,
 --	
   ntw_feature_parent_id integer DEFAULT NULL,
   ntw_feature_root_id   integer DEFAULT NULL,
@@ -5828,14 +5828,14 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_distrib_elem_pipe_re
 --is_communication   numeric DEFAULT NULL,
   ext_width          numeric DEFAULT NULL,
   ext_width_unit     varchar DEFAULT NULL,
-  ext_heigth         numeric DEFAULT NULL,
-  ext_heigth_unit    varchar DEFAULT NULL,
+  ext_height         numeric DEFAULT NULL,
+  ext_height_unit    varchar DEFAULT NULL,
   ext_diameter       numeric DEFAULT NULL,
   ext_diameter_unit  varchar DEFAULT NULL,
   int_width          numeric DEFAULT NULL,
   int_width_unit     varchar DEFAULT NULL,
-  int_heigth         numeric DEFAULT NULL,
-  int_heigth_unit    varchar DEFAULT NULL,
+  int_height         numeric DEFAULT NULL,
+  int_height_unit    varchar DEFAULT NULL,
 --int_diameter       numeric DEFAULT NULL,
 --int_diameter_unit  varchar DEFAULT NULL,
 --cross_section      numeric DEFAULT NULL,
@@ -5885,14 +5885,14 @@ DECLARE
 --  p_is_communication   numeric := is_communication  ;
     p_ext_width          numeric := ext_width         ;
     p_ext_width_unit     varchar := ext_width_unit    ;
-    p_ext_heigth         numeric := ext_heigth        ;
-    p_ext_heigth_unit    varchar := ext_heigth_unit   ;
+    p_ext_height         numeric := ext_height        ;
+    p_ext_height_unit    varchar := ext_height_unit   ;
     p_ext_diameter       numeric := ext_diameter      ;
     p_ext_diameter_unit  varchar := ext_diameter_unit ;
     p_int_width          numeric := int_width         ;
     p_int_width_unit     varchar := int_width_unit    ;
-    p_int_heigth         numeric := int_heigth        ;
-    p_int_heigth_unit    varchar := int_heigth_unit   ;
+    p_int_height         numeric := int_height        ;
+    p_int_height_unit    varchar := int_height_unit   ;
 --  p_int_diameter       numeric := int_diameter      ;
 --  p_int_diameter_unit  varchar := int_diameter_unit ;
 --  p_cross_section      numeric := cross_section     ;
@@ -5949,23 +5949,23 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
     schema_name             :=p_schema_name  -- schema name
 );
 
-PERFORM citydb_pkg.utn9_insert_distribution_element(
-    id                    :=p_id,
+PERFORM citydb_pkg.utn9_insert_distrib_element(
+    id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
-		function_of_line      :=p_function_of_line  ,
+    function_of_line      :=p_function_of_line  ,
     is_gravity            :=p_is_gravity        ,
 --		is_transmission       :=p_is_transmission   ,
 --		is_communication      :=p_is_communication  ,
   		ext_width             :=p_ext_width         ,
   		ext_width_unit        :=p_ext_width_unit    ,
-  		ext_heigth            :=p_ext_heigth        ,
-  		ext_heigth_unit       :=p_ext_heigth_unit   ,
+  		ext_height            :=p_ext_height        ,
+  		ext_height_unit       :=p_ext_height_unit   ,
   		ext_diameter          :=p_ext_diameter      ,
   		ext_diameter_unit     :=p_ext_diameter_unit ,
   		int_width             :=p_int_width         ,
   		int_width_unit        :=p_int_width_unit    ,
-  		int_heigth            :=p_int_heigth        ,
-  		int_heigth_unit       :=p_int_heigth_unit   ,
+  		int_height            :=p_int_height        ,
+  		int_height_unit       :=p_int_height_unit   ,
 --		int_diameter          :=p_int_diameter      ,
 -- 		int_diameter_unit     :=p_int_diameter_unit ,
 --		cross_section         :=p_cross_section     ,
@@ -6020,14 +6020,14 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_prot_elem_bedding(
 --
 --ext_width         numeric DEFAULT NULL,
 --ext_width_unit    varchar DEFAULT NULL,
---ext_heigth        numeric DEFAULT NULL,
---ext_heigth_unit   varchar DEFAULT NULL,
+--ext_height        numeric DEFAULT NULL,
+--ext_height_unit   varchar DEFAULT NULL,
 --ext_diameter      numeric DEFAULT NULL,
 --ext_diameter_unit varchar DEFAULT NULL,
 --int_width         numeric DEFAULT NULL,
 --int_width_unit    varchar DEFAULT NULL,
---int_heigth        numeric DEFAULT NULL,
---int_heigth_unit   varchar DEFAULT NULL,
+--int_height        numeric DEFAULT NULL,
+--int_height_unit   varchar DEFAULT NULL,
 --int_diameter      numeric DEFAULT NULL,
 --int_diameter_unit varchar DEFAULT NULL,
   width             numeric DEFAULT NULL,
@@ -6069,14 +6069,14 @@ DECLARE
 --
 --p_ext_width         numeric := ext_width        ;
 --p_ext_width_unit    varchar := ext_width_unit   ;
---p_ext_heigth        numeric := ext_heigth       ;
---p_ext_heigth_unit   varchar := ext_heigth_unit  ;
+--p_ext_height        numeric := ext_height       ;
+--p_ext_height_unit   varchar := ext_height_unit  ;
 --p_ext_diameter      numeric := ext_diameter     ;
 --p_ext_diameter_unit varchar := ext_diameter_unit;
 --p_int_width         numeric := int_width        ;
 --p_int_width_unit    varchar := int_width_unit   ;
---p_int_heigth        numeric := int_heigth       ;
---p_int_heigth_unit   varchar := int_heigth_unit  ;
+--p_int_height        numeric := int_height       ;
+--p_int_height_unit   varchar := int_height_unit  ;
 --p_int_diameter      numeric := int_diameter     ;
 --p_int_diameter_unit varchar := int_diameter_unit;
   p_width             numeric := width            ;
@@ -6134,14 +6134,14 @@ PERFORM citydb_pkg.utn9_insert_protective_element(
     objectclass_id        :=objectclass_id,  -- objectclass ID
 --  ext_width             :=p_ext_width        ,
 --  ext_width_unit        :=p_ext_width_unit   ,
---  ext_heigth            :=p_ext_heigth       ,
---  ext_heigth_unit       :=p_ext_heigth_unit  ,
+--  ext_height            :=p_ext_height       ,
+--  ext_height_unit       :=p_ext_height_unit  ,
 --  ext_diameter          :=p_ext_diameter     ,
 --  ext_diameter_unit     :=p_ext_diameter_unit,
 --  int_width             :=p_int_width        ,
 --  int_width_unit        :=p_int_width_unit   ,
---  int_heigth            :=p_int_heigth       ,
---  int_heigth_unit       :=p_int_heigth_unit  ,
+--  int_height            :=p_int_height       ,
+--  int_height_unit       :=p_int_height_unit  ,
 --  int_diameter          :=p_int_diameter     ,
 --  int_diameter_unit     :=p_int_diameter_unit,
     width                 :=p_width            ,
@@ -6192,14 +6192,14 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_prot_elem_shell_othe
 --
   ext_width         numeric DEFAULT NULL,
   ext_width_unit    varchar DEFAULT NULL,
-  ext_heigth        numeric DEFAULT NULL,
-  ext_heigth_unit   varchar DEFAULT NULL,
+  ext_height        numeric DEFAULT NULL,
+  ext_height_unit   varchar DEFAULT NULL,
   ext_diameter      numeric DEFAULT NULL,
   ext_diameter_unit varchar DEFAULT NULL,
 --int_width         numeric DEFAULT NULL,
 --int_width_unit    varchar DEFAULT NULL,
---int_heigth        numeric DEFAULT NULL,
---int_heigth_unit   varchar DEFAULT NULL,
+--int_height        numeric DEFAULT NULL,
+--int_height_unit   varchar DEFAULT NULL,
 --int_diameter      numeric DEFAULT NULL,
 --int_diameter_unit varchar DEFAULT NULL,
 --width             numeric DEFAULT NULL,
@@ -6241,14 +6241,14 @@ DECLARE
 --
   p_ext_width         numeric := ext_width        ;
   p_ext_width_unit    varchar := ext_width_unit   ;
-  p_ext_heigth        numeric := ext_heigth       ;
-  p_ext_heigth_unit   varchar := ext_heigth_unit  ;
+  p_ext_height        numeric := ext_height       ;
+  p_ext_height_unit   varchar := ext_height_unit  ;
   p_ext_diameter      numeric := ext_diameter     ;
   p_ext_diameter_unit varchar := ext_diameter_unit;
 --p_int_width         numeric := int_width        ;
 --p_int_width_unit    varchar := int_width_unit   ;
---p_int_heigth        numeric := int_heigth       ;
---p_int_heigth_unit   varchar := int_heigth_unit  ;
+--p_int_height        numeric := int_height       ;
+--p_int_height_unit   varchar := int_height_unit  ;
 --p_int_diameter      numeric := int_diameter     ;
 --p_int_diameter_unit varchar := int_diameter_unit;
 --p_width             numeric := width            ;
@@ -6306,14 +6306,14 @@ PERFORM citydb_pkg.utn9_insert_protective_element(
     objectclass_id        :=objectclass_id,  -- objectclass ID
     ext_width             :=p_ext_width        ,
     ext_width_unit        :=p_ext_width_unit   ,
-    ext_heigth            :=p_ext_heigth       ,
-    ext_heigth_unit       :=p_ext_heigth_unit  ,
+    ext_height            :=p_ext_height       ,
+    ext_height_unit       :=p_ext_height_unit  ,
     ext_diameter          :=p_ext_diameter     ,
     ext_diameter_unit     :=p_ext_diameter_unit,
 --  int_width             :=p_int_width        ,
 --  int_width_unit        :=p_int_width_unit   ,
---  int_heigth            :=p_int_heigth       ,
---  int_heigth_unit       :=p_int_heigth_unit  ,
+--  int_height            :=p_int_height       ,
+--  int_height_unit       :=p_int_height_unit  ,
 --  int_diameter          :=p_int_diameter     ,
 --  int_diameter_unit     :=p_int_diameter_unit,
 --  width                 :=p_width            ,
@@ -6364,14 +6364,14 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_prot_elem_shell_roun
 --
   ext_width         numeric DEFAULT NULL,
   ext_width_unit    varchar DEFAULT NULL,
-  ext_heigth        numeric DEFAULT NULL,
-  ext_heigth_unit   varchar DEFAULT NULL,
+  ext_height        numeric DEFAULT NULL,
+  ext_height_unit   varchar DEFAULT NULL,
   ext_diameter      numeric DEFAULT NULL,
   ext_diameter_unit varchar DEFAULT NULL,
 --int_width         numeric DEFAULT NULL,
 --int_width_unit    varchar DEFAULT NULL,
---int_heigth        numeric DEFAULT NULL,
---int_heigth_unit   varchar DEFAULT NULL,
+--int_height        numeric DEFAULT NULL,
+--int_height_unit   varchar DEFAULT NULL,
   int_diameter      numeric DEFAULT NULL,
   int_diameter_unit varchar DEFAULT NULL,
 --width             numeric DEFAULT NULL,
@@ -6413,14 +6413,14 @@ DECLARE
 --
   p_ext_width         numeric := ext_width        ;
   p_ext_width_unit    varchar := ext_width_unit   ;
-  p_ext_heigth        numeric := ext_heigth       ;
-  p_ext_heigth_unit   varchar := ext_heigth_unit  ;
+  p_ext_height        numeric := ext_height       ;
+  p_ext_height_unit   varchar := ext_height_unit  ;
   p_ext_diameter      numeric := ext_diameter     ;
   p_ext_diameter_unit varchar := ext_diameter_unit;
 --p_int_width         numeric := int_width        ;
 --p_int_width_unit    varchar := int_width_unit   ;
---p_int_heigth        numeric := int_heigth       ;
---p_int_heigth_unit   varchar := int_heigth_unit  ;
+--p_int_height        numeric := int_height       ;
+--p_int_height_unit   varchar := int_height_unit  ;
   p_int_diameter      numeric := int_diameter     ;
   p_int_diameter_unit varchar := int_diameter_unit;
 --p_width             numeric := width            ;
@@ -6478,14 +6478,14 @@ PERFORM citydb_pkg.utn9_insert_protective_element(
     objectclass_id        :=objectclass_id,  -- objectclass ID
     ext_width             :=p_ext_width        ,
     ext_width_unit        :=p_ext_width_unit   ,
-    ext_heigth            :=p_ext_heigth       ,
-    ext_heigth_unit       :=p_ext_heigth_unit  ,
+    ext_height            :=p_ext_height       ,
+    ext_height_unit       :=p_ext_height_unit  ,
     ext_diameter          :=p_ext_diameter     ,
     ext_diameter_unit     :=p_ext_diameter_unit,
 --  int_width             :=p_int_width        ,
 --  int_width_unit        :=p_int_width_unit   ,
---  int_heigth            :=p_int_heigth       ,
---  int_heigth_unit       :=p_int_heigth_unit  ,
+--  int_height            :=p_int_height       ,
+--  int_height_unit       :=p_int_height_unit  ,
     int_diameter          :=p_int_diameter     ,
     int_diameter_unit     :=p_int_diameter_unit,
 --  width                 :=p_width            ,
@@ -6536,14 +6536,14 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_prot_elem_shell_rect
 --
   ext_width         numeric DEFAULT NULL,
   ext_width_unit    varchar DEFAULT NULL,
-  ext_heigth        numeric DEFAULT NULL,
-  ext_heigth_unit   varchar DEFAULT NULL,
+  ext_height        numeric DEFAULT NULL,
+  ext_height_unit   varchar DEFAULT NULL,
   ext_diameter      numeric DEFAULT NULL,
   ext_diameter_unit varchar DEFAULT NULL,
   int_width         numeric DEFAULT NULL,
   int_width_unit    varchar DEFAULT NULL,
-  int_heigth        numeric DEFAULT NULL,
-  int_heigth_unit   varchar DEFAULT NULL,
+  int_height        numeric DEFAULT NULL,
+  int_height_unit   varchar DEFAULT NULL,
 --int_diameter      numeric DEFAULT NULL,
 --int_diameter_unit varchar DEFAULT NULL,
 --width             numeric DEFAULT NULL,
@@ -6585,14 +6585,14 @@ DECLARE
 --
   p_ext_width         numeric := ext_width        ;
   p_ext_width_unit    varchar := ext_width_unit   ;
-  p_ext_heigth        numeric := ext_heigth       ;
-  p_ext_heigth_unit   varchar := ext_heigth_unit  ;
+  p_ext_height        numeric := ext_height       ;
+  p_ext_height_unit   varchar := ext_height_unit  ;
   p_ext_diameter      numeric := ext_diameter     ;
   p_ext_diameter_unit varchar := ext_diameter_unit;
   p_int_width         numeric := int_width        ;
   p_int_width_unit    varchar := int_width_unit   ;
-  p_int_heigth        numeric := int_heigth       ;
-  p_int_heigth_unit   varchar := int_heigth_unit  ;
+  p_int_height        numeric := int_height       ;
+  p_int_height_unit   varchar := int_height_unit  ;
 --p_int_diameter      numeric := int_diameter     ;
 --p_int_diameter_unit varchar := int_diameter_unit;
 --p_width             numeric := width            ;
@@ -6650,14 +6650,14 @@ PERFORM citydb_pkg.utn9_insert_protective_element(
     objectclass_id        :=objectclass_id,  -- objectclass ID
     ext_width             :=p_ext_width        ,
     ext_width_unit        :=p_ext_width_unit   ,
-    ext_heigth            :=p_ext_heigth       ,
-    ext_heigth_unit       :=p_ext_heigth_unit  ,
+    ext_height            :=p_ext_height       ,
+    ext_height_unit       :=p_ext_height_unit  ,
     ext_diameter          :=p_ext_diameter     ,
     ext_diameter_unit     :=p_ext_diameter_unit,
     int_width             :=p_int_width        ,
     int_width_unit        :=p_int_width_unit   ,
-    int_heigth            :=p_int_heigth       ,
-    int_heigth_unit       :=p_int_heigth_unit  ,
+    int_height            :=p_int_height       ,
+    int_height_unit       :=p_int_height_unit  ,
 --  int_diameter          :=p_int_diameter     ,
 --  int_diameter_unit     :=p_int_diameter_unit,
 --  width                 :=p_width            ,
