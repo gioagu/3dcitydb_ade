@@ -156,7 +156,9 @@ EXECUTE format('SELECT citydb_pkg.utn9_delete_network_feature(id, %L) FROM %I.ut
 
 -- Delete the depending hollow_spaces(s)
 EXECUTE format('SELECT id FROM %I.utn9_hollow_space WHERE ntw_feature_id=%L', schema_name, o_id) INTO hs_id;
-EXECUTE 'SELECT citydb_pkg.utn9_delete_hollow_space($1, $2)' USING hs_id, schema_name;
+IF hs_id IS NOT NULL THEN
+  EXECUTE 'SELECT citydb_pkg.utn9_delete_hollow_space($1, $2)' USING hs_id, schema_name;
+END IF;
 
 -- No need to delete reference to material (on delete cascade in m:n table)
 -- No need to delete reference to network (on delete cascade in m:n table)
