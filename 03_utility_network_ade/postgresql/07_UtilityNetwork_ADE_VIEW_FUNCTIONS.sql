@@ -3584,7 +3584,7 @@ LANGUAGE plpgsql VOLATILE;
 ---------------------------------------------------------------
 -- Function UTN9_INSERT_NODE
 ---------------------------------------------------------------
-CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_network(
+CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_node(
   id                   integer  DEFAULT NULL,
   gmlid                varchar  DEFAULT NULL,
   gmlid_codespace      varchar  DEFAULT NULL,
