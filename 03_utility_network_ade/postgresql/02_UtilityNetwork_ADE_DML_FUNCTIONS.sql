@@ -88,8 +88,8 @@ RETURNS integer
 AS $$
 DECLARE
   n_id integer;
-	l_id integer;
-	deleted_id integer;
+  l_id integer;
+  deleted_id integer;
 BEGIN
 -- Delete the depending links
 FOR l_id IN EXECUTE format('SELECT id FROM %I.utn9_link WHERE feat_graph_id = %L', schema_name, o_id) LOOP
@@ -100,7 +100,7 @@ END LOOP;
 -- Delete the depending nodes
 FOR n_id IN EXECUTE format('SELECT id FROM %I.utn9_node WHERE feat_graph_id = %L', schema_name, o_id) LOOP
   IF n_id IS NOT NULL THEN
-    EXECUTE 'SELECT citydb_pkg.utn9_delete_link($1, $2)' USING n_id, schema_name;
+    EXECUTE 'SELECT citydb_pkg.utn9_delete_node($1, $2)' USING n_id, schema_name;
   END IF;
 END LOOP;
 -- Delete the feature_graph itself
@@ -522,37 +522,6 @@ EXCEPTION
 END;
 $$ LANGUAGE plpgsql;
 -- ALTER FUNCTION citydb_pkg.utn9_delete_role_in_network(integer,varchar) OWNER TO postgres;
-
--- ----------------------------------------------------------------
--- -- Function DELETE_xxx
--- ----------------------------------------------------------------
--- DROP FUNCTION IF EXISTS    citydb_pkg.utn9_delete_xxx(integer,varchar);
--- CREATE OR REPLACE FUNCTION citydb_pkg.utn9_delete_xxx(
-	-- o_id integer,
-	-- schema_name varchar DEFAULT 'citydb'::varchar
--- )
--- RETURNS integer
--- AS $$
--- DECLARE
-	-- deleted_id integer;
--- BEGIN
--- -- Delete the depending xxx
-
--- -- Delete the xxx itself
--- EXECUTE format('DELETE FROM %I.utn9_xxx WHERE id=%L RETURNING id', schema_name, o_id) INTO deleted_id;
--- RETURN deleted_id;
--- -- *************** IF IT IS A CITYOBJECT
--- -- conduct general cleaning of cityobject
--- EXECUTE 'SELECT citydb_pkg.intern_delete_cityobject($1, $2)' USING o_id, schema_name;
--- -- *****************************************
--- EXCEPTION
-	-- WHEN OTHERS THEN RAISE NOTICE 'citydb_pkg.utn9_delete_xxx (id: %): %', o_id, SQLERRM;
--- END;
--- $$ LANGUAGE plpgsql;
--- -- ALTER FUNCTION citydb_pkg.utn9_delete_xxx(integer,varchar) OWNER TO postgres;
-
--- ***********************************************************************
--- ***********************************************************************
 
 ----------------------------------------------------------------
 -- Function GET_ENVELOPE_NETWORK_FEATURE
