@@ -78,18 +78,21 @@ SELECT
   n1.type AS start_node_type,
   l.end_node_id,
   n2.type AS end_node_type,
-  l.feat_graph_id,
-  l.line_geom
+  l.line_geom,
+  l.ntw_graph_id,
+  ng.network_id
 FROM
-  citydb.utn9_link l,
-  citydb.objectclass o,
   citydb.utn9_node n1,
-  citydb.utn9_node n2
+  citydb.utn9_link l,
+  citydb.utn9_node n2,
+  citydb.objectclass o,
+  citydb.utn9_network_graph ng
 WHERE
-  o.id = l.objectclass_id AND
-  o.classname='InteriorFeatureLink' AND
   n1.id = l.start_node_id AND
-  n2.id = l.end_node_id;
+  l.ntw_graph_id = ng.id AND
+  n2.id = l.end_node_id AND
+  o.id = l.objectclass_id AND
+  o.classname='InteriorFeatureLink';
 --ALTER VIEW citydb_view.utn9_link_interior_feature OWNER TO postgres;
 
 ----------------------------------------------------------------
@@ -112,15 +115,18 @@ SELECT
   n1.type AS start_node_type,
   l.end_node_id,
   n2.type AS end_node_type,
+  l.line_geom,
   l.ntw_graph_id,
-  l.line_geom
+  ng.network_id
 FROM
-  citydb.utn9_link l,
-  citydb.objectclass o,
   citydb.utn9_node n1,
-  citydb.utn9_node n2
+  citydb.utn9_link l,
+  citydb.utn9_node n2,
+  citydb.objectclass o,
+  citydb.utn9_network_graph ng
 WHERE
   n1.id = l.start_node_id AND
+  l.ntw_graph_id = ng.id AND
   n2.id = l.end_node_id AND
   o.id = l.objectclass_id AND
   o.classname='InterFeatureLink';
@@ -146,15 +152,18 @@ SELECT
   n1.type AS start_node_type,
   l.end_node_id,
   n2.type AS end_node_type,
-  l.ntw_graph_id,
-  l.line_geom
+  l.line_geom,
+  l.ntw_graph_id--,
+--  ng.network_id
 FROM
-  citydb.utn9_link l,
-  citydb.objectclass o,
   citydb.utn9_node n1,
-  citydb.utn9_node n2
+  citydb.utn9_link l,
+  citydb.utn9_node n2,
+  citydb.objectclass o--,
+--  citydb.utn9_network_graph ng
 WHERE
   n1.id = l.start_node_id AND
+--  l.ntw_graph_id = ng.id AND
   n2.id = l.end_node_id AND
   o.id = l.objectclass_id AND
   o.classname='NetworkLink';

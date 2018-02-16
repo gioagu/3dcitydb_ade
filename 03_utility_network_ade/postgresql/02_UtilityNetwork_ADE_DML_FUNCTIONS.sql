@@ -88,8 +88,8 @@ RETURNS integer
 AS $$
 DECLARE
   n_id integer;
-  l_id integer;
-  deleted_id integer;
+	l_id integer;
+	deleted_id integer;
 BEGIN
 -- Delete the depending links
 FOR l_id IN EXECUTE format('SELECT id FROM %I.utn9_link WHERE feat_graph_id = %L', schema_name, o_id) LOOP
@@ -100,7 +100,7 @@ END LOOP;
 -- Delete the depending nodes
 FOR n_id IN EXECUTE format('SELECT id FROM %I.utn9_node WHERE feat_graph_id = %L', schema_name, o_id) LOOP
   IF n_id IS NOT NULL THEN
-    EXECUTE 'SELECT citydb_pkg.utn9_delete_node($1, $2)' USING n_id, schema_name;
+    EXECUTE 'SELECT citydb_pkg.utn9_delete_link($1, $2)' USING n_id, schema_name;
   END IF;
 END LOOP;
 -- Delete the feature_graph itself
