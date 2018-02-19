@@ -2134,6 +2134,126 @@ CREATE TRIGGER utn9_tr_upd_commodity_solid_medium
 --**************************************************************
 
 ----------------------------------------------------------------
+-- Function TR_DEL_NETWORK_GRAPH
+----------------------------------------------------------------
+DROP FUNCTION IF EXISTS    citydb_view.utn9_tr_del_network_graph() CASCADE;
+CREATE OR REPLACE FUNCTION citydb_view.utn9_tr_del_network_graph()
+  RETURNS trigger AS
+$BODY$
+DECLARE
+	p_schema_name varchar DEFAULT 'citydb'::varchar;
+	deleted_id integer;
+BEGIN
+IF TG_ARGV[0] IS NOT NULL THEN
+	p_schema_name=TG_ARGV[0];
+END IF;
+deleted_id=citydb_pkg.utn9_delete_network_graph(OLD.id, p_schema_name);
+-- RAISE NOTICE 'Deleted record with id: %', deleted_id;
+RETURN OLD;
+EXCEPTION
+	WHEN OTHERS THEN RAISE NOTICE 'citydb_view.utn9_tr_del_network_graph (id: %): %', deleted_id, SQLERRM;
+END;
+$BODY$
+LANGUAGE plpgsql VOLATILE;
+
+----------------------------------------------------------------
+-- Function TR_INS_NETWORK_GRAPH
+----------------------------------------------------------------
+DROP FUNCTION IF EXISTS    citydb_view.utn9_tr_ins_network_graph() CASCADE;
+CREATE OR REPLACE FUNCTION citydb_view.utn9_tr_ins_network_graph()
+  RETURNS trigger AS
+$BODY$
+DECLARE
+	p_schema_name varchar DEFAULT 'citydb'::varchar;
+	inserted_id integer;
+BEGIN
+IF TG_ARGV[0] IS NOT NULL THEN
+	p_schema_name=TG_ARGV[0];
+END IF;
+inserted_id=citydb_view.utn9_insert_network_graph(
+id             :=NEW.id             ,
+gmlid          :=NEW.gmlid          ,
+gmlid_codespace:=NEW.gmlid_codespace,
+name           :=NEW.name           ,
+name_codespace :=NEW.name_codespace ,
+description    :=NEW.description    ,
+network_id     :=NEW.network_id ,
+--
+schema_name          :=p_schema_name
+);
+--RAISE NOTICE 'Inserted record with id: %', inserted_id;
+RETURN NEW;
+EXCEPTION
+	WHEN OTHERS THEN RAISE NOTICE 'citydb_view.utn9_tr_ins_network_graph (id: %): %', inserted_id, SQLERRM;
+END;
+$BODY$
+LANGUAGE plpgsql VOLATILE;
+
+----------------------------------------------------------------
+-- Function TR_UPD_NETWORK_GRAPH
+----------------------------------------------------------------
+DROP FUNCTION IF EXISTS    citydb_view.utn9_tr_upd_network_graph() CASCADE;
+CREATE OR REPLACE FUNCTION citydb_view.utn9_tr_upd_network_graph()
+  RETURNS trigger AS
+$BODY$
+DECLARE
+  p_schema_name varchar DEFAULT 'citydb'::varchar;
+  updated_id integer;
+BEGIN
+IF TG_ARGV[0] IS NOT NULL THEN
+	p_schema_name=TG_ARGV[0];
+END IF;
+EXECUTE format('UPDATE %I.utn9_network_graph AS t SET
+id             =%L,
+gmlid          =%L,
+gmlid_codespace=%L,
+name           =%L,
+name_codespace =%L,
+description    =%L,
+network_id     =%L
+WHERE t.id=%L RETURNING id',
+p_schema_name,
+NEW.id             ,
+NEW.gmlid          ,
+NEW.gmlid_codespace,
+NEW.name           ,
+NEW.name_codespace ,
+NEW.description    ,
+NEW.network_id     ,
+OLD.id
+) INTO updated_id;
+-- RAISE NOTICE 'Updated record with id: %', updated_id;
+RETURN NEW;
+EXCEPTION
+  WHEN OTHERS THEN RAISE NOTICE 'citydb_view.utn9_tr_upd_network_graph (id: %): %', updated_id, SQLERRM;
+END;
+$BODY$
+LANGUAGE plpgsql VOLATILE;
+
+----------------------------------------------------------------
+-- Triggers for view UTN_NETWORK_GRAPH
+----------------------------------------------------------------
+DROP TRIGGER IF EXISTS utn9_tr_del_network_graph ON citydb_view.utn9_network_graph;
+CREATE TRIGGER utn9_tr_del_network_graph
+	INSTEAD OF DELETE ON citydb_view.utn9_network_graph
+	FOR EACH ROW
+	EXECUTE PROCEDURE citydb_view.utn9_tr_del_network_graph ('citydb');
+
+DROP TRIGGER IF EXISTS utn9_tr_ins_network_graph ON citydb_view.utn9_network_graph;
+CREATE TRIGGER utn9_tr_ins_network_graph
+	INSTEAD OF INSERT ON citydb_view.utn9_network_graph
+	FOR EACH ROW
+	EXECUTE PROCEDURE citydb_view.utn9_tr_ins_network_graph ('citydb');
+
+DROP TRIGGER IF EXISTS utn9_tr_upd_network_graph ON citydb_view.utn9_network_graph;
+CREATE TRIGGER utn9_tr_upd_network_graph
+	INSTEAD OF UPDATE ON citydb_view.utn9_network_graph
+	FOR EACH ROW
+	EXECUTE PROCEDURE citydb_view.utn9_tr_upd_network_graph ('citydb');
+--**************************************************************
+--**************************************************************
+
+----------------------------------------------------------------
 -- Function TR_DEL_FEATURE_GRAPH
 ----------------------------------------------------------------
 DROP FUNCTION IF EXISTS    citydb_view.utn9_tr_del_feature_graph() CASCADE;
