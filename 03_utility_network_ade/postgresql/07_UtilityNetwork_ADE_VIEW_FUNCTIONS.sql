@@ -2617,6 +2617,58 @@ $BODY$
 LANGUAGE plpgsql VOLATILE;
 
 ---------------------------------------------------------------
+-- Function UTN9_INSERT_NETWORK_GRAPH
+---------------------------------------------------------------
+CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_network_graph(
+  id                           integer DEFAULT NULL,
+  gmlid                        varchar DEFAULT NULL,
+  gmlid_codespace              varchar DEFAULT NULL,
+  name                         varchar DEFAULT NULL,
+  name_codespace               varchar DEFAULT NULL,
+  description                  text    DEFAULT NULL,
+  network_id                   integer DEFAULT NULL,
+--
+  schema_name              varchar DEFAULT 'citydb'::varchar
+)
+RETURNS integer AS
+$BODY$
+DECLARE
+  p_id                           integer           := id;
+  p_gmlid                        character varying := gmlid;
+  p_gmlid_codespace              character varying := gmlid_codespace;
+  p_name                         character varying := name;
+  p_name_codespace               character varying := name_codespace;
+  p_description                  text              := description;
+  p_network_id                   integer           := network_id;
+--
+  p_schema_name varchar := schema_name;
+  class_name varchar DEFAULT 'NetworkGraph'::varchar;
+  db_prefix varchar DEFAULT 'utn9';
+  objectclass_id integer;
+  inserted_id integer;
+BEGIN
+objectclass_id=citydb_pkg.objectclass_classname_to_id(class_name, db_prefix, p_schema_name);
+
+inserted_id=citydb_pkg.utn9_insert_network_graph(
+    id                           :=p_id,
+    objectclass_id               :=objectclass_id,  -- objectclass ID
+    gmlid                        :=p_gmlid,
+    gmlid_codespace              :=p_gmlid_codespace,
+    name                         :=p_name,
+    name_codespace               :=p_name_codespace,
+    description                  :=p_description,
+    network_id                   :=p_network_id,
+--
+    schema_name             :=p_schema_name  -- schema name
+);
+RETURN inserted_id;
+EXCEPTION
+	WHEN OTHERS THEN RAISE NOTICE 'citydb_view.utn9_insert_network_graph(): %', SQLERRM;
+END;
+$BODY$
+LANGUAGE plpgsql VOLATILE;
+
+---------------------------------------------------------------
 -- Function UTN9_INSERT_FEATURE_GRAPH
 ---------------------------------------------------------------
 CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_feature_graph(
