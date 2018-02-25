@@ -764,6 +764,7 @@ AS $$
 DECLARE
   p_id integer := id;
   p_objectclass_id integer := objectclass_id;
+  p_function_of_line varchar := function_of_line;
   p_is_gravity numeric := is_gravity;
   p_is_transmission numeric := is_transmission;
   p_is_communication   numeric := is_communication;
@@ -793,6 +794,7 @@ EXECUTE format('
 INSERT INTO %I.utn9_distrib_element (
  id,
  objectclass_id,
+ function_of_line,
  is_gravity,
  is_transmission,
  is_communication,
@@ -815,11 +817,12 @@ INSERT INTO %I.utn9_distrib_element (
  slope_range_unit,
  profile_name
 ) VALUES (
-%L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L
+%L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L
 ) RETURNING id',
 p_schema_name,
 p_id, 
 p_objectclass_id, 
+p_function_of_line,
 p_is_gravity, 
 p_is_transmission, 
 p_is_communication, 
