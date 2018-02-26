@@ -229,7 +229,7 @@ CREATE OR REPLACE FUNCTION citydb_pkg.utn9_delete_network(
 RETURNS integer
 AS $$
 DECLARE
-  nf_id integer;
+--  nf_id integer;
   ng_id integer;
   co_id integer;
   deleted_id integer;
@@ -250,13 +250,16 @@ IF co_id IS NOT NULL THEN
 END IF;
 
 -- Delete the depending network_features (if they are not referenced by some other network)
-FOR nf_id IN EXECUTE format('SELECT network_feature_id FROM %I.utn9_network_to_network_feature WHERE network_id=%L ORDER BY network_feature_id', schema_name, o_id) LOOP
-	IF nf_id IS NOT NULL THEN
-	  IF citydb_pkg.is_not_referenced('utn9_network_to_network_feature','network_feature_id', nf_id, 'network_id', o_id, schema_name) IS TRUE THEN
-		  EXECUTE 'SELECT citydb_pkg.utn9_delete_network_feature($1, $2)' USING nf_id, schema_name;
-		END IF;	
-	END IF;
-END LOOP;
+EXECUTE format('SELECT citydb_pkg.utn9_delete_network_feature(nf.id, %L) FROM %I.utn9_network_feature AS nf, %I.utn9_network_to_network_feature AS n2nf WHERE
+nf.id=n2nf.network_feature_id AND ntnf.network_id=%L AND citydb_pkg.is_not_referenced(''utn9_network_to_network_feature'', ''network_feature_id'', nf.id, ''network_id'', %L, %L)',
+schema_name, schema_name, schema_name, o_id, o_id, schema_name);
+--FOR nf_id IN EXECUTE format('SELECT network_feature_id FROM %I.utn9_network_to_network_feature WHERE network_id=%L ORDER BY network_feature_id', schema_name, o_id) LOOP
+--	IF nf_id IS NOT NULL THEN
+--	  IF citydb_pkg.is_not_referenced('utn9_network_to_network_feature','network_feature_id', nf_id, 'network_id', o_id, schema_name) IS TRUE THEN
+--		  EXECUTE 'SELECT citydb_pkg.utn9_delete_network_feature($1, $2)' USING nf_id, schema_name;
+--		END IF;	
+--	END IF;
+--END LOOP;
 
 -- Delete the depending network_graph
 EXECUTE format('SELECT id FROM %I.utn9_network_graph WHERE ntw_feature_id=%L', schema_name, o_id) INTO ng_id;
