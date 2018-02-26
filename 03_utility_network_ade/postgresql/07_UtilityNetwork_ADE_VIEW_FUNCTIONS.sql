@@ -4755,7 +4755,7 @@ DECLARE
   p_prot_element_id        integer  := prot_element_id;
   p_geom                   geometry := geom;	
 --
-	p_function_of_line   varchar := function_of_line  ;
+  p_function_of_line   varchar := function_of_line  ;
 --p_is_gravity         numeric := is_gravity        ;
   p_is_transmission    numeric := is_transmission   ;
   p_is_communication   numeric := is_communication  ;
@@ -4828,7 +4828,7 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
 PERFORM citydb_pkg.utn9_insert_distrib_element(
     id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
-		function_of_line      :=p_function_of_line  ,
+    function_of_line      :=p_function_of_line  ,
 --  is_gravity            :=p_is_gravity        ,
   	is_transmission       :=p_is_transmission   ,
   	is_communication      :=p_is_communication  ,
@@ -5024,7 +5024,7 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
 PERFORM citydb_pkg.utn9_insert_distrib_element(
     id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
-		function_of_line      :=p_function_of_line  ,
+    function_of_line      :=p_function_of_line  ,
     is_gravity            :=p_is_gravity        ,
 --	is_transmission       :=p_is_transmission   ,
 --	is_communication      :=p_is_communication  ,
@@ -5090,7 +5090,7 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_distrib_elem_canal_s
   prot_element_id       integer DEFAULT NULL,
   geom                  geometry DEFAULT NULL,	
 --
-	function_of_line   varchar DEFAULT NULL,
+  function_of_line   varchar DEFAULT NULL,
   is_gravity         numeric DEFAULT NULL,
 --  is_transmission    numeric DEFAULT NULL,
 --  is_communication   numeric DEFAULT NULL,
@@ -5147,7 +5147,7 @@ DECLARE
   p_prot_element_id        integer  := prot_element_id;
   p_geom                   geometry := geom;	
 --
-	p_function_of_line   varchar := function_of_line  ;
+  p_function_of_line   varchar := function_of_line  ;
   p_is_gravity         numeric := is_gravity        ;
 --p_is_transmission    numeric := is_transmission   ;
 --p_is_communication   numeric := is_communication  ;
@@ -5220,7 +5220,7 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
 PERFORM citydb_pkg.utn9_insert_distrib_element(
     id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
-		function_of_line      :=p_function_of_line  ,
+    function_of_line      :=p_function_of_line  ,
     is_gravity            :=p_is_gravity        ,
 --	is_transmission       :=p_is_transmission   ,
 --	is_communication      :=p_is_communication  ,
@@ -5286,7 +5286,7 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_distrib_elem_canal_c
   prot_element_id       integer DEFAULT NULL,
   geom                  geometry DEFAULT NULL,	
 --
-	function_of_line   varchar DEFAULT NULL,
+  function_of_line   varchar DEFAULT NULL,
   is_gravity         numeric DEFAULT NULL,
 --  is_transmission    numeric DEFAULT NULL,
 --  is_communication   numeric DEFAULT NULL,
@@ -5343,7 +5343,7 @@ DECLARE
   p_prot_element_id        integer  := prot_element_id;
   p_geom                   geometry := geom;	
 --
-	p_function_of_line   varchar := function_of_line  ;
+  p_function_of_line   varchar := function_of_line  ;
   p_is_gravity         numeric := is_gravity        ;
 --p_is_transmission    numeric := is_transmission   ;
 --p_is_communication   numeric := is_communication  ;
@@ -5416,7 +5416,7 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
 PERFORM citydb_pkg.utn9_insert_distrib_element(
     id                    :=inserted_id,
     objectclass_id        :=objectclass_id,  -- objectclass ID
-		function_of_line      :=p_function_of_line  ,
+    function_of_line      :=p_function_of_line  ,
     is_gravity            :=p_is_gravity        ,
 --	is_transmission       :=p_is_transmission   ,
 --	is_communication      :=p_is_communication  ,
@@ -5806,30 +5806,30 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
 );
 
 PERFORM citydb_pkg.utn9_insert_distrib_element(
-    id                    :=inserted_id,
-    objectclass_id        :=objectclass_id,  -- objectclass ID
-    function_of_line      :=p_function_of_line  ,
-    is_gravity            :=p_is_gravity        ,
---		is_transmission       :=p_is_transmission   ,
---		is_communication      :=p_is_communication  ,
-  		ext_width             :=p_ext_width         ,
-  		ext_width_unit        :=p_ext_width_unit    ,
-  		ext_height            :=p_ext_height        ,
-  		ext_height_unit       :=p_ext_height_unit   ,
-  		ext_diameter          :=p_ext_diameter      ,
-  		ext_diameter_unit     :=p_ext_diameter_unit ,
---		int_width             :=p_int_width         ,
---		int_width_unit        :=p_int_width_unit    ,
---		int_height            :=p_int_height        ,
---		int_height_unit       :=p_int_height_unit   ,
-  		int_diameter          :=p_int_diameter      ,
-  		int_diameter_unit     :=p_int_diameter_unit ,
---		cross_section         :=p_cross_section     ,
---		cross_section_unit    :=p_cross_section_unit,
---		slope_range_from      :=p_slope_range_from  ,
---		slope_range_to        :=p_slope_range_to    ,
---		slope_range_unit      :=p_slope_range_unit  ,
---		profile_name          :=p_profile_name      ,	
+  id                    :=inserted_id,
+  objectclass_id        :=objectclass_id,  -- objectclass ID
+  function_of_line      :=p_function_of_line  ,
+  is_gravity            :=p_is_gravity        ,
+--is_transmission       :=p_is_transmission   ,
+--is_communication      :=p_is_communication  ,
+  ext_width             :=p_ext_width         ,
+  ext_width_unit        :=p_ext_width_unit    ,
+  ext_height            :=p_ext_height        ,
+  ext_height_unit       :=p_ext_height_unit   ,
+  ext_diameter          :=p_ext_diameter      ,
+  ext_diameter_unit     :=p_ext_diameter_unit ,
+--int_width             :=p_int_width         ,
+--int_width_unit        :=p_int_width_unit    ,
+--int_height            :=p_int_height        ,
+--int_height_unit       :=p_int_height_unit   ,
+  int_diameter          :=p_int_diameter      ,
+  int_diameter_unit     :=p_int_diameter_unit ,
+--cross_section         :=p_cross_section     ,
+--cross_section_unit    :=p_cross_section_unit,
+--slope_range_from      :=p_slope_range_from  ,
+--slope_range_to        :=p_slope_range_to    ,
+--slope_range_unit      :=p_slope_range_unit  ,
+--profile_name          :=p_profile_name      ,	
 --
     schema_name             :=p_schema_name  -- schema name
 );
@@ -5931,28 +5931,28 @@ DECLARE
   p_prot_element_id        integer  := prot_element_id;
   p_geom                   geometry := geom;	
 --
-	p_function_of_line   varchar := function_of_line  ;
+  p_function_of_line   varchar := function_of_line  ;
   p_is_gravity         numeric := is_gravity        ;
---  p_is_transmission    numeric := is_transmission   ;
---  p_is_communication   numeric := is_communication  ;
-    p_ext_width          numeric := ext_width         ;
-    p_ext_width_unit     varchar := ext_width_unit    ;
-    p_ext_height         numeric := ext_height        ;
-    p_ext_height_unit    varchar := ext_height_unit   ;
-    p_ext_diameter       numeric := ext_diameter      ;
-    p_ext_diameter_unit  varchar := ext_diameter_unit ;
-    p_int_width          numeric := int_width         ;
-    p_int_width_unit     varchar := int_width_unit    ;
-    p_int_height         numeric := int_height        ;
-    p_int_height_unit    varchar := int_height_unit   ;
---  p_int_diameter       numeric := int_diameter      ;
---  p_int_diameter_unit  varchar := int_diameter_unit ;
---  p_cross_section      numeric := cross_section     ;
---  p_cross_section_unit varchar := cross_section_unit;
---  p_slope_range_from   numeric := slope_range_from  ;
---  p_slope_range_to     numeric := slope_range_to    ;
---  p_slope_range_unit   varchar := slope_range_unit  ;
---  p_profile_name       varchar := profile_name      ;
+--p_is_transmission    numeric := is_transmission   ;
+--p_is_communication   numeric := is_communication  ;
+  p_ext_width          numeric := ext_width         ;
+  p_ext_width_unit     varchar := ext_width_unit    ;
+  p_ext_height         numeric := ext_height        ;
+  p_ext_height_unit    varchar := ext_height_unit   ;
+  p_ext_diameter       numeric := ext_diameter      ;
+  p_ext_diameter_unit  varchar := ext_diameter_unit ;
+  p_int_width          numeric := int_width         ;
+  p_int_width_unit     varchar := int_width_unit    ;
+  p_int_height         numeric := int_height        ;
+  p_int_height_unit    varchar := int_height_unit   ;
+--p_int_diameter       numeric := int_diameter      ;
+--p_int_diameter_unit  varchar := int_diameter_unit ;
+--p_cross_section      numeric := cross_section     ;
+--p_cross_section_unit varchar := cross_section_unit;
+--p_slope_range_from   numeric := slope_range_from  ;
+--p_slope_range_to     numeric := slope_range_to    ;
+--p_slope_range_unit   varchar := slope_range_unit  ;
+--p_profile_name       varchar := profile_name      ;
 --
   p_schema_name varchar := schema_name;
   class_name varchar DEFAULT 'RectangularPipe'::varchar;
@@ -6006,26 +6006,26 @@ PERFORM citydb_pkg.utn9_insert_distrib_element(
     objectclass_id        :=objectclass_id,  -- objectclass ID
     function_of_line      :=p_function_of_line  ,
     is_gravity            :=p_is_gravity        ,
---		is_transmission       :=p_is_transmission   ,
---		is_communication      :=p_is_communication  ,
-  		ext_width             :=p_ext_width         ,
-  		ext_width_unit        :=p_ext_width_unit    ,
-  		ext_height            :=p_ext_height        ,
-  		ext_height_unit       :=p_ext_height_unit   ,
-  		ext_diameter          :=p_ext_diameter      ,
-  		ext_diameter_unit     :=p_ext_diameter_unit ,
-  		int_width             :=p_int_width         ,
-  		int_width_unit        :=p_int_width_unit    ,
-  		int_height            :=p_int_height        ,
-  		int_height_unit       :=p_int_height_unit   ,
---		int_diameter          :=p_int_diameter      ,
--- 		int_diameter_unit     :=p_int_diameter_unit ,
---		cross_section         :=p_cross_section     ,
---		cross_section_unit    :=p_cross_section_unit,
---		slope_range_from      :=p_slope_range_from  ,
---		slope_range_to        :=p_slope_range_to    ,
---		slope_range_unit      :=p_slope_range_unit  ,
---		profile_name          :=p_profile_name      ,	
+--  is_transmission       :=p_is_transmission   ,
+--  is_communication      :=p_is_communication  ,
+    ext_width             :=p_ext_width         ,
+    ext_width_unit        :=p_ext_width_unit    ,
+    ext_height            :=p_ext_height        ,
+    ext_height_unit       :=p_ext_height_unit   ,
+    ext_diameter          :=p_ext_diameter      ,
+    ext_diameter_unit     :=p_ext_diameter_unit ,
+    int_width             :=p_int_width         ,
+    int_width_unit        :=p_int_width_unit    ,
+    int_height            :=p_int_height        ,
+    int_height_unit       :=p_int_height_unit   ,
+--  int_diameter          :=p_int_diameter      ,
+--  int_diameter_unit     :=p_int_diameter_unit ,
+--  cross_section         :=p_cross_section     ,
+--  cross_section_unit    :=p_cross_section_unit,
+--  slope_range_from      :=p_slope_range_from  ,
+--  slope_range_to        :=p_slope_range_to    ,
+--  slope_range_unit      :=p_slope_range_unit  ,
+--  profile_name          :=p_profile_name      ,	
 --
     schema_name             :=p_schema_name  -- schema name
 );
