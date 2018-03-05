@@ -223,16 +223,16 @@ $$ LANGUAGE plpgsql;
 ----------------------------------------------------------------
 DROP FUNCTION IF EXISTS    citydb_pkg.utn9_delete_network(integer,varchar);
 CREATE OR REPLACE FUNCTION citydb_pkg.utn9_delete_network(
-	o_id integer,
-	schema_name varchar DEFAULT 'citydb'::varchar
+  o_id integer,
+  schema_name varchar DEFAULT 'citydb'::varchar
 )
 RETURNS integer
 AS $$
 DECLARE
-  nf_id integer;
+--  nf_id integer;
   ng_id integer;
-	co_id integer;
-	deleted_id integer;
+  co_id integer;
+  deleted_id integer;
 BEGIN
 -- No need to delete reference to supply_area (on delete cascade in network_to_supply_area table)
 -- No need to delete reference to super/sub-ordinate_network (on delete cascade)
@@ -250,25 +250,27 @@ IF co_id IS NOT NULL THEN
 END IF;
 
 -- Delete the depending network_features (if they are not referenced by some other network)
-FOR nf_id IN EXECUTE format('SELECT network_feature_id FROM %I.utn9_network_to_network_feature WHERE network_id=%L ORDER BY network_feature_id', schema_name, o_id) LOOP
-	IF nf_id IS NOT NULL THEN
-	  IF citydb_pkg.is_not_referenced('utn9_network_to_network_feature','network_feature_id', nf_id, 'network_id', o_id, schema_name) IS TRUE THEN
-		  EXECUTE 'SELECT citydb_pkg.utn9_delete_network_feature($1, $2)' USING nf_id, schema_name;
-		END IF;	
-	END IF;
-END LOOP;
+EXECUTE format('SELECT citydb_pkg.utn9_delete_network_feature(nf.id, %L) FROM %I.utn9_network_feature AS nf, %I.utn9_network_to_network_feature AS n2nf WHERE
+nf.id=n2nf.network_feature_id AND ntnf.network_id=%L AND citydb_pkg.is_not_referenced(''utn9_network_to_network_feature'', ''network_feature_id'', nf.id, ''network_id'', %L, %L)',
+schema_name, schema_name, schema_name, o_id, o_id, schema_name);
+--FOR nf_id IN EXECUTE format('SELECT network_feature_id FROM %I.utn9_network_to_network_feature WHERE network_id=%L ORDER BY network_feature_id', schema_name, o_id) LOOP
+--	IF nf_id IS NOT NULL THEN
+--	  IF citydb_pkg.is_not_referenced('utn9_network_to_network_feature','network_feature_id', nf_id, 'network_id', o_id, schema_name) IS TRUE THEN
+--		  EXECUTE 'SELECT citydb_pkg.utn9_delete_network_feature($1, $2)' USING nf_id, schema_name;
+--		END IF;	
+--	END IF;
+--END LOOP;
 
 -- Delete the depending network_graph
 EXECUTE format('SELECT id FROM %I.utn9_network_graph WHERE ntw_feature_id=%L', schema_name, o_id) INTO ng_id;
 IF ng_id IS NOT NULL THEN
-  EXECUTE 'SELECT citydb_pkg.utn9_delete_feature_graph($1, $2)' USING schema_name, ng_id;
+  EXECUTE 'SELECT citydb_pkg.utn9_delete_feature_graph($1, $2)' USING ng_id, schema_name;
 END IF;
-
 -- Delete the network itself
 EXECUTE format('DELETE FROM %I.utn9_network WHERE id=%L RETURNING id', schema_name, o_id) INTO deleted_id;
-RETURN deleted_id;
 -- conduct general cleaning of cityobject
 EXECUTE 'SELECT citydb_pkg.intern_delete_cityobject($1, $2)' USING o_id, schema_name;
+RETURN deleted_id;
 EXCEPTION
 	WHEN OTHERS THEN RAISE NOTICE 'citydb_pkg.utn9_delete_network (id: %): %', o_id, SQLERRM;
 END;

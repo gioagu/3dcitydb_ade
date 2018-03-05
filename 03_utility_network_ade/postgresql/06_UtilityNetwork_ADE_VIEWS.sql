@@ -704,7 +704,7 @@ SELECT
   nf.cityobject_id,
   nf.prot_element_id,
   nf.geom,
-	de.function_of_line,
+  de.function_of_line,
   de.is_gravity,
   de.ext_width,
   de.ext_width_unit,
@@ -928,7 +928,7 @@ SELECT
   nf.cityobject_id,
   nf.prot_element_id,
   nf.geom,
-	de.function_of_line,
+  de.function_of_line,
   de.is_gravity,
   de.ext_width,
   de.ext_width_unit,
@@ -987,7 +987,7 @@ SELECT
   nf.cityobject_id,
   nf.prot_element_id,
   nf.geom,
-	de.function_of_line,
+  de.function_of_line,
   de.is_gravity,
   de.ext_width,
   de.ext_width_unit,
@@ -1046,7 +1046,7 @@ SELECT
   nf.cityobject_id,
   nf.prot_element_id,
   nf.geom,
-	de.function_of_line,	
+  de.function_of_line,	
   de.is_gravity,
   de.ext_width,
   de.ext_width_unit,
@@ -1069,134 +1069,6 @@ WHERE
   de.id = nf.id AND
   o.classname='ClosedCanal';
 --ALTER VIEW citydb_view.utn9_ntw_feat_canal_semi_open OWNER TO postgres;
-
--- ----------------------------------------------------------------
--- -- View UTN9_NTW_FEAT_DISTRIB_ELEMENT (ABSTRACT)
--- ----------------------------------------------------------------
--- DROP VIEW IF EXISTS    citydb_view.utn9_ntw_feat_distrib_elem_abtract CASCADE;
--- CREATE OR REPLACE VIEW citydb_view.utn9_ntw_feat_distrib_elem_abtract AS
--- SELECT
-  -- co.id,
-  -- co.objectclass_id,
-  -- o.classname,
-  -- co.gmlid,
-  -- co.gmlid_codespace,
-  -- co.name,
-  -- co.name_codespace,
-  -- co.description,
-  -- co.envelope,
-  -- co.creation_date,
-  -- co.termination_date,
-  -- co.relative_to_terrain,
-  -- co.relative_to_water,
-  -- co.last_modification_date,
-  -- co.updating_person,
-  -- co.reason_for_update,
-  -- co.lineage,
-  -- nf.ntw_feature_parent_id,
-  -- nf.ntw_feature_root_id,
-  -- nf.class,
-  -- nf.function,
-  -- nf.usage,
-  -- nf.year_of_construction,
-  -- nf.status,
-  -- nf.location_quality,
-  -- nf.elevation_quality,
-  -- nf.cityobject_id,
-  -- nf.prot_element_id,
-  -- nf.geom,
-	-- de.function_of_line,	
-  -- de.is_gravity,
-  -- de.is_transmission,
-  -- de.is_communication,
-  -- de.ext_width,
-  -- de.ext_width_unit,
-  -- de.ext_height,
-  -- de.ext_height_unit,
-  -- de.ext_diameter,
-  -- de.ext_diameter_unit,
-  -- de.int_width,
-  -- de.int_width_unit,
-  -- de.int_height,
-  -- de.int_height_unit,
-  -- de.int_diameter,
-  -- de.int_diameter_unit,
-  -- de.cross_section,
-  -- de.cross_section_unit,
-  -- de.slope_range_from,
-  -- de.slope_range_to,
-  -- de.slope_range_unit,
-  -- de.profile_name
--- FROM
-  -- citydb.objectclass o,
-  -- citydb.cityobject co,
-  -- citydb.utn9_network_feature nf,
-  -- citydb.utn9_distrib_element de
--- WHERE
-  -- o.id = co.objectclass_id AND
-  -- nf.id = co.id AND
-  -- de.id = nf.id;
--- --ALTER VIEW citydb_view.utn9_ntw_feat_distrib_elem_abtract OWNER TO postgres;
-
--- ----------------------------------------------------------------
--- -- View UTN9_NTW_FEAT_PROT_ELEM (ABSTRACT)
--- ----------------------------------------------------------------
--- DROP VIEW IF EXISTS    citydb_view.utn9_ntw_feat_prot_elem_abstract CASCADE;
--- CREATE OR REPLACE VIEW citydb_view.utn9_ntw_feat_prot_elem_abstract AS
--- SELECT
-  -- co.id,
-  -- co.objectclass_id,
-  -- o.classname,
-  -- co.gmlid,
-  -- co.gmlid_codespace,
-  -- co.name,
-  -- co.name_codespace,
-  -- co.description,
-  -- co.envelope,
-  -- co.creation_date,
-  -- co.termination_date,
-  -- co.relative_to_terrain,
-  -- co.relative_to_water,
-  -- co.last_modification_date,
-  -- co.updating_person,
-  -- co.reason_for_update,
-  -- co.lineage,
-  -- nf.ntw_feature_parent_id,
-  -- nf.ntw_feature_root_id,
-  -- nf.class,
-  -- nf.function,
-  -- nf.usage,
-  -- nf.year_of_construction,
-  -- nf.status,
-  -- nf.location_quality,
-  -- nf.elevation_quality,
-  -- nf.cityobject_id,
-  -- nf.prot_element_id,
-  -- nf.geom,
-  -- pe.ext_width,
-  -- pe.ext_width_unit,
-  -- pe.ext_height,
-  -- pe.ext_height_unit,
-  -- pe.ext_diameter,
-  -- pe.ext_diameter_unit,
-  -- pe.int_width,
-  -- pe.int_width_unit,
-  -- pe.int_height,
-  -- pe.int_height_unit,
-  -- pe.int_diameter,
-  -- pe.int_diameter_unit,
-  -- pe.width,
-  -- pe.width_unit
--- FROM
-  -- citydb.objectclass o,
-  -- citydb.cityobject co,
-  -- citydb.utn9_network_feature nf,
-  -- citydb.utn9_protective_element pe
--- WHERE
-  -- o.id = co.objectclass_id AND
-  -- nf.id = co.id AND
-  -- pe.id = nf.id;
--- --ALTER VIEW citydb_view.utn9_ntw_feat_prot_elem_abstract OWNER TO postgres;
 
 ----------------------------------------------------------------
 -- View UTN9_NTW_FEAT_PROT_ELEM_SHELL_RECT
