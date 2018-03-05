@@ -114,7 +114,7 @@ INSERT INTO citydb.objectclass (id, superclass_id, baseclass_id, is_ade_class, c
 (347, 346, 3, 1, 'StorageDevice'                 , 'ntw9_network_feature'     ),
 (348, 346, 3, 1, 'TechDevice'                    , 'ntw9_network_feature'     ),
 (349, 346, 3, 1, 'MeasurementDevice'             , 'ntw9_network_feature'     ),
-(350, 346, 3, 1, 'ConstrollerDevice'             , 'ntw9_network_feature'     ),
+(350, 346, 3, 1, 'ControllerDevice'              , 'ntw9_network_feature'     ),
 (351, 346, 3, 1, 'AnyDevice'                     , 'ntw9_network_feature'     ),
 -- MediumSupply
 (352,   1, 1, 1, '_MediumSupply'                 , 'ntw9_medium_supply'       ),
