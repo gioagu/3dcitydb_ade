@@ -732,7 +732,7 @@ $$ LANGUAGE 'plpgsql';
 ----------------------------------------------------------------
 -- Function UTN9_INSERT_DISTRIB_ELEMENT
 ----------------------------------------------------------------
--- DROP FUNCTION IF EXISTS citydb_pkg.utn9_insert_distrib_element (integer, integer, numeric, numeric, numeric, numeric, varchar, numeric, varchar, numeric, varchar, numeric, varchar, numeric, varchar, numeric, varchar, numeric, varchar, numeric, numeric, varchar, varchar) CASCADE;
+--DROP FUNCTION IF EXISTS citydb_pkg.utn9_insert_distrib_element (integer, integer, numeric, numeric, numeric, numeric, varchar, numeric, varchar, numeric, varchar, numeric, varchar, numeric, varchar, numeric, varchar, numeric, varchar, numeric, numeric, varchar, varchar) CASCADE;
 CREATE OR REPLACE FUNCTION citydb_pkg.utn9_insert_distrib_element (
   id                 integer,
   objectclass_id     integer,
@@ -764,87 +764,89 @@ CREATE OR REPLACE FUNCTION citydb_pkg.utn9_insert_distrib_element (
 RETURNS integer
 AS $$
 DECLARE
-  p_id integer := id;
-  p_objectclass_id integer := objectclass_id;
-  p_function_of_line varchar := function_of_line;
-  p_is_gravity numeric := is_gravity;
-  p_is_transmission numeric := is_transmission;
-  p_is_communication   numeric := is_communication;
-  p_ext_width  numeric := ext_width;
-  p_ext_width_unit varchar := ext_width_unit;
-  p_ext_height numeric := ext_height;
-  p_ext_height_unit varchar := ext_height_unit;
-  p_ext_diameter   numeric := ext_diameter;
-  p_ext_diameter_unit  varchar := ext_diameter_unit;
-  p_int_width  numeric := int_width;
-  p_int_width_unit varchar := int_width_unit;
-  p_int_height numeric := int_height;
-  p_int_height_unit varchar := int_height_unit;
-  p_int_diameter   numeric := int_diameter;
-  p_int_diameter_unit  varchar := int_diameter_unit;
-  p_cross_section  numeric := cross_section;
+  p_id                 integer := id                ;
+  p_objectclass_id     integer := objectclass_id    ;
+  p_function_of_line   varchar := function_of_line  ;
+  p_is_gravity         numeric := is_gravity        ;
+  p_is_transmission    numeric := is_transmission   ;
+  p_is_communication   numeric := is_communication  ;
+  p_ext_width          numeric := ext_width         ;
+  p_ext_width_unit     varchar := ext_width_unit    ;
+  p_ext_height         numeric := ext_height        ;
+  p_ext_height_unit    varchar := ext_height_unit   ;
+  p_ext_diameter       numeric := ext_diameter      ;
+  p_ext_diameter_unit  varchar := ext_diameter_unit ;
+  p_int_width          numeric := int_width         ;
+  p_int_width_unit     varchar := int_width_unit    ;
+  p_int_height         numeric := int_height        ;
+  p_int_height_unit    varchar := int_height_unit   ;
+  p_int_diameter       numeric := int_diameter      ;
+  p_int_diameter_unit  varchar := int_diameter_unit ;
+  p_cross_section      numeric := cross_section     ;
   p_cross_section_unit varchar := cross_section_unit;
-  p_slope_range_from   numeric := slope_range_from;
-  p_slope_range_to numeric := slope_range_to;
-  p_slope_range_unit   varchar := slope_range_unit;
-  p_profile_name   varchar := profile_name;
+  p_slope_range_from   numeric := slope_range_from  ;
+  p_slope_range_to     numeric := slope_range_to    ;
+  p_slope_range_unit   varchar := slope_range_unit  ;
+  p_profile_name       varchar := profile_name      ;
 --
   p_schema_name varchar := schema_name;
   inserted_id integer;
 BEGIN
 EXECUTE format('
 INSERT INTO %I.utn9_distrib_element (
- id,
- objectclass_id,
- function_of_line,
- is_gravity,
- is_transmission,
- is_communication,
- ext_width,
- ext_width_unit,
- ext_height,
- ext_height_unit,
- ext_diameter,
- ext_diameter_unit,
- int_width,
- int_width_unit,
- int_height,
- int_height_unit,
- int_diameter,
- int_diameter_unit,
- cross_section,
+ id                ,
+ objectclass_id    ,
+ function_of_line  ,
+ is_gravity        ,
+ is_transmission   ,
+ is_communication  ,
+ ext_width         ,
+ ext_width_unit    ,
+ ext_height        ,
+ ext_height_unit   ,
+ ext_diameter      ,
+ ext_diameter_unit ,
+ int_width         ,
+ int_width_unit    ,
+ int_height        ,
+ int_height_unit   ,
+ int_diameter      ,
+ int_diameter_unit ,
+ cross_section     ,
  cross_section_unit,
- slope_range_from,
- slope_range_to,
- slope_range_unit,
+ slope_range_from  ,
+ slope_range_to    ,
+ slope_range_unit  ,
  profile_name
 ) VALUES (
-%L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L, %L
+%L, %L, %L, %L, %L, %L, %L, %L, %L, %L,
+%L, %L, %L, %L, %L, %L, %L, %L, %L, %L,
+%L, %L, %L, %L
 ) RETURNING id',
 p_schema_name,
-p_id, 
-p_objectclass_id, 
-p_function_of_line,
-p_is_gravity, 
-p_is_transmission, 
-p_is_communication, 
-p_ext_width, 
-p_ext_width_unit, 
-p_ext_height, 
-p_ext_height_unit, 
-p_ext_diameter, 
-p_ext_diameter_unit, 
-p_int_width, 
-p_int_width_unit, 
-p_int_height, 
-p_int_height_unit, 
-p_int_diameter, 
-p_int_diameter_unit, 
-p_cross_section, 
+p_id                , 
+p_objectclass_id    , 
+p_function_of_line  ,
+p_is_gravity        , 
+p_is_transmission   , 
+p_is_communication  , 
+p_ext_width         , 
+p_ext_width_unit    , 
+p_ext_height        , 
+p_ext_height_unit   , 
+p_ext_diameter      , 
+p_ext_diameter_unit , 
+p_int_width         , 
+p_int_width_unit    , 
+p_int_height        , 
+p_int_height_unit   , 
+p_int_diameter      , 
+p_int_diameter_unit , 
+p_cross_section     , 
 p_cross_section_unit, 
-p_slope_range_from, 
-p_slope_range_to, 
-p_slope_range_unit, 
+p_slope_range_from  , 
+p_slope_range_to    , 
+p_slope_range_unit  , 
 p_profile_name
 ) INTO inserted_id;
 RETURN inserted_id;
