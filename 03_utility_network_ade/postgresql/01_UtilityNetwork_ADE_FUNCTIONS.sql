@@ -1,4 +1,4 @@
--- 3D City Database extension for the UtilityNetworks ADE v. 0.9
+-- 3D City Database extension for the Utility Network ADE v. 0.9
 --
 --                     BETA 1, August 2017
 --
@@ -34,7 +34,8 @@
 -- ***********************************************************************
 
 SELECT citydb_pkg.cleanup_schema('citydb');
--- Unistall the UtilityNetworks ADE in case there is a previous installation
+
+-- Unistall the Utility Network ADE in case there is a previous installation
 -- with the same db_prefix.
 WITH a AS (
 SELECT id FROM citydb.ade WHERE db_prefix='utn9'
@@ -44,7 +45,7 @@ SELECT citydb_pkg.drop_ade(a.id) FROM a;
 ----------------------------------------------------------------
 -- Function UTN_SET_ADE_COLUMN_SRID
 ----------------------------------------------------------------
-DROP FUNCTION IF EXISTS citydb_pkg.utn9_set_ade_columns_srid(varchar);
+DROP FUNCTION IF EXISTS    citydb_pkg.utn9_set_ade_columns_srid(varchar);
 CREATE OR REPLACE FUNCTION citydb_pkg.utn9_set_ade_columns_srid(
 	schema_name varchar DEFAULT 'citydb'::varchar
 )
@@ -56,7 +57,7 @@ PERFORM citydb_pkg.change_ade_column_srid('utn9_network_feature', 'geom', 'GEOME
 PERFORM citydb_pkg.change_ade_column_srid('utn9_node', 'point_geom', 'POINTZ', schema_name);
 PERFORM citydb_pkg.change_ade_column_srid('utn9_link', 'line_geom', 'LINESTRINGZ', schema_name);
 
-RAISE NOTICE 'Geometry columns of UtilityNetworks ADE set to current database SRID';
+RAISE NOTICE 'Geometry columns of Utility Networks ADE set to current database SRID';
 EXCEPTION
 	WHEN OTHERS THEN RAISE NOTICE 'citydb_pkg.utn9_set_ade_columns_srid (schema: %): %', schema_name, SQLERRM;
 END;
@@ -67,7 +68,7 @@ LANGUAGE plpgsql;
 ----------------------------------------------------------------
 -- Function UTN_CLEANUP_SCHEMA
 ----------------------------------------------------------------
-DROP FUNCTION IF EXISTS citydb_pkg.utn9_cleanup_schema(varchar);
+DROP FUNCTION IF EXISTS    citydb_pkg.utn9_cleanup_schema(varchar);
 CREATE OR REPLACE FUNCTION citydb_pkg.utn9_cleanup_schema(
 	schema_name varchar DEFAULT 'citydb'::varchar
 )
@@ -75,11 +76,43 @@ RETURNS void AS $BODY$
 DECLARE
 BEGIN
 -- truncate the tables
---EXECUTE format('TRUNCATE TABLE %I.utn9_xxx CASCADE', schema_name);
+EXECUTE format('TRUNCATE TABLE %I.utn9_storage CASCADE', schema_name);
+EXECUTE format('TRUNCATE TABLE %I.utn9_medium_supply CASCADE', schema_name);
+EXECUTE format('TRUNCATE TABLE %I.utn9_role_in_network CASCADE', schema_name);
+EXECUTE format('TRUNCATE TABLE %I.utn9_comm_class_to_comm_class CASCADE', schema_name);
+EXECUTE format('TRUNCATE TABLE %I.utn9_commodity_classifier CASCADE', schema_name);
+EXECUTE format('TRUNCATE TABLE %I.utn9_commodity CASCADE', schema_name);
+EXECUTE format('TRUNCATE TABLE %I.utn9_network_feat_to_material CASCADE', schema_name);
+EXECUTE format('TRUNCATE TABLE %I.utn9_material CASCADE', schema_name);
+EXECUTE format('TRUNCATE TABLE %I.utn9_hollow_space CASCADE', schema_name);
+EXECUTE format('TRUNCATE TABLE %I.utn9_building CASCADE', schema_name);
+-- Network Components
+EXECUTE format('TRUNCATE TABLE %I.utn9_protective_element CASCADE', schema_name);
+EXECUTE format('TRUNCATE TABLE %I.utn9_distrib_element CASCADE', schema_name);
+-- Core module: Topology
+EXECUTE format('TRUNCATE TABLE %I.utn9_node CASCADE', schema_name);
+EXECUTE format('TRUNCATE TABLE %I.utn9_link CASCADE', schema_name);
+EXECUTE format('TRUNCATE TABLE %I.utn9_feature_graph CASCADE', schema_name);
+EXECUTE format('TRUNCATE TABLE %I.utn9_network_graph CASCADE', schema_name);
+-- Core module: Geography
+EXECUTE format('TRUNCATE TABLE %I.utn9_network_to_network_feature CASCADE', schema_name);
+EXECUTE format('TRUNCATE TABLE %I.utn9_network_to_supply_area CASCADE', schema_name);
+EXECUTE format('TRUNCATE TABLE %I.utn9_network_to_network CASCADE', schema_name);
+EXECUTE format('TRUNCATE TABLE %I.utn9_network_feature CASCADE', schema_name);
+EXECUTE format('TRUNCATE TABLE %I.utn9_network CASCADE', schema_name);
 
--- restart sequences
---EXECUTE format('ALTER SEQUENCE %I.utn9_xxx_id_seq RESTART', schema_name);
-
+-- Restart sequences
+EXECUTE format('ALTER SEQUENCE %I.utn9_commodity_classifier_id_seq RESTART', schema_name);
+EXECUTE format('ALTER SEQUENCE %I.utn9_commodity_id_seq RESTART', schema_name);
+EXECUTE format('ALTER SEQUENCE %I.utn9_feature_graph_id_seq RESTART', schema_name);
+EXECUTE format('ALTER SEQUENCE %I.utn9_hollow_space_id_seq RESTART', schema_name);
+EXECUTE format('ALTER SEQUENCE %I.utn9_link_id_seq RESTART', schema_name);
+EXECUTE format('ALTER SEQUENCE %I.utn9_material_id_seq RESTART', schema_name);
+EXECUTE format('ALTER SEQUENCE %I.utn9_medium_supply_id_seq RESTART', schema_name);
+EXECUTE format('ALTER SEQUENCE %I.utn9_network_graph_id_seq RESTART', schema_name);
+EXECUTE format('ALTER SEQUENCE %I.utn9_node_id_seq RESTART', schema_name);
+EXECUTE format('ALTER SEQUENCE %I.utn9_role_in_network_id_seq RESTART', schema_name);
+EXECUTE format('ALTER SEQUENCE %I.utn9_storage_id_seq RESTART', schema_name);
 -- Finished, now call the standard clear_schema function(s).
 EXCEPTION
     WHEN OTHERS THEN RAISE NOTICE 'citydb_pkg.utn9_cleanup_schema: %', SQLERRM;
@@ -98,7 +131,7 @@ CREATE OR REPLACE FUNCTION citydb_pkg.utn9_intern_delete_cityobject(
 RETURNS void AS
 $BODY$
 DECLARE
-  ms_id integer;
+	ms_id integer;
 	deleted_id integer;
 BEGIN
 --// START PRE DELETE ADE CITYOBJECT //--
@@ -141,10 +174,10 @@ IF classname IS NOT NULL THEN
   CASE
     WHEN classname = 'Network'        THEN deleted_id := citydb_pkg.utn9_delete_network(co_id, schema_name);
     WHEN classname = 'SupplyArea'     THEN deleted_id := citydb_pkg.utn9_delete_supply_area(co_id, delete_members, schema_name);
-    WHEN classname IN ('Bedding', 'RectangularShell', 'RoundShell', 'OtherShell', 'Cable', 'Canal', 'SemiOpenCanal', 'RoundPipe', 'RectangularPipe', 'OtherShapePipe', 'ComplexFunctionalElement', 'SimpleFunctionalElement', 'TerminalElement', 'StorageDevice', 'TechDevice', 'MeasurementDevice', 'ControllerDevice', 'AnyDevice') 
+    WHEN classname IN ('Bedding', 'RectangularShell', 'RoundShell', 'OtherShell', 'Cable', 'Canal', 'SemiOpenCanal', 'ClosedCanal', 'RoundPipe', 'RectangularPipe', 'OtherShapePipe', 'ComplexFunctionalElement', 'SimpleFunctionalElement', 'TerminalElement', 'StorageDevice', 'TechDevice', 'MeasurementDevice', 'ControllerDevice', 'AnyDevice') 
 			THEN deleted_id := citydb_pkg.utn9_delete_network_feature(co_id, schema_name);
     ELSE
-     RAISE NOTICE 'Cannot delete chosen object with ID % and classname %.', co_id, classname;
+     RAISE NOTICE 'Cannot delete chosen object with ID % and classname %', co_id, classname;
   END CASE;
 END IF;
 RETURN deleted_id;
@@ -176,10 +209,10 @@ IF classname IS NOT NULL THEN
 	CASE
 		WHEN classname = 'Network'    THEN envelope := citydb_pkg.utn9_get_envelope_network(co_id, set_envelope, schema_name);
 		WHEN classname = 'SupplyArea' THEN envelope := citydb_pkg.utn9_get_envelope_supply_area(co_id, set_envelope, 1, schema_name);
-		WHEN classname IN ('Bedding', 'RectangularShell', 'RoundShell', 'OtherShell', 'Cable', 'Canal', 'SemiOpenCanal', 'RoundPipe', 'RectangularPipe', 'OtherShapePipe', 'ComplexFunctionalElement', 'SimpleFunctionalElement', 'TerminalElement', 'StorageDevice', 'TechDevice', 'MeasurementDevice', 'ControllerDevice', 'AnyDevice')		
+		WHEN classname IN ('Bedding', 'RectangularShell', 'RoundShell', 'OtherShell', 'Cable', 'Canal', 'SemiOpenCanal', 'ClosedCanal', 'RoundPipe', 'RectangularPipe', 'OtherShapePipe', 'ComplexFunctionalElement', 'SimpleFunctionalElement', 'TerminalElement', 'StorageDevice', 'TechDevice', 'MeasurementDevice', 'ControllerDevice', 'AnyDevice')	
 		  THEN envelope := citydb_pkg.utn9_get_envelope_network_feature(co_id, set_envelope, schema_name);
 	ELSE
-		RAISE NOTICE 'Cannot get envelope of object with ID % class_name %.', co_id, classname;
+		RAISE NOTICE 'Cannot get envelope of object with ID % class_name %', co_id, classname;
 	END CASE;
 END IF;
 RETURN envelope;
