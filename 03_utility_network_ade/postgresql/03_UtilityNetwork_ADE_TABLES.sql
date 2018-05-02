@@ -474,10 +474,10 @@ CREATE TABLE         citydb.utn9_medium_supply (
 	objectclass_id              integer NOT NULL,	-- This is a foreign key to objectclass.id	
 	type                        varchar,	        -- This is a foreign key to lu_medium_supply.id
 	cur_supply_flow_rate        numeric,
-	cur_supply_flow_rate_unit   numeric,
+	cur_supply_flow_rate_unit   varchar,
 	cur_supply_status           varchar,	
 	pot_supply_flow_rate        numeric,
-	pot_supply_flow_rate_unit   numeric,
+	pot_supply_flow_rate_unit   varchar,
 	pot_supply_status           varchar,            -- This is a foreign key to lu_supply_status.id
 	cityobject_id               integer	            -- This is a foreign key to cityobject.id
 );
@@ -610,7 +610,7 @@ CREATE TABLE         citydb.utn9_commodity (
 	bandwidth_range_from         numeric,
 	bandwidth_range_to           numeric,
 	bandwidth_range_unit         varchar,
-	optical_mode	               varchar
+	optical_mode	             varchar
 --	core_cross_section          numeric,
 --	core_cross_section_unit     varchar,
 --	cladding_cross_section      numeric,

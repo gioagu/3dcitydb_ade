@@ -3248,10 +3248,10 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_medium_supply_electrical(
   id                        integer DEFAULT NULL,
   type                      varchar DEFAULT NULL,
   cur_supply_flow_rate      numeric DEFAULT NULL,
-  cur_supply_flow_rate_unit numeric DEFAULT NULL,
+  cur_supply_flow_rate_unit varchar DEFAULT NULL,
   cur_supply_status         varchar DEFAULT NULL,
   pot_supply_flow_rate      numeric DEFAULT NULL,
-  pot_supply_flow_rate_unit numeric DEFAULT NULL,
+  pot_supply_flow_rate_unit varchar DEFAULT NULL,
   pot_supply_status         varchar DEFAULT NULL,
   cityobject_id             integer DEFAULT NULL,	
 --
@@ -3263,10 +3263,10 @@ DECLARE
   p_id                           integer := id;
   p_type                         varchar :=type                     ;
   p_cur_supply_flow_rate         numeric :=cur_supply_flow_rate     ;
-  p_cur_supply_flow_rate_unit    numeric :=cur_supply_flow_rate_unit;
+  p_cur_supply_flow_rate_unit    varchar :=cur_supply_flow_rate_unit;
   p_cur_supply_status            varchar :=cur_supply_status        ;
   p_pot_supply_flow_rate         numeric :=pot_supply_flow_rate     ;
-  p_pot_supply_flow_rate_unit    numeric :=pot_supply_flow_rate_unit;
+  p_pot_supply_flow_rate_unit    varchar :=pot_supply_flow_rate_unit;
   p_pot_supply_status            varchar :=pot_supply_status        ;
   p_cityobject_id                integer :=cityobject_id            ;	
 --
@@ -3306,10 +3306,10 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_medium_supply_gaseous(
   id                        integer DEFAULT NULL,
   type                      varchar DEFAULT NULL,
   cur_supply_flow_rate      numeric DEFAULT NULL,
-  cur_supply_flow_rate_unit numeric DEFAULT NULL,
+  cur_supply_flow_rate_unit varchar DEFAULT NULL,
   cur_supply_status         varchar DEFAULT NULL,
   pot_supply_flow_rate      numeric DEFAULT NULL,
-  pot_supply_flow_rate_unit numeric DEFAULT NULL,
+  pot_supply_flow_rate_unit varchar DEFAULT NULL,
   pot_supply_status         varchar DEFAULT NULL,
   cityobject_id             integer DEFAULT NULL,	
 --
@@ -3321,10 +3321,10 @@ DECLARE
   p_id                           integer := id;
   p_type                         varchar :=type                     ;
   p_cur_supply_flow_rate         numeric :=cur_supply_flow_rate     ;
-  p_cur_supply_flow_rate_unit    numeric :=cur_supply_flow_rate_unit;
+  p_cur_supply_flow_rate_unit    varchar :=cur_supply_flow_rate_unit;
   p_cur_supply_status            varchar :=cur_supply_status        ;
   p_pot_supply_flow_rate         numeric :=pot_supply_flow_rate     ;
-  p_pot_supply_flow_rate_unit    numeric :=pot_supply_flow_rate_unit;
+  p_pot_supply_flow_rate_unit    varchar :=pot_supply_flow_rate_unit;
   p_pot_supply_status            varchar :=pot_supply_status        ;
   p_cityobject_id                integer :=cityobject_id            ;	
 --
@@ -3364,10 +3364,10 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_medium_supply_liquid(
   id                        integer DEFAULT NULL,
   type                      varchar DEFAULT NULL,
   cur_supply_flow_rate      numeric DEFAULT NULL,
-  cur_supply_flow_rate_unit numeric DEFAULT NULL,
+  cur_supply_flow_rate_unit varchar DEFAULT NULL,
   cur_supply_status         varchar DEFAULT NULL,
   pot_supply_flow_rate      numeric DEFAULT NULL,
-  pot_supply_flow_rate_unit numeric DEFAULT NULL,
+  pot_supply_flow_rate_unit varchar DEFAULT NULL,
   pot_supply_status         varchar DEFAULT NULL,
   cityobject_id             integer DEFAULT NULL,	
 --
@@ -3379,10 +3379,10 @@ DECLARE
   p_id                           integer := id;
   p_type                         varchar :=type                     ;
   p_cur_supply_flow_rate         numeric :=cur_supply_flow_rate     ;
-  p_cur_supply_flow_rate_unit    numeric :=cur_supply_flow_rate_unit;
+  p_cur_supply_flow_rate_unit    varchar :=cur_supply_flow_rate_unit;
   p_cur_supply_status            varchar :=cur_supply_status        ;
   p_pot_supply_flow_rate         numeric :=pot_supply_flow_rate     ;
-  p_pot_supply_flow_rate_unit    numeric :=pot_supply_flow_rate_unit;
+  p_pot_supply_flow_rate_unit    varchar :=pot_supply_flow_rate_unit;
   p_pot_supply_status            varchar :=pot_supply_status        ;
   p_cityobject_id                integer :=cityobject_id            ;	
 --
@@ -3422,10 +3422,10 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_medium_supply_optical(
   id                        integer DEFAULT NULL,
   type                      varchar DEFAULT NULL,
   cur_supply_flow_rate      numeric DEFAULT NULL,
-  cur_supply_flow_rate_unit numeric DEFAULT NULL,
+  cur_supply_flow_rate_unit varchar DEFAULT NULL,
   cur_supply_status         varchar DEFAULT NULL,
   pot_supply_flow_rate      numeric DEFAULT NULL,
-  pot_supply_flow_rate_unit numeric DEFAULT NULL,
+  pot_supply_flow_rate_unit varchar DEFAULT NULL,
   pot_supply_status         varchar DEFAULT NULL,
   cityobject_id             integer DEFAULT NULL,	
 --
@@ -3437,10 +3437,10 @@ DECLARE
   p_id                           integer := id;
   p_type                         varchar :=type                     ;
   p_cur_supply_flow_rate         numeric :=cur_supply_flow_rate     ;
-  p_cur_supply_flow_rate_unit    numeric :=cur_supply_flow_rate_unit;
+  p_cur_supply_flow_rate_unit    varchar :=cur_supply_flow_rate_unit;
   p_cur_supply_status            varchar :=cur_supply_status        ;
   p_pot_supply_flow_rate         numeric :=pot_supply_flow_rate     ;
-  p_pot_supply_flow_rate_unit    numeric :=pot_supply_flow_rate_unit;
+  p_pot_supply_flow_rate_unit    varchar :=pot_supply_flow_rate_unit;
   p_pot_supply_status            varchar :=pot_supply_status        ;
   p_cityobject_id                integer :=cityobject_id            ;	
 --
@@ -3480,10 +3480,10 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_medium_supply_solid(
   id                        integer DEFAULT NULL,
   type                      varchar DEFAULT NULL,
   cur_supply_flow_rate      numeric DEFAULT NULL,
-  cur_supply_flow_rate_unit numeric DEFAULT NULL,
+  cur_supply_flow_rate_unit varchar DEFAULT NULL,
   cur_supply_status         varchar DEFAULT NULL,
   pot_supply_flow_rate      numeric DEFAULT NULL,
-  pot_supply_flow_rate_unit numeric DEFAULT NULL,
+  pot_supply_flow_rate_unit varchar DEFAULT NULL,
   pot_supply_status         varchar DEFAULT NULL,
   cityobject_id             integer DEFAULT NULL,	
 --
@@ -3495,10 +3495,10 @@ DECLARE
   p_id                           integer := id;
   p_type                         varchar :=type                     ;
   p_cur_supply_flow_rate         numeric :=cur_supply_flow_rate     ;
-  p_cur_supply_flow_rate_unit    numeric :=cur_supply_flow_rate_unit;
+  p_cur_supply_flow_rate_unit    varchar :=cur_supply_flow_rate_unit;
   p_cur_supply_status            varchar :=cur_supply_status        ;
   p_pot_supply_flow_rate         numeric :=pot_supply_flow_rate     ;
-  p_pot_supply_flow_rate_unit    numeric :=pot_supply_flow_rate_unit;
+  p_pot_supply_flow_rate_unit    varchar :=pot_supply_flow_rate_unit;
   p_pot_supply_status            varchar :=pot_supply_status        ;
   p_cityobject_id                integer :=cityobject_id            ;	
 --
