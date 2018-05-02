@@ -341,7 +341,7 @@ SELECT
   nf.status,
   nf.location_quality,
   nf.elevation_quality,
-  nf.cityobject_id,
+  nf.conn_cityobject_id,
   nf.prot_element_id,
   nf.geom
 FROM
@@ -386,7 +386,7 @@ SELECT
   nf.status,
   nf.location_quality,
   nf.elevation_quality,
-  nf.cityobject_id,
+  nf.conn_cityobject_id,
   nf.prot_element_id,
   nf.geom
 FROM
@@ -431,7 +431,7 @@ SELECT
   nf.status,
   nf.location_quality,
   nf.elevation_quality,
-  nf.cityobject_id,
+  nf.conn_cityobject_id,
   nf.prot_element_id,
   nf.geom
 FROM
@@ -476,7 +476,7 @@ SELECT
   nf.status,
   nf.location_quality,
   nf.elevation_quality,
-  nf.cityobject_id,
+  nf.conn_cityobject_id,
   nf.prot_element_id,
   nf.geom
 FROM
@@ -521,7 +521,7 @@ SELECT
   nf.status,
   nf.location_quality,
   nf.elevation_quality,
-  nf.cityobject_id,
+  nf.conn_cityobject_id,
   nf.prot_element_id,
   nf.geom
 FROM
@@ -566,7 +566,7 @@ SELECT
   nf.status,
   nf.location_quality,
   nf.elevation_quality,
-  nf.cityobject_id,
+  nf.conn_cityobject_id,
   nf.prot_element_id,
   nf.geom
 FROM
@@ -611,7 +611,7 @@ SELECT
   nf.status,
   nf.location_quality,
   nf.elevation_quality,
-  nf.cityobject_id,
+  nf.conn_cityobject_id,
   nf.prot_element_id,
   nf.geom
 FROM
@@ -656,7 +656,7 @@ SELECT
   nf.status,
   nf.location_quality,
   nf.elevation_quality,
-  nf.cityobject_id,
+  nf.conn_cityobject_id,
   nf.prot_element_id,
   nf.geom
 FROM
@@ -701,7 +701,7 @@ SELECT
   nf.status,
   nf.location_quality,
   nf.elevation_quality,
-  nf.cityobject_id,
+  nf.conn_cityobject_id,
   nf.prot_element_id,
   nf.geom,
   de.function_of_line,
@@ -758,7 +758,7 @@ SELECT
   nf.status,
   nf.location_quality,
   nf.elevation_quality,
-  nf.cityobject_id,
+  nf.conn_cityobject_id,
   nf.prot_element_id,
   nf.geom,
   de.function_of_line,
@@ -817,7 +817,7 @@ SELECT
   nf.status,
   nf.location_quality,
   nf.elevation_quality,
-  nf.cityobject_id,
+  nf.conn_cityobject_id,
   nf.prot_element_id,
   nf.geom,
   de.function_of_line,
@@ -873,7 +873,7 @@ SELECT
   nf.status,
   nf.location_quality,
   nf.elevation_quality,
-  nf.cityobject_id,
+  nf.conn_cityobject_id,
   nf.prot_element_id,
   nf.geom,
   de.function_of_line,
@@ -925,7 +925,7 @@ SELECT
   nf.status,
   nf.location_quality,
   nf.elevation_quality,
-  nf.cityobject_id,
+  nf.conn_cityobject_id,
   nf.prot_element_id,
   nf.geom,
   de.function_of_line,
@@ -984,7 +984,7 @@ SELECT
   nf.status,
   nf.location_quality,
   nf.elevation_quality,
-  nf.cityobject_id,
+  nf.conn_cityobject_id,
   nf.prot_element_id,
   nf.geom,
   de.function_of_line,
@@ -1043,7 +1043,7 @@ SELECT
   nf.status,
   nf.location_quality,
   nf.elevation_quality,
-  nf.cityobject_id,
+  nf.conn_cityobject_id,
   nf.prot_element_id,
   nf.geom,
   de.function_of_line,	
@@ -1102,7 +1102,7 @@ SELECT
   nf.status,
   nf.location_quality,
   nf.elevation_quality,
-  nf.cityobject_id,
+  nf.conn_cityobject_id,
   nf.prot_element_id,
   nf.geom,
   pe.ext_width,
@@ -1159,7 +1159,7 @@ SELECT
   nf.status,
   nf.location_quality,
   nf.elevation_quality,
-  nf.cityobject_id,
+  nf.conn_cityobject_id,
   nf.prot_element_id,
   nf.geom,
   pe.ext_width,
@@ -1214,7 +1214,7 @@ SELECT
   nf.status,
   nf.location_quality,
   nf.elevation_quality,
-  nf.cityobject_id,
+  nf.conn_cityobject_id,
   nf.prot_element_id,
   nf.geom,
   pe.ext_width,
@@ -1269,7 +1269,7 @@ SELECT
   nf.status,
   nf.location_quality,
   nf.elevation_quality,
-  nf.cityobject_id,
+  nf.conn_cityobject_id,
   nf.prot_element_id,
   nf.geom,
   pe.width,

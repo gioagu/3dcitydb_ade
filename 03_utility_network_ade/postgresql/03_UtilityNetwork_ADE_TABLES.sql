@@ -118,7 +118,7 @@ CREATE TABLE         citydb.utn9_network_feature (
 	status                   varchar,
 	location_quality         varchar,
 	elevation_quality        varchar,
-	cityobject_id            integer,
+	conn_cityobject_id       integer,
 	prot_element_id          integer,
 	geom                     geometry(GeometryZ)
 );
@@ -127,7 +127,7 @@ CREATE TABLE         citydb.utn9_network_feature (
 CREATE INDEX utn9_ntw_feat_objclass_id_fkx ON citydb.utn9_network_feature USING btree (objectclass_id);
 CREATE INDEX utn9_ntw_feat_ntw_feat_parent_id_fkx ON citydb.utn9_network_feature USING btree (ntw_feature_parent_id);
 CREATE INDEX utn9_ntw_feat_ntw_feat_root_id_fkx ON citydb.utn9_network_feature USING btree (ntw_feature_root_id);
-CREATE INDEX utn9_ntw_feat_cto_id_fkx ON citydb.utn9_network_feature USING btree (cityobject_id);
+CREATE INDEX utn9_ntw_feat_conn_cto_id_fkx ON citydb.utn9_network_feature USING btree (conn_cityobject_id);
 CREATE INDEX utn9_ntw_feat_prot_elem_id_fkx ON citydb.utn9_network_feature USING btree (prot_element_id);
 CREATE INDEX utn9_ntw_feat_geom_spx ON citydb.utn9_network_feature USING gist (geom gist_geometry_ops_nd);
 
@@ -843,7 +843,7 @@ ALTER TABLE IF EXISTS citydb.utn9_network_feature ADD CONSTRAINT utn9_ntw_feat_c
 ALTER TABLE IF EXISTS citydb.utn9_network_feature ADD CONSTRAINT utn9_ntw_feat_objclass_fk FOREIGN KEY (objectclass_id) REFERENCES citydb.objectclass (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
 ALTER TABLE IF EXISTS citydb.utn9_network_feature ADD CONSTRAINT utn9_ntw_feat_utn_ntw_feat_fk1 FOREIGN KEY (ntw_feature_parent_id) REFERENCES citydb.utn9_network_feature (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
 ALTER TABLE IF EXISTS citydb.utn9_network_feature ADD CONSTRAINT utn9_ntw_feat_utn_ntw_feat_fk2 FOREIGN KEY (ntw_feature_root_id) REFERENCES citydb.utn9_network_feature (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
-ALTER TABLE IF EXISTS citydb.utn9_network_feature ADD CONSTRAINT utn9_ntw_feat_ctyobj_fk2 FOREIGN KEY (cityobject_id) REFERENCES citydb.cityobject (id) MATCH FULL ON UPDATE CASCADE ON DELETE SET NULL;
+ALTER TABLE IF EXISTS citydb.utn9_network_feature ADD CONSTRAINT utn9_ntw_feat_ctyobj_fk2 FOREIGN KEY (conn_cityobject_id) REFERENCES citydb.cityobject (id) MATCH FULL ON UPDATE CASCADE ON DELETE SET NULL;
 ALTER TABLE IF EXISTS citydb.utn9_network_feature ADD CONSTRAINT utn9_ntw_feat_utn_prot_elem_fk FOREIGN KEY (prot_element_id) REFERENCES citydb.utn9_protective_element (id) MATCH FULL ON UPDATE CASCADE ON DELETE SET NULL;
 
 -- FOREIGN KEY constraint on Table DISTRIB_ELEMENT

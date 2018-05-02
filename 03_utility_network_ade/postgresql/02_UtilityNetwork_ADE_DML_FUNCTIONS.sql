@@ -1137,7 +1137,7 @@ CREATE OR REPLACE FUNCTION citydb_pkg.utn9_insert_network_feature (
   status                varchar DEFAULT NULL,
   location_quality      varchar DEFAULT NULL,
   elevation_quality     varchar DEFAULT NULL,
-  cityobject_id         integer DEFAULT NULL,
+  conn_cityobject_id    integer DEFAULT NULL,
   prot_element_id       integer DEFAULT NULL,
   geom                  geometry DEFAULT NULL, 
 --	
@@ -1157,7 +1157,7 @@ DECLARE
   p_status                 varchar  := status;
   p_location_quality       varchar  := location_quality;
   p_elevation_quality      varchar  := elevation_quality;
-  p_cityobject_id          integer  := cityobject_id;
+  p_conn_cityobject_id     integer  := conn_cityobject_id;
   p_prot_element_id        integer  := prot_element_id;
   p_geom                   geometry := geom;
 --	
@@ -1177,7 +1177,7 @@ INSERT INTO %I.utn9_network_feature (
  status,
  location_quality,
  elevation_quality,
- cityobject_id,
+ conn_cityobject_id,
  prot_element_id,
  geom
 ) VALUES (
@@ -1195,7 +1195,7 @@ p_year_of_construction,
 p_status, 
 p_location_quality, 
 p_elevation_quality, 
-p_cityobject_id, 
+p_conn_cityobject_id, 
 p_prot_element_id, 
 p_geom
 ) INTO inserted_id;

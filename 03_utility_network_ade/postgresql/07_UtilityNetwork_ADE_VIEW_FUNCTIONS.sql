@@ -3726,7 +3726,7 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_complex_funct_elem(
   status                varchar DEFAULT NULL,
   location_quality      varchar DEFAULT NULL,
   elevation_quality     varchar DEFAULT NULL,
-  cityobject_id         integer DEFAULT NULL,
+  conn_cityobject_id    integer DEFAULT NULL,
   prot_element_id       integer DEFAULT NULL,
   geom                  geometry DEFAULT NULL,	
 --
@@ -3760,7 +3760,7 @@ DECLARE
   p_status                 varchar  := status;
   p_location_quality       varchar  := location_quality;
   p_elevation_quality      varchar  := elevation_quality;
-  p_cityobject_id          integer  := cityobject_id;
+  p_conn_cityobject_id     integer  := conn_cityobject_id;
   p_prot_element_id        integer  := prot_element_id;
   p_geom                   geometry := geom;	
 --
@@ -3804,7 +3804,7 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
     status               	:=p_status               ,
     location_quality     	:=p_location_quality     ,
     elevation_quality    	:=p_elevation_quality    ,
-    cityobject_id        	:=p_cityobject_id        ,
+    conn_cityobject_id      :=p_conn_cityobject_id   ,
     prot_element_id      	:=p_prot_element_id      ,
     geom                 	:=p_geom                 ,
 --
@@ -3847,7 +3847,7 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_simple_funct_elem(
   status                varchar DEFAULT NULL,
   location_quality      varchar DEFAULT NULL,
   elevation_quality     varchar DEFAULT NULL,
-  cityobject_id         integer DEFAULT NULL,
+  conn_cityobject_id    integer DEFAULT NULL,
   prot_element_id       integer DEFAULT NULL,
   geom                  geometry DEFAULT NULL,	
 --
@@ -3881,7 +3881,7 @@ DECLARE
   p_status                 varchar  := status;
   p_location_quality       varchar  := location_quality;
   p_elevation_quality      varchar  := elevation_quality;
-  p_cityobject_id          integer  := cityobject_id;
+  p_conn_cityobject_id     integer  := conn_cityobject_id;
   p_prot_element_id        integer  := prot_element_id;
   p_geom                   geometry := geom;	
 --
@@ -3925,7 +3925,7 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
     status               	:=p_status               ,
     location_quality     	:=p_location_quality     ,
     elevation_quality    	:=p_elevation_quality    ,
-    cityobject_id        	:=p_cityobject_id        ,
+    conn_cityobject_id      :=p_conn_cityobject_id   ,
     prot_element_id      	:=p_prot_element_id      ,
     geom                 	:=p_geom                 ,
 --
@@ -3968,7 +3968,7 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_term_elem(
   status                varchar DEFAULT NULL,
   location_quality      varchar DEFAULT NULL,
   elevation_quality     varchar DEFAULT NULL,
-  cityobject_id         integer DEFAULT NULL,
+  conn_cityobject_id    integer DEFAULT NULL,
   prot_element_id       integer DEFAULT NULL,
   geom                  geometry DEFAULT NULL,	
 --
@@ -4002,7 +4002,7 @@ DECLARE
   p_status                 varchar  := status;
   p_location_quality       varchar  := location_quality;
   p_elevation_quality      varchar  := elevation_quality;
-  p_cityobject_id          integer  := cityobject_id;
+  p_conn_cityobject_id     integer  := conn_cityobject_id;
   p_prot_element_id        integer  := prot_element_id;
   p_geom                   geometry := geom;	
 --
@@ -4046,7 +4046,7 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
     status               	:=p_status               ,
     location_quality     	:=p_location_quality     ,
     elevation_quality    	:=p_elevation_quality    ,
-    cityobject_id        	:=p_cityobject_id        ,
+    conn_cityobject_id      :=p_conn_cityobject_id   ,
     prot_element_id      	:=p_prot_element_id      ,
     geom                 	:=p_geom                 ,
 --
@@ -4089,7 +4089,7 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_device_generic(
   status                varchar DEFAULT NULL,
   location_quality      varchar DEFAULT NULL,
   elevation_quality     varchar DEFAULT NULL,
-  cityobject_id         integer DEFAULT NULL,
+  conn_cityobject_id    integer DEFAULT NULL,
   prot_element_id       integer DEFAULT NULL,
   geom                  geometry DEFAULT NULL,	
 --
@@ -4123,7 +4123,7 @@ DECLARE
   p_status                 varchar  := status;
   p_location_quality       varchar  := location_quality;
   p_elevation_quality      varchar  := elevation_quality;
-  p_cityobject_id          integer  := cityobject_id;
+  p_conn_cityobject_id     integer  := conn_cityobject_id;
   p_prot_element_id        integer  := prot_element_id;
   p_geom                   geometry := geom;	
 --
@@ -4167,7 +4167,7 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
     status               	:=p_status               ,
     location_quality     	:=p_location_quality     ,
     elevation_quality    	:=p_elevation_quality    ,
-    cityobject_id        	:=p_cityobject_id        ,
+    conn_cityobject_id      :=p_conn_cityobject_id   ,
     prot_element_id      	:=p_prot_element_id      ,
     geom                 	:=p_geom                 ,
 --
@@ -4210,7 +4210,7 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_device_controller(
   status                varchar DEFAULT NULL,
   location_quality      varchar DEFAULT NULL,
   elevation_quality     varchar DEFAULT NULL,
-  cityobject_id         integer DEFAULT NULL,
+  conn_cityobject_id    integer DEFAULT NULL,
   prot_element_id       integer DEFAULT NULL,
   geom                  geometry DEFAULT NULL,	
 --
@@ -4244,7 +4244,7 @@ DECLARE
   p_status                 varchar  := status;
   p_location_quality       varchar  := location_quality;
   p_elevation_quality      varchar  := elevation_quality;
-  p_cityobject_id          integer  := cityobject_id;
+  p_conn_cityobject_id     integer  := conn_cityobject_id;
   p_prot_element_id        integer  := prot_element_id;
   p_geom                   geometry := geom;	
 --
@@ -4288,7 +4288,7 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
     status               	:=p_status               ,
     location_quality     	:=p_location_quality     ,
     elevation_quality    	:=p_elevation_quality    ,
-    cityobject_id        	:=p_cityobject_id        ,
+    conn_cityobject_id      :=p_conn_cityobject_id   ,
     prot_element_id      	:=p_prot_element_id      ,
     geom                 	:=p_geom                 ,
 --
@@ -4331,7 +4331,7 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_device_meas(
   status                varchar DEFAULT NULL,
   location_quality      varchar DEFAULT NULL,
   elevation_quality     varchar DEFAULT NULL,
-  cityobject_id         integer DEFAULT NULL,
+  conn_cityobject_id    integer DEFAULT NULL,
   prot_element_id       integer DEFAULT NULL,
   geom                  geometry DEFAULT NULL,	
 --
@@ -4365,7 +4365,7 @@ DECLARE
   p_status                 varchar  := status;
   p_location_quality       varchar  := location_quality;
   p_elevation_quality      varchar  := elevation_quality;
-  p_cityobject_id          integer  := cityobject_id;
+  p_conn_cityobject_id     integer  := conn_cityobject_id;
   p_prot_element_id        integer  := prot_element_id;
   p_geom                   geometry := geom;	
 --
@@ -4409,7 +4409,7 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
     status               	:=p_status               ,
     location_quality     	:=p_location_quality     ,
     elevation_quality    	:=p_elevation_quality    ,
-    cityobject_id        	:=p_cityobject_id        ,
+    conn_cityobject_id      :=p_conn_cityobject_id   ,
     prot_element_id      	:=p_prot_element_id      ,
     geom                 	:=p_geom                 ,
 --
@@ -4452,7 +4452,7 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_device_storage(
   status                varchar DEFAULT NULL,
   location_quality      varchar DEFAULT NULL,
   elevation_quality     varchar DEFAULT NULL,
-  cityobject_id         integer DEFAULT NULL,
+  conn_cityobject_id    integer DEFAULT NULL,
   prot_element_id       integer DEFAULT NULL,
   geom                  geometry DEFAULT NULL,	
 --
@@ -4486,7 +4486,7 @@ DECLARE
   p_status                 varchar  := status;
   p_location_quality       varchar  := location_quality;
   p_elevation_quality      varchar  := elevation_quality;
-  p_cityobject_id          integer  := cityobject_id;
+  p_conn_cityobject_id     integer  := conn_cityobject_id;
   p_prot_element_id        integer  := prot_element_id;
   p_geom                   geometry := geom;	
 --
@@ -4530,7 +4530,7 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
     status               	:=p_status               ,
     location_quality     	:=p_location_quality     ,
     elevation_quality    	:=p_elevation_quality    ,
-    cityobject_id        	:=p_cityobject_id        ,
+    conn_cityobject_id      :=p_conn_cityobject_id   ,
     prot_element_id      	:=p_prot_element_id      ,
     geom                 	:=p_geom                 ,
 --
@@ -4573,7 +4573,7 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_device_tech(
   status                varchar DEFAULT NULL,
   location_quality      varchar DEFAULT NULL,
   elevation_quality     varchar DEFAULT NULL,
-  cityobject_id         integer DEFAULT NULL,
+  conn_cityobject_id    integer DEFAULT NULL,
   prot_element_id       integer DEFAULT NULL,
   geom                  geometry DEFAULT NULL,	
 --
@@ -4607,7 +4607,7 @@ DECLARE
   p_status                 varchar  := status;
   p_location_quality       varchar  := location_quality;
   p_elevation_quality      varchar  := elevation_quality;
-  p_cityobject_id          integer  := cityobject_id;
+  p_conn_cityobject_id     integer  := conn_cityobject_id;
   p_prot_element_id        integer  := prot_element_id;
   p_geom                   geometry := geom;	
 --
@@ -4651,7 +4651,7 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
     status               	:=p_status               ,
     location_quality     	:=p_location_quality     ,
     elevation_quality    	:=p_elevation_quality    ,
-    cityobject_id        	:=p_cityobject_id        ,
+    conn_cityobject_id      :=p_conn_cityobject_id   ,
     prot_element_id      	:=p_prot_element_id      ,
     geom                 	:=p_geom                 ,
 --
@@ -4694,7 +4694,7 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_distrib_elem_cable(
   status                varchar DEFAULT NULL,
   location_quality      varchar DEFAULT NULL,
   elevation_quality     varchar DEFAULT NULL,
-  cityobject_id         integer DEFAULT NULL,
+  conn_cityobject_id    integer DEFAULT NULL,
   prot_element_id       integer DEFAULT NULL,
   geom                  geometry DEFAULT NULL,	
 --
@@ -4751,7 +4751,7 @@ DECLARE
   p_status                 varchar  := status;
   p_location_quality       varchar  := location_quality;
   p_elevation_quality      varchar  := elevation_quality;
-  p_cityobject_id          integer  := cityobject_id;
+  p_conn_cityobject_id     integer  := conn_cityobject_id;
   p_prot_element_id        integer  := prot_element_id;
   p_geom                   geometry := geom;	
 --
@@ -4818,7 +4818,7 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
     status               	:=p_status               ,
     location_quality     	:=p_location_quality     ,
     elevation_quality    	:=p_elevation_quality    ,
-    cityobject_id        	:=p_cityobject_id        ,
+    conn_cityobject_id      :=p_conn_cityobject_id   ,
     prot_element_id      	:=p_prot_element_id      ,
     geom                 	:=p_geom                 ,
 --
@@ -4890,7 +4890,7 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_distrib_elem_canal(
   status                varchar DEFAULT NULL,
   location_quality      varchar DEFAULT NULL,
   elevation_quality     varchar DEFAULT NULL,
-  cityobject_id         integer DEFAULT NULL,
+  conn_cityobject_id    integer DEFAULT NULL,
   prot_element_id       integer DEFAULT NULL,
   geom                  geometry DEFAULT NULL,	
 --
@@ -4947,7 +4947,7 @@ DECLARE
   p_status                 varchar  := status;
   p_location_quality       varchar  := location_quality;
   p_elevation_quality      varchar  := elevation_quality;
-  p_cityobject_id          integer  := cityobject_id;
+  p_conn_cityobject_id     integer  := conn_cityobject_id;
   p_prot_element_id        integer  := prot_element_id;
   p_geom                   geometry := geom;	
 --
@@ -5014,7 +5014,7 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
     status               	:=p_status               ,
     location_quality     	:=p_location_quality     ,
     elevation_quality    	:=p_elevation_quality    ,
-    cityobject_id        	:=p_cityobject_id        ,
+    conn_cityobject_id      :=p_conn_cityobject_id   ,
     prot_element_id      	:=p_prot_element_id      ,
     geom                 	:=p_geom                 ,
 --
@@ -5086,7 +5086,7 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_distrib_elem_canal_s
   status                varchar DEFAULT NULL,
   location_quality      varchar DEFAULT NULL,
   elevation_quality     varchar DEFAULT NULL,
-  cityobject_id         integer DEFAULT NULL,
+  conn_cityobject_id    integer DEFAULT NULL,
   prot_element_id       integer DEFAULT NULL,
   geom                  geometry DEFAULT NULL,	
 --
@@ -5143,7 +5143,7 @@ DECLARE
   p_status                 varchar  := status;
   p_location_quality       varchar  := location_quality;
   p_elevation_quality      varchar  := elevation_quality;
-  p_cityobject_id          integer  := cityobject_id;
+  p_conn_cityobject_id     integer  := conn_cityobject_id;
   p_prot_element_id        integer  := prot_element_id;
   p_geom                   geometry := geom;	
 --
@@ -5210,7 +5210,7 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
     status               	:=p_status               ,
     location_quality     	:=p_location_quality     ,
     elevation_quality    	:=p_elevation_quality    ,
-    cityobject_id        	:=p_cityobject_id        ,
+    conn_cityobject_id      :=p_conn_cityobject_id   ,
     prot_element_id      	:=p_prot_element_id      ,
     geom                 	:=p_geom                 ,
 --
@@ -5282,7 +5282,7 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_distrib_elem_canal_c
   status                varchar DEFAULT NULL,
   location_quality      varchar DEFAULT NULL,
   elevation_quality     varchar DEFAULT NULL,
-  cityobject_id         integer DEFAULT NULL,
+  conn_cityobject_id    integer DEFAULT NULL,
   prot_element_id       integer DEFAULT NULL,
   geom                  geometry DEFAULT NULL,	
 --
@@ -5339,7 +5339,7 @@ DECLARE
   p_status                 varchar  := status;
   p_location_quality       varchar  := location_quality;
   p_elevation_quality      varchar  := elevation_quality;
-  p_cityobject_id          integer  := cityobject_id;
+  p_conn_cityobject_id     integer  := conn_cityobject_id;
   p_prot_element_id        integer  := prot_element_id;
   p_geom                   geometry := geom;	
 --
@@ -5406,7 +5406,7 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
     status               	:=p_status               ,
     location_quality     	:=p_location_quality     ,
     elevation_quality    	:=p_elevation_quality    ,
-    cityobject_id        	:=p_cityobject_id        ,
+    conn_cityobject_id      :=p_conn_cityobject_id   ,
     prot_element_id      	:=p_prot_element_id      ,
     geom                 	:=p_geom                 ,
 --
@@ -5478,7 +5478,7 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_distrib_elem_pipe_ot
   status                varchar DEFAULT NULL,
   location_quality      varchar DEFAULT NULL,
   elevation_quality     varchar DEFAULT NULL,
-  cityobject_id         integer DEFAULT NULL,
+  conn_cityobject_id    integer DEFAULT NULL,
   prot_element_id       integer DEFAULT NULL,
   geom                  geometry DEFAULT NULL,	
 --
@@ -5535,7 +5535,7 @@ DECLARE
   p_status                 varchar  := status;
   p_location_quality       varchar  := location_quality;
   p_elevation_quality      varchar  := elevation_quality;
-  p_cityobject_id          integer  := cityobject_id;
+  p_conn_cityobject_id     integer  := conn_cityobject_id;
   p_prot_element_id        integer  := prot_element_id;
   p_geom                   geometry := geom;	
 --
@@ -5602,7 +5602,7 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
     status               	:=p_status               ,
     location_quality     	:=p_location_quality     ,
     elevation_quality    	:=p_elevation_quality    ,
-    cityobject_id        	:=p_cityobject_id        ,
+    conn_cityobject_id      :=p_conn_cityobject_id   ,
     prot_element_id      	:=p_prot_element_id      ,
     geom                 	:=p_geom                 ,
 --
@@ -5731,7 +5731,7 @@ DECLARE
   p_status                 varchar  := status;
   p_location_quality       varchar  := location_quality;
   p_elevation_quality      varchar  := elevation_quality;
-  p_cityobject_id          integer  := cityobject_id;
+  p_conn_cityobject_id     integer  := conn_cityobject_id;
   p_prot_element_id        integer  := prot_element_id;
   p_geom                   geometry := geom;	
 --
@@ -5798,7 +5798,7 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
     status               	:=p_status               ,
     location_quality     	:=p_location_quality     ,
     elevation_quality    	:=p_elevation_quality    ,
-    cityobject_id        	:=p_cityobject_id        ,
+    conn_cityobject_id      :=p_conn_cityobject_id   ,
     prot_element_id      	:=p_prot_element_id      ,
     geom                 	:=p_geom                 ,
 --
@@ -5870,7 +5870,7 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_distrib_elem_pipe_re
   status                varchar DEFAULT NULL,
   location_quality      varchar DEFAULT NULL,
   elevation_quality     varchar DEFAULT NULL,
-  cityobject_id         integer DEFAULT NULL,
+  conn_cityobject_id    integer DEFAULT NULL,
   prot_element_id       integer DEFAULT NULL,
   geom                  geometry DEFAULT NULL,	
 --
@@ -5927,7 +5927,7 @@ DECLARE
   p_status                 varchar  := status;
   p_location_quality       varchar  := location_quality;
   p_elevation_quality      varchar  := elevation_quality;
-  p_cityobject_id          integer  := cityobject_id;
+  p_conn_cityobject_id     integer  := conn_cityobject_id;
   p_prot_element_id        integer  := prot_element_id;
   p_geom                   geometry := geom;	
 --
@@ -5994,7 +5994,7 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
     status               	:=p_status               ,
     location_quality     	:=p_location_quality     ,
     elevation_quality    	:=p_elevation_quality    ,
-    cityobject_id        	:=p_cityobject_id        ,
+    conn_cityobject_id      :=p_conn_cityobject_id   ,
     prot_element_id      	:=p_prot_element_id      ,
     geom                 	:=p_geom                 ,
 --
@@ -6066,7 +6066,7 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_prot_elem_bedding(
   status                varchar DEFAULT NULL,
   location_quality      varchar DEFAULT NULL,
   elevation_quality     varchar DEFAULT NULL,
-  cityobject_id         integer DEFAULT NULL,
+  conn_cityobject_id    integer DEFAULT NULL,
   prot_element_id       integer DEFAULT NULL,
   geom                  geometry DEFAULT NULL,	
 --
@@ -6115,7 +6115,7 @@ DECLARE
   p_status                 varchar  := status;
   p_location_quality       varchar  := location_quality;
   p_elevation_quality      varchar  := elevation_quality;
-  p_cityobject_id          integer  := cityobject_id;
+  p_conn_cityobject_id     integer  := conn_cityobject_id;
   p_prot_element_id        integer  := prot_element_id;
   p_geom                   geometry := geom;	
 --
@@ -6174,7 +6174,7 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
     status               	:=p_status               ,
     location_quality     	:=p_location_quality     ,
     elevation_quality    	:=p_elevation_quality    ,
-    cityobject_id        	:=p_cityobject_id        ,
+    conn_cityobject_id      :=p_conn_cityobject_id   ,
     prot_element_id      	:=p_prot_element_id      ,
     geom                 	:=p_geom                 ,
 --
@@ -6238,7 +6238,7 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_prot_elem_shell_othe
   status                varchar DEFAULT NULL,
   location_quality      varchar DEFAULT NULL,
   elevation_quality     varchar DEFAULT NULL,
-  cityobject_id         integer DEFAULT NULL,
+  conn_cityobject_id    integer DEFAULT NULL,
   prot_element_id       integer DEFAULT NULL,
   geom                  geometry DEFAULT NULL,	
 --
@@ -6287,7 +6287,7 @@ DECLARE
   p_status                 varchar  := status;
   p_location_quality       varchar  := location_quality;
   p_elevation_quality      varchar  := elevation_quality;
-  p_cityobject_id          integer  := cityobject_id;
+  p_conn_cityobject_id     integer  := conn_cityobject_id;
   p_prot_element_id        integer  := prot_element_id;
   p_geom                   geometry := geom;	
 --
@@ -6346,7 +6346,7 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
     status               	:=p_status               ,
     location_quality     	:=p_location_quality     ,
     elevation_quality    	:=p_elevation_quality    ,
-    cityobject_id        	:=p_cityobject_id        ,
+    conn_cityobject_id      :=p_conn_cityobject_id   ,
     prot_element_id      	:=p_prot_element_id      ,
     geom                 	:=p_geom                 ,
 --
@@ -6410,7 +6410,7 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_prot_elem_shell_roun
   status                varchar DEFAULT NULL,
   location_quality      varchar DEFAULT NULL,
   elevation_quality     varchar DEFAULT NULL,
-  cityobject_id         integer DEFAULT NULL,
+  conn_cityobject_id    integer DEFAULT NULL,
   prot_element_id       integer DEFAULT NULL,
   geom                  geometry DEFAULT NULL,	
 --
@@ -6459,7 +6459,7 @@ DECLARE
   p_status                 varchar  := status;
   p_location_quality       varchar  := location_quality;
   p_elevation_quality      varchar  := elevation_quality;
-  p_cityobject_id          integer  := cityobject_id;
+  p_conn_cityobject_id     integer  := conn_cityobject_id;
   p_prot_element_id        integer  := prot_element_id;
   p_geom                   geometry := geom;	
 --
@@ -6518,7 +6518,7 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
     status               	:=p_status               ,
     location_quality     	:=p_location_quality     ,
     elevation_quality    	:=p_elevation_quality    ,
-    cityobject_id        	:=p_cityobject_id        ,
+    conn_cityobject_id      :=p_conn_cityobject_id   ,
     prot_element_id      	:=p_prot_element_id      ,
     geom                 	:=p_geom                 ,
 --
@@ -6582,7 +6582,7 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_prot_elem_shell_rect
   status                varchar DEFAULT NULL,
   location_quality      varchar DEFAULT NULL,
   elevation_quality     varchar DEFAULT NULL,
-  cityobject_id         integer DEFAULT NULL,
+  conn_cityobject_id    integer DEFAULT NULL,
   prot_element_id       integer DEFAULT NULL,
   geom                  geometry DEFAULT NULL,	
 --
@@ -6631,7 +6631,7 @@ DECLARE
   p_status                 varchar  := status;
   p_location_quality       varchar  := location_quality;
   p_elevation_quality      varchar  := elevation_quality;
-  p_cityobject_id          integer  := cityobject_id;
+  p_conn_cityobject_id     integer  := conn_cityobject_id;
   p_prot_element_id        integer  := prot_element_id;
   p_geom                   geometry := geom;	
 --
@@ -6690,7 +6690,7 @@ PERFORM citydb_pkg.utn9_insert_network_feature(
     status               	:=p_status               ,
     location_quality     	:=p_location_quality     ,
     elevation_quality    	:=p_elevation_quality    ,
-    cityobject_id        	:=p_cityobject_id        ,
+    conn_cityobject_id      :=p_conn_cityobject_id   ,
     prot_element_id      	:=p_prot_element_id      ,
     geom                 	:=p_geom                 ,
 --
