@@ -251,7 +251,7 @@ END IF;
 
 -- Delete the depending network_features (if they are not referenced by some other network)
 EXECUTE format('SELECT citydb_pkg.utn9_delete_network_feature(nf.id, %L) FROM %I.utn9_network_feature AS nf, %I.utn9_network_to_network_feature AS n2nf WHERE
-nf.id=n2nf.network_feature_id AND ntnf.network_id=%L AND citydb_pkg.is_not_referenced(''utn9_network_to_network_feature'', ''network_feature_id'', nf.id, ''network_id'', %L, %L)',
+nf.id=n2nf.network_feature_id AND n2nf.network_id=%L AND citydb_pkg.is_not_referenced(''utn9_network_to_network_feature'', ''network_feature_id'', nf.id, ''network_id'', %L, %L)',
 schema_name, schema_name, schema_name, o_id, o_id, schema_name);
 --FOR nf_id IN EXECUTE format('SELECT network_feature_id FROM %I.utn9_network_to_network_feature WHERE network_id=%L ORDER BY network_feature_id', schema_name, o_id) LOOP
 --	IF nf_id IS NOT NULL THEN
@@ -262,9 +262,9 @@ schema_name, schema_name, schema_name, o_id, o_id, schema_name);
 --END LOOP;
 
 -- Delete the depending network_graph
-EXECUTE format('SELECT id FROM %I.utn9_network_graph WHERE ntw_feature_id=%L', schema_name, o_id) INTO ng_id;
+EXECUTE format('SELECT id FROM %I.utn9_network_graph WHERE network_id=%L', schema_name, o_id) INTO ng_id;
 IF ng_id IS NOT NULL THEN
-  EXECUTE 'SELECT citydb_pkg.utn9_delete_feature_graph($1, $2)' USING ng_id, schema_name;
+  EXECUTE 'SELECT citydb_pkg.utn9_delete_network_graph($1, $2)' USING ng_id, schema_name;
 END IF;
 -- Delete the network itself
 EXECUTE format('DELETE FROM %I.utn9_network WHERE id=%L RETURNING id', schema_name, o_id) INTO deleted_id;

@@ -290,7 +290,6 @@ END;
 $BODY$
 LANGUAGE plpgsql VOLATILE;
 
-
 ---------------------------------------------------------------
 -- Function UTN9_DELETE_COMMODITY_CLASSIFIER_GENERIC
 ---------------------------------------------------------------
