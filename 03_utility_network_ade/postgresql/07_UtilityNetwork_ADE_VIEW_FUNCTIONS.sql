@@ -5673,7 +5673,7 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_ntw_feat_distrib_elem_pipe_ro
   status                varchar  DEFAULT NULL,
   location_quality      varchar  DEFAULT NULL,
   elevation_quality     varchar  DEFAULT NULL,
-  cityobject_id         integer  DEFAULT NULL,
+  conn_cityobject_id    integer  DEFAULT NULL,
   prot_element_id       integer  DEFAULT NULL,
   geom                  geometry DEFAULT NULL,	
 --
