@@ -65,7 +65,7 @@ INSERT INTO citydb.objectclass (id, superclass_id, baseclass_id, is_ade_class, c
 (308, 305, 2, 1, 'NetworkLink'                   , 'ntw9_link'                ),
 -- Functional characteristics                                                                        
 (309,  23, 3, 1, 'SupplyArea'                    , 'ntw9_supply_area'         ),  -- like CityObjectGroup
-(310,   2, 2, 1, 'RoleInTheNetwork'              , 'ntw9_role_in_network'     ),
+(310,   2, 2, 1, 'RoleInNetwork'                 , 'ntw9_role_in_network'     ),
 -- Commodity
 (311,   2, 2, 1, '_Commodity'                    , 'ntw9_commodity'           ),
 (312, 311, 2, 1, 'LiquidMedium'                  , 'ntw9_commodity'           ),

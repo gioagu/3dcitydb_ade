@@ -6763,18 +6763,20 @@ DECLARE
 BEGIN
 objectclass_id=citydb_pkg.objectclass_classname_to_id(class_name, db_prefix, p_schema_name);
 
+RAISE NOTICE '%',objectclass_id;
+
 inserted_id=citydb_pkg.utn9_insert_role_in_network(
-    id              :=p_id,
-    objectclass_id  :=objectclass_id,  -- objectclass ID
-    gmlid           :=p_gmlid,
+    id              :=p_id             ,
+    objectclass_id  :=objectclass_id   ,  -- objectclass ID
+    gmlid           :=p_gmlid          ,
     gmlid_codespace :=p_gmlid_codespace,
-    name            :=p_name,
-    name_codespace  :=p_name_codespace,
-    description     :=p_description,
-    function        :=p_function,
-    usage           :=p_usage,
-    cityobject_id   :=p_cityobject_id,
-    network_id      :=p_network_id,
+    name            :=p_name           ,
+    name_codespace  :=p_name_codespace ,
+    description     :=p_description    ,
+    function        :=p_function       ,
+    usage           :=p_usage          ,
+    cityobject_id   :=p_cityobject_id  ,
+    network_id      :=p_network_id     ,
 --
     schema_name             :=p_schema_name  -- schema name
 );
