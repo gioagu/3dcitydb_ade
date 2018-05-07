@@ -6763,8 +6763,6 @@ DECLARE
 BEGIN
 objectclass_id=citydb_pkg.objectclass_classname_to_id(class_name, db_prefix, p_schema_name);
 
-RAISE NOTICE '%',objectclass_id;
-
 inserted_id=citydb_pkg.utn9_insert_role_in_network(
     id              :=p_id             ,
     objectclass_id  :=objectclass_id   ,  -- objectclass ID
