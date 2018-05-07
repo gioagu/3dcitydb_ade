@@ -108,6 +108,7 @@ SELECT
   l.description,
   l.direction,
   l.link_control,
+  l.type,
   l.start_node_id,
   n1.type AS start_node_type,
   l.end_node_id,

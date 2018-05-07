@@ -373,7 +373,7 @@ CREATE TABLE         citydb.utn9_link (
 	description            text,
 	direction              char CHECK (direction IN ('+', '-')),
 	link_control           varchar,
-	interfeature_link_type varchar CHECK (interfeature_link_type IN ('connects', 'contains')),
+	type varchar CHECK (type IN ('connects', 'contains')),
 	start_node_id          integer NOT NULL,
 	end_node_id            integer NOT NULL,
 	feat_graph_id          integer,
@@ -401,7 +401,7 @@ COMMENT ON COLUMN citydb.utn9_link.name_codespace         IS 'Name codespace';
 COMMENT ON COLUMN citydb.utn9_link.description            IS 'Description';
 COMMENT ON COLUMN citydb.utn9_link.direction              IS 'Link direction (+ or -)';
 COMMENT ON COLUMN citydb.utn9_link.link_control           IS 'Link control';
-COMMENT ON COLUMN citydb.utn9_link.interfeature_link_type IS 'Interfeature link type';
+COMMENT ON COLUMN citydb.utn9_link.type IS 'Interfeature link type';
 
 ----------------------------------------------------------------
 -- Table UTN_BUILDING (_CityObject)

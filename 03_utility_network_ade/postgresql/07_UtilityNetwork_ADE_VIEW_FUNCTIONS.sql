@@ -2850,10 +2850,10 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_link_interfeature(
   description                  text    DEFAULT NULL,
   direction                    character DEFAULT NULL,
   link_control                 varchar DEFAULT NULL,
-  interfeature_link_type       varchar DEFAULT NULL,
+  type                         varchar DEFAULT NULL,
   start_node_id                integer DEFAULT NULL,
   end_node_id                  integer DEFAULT NULL,
-  feat_graph_id                integer DEFAULT NULL,
+--  feat_graph_id                integer DEFAULT NULL,
   ntw_graph_id                 integer DEFAULT NULL,
   line_geom                    geometry DEFAULT NULL,	
 --
@@ -2870,10 +2870,10 @@ DECLARE
   p_description                  text              := description;
   p_direction                    character         := direction;
   p_link_control                 varchar           := link_control;
-  p_interfeature_link_type       varchar           := interfeature_link_type;
+  p_type                         varchar           := type;
   p_start_node_id                integer           := start_node_id;
   p_end_node_id                  integer           := end_node_id;
-  p_feat_graph_id                integer           := feat_graph_id;
+--  p_feat_graph_id                integer           := feat_graph_id;
   p_ntw_graph_id                 integer           := ntw_graph_id;
   p_line_geom                    geometry          := line_geom;
 --
@@ -2895,10 +2895,10 @@ inserted_id=citydb_pkg.utn9_insert_link(
     description                  :=p_description,
     direction                    :=p_direction,
     link_control                 :=p_link_control,
-    interfeature_link_type       :=p_interfeature_link_type,
+    type                         :=p_type,
     start_node_id                :=p_start_node_id,
     end_node_id                  :=p_end_node_id,
-    feat_graph_id                :=p_feat_graph_id,
+--    feat_graph_id                :=p_feat_graph_id,
     ntw_graph_id                 :=p_ntw_graph_id,
     line_geom                    :=p_line_geom,
 --
@@ -2923,7 +2923,7 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_link_interior_feature(
   description                  text    DEFAULT NULL,
   direction                    character DEFAULT NULL,
   link_control                 varchar DEFAULT NULL,
---  interfeature_link_type       varchar DEFAULT NULL,
+--  type       varchar DEFAULT NULL,
   start_node_id                integer DEFAULT NULL,
   end_node_id                  integer DEFAULT NULL,
   feat_graph_id                integer DEFAULT NULL,
@@ -2943,7 +2943,7 @@ DECLARE
   p_description                  text              := description;
   p_direction                    character         := direction;
   p_link_control                 varchar           := link_control;
---  p_interfeature_link_type       varchar           := interfeature_link_type;
+--  p_type       varchar           := type;
   p_start_node_id                integer           := start_node_id;
   p_end_node_id                  integer           := end_node_id;
   p_feat_graph_id                integer           := feat_graph_id;
@@ -2968,7 +2968,7 @@ inserted_id=citydb_pkg.utn9_insert_link(
     description                  :=p_description,
     direction                    :=p_direction,
     link_control                 :=p_link_control,
---    interfeature_link_type       :=p_interfeature_link_type,
+--    type       :=p_type,
     start_node_id                :=p_start_node_id,
     end_node_id                  :=p_end_node_id,
     feat_graph_id                :=p_feat_graph_id,
@@ -2996,7 +2996,7 @@ CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_link_network(
   description                  text    DEFAULT NULL,
   direction                    character DEFAULT NULL,
   link_control                 varchar DEFAULT NULL,
---  interfeature_link_type       varchar DEFAULT NULL,
+--  type       varchar DEFAULT NULL,
   start_node_id                integer DEFAULT NULL,
   end_node_id                  integer DEFAULT NULL,
   feat_graph_id                integer DEFAULT NULL,
@@ -3016,7 +3016,7 @@ DECLARE
   p_description                  text              := description;
   p_direction                    character         := direction;
   p_link_control                 varchar           := link_control;
---  p_interfeature_link_type       varchar           := interfeature_link_type;
+--  p_type       varchar           := type;
   p_start_node_id                integer           := start_node_id;
   p_end_node_id                  integer           := end_node_id;
   p_feat_graph_id                integer           := feat_graph_id;
@@ -3041,7 +3041,7 @@ inserted_id=citydb_pkg.utn9_insert_link(
     description                  :=p_description,
     direction                    :=p_direction,
     link_control                 :=p_link_control,
---    interfeature_link_type       :=p_interfeature_link_type,
+--    type       :=p_type,
     start_node_id                :=p_start_node_id,
     end_node_id                  :=p_end_node_id,
     feat_graph_id                :=p_feat_graph_id,
@@ -5786,9 +5786,9 @@ inserted_id=citydb_pkg.insert_cityobject(
 );
 
 PERFORM citydb_pkg.utn9_insert_network_feature(
-    id                    :=inserted_id,
-    objectclass_id        :=objectclass_id,  -- objectclass ID
-    ntw_feature_parent_id :=p_ntw_feature_parent_id,
+    id                      :=inserted_id,
+    objectclass_id          :=objectclass_id,  -- objectclass ID
+    ntw_feature_parent_id   :=p_ntw_feature_parent_id,
     ntw_feature_root_id  	:=p_ntw_feature_root_id  ,
     class                	:=p_class                ,
     function             	:=p_function             ,

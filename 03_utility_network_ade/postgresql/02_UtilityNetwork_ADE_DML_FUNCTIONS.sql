@@ -663,28 +663,28 @@ $$ LANGUAGE 'plpgsql';
 ----------------------------------------------------------------
 -- DROP FUNCTION IF EXISTS citydb_pkg.utn9_insert_network_graph (integer, integer, character varying, character varying, character varying, character varying, text, integer) CASCADE;
 CREATE OR REPLACE FUNCTION citydb_pkg.utn9_insert_network_graph (
-  objectclass_id   integer,
-  id   integer DEFAULT NULL,
-  gmlid varchar DEFAULT NULL,
-  gmlid_codespace  varchar DEFAULT NULL,
-  name varchar DEFAULT NULL,
-  name_codespace   varchar DEFAULT NULL,
-  description  text DEFAULT NULL,
-  network_id   integer DEFAULT NULL,
+  objectclass_id  integer,
+  id              integer DEFAULT NULL,
+  gmlid           varchar DEFAULT NULL,
+  gmlid_codespace varchar DEFAULT NULL,
+  name            varchar DEFAULT NULL,
+  name_codespace  varchar DEFAULT NULL,
+  description     text DEFAULT NULL,
+  network_id      integer DEFAULT NULL,
 --	
   schema_name varchar DEFAULT 'citydb'::varchar
 )
 RETURNS integer
 AS $$
 DECLARE
-  p_id  integer := id;
+  p_id              integer := id;
   p_objectclass_id  integer := objectclass_id;
-  p_gmlid   varchar := gmlid;
+  p_gmlid           varchar := gmlid;
   p_gmlid_codespace varchar := gmlid_codespace;
-  p_name varchar := name;
+  p_name            varchar := name;
   p_name_codespace  varchar := name_codespace;
-  p_description text:= description;
-  p_network_id  integer := network_id;
+  p_description     text:= description;
+  p_network_id      integer := network_id;
 --	
   p_schema_name varchar := schema_name;
   seq_name varchar;
@@ -1658,21 +1658,22 @@ $$ LANGUAGE 'plpgsql';
 ----------------------------------------------------------------
 -- DROP FUNCTION IF EXISTS citydb_pkg.utn9_insert_link (integer, integer, varchar, varchar, varchar, varchar, text, character, varchar, varchar, integer, integer, integer, integer, geometry) CASCADE;
 CREATE OR REPLACE FUNCTION citydb_pkg.utn9_insert_link (
-  objectclass_id   integer,
-  id   integer DEFAULT NULL,
-  gmlid varchar DEFAULT NULL,
-  gmlid_codespace  varchar DEFAULT NULL,
-  name varchar DEFAULT NULL,
-  name_codespace   varchar DEFAULT NULL,
-  description  text DEFAULT NULL,
-  direction character DEFAULT NULL,
-  link_control varchar DEFAULT NULL,
-  interfeature_link_type varchar DEFAULT NULL,
-  start_node_id integer DEFAULT NULL,
-  end_node_id  integer DEFAULT NULL,
-  feat_graph_id integer DEFAULT NULL,
-  ntw_graph_id integer DEFAULT NULL,
-  line_geom geometry DEFAULT NULL, 
+  objectclass_id  integer,
+  id              integer DEFAULT NULL,
+  gmlid           varchar DEFAULT NULL,
+  gmlid_codespace varchar DEFAULT NULL,
+  name            varchar DEFAULT NULL,
+  name_codespace  varchar DEFAULT NULL,
+  description     text DEFAULT NULL,
+  direction       character DEFAULT NULL,
+  link_control    varchar DEFAULT NULL,
+  type            varchar DEFAULT NULL,
+  start_node_id   integer DEFAULT NULL,
+  end_node_id     integer DEFAULT NULL,
+  feat_graph_id   integer DEFAULT NULL,
+  ntw_graph_id    integer DEFAULT NULL,
+  line_geom       geometry DEFAULT NULL,
+--  
   schema_name varchar DEFAULT 'citydb'::varchar
 )
 RETURNS integer
@@ -1687,7 +1688,7 @@ DECLARE
   p_description text:= description;
   p_direction  character   := direction;
   p_link_control   varchar := link_control;
-  p_interfeature_link_type varchar := interfeature_link_type;
+  p_type varchar := type;
   p_start_node_id  integer := start_node_id;
   p_end_node_id integer := end_node_id;
   p_feat_graph_id  integer := feat_graph_id;
@@ -1718,7 +1719,7 @@ INSERT INTO %I.utn9_link (
  description,
  direction,
  link_control,
- interfeature_link_type,
+ type,
  start_node_id,
  end_node_id,
  feat_graph_id,
@@ -1737,7 +1738,7 @@ p_name_codespace,
 p_description, 
 p_direction, 
 p_link_control, 
-p_interfeature_link_type, 
+p_type, 
 p_start_node_id, 
 p_end_node_id, 
 p_feat_graph_id, 
