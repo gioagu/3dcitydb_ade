@@ -55,26 +55,26 @@ DELETE FROM citydb.objectclass WHERE id BETWEEN 300 AND 399;
 INSERT INTO citydb.objectclass (id, superclass_id, baseclass_id, is_ade_class, classname, tablename) VALUES
 -- Core
 (300,   3, 3, 1, 'Network'                       , 'ntw9_network'             ),
-(301,   3, 3, 1, '_NetworkFeature'               , 'ntw9_network_feature'     ),
+(301,   3, 3, 1, 'AbstractNetworkFeature'        , 'ntw9_network_feature'     ),
 (302,   2, 2, 1, 'NetworkGraph'                  , 'ntw9_network_graph'       ),
 (303,   2, 2, 1, 'FeatureGraph'                  , 'ntw9_feature_graph'       ),
 (304,   2, 2, 1, 'Node'                          , 'ntw9_node'                ),
-(305,   2, 2, 1, '_Link'                         , 'ntw9_link'                ),
+(305,   2, 2, 1, 'AbstractLink'                  , 'ntw9_link'                ),
 (306, 305, 2, 1, 'InteriorFeatureLink'           , 'ntw9_link'                ),
 (307, 305, 2, 1, 'InterFeatureLink'              , 'ntw9_link'                ),
 (308, 305, 2, 1, 'NetworkLink'                   , 'ntw9_link'                ),
 -- Functional characteristics                                                                        
-(309,  23, 3, 1, 'SupplyArea'                    , 'ntw9_supply_area'         ),  -- like CityObjectGroup
+(309,  23, 3, 1, 'SupplyArea'                    , 'cityobjectgroup'          ),  -- like CityObjectGroup
 (310,   2, 2, 1, 'RoleInNetwork'                 , 'ntw9_role_in_network'     ),
 -- Commodity
-(311,   2, 2, 1, '_Commodity'                    , 'ntw9_commodity'           ),
+(311,   2, 2, 1, 'AbstractCommodity'             , 'ntw9_commodity'           ),
 (312, 311, 2, 1, 'LiquidMedium'                  , 'ntw9_commodity'           ),
 (313, 311, 2, 1, 'GaseousMedium'                 , 'ntw9_commodity'           ),
 (314, 311, 2, 1, 'SolidMedium'                   , 'ntw9_commodity'           ),
 (315, 311, 2, 1, 'ElectricalMedium'              , 'ntw9_commodity'           ),
 (316, 311, 2, 1, 'OpticalMedium'                 , 'ntw9_commodity'           ),
 -- Commodity classifier
-(317,   2, 2, 1, '_CommodityClassifier'          , 'ntw9_commodity_classifier'),
+(317,   2, 2, 1, 'AbstractCommodityClassifier'   , 'ntw9_commodity_classifier'),
 (318, 317, 2, 1, 'ChemicalClassifier'            , 'ntw9_commodity_classifier'),
 (319, 317, 2, 1, 'GHSClassifier'                 , 'ntw9_commodity_classifier'),
 (320, 317, 2, 1, 'GenericClassifier'             , 'ntw9_commodity_classifier'),
@@ -83,25 +83,25 @@ INSERT INTO citydb.objectclass (id, superclass_id, baseclass_id, is_ade_class, c
 (322, 321, 2, 1, 'HollowSpace'                   , 'ntw9_hollow_space'        ),
 (323, 321, 2, 1, 'HollowSpacePart'               , 'ntw9_hollow_space'        ),
 -- Material
-(324,   2, 2, 1, '_FeatureMaterial'              , 'ntw9_material'            ),
+(324,   2, 2, 1, 'AbstractFeatureMaterial'       , 'ntw9_material'            ),
 (325, 324, 2, 1, 'InteriorMaterial'              , 'ntw9_material'            ),
 (326, 324, 2, 1, 'ExteriorMaterial'              , 'ntw9_material'            ),
 (327, 324, 2, 1, 'FillingMaterial'               , 'ntw9_material'            ),
--- Network Feature classes (to be adapted and improved)
+-- Network Feature classes
 -- Protective elements
-(328, 301, 3, 1, '_ProtectiveElement'            , 'ntw9_protective_element'  ),
+(328, 301, 3, 1, 'AbstractProtectiveElement'     , 'ntw9_protective_element'  ),
 (329, 328, 3, 1, 'Bedding'                       , 'ntw9_protective_element'  ),
-(330, 328, 3, 1, '_ProtectionShell'              , 'ntw9_protective_element'  ),
+(330, 328, 3, 1, 'AbstractProtectionShell'       , 'ntw9_protective_element'  ),
 (331, 330, 3, 1, 'RectangularShell'              , 'ntw9_protective_element'  ),
 (332, 330, 3, 1, 'RoundShell'                    , 'ntw9_protective_element'  ),
 (333, 330, 3, 1, 'OtherShell'                    , 'ntw9_protective_element'  ),
 -- Distribution elements
-(334, 301, 3, 1, '_DistributionElement'          , 'ntw9_distrib_element'     ),
+(334, 301, 3, 1, 'AbstractDistributionElement'   , 'ntw9_distrib_element'     ),
 (335, 334, 3, 1, 'Cable'                         , 'ntw9_distrib_element'     ),
 (336, 334, 3, 1, 'Canal'                         , 'ntw9_distrib_element'     ),
 (337, 336, 3, 1, 'SemiOpenCanal'                 , 'ntw9_distrib_element'     ),
 (338, 336, 3, 1, 'ClosedCanal'                   , 'ntw9_distrib_element'     ),
-(339, 334, 3, 1, '_Pipe'                         , 'ntw9_distrib_element'     ),
+(339, 334, 3, 1, 'AbstractPipe'                  , 'ntw9_distrib_element'     ),
 (340, 339, 3, 1, 'RoundPipe'                     , 'ntw9_distrib_element'     ),
 (341, 339, 3, 1, 'RectangularPipe'               , 'ntw9_distrib_element'     ),
 (342, 339, 3, 1, 'OtherShapePipe'                , 'ntw9_distrib_element'     ),
@@ -110,14 +110,14 @@ INSERT INTO citydb.objectclass (id, superclass_id, baseclass_id, is_ade_class, c
 (344, 301, 3, 1, 'ComplexFunctionalElement'      , 'ntw9_network_feature'     ),
 (345, 301, 3, 1, 'TerminalElement'               , 'ntw9_network_feature'     ),
 -- Devices
-(346, 301, 3, 1, '_Device'                       , 'ntw9_network_feature'     ),
+(346, 301, 3, 1, 'AbstractDevice'                , 'ntw9_network_feature'     ),
 (347, 346, 3, 1, 'StorageDevice'                 , 'ntw9_network_feature'     ),
 (348, 346, 3, 1, 'TechDevice'                    , 'ntw9_network_feature'     ),
 (349, 346, 3, 1, 'MeasurementDevice'             , 'ntw9_network_feature'     ),
 (350, 346, 3, 1, 'ControllerDevice'              , 'ntw9_network_feature'     ),
 (351, 346, 3, 1, 'AnyDevice'                     , 'ntw9_network_feature'     ),
 -- MediumSupply
-(352,   1, 1, 1, '_MediumSupply'                 , 'ntw9_medium_supply'       ),
+(352,   1, 1, 1, 'AbstractMediumSupply'          , 'ntw9_medium_supply'       ),
 (353, 352, 1, 1, 'LiquidMediumSupply'            , 'ntw9_medium_supply'       ),
 (354, 352, 1, 1, 'GaseousMediumSupply'           , 'ntw9_medium_supply'       ),
 (355, 352, 1, 1, 'SolidMediumSupply'             , 'ntw9_medium_supply'       ),
@@ -134,8 +134,214 @@ INSERT INTO citydb.schema_to_objectclass (schema_id,objectclass_id) SELECT r.id,
 
 -- Add entries into Lookup tables (Codelists and Enumerations)
 
--- STILL TO DO
+INSERT INTO citydb.utn9_lu_network_class
+(id, name, name_codespace, description)
+VALUES
+('HighVoltageNetwork'   ,'High-voltage Network'   , NULL, NULL),
+('MediumVoltageNetwork' ,'Medium-voltage Network' , NULL, NULL),
+('LowVoltageNetwork'    ,'Low-voltage Network'    , NULL, NULL),
+('HighPressureNetwork'  ,'High-pressure Network'  , NULL, NULL),
+('MediumPressureNetwork','Medium-pressure Network', NULL, NULL),
+('LowPressureNetwork'   ,'Low-pressure Network'   , NULL, NULL)
+;
 
+INSERT INTO citydb.utn9_lu_network_function
+(id, name, name_codespace, description)
+VALUES
+('supply'       ,'Supply'       , NULL, NULL),
+('disposal'     ,'Disposal'     , NULL, NULL),
+('communication','Communication', NULL, NULL)
+;
+
+INSERT INTO citydb.utn9_lu_network_feature_class
+(objectclass_id, id, name, name_codespace, description)
+VALUES
+-- AbstractDistributionElement
+(334, 'unknown'         ,'Unknown'                     , NULL, NULL),
+(334, 'mainLine'        ,'Main line'                   , NULL, NULL),
+(334, 'transportLine'   ,'Transport line'              , NULL, NULL),
+(334, 'supplyLine'      ,'Supply line'                 , NULL, NULL),
+(334, 'houseServiceLine','House-service line'          , NULL, NULL),
+-- ComplexFunctionalElement
+(344, 'unknown'       ,'Unknown'                       , NULL, NULL),
+(344, 'station'       ,'Station'                       , NULL, NULL),
+(344, 'structure'     ,'Structure'                     , NULL, NULL),
+(344, 'factory'       ,'Factory'                       , NULL, NULL),
+(344, 'waterWork'     ,'Waterwork'                     , NULL, NULL),
+(344, 'treatmentPlant','Treatment plant'               , NULL, NULL),
+(344, 'heatingPlant'  ,'Heating plant'                 , NULL, NULL),
+(344, 'powerPlant'    ,'Power plant'                   , NULL, NULL),
+(344, 'pumpingStation','Pumping station'               , NULL, NULL),
+-- SimpleFunctionalElement
+(343, 'unknown'         ,'Unknown'                     , NULL, NULL),
+(343, 'manhole'         ,'Manhole'                     , NULL, NULL),
+(343, 'invertedSyphon'  ,'Inverted syphon'             , NULL, NULL),
+(343, 'transformer'     ,'Transformer'                 , NULL, NULL),
+(343, 'voltageRegulator','Voltage regulator'           , NULL, NULL),
+(343, 'teeFitting'      ,'Tee-fitting'                 , NULL, NULL),
+(343, 'crossFitting'    ,'Cross-fitting'               , NULL, NULL),
+(343, 'tap'             ,'Tap'                         , NULL, NULL),
+-- TerminalElement
+(345, 'unknown'    ,'Unknown'                          , NULL, NULL),
+(345, 'lamp'       ,'Lamp'                             , NULL, NULL),
+(345, 'cock'       ,'Cock'                             , NULL, NULL),
+(345, 'streetLight','Streetlight'                      , NULL, NULL),
+(345, 'hydrant'    ,'Hydrant'                          , NULL, NULL),
+-- StorageDevice
+(347, 'unknown'     ,'Unknown'                         , NULL, NULL),
+(347, 'storageBasin','Storage basin'                   , NULL, NULL),
+(347, 'battery'     ,'Battery'                         , NULL, NULL),
+(347, 'tank'        ,'Tank'                            , NULL, NULL),
+(347, 'cistern'     ,'Cistern'                         , NULL, NULL),
+-- TechDevice
+(348, 'unknown'   ,'Unknown'                           , NULL, NULL),
+(348, 'pump'      ,'Pump'                              , NULL, NULL),
+(348, 'slideValve','SlideValve'                        , NULL, NULL),
+(348, 'generator' ,'Generator'                         , NULL, NULL),
+(348, 'valve'     ,'Valve'                             , NULL, NULL),
+(348, 'turbine'   ,'Turbine'                           , NULL, NULL),
+-- MeasurementDevice
+(349, 'unknown'          ,'Unknown'                    , NULL, NULL),
+(349, 'anode'            ,'Anode'                      , NULL, NULL),
+(349, 'corrosionDetector','Corrosion detector'         , NULL, NULL),
+(349, 'pressureSensor'   ,'Pressure sensor'            , NULL, NULL),
+(349, 'meter'            ,'Meter'                      , NULL, NULL),
+-- ControllerDevice
+(350, 'unknown'   ,'Unknown'                           , NULL, NULL),
+(350, 'switch'    ,'Switch'                            , NULL, NULL),
+(350, 'valve'     ,'Valve'                             , NULL, NULL),
+(350, 'slideValve','Slide valve'                       , NULL, NULL),
+-- AnyDevice
+(351, 'unknown' ,'Unknown'                             , NULL, NULL),
+(351, 'flange'  ,'Flange'                              , NULL, NULL),
+(351, 'coupling','Coupling'                            , NULL, NULL),
+(351, 'adapter' ,'Adapter'                             , NULL, NULL)
+;
+
+INSERT INTO citydb.utn9_lu_network_feature_function
+(id, name, name_codespace, description)
+VALUES
+('feeding'     ,'Feeding'      ,NULL, NULL),
+('draining'    ,'Draining'     ,NULL, NULL),
+('distribution','Distribution' ,NULL, NULL),
+('storage'     ,'Storage'      ,NULL, NULL),
+('venting'     ,'Venting'      ,NULL, NULL),
+('abstraction' ,'Abstraction'  ,NULL, NULL),
+('measurement' ,'Measurement'  ,NULL, NULL),
+('shortCircuit','Short circuit',NULL, NULL),
+('branch'      ,'Branch'       ,NULL, NULL),
+('observer'    ,'Observer'     ,NULL, NULL),
+('protection'  ,'Protection'   ,NULL, NULL),
+('control'     ,'Control'      ,NULL, NULL),
+('shutOff'     ,'ShutOff'      ,NULL, NULL),
+('unknown'     ,'Unknown'      ,NULL, NULL)
+;
+
+INSERT INTO citydb.utn9_lu_spatial_quality
+(id, name, name_codespace, description)
+VALUES
+('unknown'     ,'Unknown'     , NULL, NULL),
+('surveyed'    ,'Surveyed'    , NULL, NULL),
+('calculated'  ,'Calculated'  , NULL, NULL),
+('interpolated','Interpolated', NULL, NULL),
+('estimated'   ,'Estimated'   , NULL, NULL),
+('assumed'     ,'Assumed'     , NULL, NULL)
+;
+
+INSERT INTO citydb.utn9_lu_material
+(id, name, name_codespace, description)
+VALUES
+('unknown'              ,'Unknown'                , NULL, NULL),
+('steel'                ,'Steel'                  , NULL, NULL),
+('stoneware'            ,'Stoneware'              , NULL, NULL),
+('PE'                   ,'PE'                     , NULL, NULL),
+('casting'              ,'Casting'                , NULL, NULL),
+('iron'                 ,'Iron'                   , NULL, NULL),
+('concrete'             ,'Concrete'               , NULL, NULL),
+('brick'                ,'Brick'                  , NULL, NULL),
+('glass'                ,'Glass'                  , NULL, NULL),
+('copper'               ,'Copper'                 , NULL, NULL),
+('rubber'               ,'Rubber'                 , NULL, NULL),
+('polymericOpticalFibre','Polymeric optical fibre', NULL, NULL),
+('quartzSilica'         ,'Quartz silica'          , NULL, NULL),
+('air'                  ,'Air'                    , NULL, NULL),
+('carbon'               ,'Carbon'                 , NULL, NULL),
+('sand'                 ,'Sand'                   , NULL, NULL)
+;
+
+INSERT INTO citydb.utn9_lu_status
+(id, name, name_codespace, description)
+VALUES
+('inUse'           ,'In use'                    , NULL, NULL),
+('tempOutOfService','Temporarily out of service', NULL, NULL),
+('outOfService'    ,'Out of service'            , NULL, NULL),
+('destroyed'       ,'Destroyed'                 , NULL, NULL),
+('unknown'         ,'Unknown'                   , NULL, NULL)
+;
+
+INSERT INTO citydb.utn9_lu_medium_supply
+(objectclass_id, id, name, name_codespace, description)
+VALUES
+-- ElectricalMedium
+(315,'unknown'                      ,'Unknown'                         , NULL, NULL),
+(315,'directCurrent'                ,'Direct current'                  , NULL, NULL),
+(315,'singlePhaseAlternatingCurrent','Single-phase alternating current', NULL, NULL),
+(315,'threePhaseAlternatingCurrent' ,'Three-phase alternating current' , NULL, NULL),
+(315,'undulatoryCurrent'            ,'Undulatory current'              , NULL, NULL),
+(315,'telephone'                    ,'Telephone'                       , NULL, NULL),
+-- GaseousMedium
+(313,'unknown'     ,'Unknown'                                          , NULL, NULL),
+(313,'naturalGas'  ,'Natural gas'                                      , NULL, NULL),
+(313,'petroleumGas','Petroleum gas'                                    , NULL, NULL),
+(313,'helium'      ,'Helium'                                           , NULL, NULL),
+(313,'air'         ,'Air'                                              , NULL, NULL),
+(313,'dioxygen'    ,'Dioxygen'                                         , NULL, NULL),
+(313,'nitrogen'    ,'Nitrogen'                                         , NULL, NULL),
+(313,'hydrogen'    ,'Hydrogen'                                         , NULL, NULL),
+(313,'carbon'      ,'Carbon'                                           , NULL, NULL),
+-- LiquidMedium
+(312,'unknown'             ,'Unknown'                                  , NULL, NULL),
+(312,'freshWater'          ,'Freshwater'                               , NULL, NULL),
+(312,'stormWater'          ,'Stormwater'                               , NULL, NULL),
+(312,'wasteWater'          ,'Wastewater'                               , NULL, NULL),
+(312,'districtHeatingWater','District-heating water'                   , NULL, NULL),
+(312,'petrol'              ,'Petrol'                                   , NULL, NULL),
+(312,'oil'                 ,'Oil'                                      , NULL, NULL),
+(312,'gasohol'             ,'Gasohol'                                  , NULL, NULL),
+(312,'acid'                ,'Acid'                                     , NULL, NULL),
+(312,'kerosine'            ,'Kerosine'                                 , NULL, NULL),
+(312,'liquidPG'            ,'Liquid propane gas'                       , NULL, NULL),
+-- OpticalMedium
+(316,'unknown','Unknown'                                               , NULL, NULL),
+(316,'light'  ,'Light'                                                 , NULL, NULL),
+-- SolidMedium
+(314,'unknown'   ,'Unknown'                                            , NULL, NULL),
+(314,'carbonDust','Carbon dust'                                        , NULL, NULL),
+(314,'stone'     ,'Stone'                                              , NULL, NULL),
+(314,'ore'       ,'Ore'                                                , NULL, NULL),
+(314,'sand'      ,'Sand'                                               , NULL, NULL)
+;
+
+INSERT INTO citydb.utn9_lu_function_of_line
+(id, name, name_codespace, description)
+VALUES
+('unknown'       ,'unknown'        , NULL, NULL),
+('coolingLine'   ,'Cooling line'   , NULL, NULL),
+('constantLine'  ,'Constant line'  , NULL, NULL),
+('flowLine'      ,'Flow line'      , NULL, NULL),
+('returnLine'    ,'Return line'    , NULL, NULL),
+('steamLine'     ,'Steam line'     , NULL, NULL),
+('condensateLine','Condensate line', NULL, NULL)
+;
+
+INSERT INTO citydb.utn9_lu_signal_word
+(id, name, name_codespace, description)
+VALUES
+('unknown'     ,'Unknown'      , NULL, NULL),
+('nonHazardous','Non hazardous', NULL, NULL),
+('attention'   ,'Attention'    , NULL, NULL),
+('hazardous'   ,'Hazardous'    , NULL, NULL)
+;
 
 -- ***********************************************************************
 -- ***********************************************************************
