@@ -168,7 +168,7 @@ DECLARE
 BEGIN
 EXECUTE format('SELECT objectclass_id FROM %I.cityobject WHERE id=%L', schema_name, co_id) INTO class_id;
 EXECUTE format('SELECT citydb_pkg.get_classname(%L,%L)', class_id, schema_name) INTO classname;
-RAISE NOTICE 'class id %, classname %',class_id, classname;
+--RAISE NOTICE 'class id %, classname %',class_id, classname;
 -- classname can be NULL if object has already been deleted
 IF classname IS NOT NULL THEN
   CASE
