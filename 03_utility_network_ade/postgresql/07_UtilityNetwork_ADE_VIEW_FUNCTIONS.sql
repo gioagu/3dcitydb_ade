@@ -3246,12 +3246,12 @@ LANGUAGE plpgsql VOLATILE;
 CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_medium_supply_electrical(
   id                        integer DEFAULT NULL,
   type                      varchar DEFAULT NULL,
-  cur_supply_flow_rate      numeric DEFAULT NULL,
-  cur_supply_flow_rate_unit varchar DEFAULT NULL,
-  cur_supply_status         varchar DEFAULT NULL,
-  pot_supply_flow_rate      numeric DEFAULT NULL,
-  pot_supply_flow_rate_unit varchar DEFAULT NULL,
-  pot_supply_status         varchar DEFAULT NULL,
+  cur_flow_rate      numeric DEFAULT NULL,
+  cur_flow_rate_unit varchar DEFAULT NULL,
+  cur_status         varchar DEFAULT NULL,
+  pot_flow_rate      numeric DEFAULT NULL,
+  pot_flow_rate_unit varchar DEFAULT NULL,
+  pot_status         varchar DEFAULT NULL,
   cityobject_id             integer DEFAULT NULL,	
 --
   schema_name              varchar DEFAULT 'citydb'::varchar
@@ -3261,12 +3261,12 @@ $BODY$
 DECLARE
   p_id                           integer := id;
   p_type                         varchar :=type                     ;
-  p_cur_supply_flow_rate         numeric :=cur_supply_flow_rate     ;
-  p_cur_supply_flow_rate_unit    varchar :=cur_supply_flow_rate_unit;
-  p_cur_supply_status            varchar :=cur_supply_status        ;
-  p_pot_supply_flow_rate         numeric :=pot_supply_flow_rate     ;
-  p_pot_supply_flow_rate_unit    varchar :=pot_supply_flow_rate_unit;
-  p_pot_supply_status            varchar :=pot_supply_status        ;
+  p_cur_flow_rate         numeric :=cur_flow_rate     ;
+  p_cur_flow_rate_unit    varchar :=cur_flow_rate_unit;
+  p_cur_status            varchar :=cur_status        ;
+  p_pot_flow_rate         numeric :=pot_flow_rate     ;
+  p_pot_flow_rate_unit    varchar :=pot_flow_rate_unit;
+  p_pot_status            varchar :=pot_status        ;
   p_cityobject_id                integer :=cityobject_id            ;	
 --
   p_schema_name varchar := schema_name;
@@ -3281,12 +3281,12 @@ inserted_id=citydb_pkg.utn9_insert_medium_supply(
     id                           :=p_id,
     objectclass_id               :=objectclass_id,  -- objectclass ID
     type                         :=p_type                     ,
-    cur_supply_flow_rate         :=p_cur_supply_flow_rate     ,
-    cur_supply_flow_rate_unit    :=p_cur_supply_flow_rate_unit,
-    cur_supply_status            :=p_cur_supply_status        ,
-    pot_supply_flow_rate         :=p_pot_supply_flow_rate     ,
-    pot_supply_flow_rate_unit    :=p_pot_supply_flow_rate_unit,
-    pot_supply_status            :=p_pot_supply_status        ,
+    cur_flow_rate         :=p_cur_flow_rate     ,
+    cur_flow_rate_unit    :=p_cur_flow_rate_unit,
+    cur_status            :=p_cur_status        ,
+    pot_flow_rate         :=p_pot_flow_rate     ,
+    pot_flow_rate_unit    :=p_pot_flow_rate_unit,
+    pot_status            :=p_pot_status        ,
     cityobject_id                :=p_cityobject_id            ,		
 --
     schema_name             :=p_schema_name  -- schema name
@@ -3304,12 +3304,12 @@ LANGUAGE plpgsql VOLATILE;
 CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_medium_supply_gaseous(
   id                        integer DEFAULT NULL,
   type                      varchar DEFAULT NULL,
-  cur_supply_flow_rate      numeric DEFAULT NULL,
-  cur_supply_flow_rate_unit varchar DEFAULT NULL,
-  cur_supply_status         varchar DEFAULT NULL,
-  pot_supply_flow_rate      numeric DEFAULT NULL,
-  pot_supply_flow_rate_unit varchar DEFAULT NULL,
-  pot_supply_status         varchar DEFAULT NULL,
+  cur_flow_rate      numeric DEFAULT NULL,
+  cur_flow_rate_unit varchar DEFAULT NULL,
+  cur_status         varchar DEFAULT NULL,
+  pot_flow_rate      numeric DEFAULT NULL,
+  pot_flow_rate_unit varchar DEFAULT NULL,
+  pot_status         varchar DEFAULT NULL,
   cityobject_id             integer DEFAULT NULL,	
 --
   schema_name              varchar DEFAULT 'citydb'::varchar
@@ -3319,12 +3319,12 @@ $BODY$
 DECLARE
   p_id                           integer := id;
   p_type                         varchar :=type                     ;
-  p_cur_supply_flow_rate         numeric :=cur_supply_flow_rate     ;
-  p_cur_supply_flow_rate_unit    varchar :=cur_supply_flow_rate_unit;
-  p_cur_supply_status            varchar :=cur_supply_status        ;
-  p_pot_supply_flow_rate         numeric :=pot_supply_flow_rate     ;
-  p_pot_supply_flow_rate_unit    varchar :=pot_supply_flow_rate_unit;
-  p_pot_supply_status            varchar :=pot_supply_status        ;
+  p_cur_flow_rate         numeric :=cur_flow_rate     ;
+  p_cur_flow_rate_unit    varchar :=cur_flow_rate_unit;
+  p_cur_status            varchar :=cur_status        ;
+  p_pot_flow_rate         numeric :=pot_flow_rate     ;
+  p_pot_flow_rate_unit    varchar :=pot_flow_rate_unit;
+  p_pot_status            varchar :=pot_status        ;
   p_cityobject_id                integer :=cityobject_id            ;	
 --
   p_schema_name varchar := schema_name;
@@ -3339,12 +3339,12 @@ inserted_id=citydb_pkg.utn9_insert_medium_supply(
     id                           :=p_id,
     objectclass_id               :=objectclass_id,  -- objectclass ID
     type                         :=p_type                     ,
-    cur_supply_flow_rate         :=p_cur_supply_flow_rate     ,
-    cur_supply_flow_rate_unit    :=p_cur_supply_flow_rate_unit,
-    cur_supply_status            :=p_cur_supply_status        ,
-    pot_supply_flow_rate         :=p_pot_supply_flow_rate     ,
-    pot_supply_flow_rate_unit    :=p_pot_supply_flow_rate_unit,
-    pot_supply_status            :=p_pot_supply_status        ,
+    cur_flow_rate         :=p_cur_flow_rate     ,
+    cur_flow_rate_unit    :=p_cur_flow_rate_unit,
+    cur_status            :=p_cur_status        ,
+    pot_flow_rate         :=p_pot_flow_rate     ,
+    pot_flow_rate_unit    :=p_pot_flow_rate_unit,
+    pot_status            :=p_pot_status        ,
     cityobject_id                :=p_cityobject_id            ,		
 --
     schema_name             :=p_schema_name  -- schema name
@@ -3362,12 +3362,12 @@ LANGUAGE plpgsql VOLATILE;
 CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_medium_supply_liquid(
   id                        integer DEFAULT NULL,
   type                      varchar DEFAULT NULL,
-  cur_supply_flow_rate      numeric DEFAULT NULL,
-  cur_supply_flow_rate_unit varchar DEFAULT NULL,
-  cur_supply_status         varchar DEFAULT NULL,
-  pot_supply_flow_rate      numeric DEFAULT NULL,
-  pot_supply_flow_rate_unit varchar DEFAULT NULL,
-  pot_supply_status         varchar DEFAULT NULL,
+  cur_flow_rate      numeric DEFAULT NULL,
+  cur_flow_rate_unit varchar DEFAULT NULL,
+  cur_status         varchar DEFAULT NULL,
+  pot_flow_rate      numeric DEFAULT NULL,
+  pot_flow_rate_unit varchar DEFAULT NULL,
+  pot_status         varchar DEFAULT NULL,
   cityobject_id             integer DEFAULT NULL,	
 --
   schema_name              varchar DEFAULT 'citydb'::varchar
@@ -3377,12 +3377,12 @@ $BODY$
 DECLARE
   p_id                           integer := id;
   p_type                         varchar :=type                     ;
-  p_cur_supply_flow_rate         numeric :=cur_supply_flow_rate     ;
-  p_cur_supply_flow_rate_unit    varchar :=cur_supply_flow_rate_unit;
-  p_cur_supply_status            varchar :=cur_supply_status        ;
-  p_pot_supply_flow_rate         numeric :=pot_supply_flow_rate     ;
-  p_pot_supply_flow_rate_unit    varchar :=pot_supply_flow_rate_unit;
-  p_pot_supply_status            varchar :=pot_supply_status        ;
+  p_cur_flow_rate         numeric :=cur_flow_rate     ;
+  p_cur_flow_rate_unit    varchar :=cur_flow_rate_unit;
+  p_cur_status            varchar :=cur_status        ;
+  p_pot_flow_rate         numeric :=pot_flow_rate     ;
+  p_pot_flow_rate_unit    varchar :=pot_flow_rate_unit;
+  p_pot_status            varchar :=pot_status        ;
   p_cityobject_id                integer :=cityobject_id            ;	
 --
   p_schema_name varchar := schema_name;
@@ -3397,12 +3397,12 @@ inserted_id=citydb_pkg.utn9_insert_medium_supply(
     id                           :=p_id,
     objectclass_id               :=objectclass_id,  -- objectclass ID
     type                         :=p_type                     ,
-    cur_supply_flow_rate         :=p_cur_supply_flow_rate     ,
-    cur_supply_flow_rate_unit    :=p_cur_supply_flow_rate_unit,
-    cur_supply_status            :=p_cur_supply_status        ,
-    pot_supply_flow_rate         :=p_pot_supply_flow_rate     ,
-    pot_supply_flow_rate_unit    :=p_pot_supply_flow_rate_unit,
-    pot_supply_status            :=p_pot_supply_status        ,
+    cur_flow_rate         :=p_cur_flow_rate     ,
+    cur_flow_rate_unit    :=p_cur_flow_rate_unit,
+    cur_status            :=p_cur_status        ,
+    pot_flow_rate         :=p_pot_flow_rate     ,
+    pot_flow_rate_unit    :=p_pot_flow_rate_unit,
+    pot_status            :=p_pot_status        ,
     cityobject_id                :=p_cityobject_id            ,		
 --
     schema_name             :=p_schema_name  -- schema name
@@ -3420,12 +3420,12 @@ LANGUAGE plpgsql VOLATILE;
 CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_medium_supply_optical(
   id                        integer DEFAULT NULL,
   type                      varchar DEFAULT NULL,
-  cur_supply_flow_rate      numeric DEFAULT NULL,
-  cur_supply_flow_rate_unit varchar DEFAULT NULL,
-  cur_supply_status         varchar DEFAULT NULL,
-  pot_supply_flow_rate      numeric DEFAULT NULL,
-  pot_supply_flow_rate_unit varchar DEFAULT NULL,
-  pot_supply_status         varchar DEFAULT NULL,
+  cur_flow_rate      numeric DEFAULT NULL,
+  cur_flow_rate_unit varchar DEFAULT NULL,
+  cur_status         varchar DEFAULT NULL,
+  pot_flow_rate      numeric DEFAULT NULL,
+  pot_flow_rate_unit varchar DEFAULT NULL,
+  pot_status         varchar DEFAULT NULL,
   cityobject_id             integer DEFAULT NULL,	
 --
   schema_name              varchar DEFAULT 'citydb'::varchar
@@ -3435,12 +3435,12 @@ $BODY$
 DECLARE
   p_id                           integer := id;
   p_type                         varchar :=type                     ;
-  p_cur_supply_flow_rate         numeric :=cur_supply_flow_rate     ;
-  p_cur_supply_flow_rate_unit    varchar :=cur_supply_flow_rate_unit;
-  p_cur_supply_status            varchar :=cur_supply_status        ;
-  p_pot_supply_flow_rate         numeric :=pot_supply_flow_rate     ;
-  p_pot_supply_flow_rate_unit    varchar :=pot_supply_flow_rate_unit;
-  p_pot_supply_status            varchar :=pot_supply_status        ;
+  p_cur_flow_rate         numeric :=cur_flow_rate     ;
+  p_cur_flow_rate_unit    varchar :=cur_flow_rate_unit;
+  p_cur_status            varchar :=cur_status        ;
+  p_pot_flow_rate         numeric :=pot_flow_rate     ;
+  p_pot_flow_rate_unit    varchar :=pot_flow_rate_unit;
+  p_pot_status            varchar :=pot_status        ;
   p_cityobject_id                integer :=cityobject_id            ;	
 --
   p_schema_name varchar := schema_name;
@@ -3455,12 +3455,12 @@ inserted_id=citydb_pkg.utn9_insert_medium_supply(
     id                           :=p_id,
     objectclass_id               :=objectclass_id,  -- objectclass ID
     type                         :=p_type                     ,
-    cur_supply_flow_rate         :=p_cur_supply_flow_rate     ,
-    cur_supply_flow_rate_unit    :=p_cur_supply_flow_rate_unit,
-    cur_supply_status            :=p_cur_supply_status        ,
-    pot_supply_flow_rate         :=p_pot_supply_flow_rate     ,
-    pot_supply_flow_rate_unit    :=p_pot_supply_flow_rate_unit,
-    pot_supply_status            :=p_pot_supply_status        ,
+    cur_flow_rate         :=p_cur_flow_rate     ,
+    cur_flow_rate_unit    :=p_cur_flow_rate_unit,
+    cur_status            :=p_cur_status        ,
+    pot_flow_rate         :=p_pot_flow_rate     ,
+    pot_flow_rate_unit    :=p_pot_flow_rate_unit,
+    pot_status            :=p_pot_status        ,
     cityobject_id                :=p_cityobject_id            ,		
 --
     schema_name             :=p_schema_name  -- schema name
@@ -3478,12 +3478,12 @@ LANGUAGE plpgsql VOLATILE;
 CREATE OR REPLACE FUNCTION citydb_view.utn9_insert_medium_supply_solid(
   id                        integer DEFAULT NULL,
   type                      varchar DEFAULT NULL,
-  cur_supply_flow_rate      numeric DEFAULT NULL,
-  cur_supply_flow_rate_unit varchar DEFAULT NULL,
-  cur_supply_status         varchar DEFAULT NULL,
-  pot_supply_flow_rate      numeric DEFAULT NULL,
-  pot_supply_flow_rate_unit varchar DEFAULT NULL,
-  pot_supply_status         varchar DEFAULT NULL,
+  cur_flow_rate      numeric DEFAULT NULL,
+  cur_flow_rate_unit varchar DEFAULT NULL,
+  cur_status         varchar DEFAULT NULL,
+  pot_flow_rate      numeric DEFAULT NULL,
+  pot_flow_rate_unit varchar DEFAULT NULL,
+  pot_status         varchar DEFAULT NULL,
   cityobject_id             integer DEFAULT NULL,	
 --
   schema_name              varchar DEFAULT 'citydb'::varchar
@@ -3493,12 +3493,12 @@ $BODY$
 DECLARE
   p_id                           integer := id;
   p_type                         varchar :=type                     ;
-  p_cur_supply_flow_rate         numeric :=cur_supply_flow_rate     ;
-  p_cur_supply_flow_rate_unit    varchar :=cur_supply_flow_rate_unit;
-  p_cur_supply_status            varchar :=cur_supply_status        ;
-  p_pot_supply_flow_rate         numeric :=pot_supply_flow_rate     ;
-  p_pot_supply_flow_rate_unit    varchar :=pot_supply_flow_rate_unit;
-  p_pot_supply_status            varchar :=pot_supply_status        ;
+  p_cur_flow_rate         numeric :=cur_flow_rate     ;
+  p_cur_flow_rate_unit    varchar :=cur_flow_rate_unit;
+  p_cur_status            varchar :=cur_status        ;
+  p_pot_flow_rate         numeric :=pot_flow_rate     ;
+  p_pot_flow_rate_unit    varchar :=pot_flow_rate_unit;
+  p_pot_status            varchar :=pot_status        ;
   p_cityobject_id                integer :=cityobject_id            ;	
 --
   p_schema_name varchar := schema_name;
@@ -3513,12 +3513,12 @@ inserted_id=citydb_pkg.utn9_insert_medium_supply(
     id                           :=p_id,
     objectclass_id               :=objectclass_id,  -- objectclass ID
     type                         :=p_type                     ,
-    cur_supply_flow_rate         :=p_cur_supply_flow_rate     ,
-    cur_supply_flow_rate_unit    :=p_cur_supply_flow_rate_unit,
-    cur_supply_status            :=p_cur_supply_status        ,
-    pot_supply_flow_rate         :=p_pot_supply_flow_rate     ,
-    pot_supply_flow_rate_unit    :=p_pot_supply_flow_rate_unit,
-    pot_supply_status            :=p_pot_supply_status        ,
+    cur_flow_rate         :=p_cur_flow_rate     ,
+    cur_flow_rate_unit    :=p_cur_flow_rate_unit,
+    cur_status            :=p_cur_status        ,
+    pot_flow_rate         :=p_pot_flow_rate     ,
+    pot_flow_rate_unit    :=p_pot_flow_rate_unit,
+    pot_status            :=p_pot_status        ,
     cityobject_id                :=p_cityobject_id            ,		
 --
     schema_name             :=p_schema_name  -- schema name

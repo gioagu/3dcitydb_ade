@@ -470,16 +470,16 @@ CREATE INDEX utn9_lu_storage_device_inx ON citydb.utn9_lu_storage_device USING b
 --------------------
 DROP TABLE IF EXISTS citydb.utn9_medium_supply CASCADE;
 CREATE TABLE         citydb.utn9_medium_supply (
-	id                          serial PRIMARY KEY,
-	objectclass_id              integer NOT NULL,	-- This is a foreign key to objectclass.id	
-	type                        varchar,	        -- This is a foreign key to lu_medium_supply.id
-	cur_supply_flow_rate        numeric,
-	cur_supply_flow_rate_unit   varchar,
-	cur_supply_status           varchar,	
-	pot_supply_flow_rate        numeric,
-	pot_supply_flow_rate_unit   varchar,
-	pot_supply_status           varchar,            -- This is a foreign key to lu_supply_status.id
-	cityobject_id               integer	            -- This is a foreign key to cityobject.id
+ id                 serial PRIMARY KEY,
+ objectclass_id     integer NOT NULL, -- This is a foreign key to objectclass.id	
+ type               varchar,	         -- This is a foreign key to lu_medium_supply.id
+ cur_flow_rate      numeric,
+ cur_flow_rate_unit varchar,
+ cur_status         varchar,	         -- (This is a foreign key to lu_supply_status.id)
+ pot_flow_rate      numeric,
+ pot_flow_rate_unit varchar,
+ pot_status         varchar,          -- (This is a foreign key to lu_supply_status.id)
+ cityobject_id      integer	         -- This is a foreign key to cityobject.id
 );
 -- ALTER TABLE citydb.utn9_medium_supply OWNER TO postgres;
 
@@ -489,30 +489,30 @@ CREATE INDEX utn9_medium_supply_ctyobj_id_fkx   ON citydb.utn9_medium_supply USI
 
 COMMENT ON TABLE citydb.utn9_medium_supply IS 'Medium supply';
 
-COMMENT ON COLUMN citydb.utn9_medium_supply.objectclass_id             IS 'Objectclass ID of the medium supply';
-COMMENT ON COLUMN citydb.utn9_medium_supply.type                       IS 'Type of the medium supply';
-COMMENT ON COLUMN citydb.utn9_medium_supply.cur_supply_flow_rate       IS 'Current supply flow rate';
-COMMENT ON COLUMN citydb.utn9_medium_supply.cur_supply_flow_rate_unit  IS 'Unit of current supply flow rate';
-COMMENT ON COLUMN citydb.utn9_medium_supply.cur_supply_status          IS 'Current supply status';
-COMMENT ON COLUMN citydb.utn9_medium_supply.pot_supply_flow_rate       IS 'Potential supply flow rate';
-COMMENT ON COLUMN citydb.utn9_medium_supply.pot_supply_flow_rate_unit  IS 'Unit of potential supply flow rate';
-COMMENT ON COLUMN citydb.utn9_medium_supply.pot_supply_status          IS 'Potential supply status';
+COMMENT ON COLUMN citydb.utn9_medium_supply.objectclass_id      IS 'Objectclass ID of the medium supply';
+COMMENT ON COLUMN citydb.utn9_medium_supply.type                IS 'Type of the medium supply';
+COMMENT ON COLUMN citydb.utn9_medium_supply.cur_flow_rate       IS 'Current supply flow rate';
+COMMENT ON COLUMN citydb.utn9_medium_supply.cur_flow_rate_unit  IS 'Unit of current supply flow rate';
+COMMENT ON COLUMN citydb.utn9_medium_supply.cur_status          IS 'Current supply status';
+COMMENT ON COLUMN citydb.utn9_medium_supply.pot_flow_rate       IS 'Potential supply flow rate';
+COMMENT ON COLUMN citydb.utn9_medium_supply.pot_flow_rate_unit  IS 'Unit of potential supply flow rate';
+COMMENT ON COLUMN citydb.utn9_medium_supply.pot_status          IS 'Potential supply status';
 
 --------------------
 -- Table STORAGE
 --------------------
 DROP TABLE IF EXISTS citydb.utn9_storage CASCADE;
 CREATE TABLE         citydb.utn9_storage (
-	id                     serial PRIMARY KEY,
-	type                   varchar,            -- This is a foreign key to lu_storage_device.id
-	max_capacity           numeric,	
-	max_capacity_unit      varchar,
-	fill_level             numeric CHECK (fill_level BETWEEN 0 AND 1),
-	inflow_rate            numeric,
-	inflow_rate_unit       varchar,
-	outflow_rate           numeric,
-	outflow_rate_unit      varchar,	
-	medium_supply_id       integer	             -- This is a foreign key to utn_medium_supply.id
+ id                serial PRIMARY KEY,
+ type              varchar,	-- (This is a foreign key to lu_storage_device.id)
+ max_capacity      numeric,	
+ max_capacity_unit varchar,
+ fill_level        numeric CHECK (fill_level BETWEEN 0 AND 1),
+ inflow_rate       numeric,
+ inflow_rate_unit  varchar,
+ outflow_rate      numeric,
+ outflow_rate_unit varchar,	
+ medium_supply_id  integer	-- This is a foreign key to utn_medium_supply.id
 );
 -- ALTER TABLE citydb.utn9_storage OWNER TO postgres;
 
@@ -535,17 +535,17 @@ COMMENT ON COLUMN citydb.utn9_storage.outflow_rate_unit     IS 'Unit of outflow 
 -- --------------------------------------------------------------
 DROP TABLE IF EXISTS citydb.utn9_role_in_network CASCADE;
 CREATE TABLE         citydb.utn9_role_in_network (
-	id              serial PRIMARY KEY,
-	objectclass_id  integer NOT NULL, -- This is a foreign key to citydb.objectclass.id
-	gmlid           varchar,
-	gmlid_codespace varchar,
-	name            varchar,
-	name_codespace  varchar,
-	description     text,
-	function        varchar,
-	usage           varchar,
-	cityobject_id   integer,	      -- This is a foreign key to cityobject.id
-	network_id      integer           -- This is a foreign key to utn_network.id
+ id              serial PRIMARY KEY,
+ objectclass_id  integer NOT NULL, -- This is a foreign key to citydb.objectclass.id
+ gmlid           varchar,
+ gmlid_codespace varchar,
+ name            varchar,
+ name_codespace  varchar,
+ description     text,
+ function        varchar,
+ usage           varchar,
+ cityobject_id   integer,	      -- This is a foreign key to cityobject.id
+ network_id      integer           -- This is a foreign key to utn_network.id
 );
 -- ALTER TABLE citydb.utn9_role_in_network OWNER TO postgres;
 
