@@ -1,6 +1,6 @@
--- 3D City Database extension for the UtilityNetworks ADE v. 0.9
+-- 3D City Database extension for the Utility Network ADE v. 0.9.2
 --
---                     BETA 1, August 2017
+--                     August 2017
 --
 -- 3D City Database: http://www.3dcitydb.org/ 
 -- 
@@ -24,9 +24,8 @@
 -- ***********************************************************************
 -- **************** 02_UtilityNetworks_ADE_DML_FUNCTIONS.sql *************
 --
--- This script adds the stored procedures for delete and insert
--- operations to the citydb_pkg schema.
--- They are all prefixed with "nrg8_".
+-- This script adds stored procedures for delete and insert operations
+-- to the citydb_pkg schema. They are all prefixed with "utn9_".
 --
 -- ***********************************************************************
 -- ***********************************************************************
@@ -2301,14 +2300,14 @@ RAISE NOTICE '
 
 ********************************
 
-UtilityNetworks ADE DML functions installation complete!
+Utility Network ADE DML functions installation complete!
 
 ********************************
 
 ';
 END
 $$;
-SELECT 'UtilityNetworks ADE DML functions installation complete!'::varchar AS installation_result;
+SELECT 'Utility Network ADE DML functions installation complete!'::varchar AS installation_result;
 
 -- ***********************************************************************
 -- ***********************************************************************

@@ -1,6 +1,6 @@
--- 3D City Database extension for the Utility Network ADE v. 0.9
+-- 3D City Database extension for the Utility Network ADE v. 0.9.2
 --
---                     BETA 1, August 2017
+--                     August 2017
 --
 -- 3D City Database: http://www.3dcitydb.org/ 
 -- 
@@ -33,6 +33,7 @@
 -- ***********************************************************************
 -- ***********************************************************************
 
+-- Deletes all entries in the database.
 SELECT citydb_pkg.cleanup_schema('citydb');
 
 -- Unistall the Utility Network ADE in case there is a previous installation
@@ -142,7 +143,6 @@ FOR ms_id IN EXECUTE format('SELECT id FROM %I.utn9_medium_supply WHERE cityobje
 		EXECUTE 'SELECT citydb_pkg.utn9_delete_medium_supply($1, $2)' USING ws_id, schema_name;
 	END IF;
 END LOOP;
-
 --// END PRE DELETE ENERGY ADE CITYOBJECT //--
 -- NO NEED TO DELETE CITYOBJECT, it is taken care in the vanilla intern_delete_cityobject() function.
 EXCEPTION
@@ -234,14 +234,14 @@ RAISE NOTICE '
 
 ********************************
 
-UtilityNetworks ADE functions installation complete!
+Utility Network ADE functions installation complete!
 
 ********************************
 
 ';
 END
 $$;
-SELECT 'UtilityNetworks ADE functions installation complete!'::varchar AS installation_result;
+SELECT 'Utility Network ADE functions installation complete!'::varchar AS installation_result;
 
 -- ***********************************************************************
 -- ***********************************************************************

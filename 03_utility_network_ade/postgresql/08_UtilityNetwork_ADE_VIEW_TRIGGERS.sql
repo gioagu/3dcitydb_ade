@@ -1,6 +1,6 @@
--- 3D City Database extension for the UtilityNetworks ADE v. 0.9
+-- 3D City Database extension for the Utility Network ADE v. 0.9.2
 --
---                     BETA 1, August 2017
+--                     August 2017
 --
 -- 3D City Database: http://www.3dcitydb.org/ 
 -- 
@@ -25,7 +25,8 @@
 -- *************** 08_UtilityNetworks_ADE_VIEW_TRIGGERS.sql **************
 --
 -- This script adds triggers and trigger functions to schema citydb_view
--- in order to make some views updateable.
+-- in order to make some views updatable. They are all prefixed with
+-- "utn9_".
 --
 -- ***********************************************************************
 -- ***********************************************************************
@@ -9709,14 +9710,14 @@ RAISE NOTICE '
 
 ********************************
 
-UtilityNetworks ADE view triggers installation complete!
+Utility Network ADE view triggers installation complete!
 
 ********************************
 
 ';
 END
 $$;
-SELECT 'UtilityNetworks ADE view triggers installed correctly!'::varchar AS installation_result;
+SELECT 'Utility Network ADE view triggers installed correctly!'::varchar AS installation_result;
 
 
 -- ***********************************************************************

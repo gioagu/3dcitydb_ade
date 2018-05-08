@@ -1,6 +1,6 @@
--- 3D City Database extension for the UtilityNetworks ADE v. 0.9
+-- 3D City Database extension for the Utility Network ADE v. 0.9.2
 --
---                     BETA 1, August 2017
+--                     August 2017
 --
 -- 3D City Database: http://www.3dcitydb.org/ 
 -- 
@@ -30,7 +30,7 @@
 -- ***********************************************************************
 -- ***********************************************************************
 
--- SCRIPT IS EMPTY FOR NOW
+-- SCRIPT IS EMPTY (FOR NOW)
 
 -- ***********************************************************************
 -- ***********************************************************************
@@ -42,14 +42,14 @@ RAISE NOTICE '
 
 ********************************
 
-UtilityNetworks ADE triggers installation complete!
+Utility Network ADE triggers installation complete!
 
 ********************************
 
 ';
 END
 $$;
-SELECT 'UtilityNetworks ADE triggers installed correctly!'::varchar AS installation_result;
+SELECT 'Utility Network ADE triggers installed correctly!'::varchar AS installation_result;
 
 
 -- ***********************************************************************
