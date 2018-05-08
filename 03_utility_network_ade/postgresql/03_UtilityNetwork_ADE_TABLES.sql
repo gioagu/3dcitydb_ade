@@ -33,18 +33,151 @@
 -- ***********************************************************************
 
 ----------------------------------------------------------------
--- Table LU_FUNCTION
+-- Table LU_NETWORK_CLASS
 ----------------------------------------------------------------
-DROP TABLE IF EXISTS citydb.utn9_lu_function CASCADE;
-CREATE TABLE         citydb.utn9_lu_function (
+DROP TABLE IF EXISTS citydb.utn9_lu_network_class CASCADE;
+CREATE TABLE         citydb.utn9_lu_network_class (
 	id                   varchar PRIMARY KEY,
 	name                 varchar,
 	name_codespace       varchar,
 	description          text
 );
--- ALTER TABLE citydb.utn9_lu_function OWNER TO postgres;
+-- ALTER TABLE citydb.utn9_lu_network_class OWNER TO postgres;
 
-CREATE INDEX utn9_lu_function_inx ON citydb.utn9_lu_function USING btree (name, name_codespace);
+CREATE INDEX utn9_lu_ntw_class_name_inx ON citydb.utn9_lu_network_class USING btree (name, name_codespace);
+
+----------------------------------------------------------------
+-- Table LU_NETWORK_FUNCTION
+----------------------------------------------------------------
+DROP TABLE IF EXISTS citydb.utn9_lu_network_function CASCADE;
+CREATE TABLE         citydb.utn9_lu_network_function (
+	id                   varchar PRIMARY KEY,
+	name                 varchar,
+	name_codespace       varchar,
+	description          text
+);
+-- ALTER TABLE citydb.utn9_lu_network_function OWNER TO postgres;
+
+CREATE INDEX utn9_lu_ntw_function_name_inx ON citydb.utn9_lu_network_function USING btree (name, name_codespace);
+
+----------------------------------------------------------------
+-- Table LU_NETWORK_FEATURE_CLASS
+----------------------------------------------------------------
+DROP TABLE IF EXISTS citydb.utn9_lu_network_feature_class CASCADE;
+CREATE TABLE         citydb.utn9_lu_network_feature_class (
+	id                   varchar NOT NULL,
+	objectclass_id       integer NOT NULL,	
+	name                 varchar,
+	name_codespace       varchar,
+	description          text,
+	PRIMARY KEY (id, objectclass_id)
+);
+-- ALTER TABLE citydb.utn9_lu_network_feature_class OWNER TO postgres;
+
+CREATE INDEX utn9_lu_ntw_feat_class_objclass_id_fkx ON citydb.utn9_lu_network_feature_class USING btree (objectclass_id);
+CREATE INDEX utn9_lu_ntw_feat_class_name_inx        ON citydb.utn9_lu_network_feature_class USING btree (name, name_codespace);
+
+----------------------------------------------------------------
+-- Table LU_NETWORK_FEATURE_FUNCTION
+----------------------------------------------------------------
+DROP TABLE IF EXISTS citydb.utn9_lu_network_feature_function CASCADE;
+CREATE TABLE         citydb.utn9_lu_network_feature_function (
+	id                   varchar PRIMARY KEY,
+	name                 varchar,
+	name_codespace       varchar,
+	description          text
+);
+-- ALTER TABLE citydb.utn9_lu_network_feature_function OWNER TO postgres;
+
+CREATE INDEX utn9_lu_ntw_feat_function_name_inx ON citydb.utn9_lu_network_function USING btree (name, name_codespace);
+
+----------------------------------------------------------------
+-- Table LU_SPATIAL_QUALITY
+----------------------------------------------------------------
+DROP TABLE IF EXISTS citydb.utn9_lu_spatial_quality CASCADE;
+CREATE TABLE         citydb.utn9_lu_spatial_quality (
+	id                   varchar PRIMARY KEY,
+	name                 varchar,
+	name_codespace       varchar,
+	description          text
+);
+-- ALTER TABLE citydb.utn9_lu_network_feature_function OWNER TO postgres;
+
+CREATE INDEX utn9_lu_spat_qual_name_inx ON citydb.utn9_lu_spatial_quality USING btree (name, name_codespace);
+
+----------------------------------------------------------------
+-- Table LU_MATERIAL
+----------------------------------------------------------------
+DROP TABLE IF EXISTS citydb.utn9_lu_material CASCADE;
+CREATE TABLE         citydb.utn9_lu_material (
+	id                   varchar PRIMARY KEY,
+	name                 varchar,
+	name_codespace       varchar,
+	description          text
+);
+-- ALTER TABLE citydb.utn9_lu_material OWNER TO postgres;
+
+CREATE INDEX utn9_lu_material_name_inx ON citydb.utn9_lu_material USING btree (name, name_codespace);
+
+----------------------------------------------------------------
+-- Table LU_STATUS
+----------------------------------------------------------------
+DROP TABLE IF EXISTS citydb.utn9_lu_status CASCADE;
+CREATE TABLE         citydb.utn9_lu_status (
+	id                   varchar PRIMARY KEY,
+	name                 varchar,
+	name_codespace       varchar,
+	description          text
+);
+-- ALTER TABLE citydb.utn9_lu_status OWNER TO postgres;
+
+CREATE INDEX utn9_lu_status_name_inx ON citydb.utn9_lu_status USING btree (name, name_codespace);
+
+
+----------------------------------------------------------------
+-- Table LU_MEDIUM_SUPPLY
+----------------------------------------------------------------
+DROP TABLE IF EXISTS citydb.utn9_lu_medium_supply CASCADE;
+CREATE TABLE         citydb.utn9_lu_medium_supply (
+	id                   varchar NOT NULL,
+	objectclass_id       integer NOT NULL,
+	name                 varchar,
+	name_codespace       varchar,
+	description          text,
+	PRIMARY KEY (id, objectclass_id)
+);
+-- ALTER TABLE citydb.utn9_lu_medium_supply OWNER TO postgres;
+
+CREATE INDEX utn9_lu_medium_supply_objclass_id_fkx ON citydb.utn9_lu_medium_supply USING btree (objectclass_id);
+CREATE INDEX utn9_lu_medium_supply_inx             ON citydb.utn9_lu_medium_supply USING btree (name, name_codespace);
+
+----------------------------------------------------------------
+-- Table LU_FUNCTION_OF_LINE
+----------------------------------------------------------------
+DROP TABLE IF EXISTS citydb.utn9_lu_function_of_line CASCADE;
+CREATE TABLE         citydb.utn9_lu_function_of_line (
+	id                   varchar PRIMARY KEY,
+	name                 varchar,
+	name_codespace       varchar,
+	description          text
+);
+-- ALTER TABLE citydb.utn9_lu_function_of_line OWNER TO postgres;
+
+CREATE INDEX utn9_lu_function_of_line_name_inx ON citydb.utn9_lu_function_of_line USING btree (name, name_codespace);
+
+----------------------------------------------------------------
+-- Table LU_SIGNAL_WORD
+----------------------------------------------------------------
+DROP TABLE IF EXISTS citydb.utn9_lu_signal_word CASCADE;
+CREATE TABLE         citydb.utn9_lu_signal_word (
+	id                   varchar PRIMARY KEY,
+	name                 varchar,
+	name_codespace       varchar,
+	description          text
+);
+-- ALTER TABLE citydb.utn9_lu_function_of_line OWNER TO postgres;
+
+CREATE INDEX utn9_lu_signal_word_name_inx ON citydb.utn9_lu_signal_word USING btree (name, name_codespace);
 
 ----------------------------------------------------------------
 -- Table NETWORK (_CityObject)
@@ -66,6 +199,8 @@ CREATE INDEX utn9_ntw_objclass_id_fkx ON citydb.utn9_network USING btree (object
 CREATE INDEX utn9_ntw_ntw_parent_id_fkx ON citydb.utn9_network USING btree (network_parent_id);
 CREATE INDEX utn9_ntw_ntw_root_id_fkx ON citydb.utn9_network USING btree (network_root_id);
 CREATE INDEX utn9_ntw_comm_id_fkx ON citydb.utn9_network USING btree (commodity_id);
+
+CREATE INDEX utn9_ntw_class_fkx ON citydb.utn9_network USING btree (class);
 
 COMMENT ON TABLE citydb.utn9_network IS 'Geographical representation of the network';
 
@@ -131,6 +266,10 @@ CREATE INDEX utn9_ntw_feat_conn_cto_id_fkx ON citydb.utn9_network_feature USING 
 CREATE INDEX utn9_ntw_feat_prot_elem_id_fkx ON citydb.utn9_network_feature USING btree (prot_element_id);
 CREATE INDEX utn9_ntw_feat_geom_spx ON citydb.utn9_network_feature USING gist (geom gist_geometry_ops_nd);
 
+CREATE INDEX utn9_ntw_feat_status_fkx ON citydb.utn9_network_feature USING btree (status);
+CREATE INDEX utn9_ntw_feat_loc_qual_fkx ON citydb.utn9_network_feature USING btree (location_quality);
+CREATE INDEX utn9_ntw_feat_ele_qual_fkx ON citydb.utn9_network_feature USING btree (elevation_quality);
+
 COMMENT ON TABLE citydb.utn9_network_feature IS 'Geographical representation of the network feature';
 
 COMMENT ON COLUMN citydb.utn9_network_feature.objectclass_id       IS 'Objectclass ID of the network feature';
@@ -175,6 +314,9 @@ CREATE TABLE         citydb.utn9_distrib_element (
 -- ALTER TABLE citydb.utn9_distrib_element OWNER TO postgres;
 
 CREATE INDEX utn9_distrib_elem_objclass_id_fkx ON citydb.utn9_distrib_element USING btree (objectclass_id);
+
+
+
 
 COMMENT ON TABLE citydb.utn9_distrib_element IS 'Network distribution element (cable, pipe, canal, etc.)';
 
@@ -421,64 +563,20 @@ COMMENT ON TABLE citydb.utn9_building IS 'Extension of the BUILDING table for th
 COMMENT ON COLUMN citydb.utn9_building.objectclass_id  IS 'Objectclass ID of the building';
 COMMENT ON COLUMN citydb.utn9_building.nbr_occupants IS 'Number of occupants';
 
-----------------------------------------------------------------
--- Table LU_MEDIUM_SUPPLY
-----------------------------------------------------------------
-DROP TABLE IF EXISTS citydb.utn9_lu_medium_supply CASCADE;
-CREATE TABLE         citydb.utn9_lu_medium_supply (
-	id                   varchar PRIMARY KEY,
-	objectclass_id       integer NOT NULL,
-	name                 varchar,
-	name_codespace       varchar,
-	description          text
-);
--- ALTER TABLE citydb.utn9_lu_medium_supply OWNER TO postgres;
-
-CREATE INDEX utn9_lu_medium_supply_objclass_id_fkx ON citydb.utn9_lu_medium_supply USING btree (objectclass_id);
-CREATE INDEX utn9_lu_medium_supply_inx             ON citydb.utn9_lu_medium_supply USING btree (name, name_codespace);
-
-----------------------------------------------------------------
--- Table LU_SUPPLY_STATUS
-----------------------------------------------------------------
-DROP TABLE IF EXISTS citydb.utn9_lu_supply_status CASCADE;
-CREATE TABLE         citydb.utn9_lu_supply_status (
-	id                   varchar PRIMARY KEY,
-	name                 varchar,
-	name_codespace       varchar,
-	description          text
-);
--- ALTER TABLE citydb.utn9_lu_supply_status OWNER TO postgres;
-
-CREATE INDEX utn9_lu_supply_status_inx             ON citydb.utn9_lu_supply_status USING btree (name, name_codespace);
-
-----------------------------------------------------------------
--- Table LU_STORAGE_DEVICE
-----------------------------------------------------------------
-DROP TABLE IF EXISTS citydb.utn9_lu_storage_device CASCADE;
-CREATE TABLE         citydb.utn9_lu_storage_device (
-	id                   varchar PRIMARY KEY,
-	name                 varchar,
-	name_codespace       varchar,
-	description          text
-);
--- ALTER TABLE citydb.utn9_lu_storage_device OWNER TO postgres;
-
-CREATE INDEX utn9_lu_storage_device_inx ON citydb.utn9_lu_storage_device USING btree (name, name_codespace);
-	
 --------------------
 -- Table MEDIUM_SUPPLY (electrical, gaseous, liquid, optical, solid)
 --------------------
 DROP TABLE IF EXISTS citydb.utn9_medium_supply CASCADE;
 CREATE TABLE         citydb.utn9_medium_supply (
  id                 serial PRIMARY KEY,
- objectclass_id     integer NOT NULL, -- This is a foreign key to objectclass.id	
- type               varchar,	         -- This is a foreign key to lu_medium_supply.id
+ objectclass_id     integer NOT NULL,-- This is a foreign key to objectclass.id	
+ type               varchar NOT NULL,-- (This is a foreign key to lu_medium_supply.id)
  cur_flow_rate      numeric,
  cur_flow_rate_unit varchar,
- cur_status         varchar,	         -- (This is a foreign key to lu_supply_status.id)
+ cur_status         varchar,	     -- This is a foreign key to lu_status.id
  pot_flow_rate      numeric,
  pot_flow_rate_unit varchar,
- pot_status         varchar,          -- (This is a foreign key to lu_supply_status.id)
+ pot_status         varchar,         -- This is a foreign key to lu_status.id
  cityobject_id      integer	         -- This is a foreign key to cityobject.id
 );
 -- ALTER TABLE citydb.utn9_medium_supply OWNER TO postgres;
@@ -486,6 +584,9 @@ CREATE TABLE         citydb.utn9_medium_supply (
 CREATE INDEX utn9_medium_supply_objclass_id_fkx ON citydb.utn9_medium_supply USING btree (objectclass_id);
 CREATE INDEX utn9_medium_supply_type_fkx        ON citydb.utn9_medium_supply USING btree (type);
 CREATE INDEX utn9_medium_supply_ctyobj_id_fkx   ON citydb.utn9_medium_supply USING btree (cityobject_id);
+
+CREATE INDEX utn9_medium_supply_cur_status_fkx   ON citydb.utn9_medium_supply USING btree (cur_status);
+CREATE INDEX utn9_medium_supply_pot_status_fkx   ON citydb.utn9_medium_supply USING btree (pot_status);
 
 COMMENT ON TABLE citydb.utn9_medium_supply IS 'Medium supply';
 
@@ -670,6 +771,8 @@ COMMENT ON COLUMN citydb.utn9_commodity.optical_mode                 IS 'Optical
 DROP TABLE IF EXISTS citydb.utn9_commodity_classifier CASCADE;
 CREATE TABLE         citydb.utn9_commodity_classifier (
 	id                          serial PRIMARY KEY,
+--	comm_classifier_parent_id   integer,
+--	comm_classifier_root_id     integer,
 	objectclass_id              integer NOT NULL, -- This is a foreign key to citydb.objectclass.id
 	gmlid                       varchar,
 	gmlid_codespace             varchar,
@@ -680,7 +783,7 @@ CREATE TABLE         citydb.utn9_commodity_classifier (
 	mol_weight                  numeric,
 	mol_weight_unit             numeric,
 	physical_form               varchar,
-	signal_word                 varchar, -- LU codelist
+	signal_word                 varchar,  -- This is a foreign key to utn9_lu_signal_word.id
 	is_chemical_complex         numeric(1),
 	haz_class                   varchar,
 	haz_class_category_code     varchar,
@@ -697,10 +800,14 @@ CREATE TABLE         citydb.utn9_commodity_classifier (
 -- ALTER TABLE citydb.utn9_commodity_classifier OWNER TO postgres;
 
 CREATE INDEX utn9_comm_class_gmlid_inx         ON citydb.utn9_commodity_classifier USING btree (gmlid, gmlid_codespace);
+--CREATE INDEX utn9_comm_class_parent_id_fkx       ON citydb.utn9_commodity_classifier USING btree (comm_classifier_parent_id);
+--CREATE INDEX utn9_comm_class_root_id_fkx       ON citydb.utn9_commodity_classifier USING btree (comm_classifier_root_id);
 CREATE INDEX utn9_comm_class_objclass_id_fkx   ON citydb.utn9_commodity_classifier USING btree (objectclass_id);
 CREATE INDEX utn9_comm_class_comm_id_fkx       ON citydb.utn9_commodity_classifier USING btree (commodity_id);
 CREATE INDEX utn9_comm_class_mat_id_fkx        ON citydb.utn9_commodity_classifier USING btree (material_id);
 CREATE INDEX utn9_comm_class_hollow_spc_id_fkx ON citydb.utn9_commodity_classifier USING btree (hollow_space_id);
+
+CREATE INDEX utn9_comm_class_signal_word_fkx ON citydb.utn9_commodity_classifier USING btree (signal_word);
 
 COMMENT ON TABLE citydb.utn9_commodity_classifier IS 'Commodity classifier';
 
@@ -823,12 +930,19 @@ COMMENT ON COLUMN citydb.utn9_hollow_space.name            IS 'Name';
 COMMENT ON COLUMN citydb.utn9_hollow_space.name_codespace  IS 'Name codespace';
 COMMENT ON COLUMN citydb.utn9_hollow_space.description     IS 'Description';
 
+
+-- **********************************************************************
+-- FOREIGN KEYS CONSTRAINTS
+-- **********************************************************************
+
 -- FOREIGN KEY constraint on Table NETWORK
 ALTER TABLE IF EXISTS citydb.utn9_network ADD CONSTRAINT utn9_ntw_ctyobj_fk FOREIGN KEY (id) REFERENCES citydb.cityobject (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
 ALTER TABLE IF EXISTS citydb.utn9_network ADD CONSTRAINT utn9_ntw_objclass_fk FOREIGN KEY (objectclass_id) REFERENCES citydb.objectclass (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
 ALTER TABLE IF EXISTS citydb.utn9_network ADD CONSTRAINT utn9_ntw_utn_ntw_fk1 FOREIGN KEY (network_parent_id) REFERENCES citydb.utn9_network (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
 ALTER TABLE IF EXISTS citydb.utn9_network ADD CONSTRAINT utn9_ntw_utn_ntw_fk2 FOREIGN KEY (network_root_id) REFERENCES citydb.utn9_network (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
 ALTER TABLE IF EXISTS citydb.utn9_network ADD CONSTRAINT utn9_ntw_utn_comm_fk2 FOREIGN KEY (commodity_id) REFERENCES citydb.utn9_commodity (id) MATCH FULL ON UPDATE CASCADE ON DELETE SET NULL;
+
+ALTER TABLE IF EXISTS citydb.utn9_network ADD CONSTRAINT utn9_ntw_lu_ntw_class_fk FOREIGN KEY (class) REFERENCES citydb.utn9_lu_network_class (id) MATCH FULL ON UPDATE CASCADE ON DELETE SET NULL;
 
 -- FOREIGN KEY constraint on Table NETWORK_TO_NETWORK
 ALTER TABLE IF EXISTS citydb.utn9_network_to_network ADD CONSTRAINT utn9_ntw_to_ntw_fk1 FOREIGN KEY (superordinate_network_id) REFERENCES citydb.utn9_network (id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
@@ -845,6 +959,11 @@ ALTER TABLE IF EXISTS citydb.utn9_network_feature ADD CONSTRAINT utn9_ntw_feat_u
 ALTER TABLE IF EXISTS citydb.utn9_network_feature ADD CONSTRAINT utn9_ntw_feat_utn_ntw_feat_fk2 FOREIGN KEY (ntw_feature_root_id) REFERENCES citydb.utn9_network_feature (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
 ALTER TABLE IF EXISTS citydb.utn9_network_feature ADD CONSTRAINT utn9_ntw_feat_ctyobj_fk2 FOREIGN KEY (conn_cityobject_id) REFERENCES citydb.cityobject (id) MATCH FULL ON UPDATE CASCADE ON DELETE SET NULL;
 ALTER TABLE IF EXISTS citydb.utn9_network_feature ADD CONSTRAINT utn9_ntw_feat_utn_prot_elem_fk FOREIGN KEY (prot_element_id) REFERENCES citydb.utn9_protective_element (id) MATCH FULL ON UPDATE CASCADE ON DELETE SET NULL;
+
+ALTER TABLE IF EXISTS citydb.utn9_network_feature ADD CONSTRAINT utn9_ntw_feat_lu_spat_qual_fk1 FOREIGN KEY (location_quality) REFERENCES citydb.utn9_lu_spatial_quality (id) MATCH FULL ON UPDATE CASCADE ON DELETE SET NULL;
+ALTER TABLE IF EXISTS citydb.utn9_network_feature ADD CONSTRAINT utn9_ntw_feat_lu_spat_qual_fk2 FOREIGN KEY (elevation_quality) REFERENCES citydb.utn9_lu_spatial_quality (id) MATCH FULL ON UPDATE CASCADE ON DELETE SET NULL;
+ALTER TABLE IF EXISTS citydb.utn9_network_feature ADD CONSTRAINT utn9_ntw_feat_lu_status_fk FOREIGN KEY (status) REFERENCES citydb.utn9_lu_status (id) MATCH FULL ON UPDATE CASCADE ON DELETE SET NULL;
+
 
 -- FOREIGN KEY constraint on Table DISTRIB_ELEMENT
 ALTER TABLE IF EXISTS citydb.utn9_distrib_element ADD CONSTRAINT utn9_distrib_elem_utn_ntw_feat_fk FOREIGN KEY (id) REFERENCES citydb.utn9_network_feature (id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
@@ -886,6 +1005,9 @@ ALTER TABLE IF EXISTS citydb.utn9_building ADD CONSTRAINT utn9_bdg_objclass_fk F
 ALTER TABLE IF EXISTS citydb.utn9_medium_supply ADD CONSTRAINT utn9_med_sup_objclass_fk FOREIGN KEY (objectclass_id) REFERENCES citydb.objectclass (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
 ALTER TABLE IF EXISTS citydb.utn9_medium_supply ADD CONSTRAINT utn9_med_sup_ctyobj_fk FOREIGN KEY (cityobject_id) REFERENCES citydb.cityobject (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
 
+ALTER TABLE IF EXISTS citydb.utn9_medium_supply ADD CONSTRAINT utn9_med_sup_lu_status_fk1 FOREIGN KEY (cur_status) REFERENCES citydb.utn9_lu_status (id) MATCH FULL ON UPDATE CASCADE ON DELETE SET NULL;
+ALTER TABLE IF EXISTS citydb.utn9_medium_supply ADD CONSTRAINT utn9_med_sup_lu_status_fk2 FOREIGN KEY (pot_status) REFERENCES citydb.utn9_lu_status (id) MATCH FULL ON UPDATE CASCADE ON DELETE SET NULL;
+
 -- FOREIGN KEY constraint on Table STORAGE
 ALTER TABLE IF EXISTS citydb.utn9_storage ADD CONSTRAINT utn9_stor_utn_med_sup_fk FOREIGN KEY (medium_supply_id) REFERENCES citydb.utn9_medium_supply (id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
 
@@ -905,6 +1027,8 @@ ALTER TABLE IF EXISTS citydb.utn9_commodity_classifier ADD CONSTRAINT utn9_comm_
 ALTER TABLE IF EXISTS citydb.utn9_commodity_classifier ADD CONSTRAINT utn9_comm_class_utn_mat_fk FOREIGN KEY (material_id) REFERENCES citydb.utn9_material (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
 ALTER TABLE IF EXISTS citydb.utn9_commodity_classifier ADD CONSTRAINT utn9_comm_class_utn_hol_spc_fk FOREIGN KEY (hollow_space_id) REFERENCES citydb.utn9_hollow_space (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
 
+ALTER TABLE IF EXISTS citydb.utn9_commodity_classifier ADD CONSTRAINT utn9_comm_class_lu_signal_word_fk FOREIGN KEY (signal_word) REFERENCES citydb.utn9_lu_signal_word (id) MATCH FULL ON UPDATE CASCADE ON DELETE SET NULL;
+
 -- FOREIGN KEY constraint on Table COMM_CLASS_TO_COMM_CLASS
 ALTER TABLE IF EXISTS citydb.utn9_comm_class_to_comm_class ADD CONSTRAINT utn9_comm_class_to_comm_class_fk1 FOREIGN KEY (comm_class_parent_id) REFERENCES citydb.utn9_commodity (id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
 ALTER TABLE IF EXISTS citydb.utn9_comm_class_to_comm_class ADD CONSTRAINT utn9_comm_class_to_comm_class_fk2 FOREIGN KEY (comm_class_id) REFERENCES citydb.utn9_commodity (id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
@@ -923,7 +1047,22 @@ ALTER TABLE IF EXISTS citydb.utn9_network_feat_to_material ADD CONSTRAINT utn9_n
 ALTER TABLE IF EXISTS citydb.utn9_hollow_space ADD CONSTRAINT utn9_hol_spc_objclass_fk FOREIGN KEY (objectclass_id) REFERENCES citydb.objectclass (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
 ALTER TABLE IF EXISTS citydb.utn9_hollow_space ADD CONSTRAINT utn9_hol_spc_utn_ntw_feat_fk FOREIGN KEY (ntw_feature_id) REFERENCES citydb.utn9_network_feature (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
 
+-- FOREIGN KEY constraint on Table LU_NETWOKR_FEATURE_CLASS
+ALTER TABLE IF EXISTS citydb.utn9_lu_network_feature_class ADD CONSTRAINT utn9_ntw_feat_class_objclass_fk FOREIGN KEY (objectclass_id) REFERENCES citydb.objectclass (id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+-- FOREIGN KEY constraint on Table LU_MEDIUM_SUPPLY
+ALTER TABLE IF EXISTS citydb.utn9_lu_medium_supply ADD CONSTRAINT utn9_lu_med_sup_objclass_fk FOREIGN KEY (objectclass_id) REFERENCES citydb.objectclass (id) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+
+
+
+
+
+-- ***********************************************************************
 -- EXECUTE THE STORED PROCEDURE TO SET THE SRID OF THE NEW GEOMETRY COLUMNS TO THE CURRENT ONE ON THE DATABASE
+-- ***********************************************************************
+
 SELECT citydb_pkg.utn9_set_ade_columns_srid('citydb');
 
 -- ***********************************************************************
