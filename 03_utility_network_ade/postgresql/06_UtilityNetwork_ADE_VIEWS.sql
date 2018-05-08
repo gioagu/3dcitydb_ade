@@ -24,8 +24,9 @@
 -- ***********************************************************************
 -- ******************* 06_UtilityNetworks_ADE_VIEWS.sql ******************
 --
--- This script creates views in the citydb_view schema. All views are
--- prefixed with 'utn9_'.
+-- This script adds views to the citydb_view schema.
+-- which is itself created (if needed) by the current script. 
+-- All views are prefixed with "utn9_".
 --
 -- ***********************************************************************
 -- ***********************************************************************
