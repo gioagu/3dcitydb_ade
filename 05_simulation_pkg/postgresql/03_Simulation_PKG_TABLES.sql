@@ -25,6 +25,20 @@
 -- ***********************************************************************
 
 ----------------------------------------------------------------
+-- Table LU_VARIABLE_TYPE 
+----------------------------------------------------------------
+DROP TABLE IF EXISTS sim_pkg.lu_variable_type CASCADE;
+CREATE TABLE         sim_pkg.lu_variable_type (
+	id                   varchar PRIMARY KEY,
+	name                 varchar,
+	name_codespace       varchar,
+	description          text
+);
+-- ALTER TABLE sim_pkg.lu_variable_type OWNER TO postgres;
+
+CREATE INDEX simpkg_lu_var_type_inx ON sim_pkg.lu_variable_type USING btree (name, name_codespace);
+
+----------------------------------------------------------------
 -- Table TOOL (_FEATURE prototype)
 ----------------------------------------------------------------
 DROP TABLE IF EXISTS sim_pkg.tool CASCADE;
