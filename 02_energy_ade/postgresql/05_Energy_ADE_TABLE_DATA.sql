@@ -473,16 +473,6 @@ VALUES
 ('WoodPellets',  'Wood pellets',  NULL, NULL)
 ;
 
-
--- -- Add entry into table LU_xxxx
--- TRUNCATE citydb.nrg8_lu_xxxx CASCADE;
--- INSERT INTO citydb.nrg8_lu_xxxx
--- (id, name, name_codespace, description)
--- VALUES
--- ('', NULL, NULL, NULL),
--- ('', NULL, NULL, NULL)
--- ;
-
 -- ***********************************************************************
 -- ***********************************************************************
 
