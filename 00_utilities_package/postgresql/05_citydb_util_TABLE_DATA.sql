@@ -30,6 +30,22 @@
 -- ***********************************************************************
 -- ***********************************************************************
 
+TRUNCATE    citydb.lu_genericattrib_data_type CASCADE;
+INSERT INTO citydb.lu_genericattrib_data_type
+(id, name, description)
+VALUES
+( 1, 'string'  , 'String'          ),
+( 2, 'integer' , 'Integer'         ),
+( 3, 'real'    , 'Real'            ),
+( 4, 'uri'     , 'Uri'             ),
+( 5, 'date'    , 'Date'            ),
+( 6, 'measure' , 'Measure'         ),
+( 7, 'group'   , 'Group'           ),
+( 8, 'blob'    , 'Blob'            ),
+( 9, 'geometry', 'Geometry'        ),
+(10, 'surfgeom', 'Surface geometry')
+;
+
 TRUNCATE    citydb.lu_bridge_class CASCADE;
 INSERT INTO citydb.lu_bridge_class
 (id, description)

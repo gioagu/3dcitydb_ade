@@ -30,6 +30,20 @@
 -- ***********************************************************************
 
 ----------------------------------------------------------------
+-- Table LU_GENERICATTRIB_DATA_TYPE
+----------------------------------------------------------------
+DROP TABLE IF EXISTS citydb.lu_genericattrib_data_type CASCADE;
+CREATE TABLE         citydb.lu_genericattrib_data_type (
+id integer PRIMARY KEY,
+name varchar,
+name_codespace varchar,
+description text
+);
+-- ALTER TABLE citydb.lu_genericattrib_data_type OWNER TO postgres;
+
+CREATE INDEX lu_genatt_name_inx ON citydb.lu_genericattrib_data_type USING btree (name, name_codespace);
+
+----------------------------------------------------------------
 -- Table LU_APPEARANCE_TEXT_MIME_TYPE
 ----------------------------------------------------------------
 DROP TABLE IF EXISTS citydb.lu_appearance_text_mime_type CASCADE;
