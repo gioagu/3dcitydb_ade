@@ -868,7 +868,7 @@ BEGIN
 IF TG_ARGV[0] IS NOT NULL THEN
 	p_schema_name=TG_ARGV[0];
 END IF;
-deleted_id=citydb_pkg.delete_cityobject_genericattrib(OLD.id, 0, p_schema_name);
+deleted_id=citydb_pkg.delete_genericattrib(OLD.id, 0, p_schema_name);
 -- RAISE NOTICE 'Deleted record with id: %', deleted_id;
 RETURN OLD;
 EXCEPTION
@@ -983,7 +983,7 @@ BEGIN
 IF TG_ARGV[0] IS NOT NULL THEN
 	p_schema_name=TG_ARGV[0];
 END IF;
-deleted_id=citydb_pkg.delete_cityobject_genericattrib(OLD.id, 0, p_schema_name);
+deleted_id=citydb_pkg.delete_genericattrib(OLD.id, 0, p_schema_name);
 -- RAISE NOTICE 'Deleted record with id: %', deleted_id;
 RETURN OLD;
 EXCEPTION
@@ -1098,7 +1098,7 @@ BEGIN
 IF TG_ARGV[0] IS NOT NULL THEN
 	p_schema_name=TG_ARGV[0];
 END IF;
-deleted_id=citydb_pkg.delete_cityobject_genericattrib(OLD.id, 0, p_schema_name);
+deleted_id=citydb_pkg.delete_genericattrib(OLD.id, 0, p_schema_name);
 -- RAISE NOTICE 'Deleted record with id: %', deleted_id;
 RETURN OLD;
 EXCEPTION
@@ -1213,7 +1213,7 @@ BEGIN
 IF TG_ARGV[0] IS NOT NULL THEN
 	p_schema_name=TG_ARGV[0];
 END IF;
-deleted_id=citydb_pkg.delete_cityobject_genericattrib(OLD.id, 0, p_schema_name);
+deleted_id=citydb_pkg.delete_genericattrib(OLD.id, 0, p_schema_name);
 -- RAISE NOTICE 'Deleted record with id: %', deleted_id;
 RETURN OLD;
 EXCEPTION
@@ -1331,7 +1331,7 @@ BEGIN
 IF TG_ARGV[0] IS NOT NULL THEN
 	p_schema_name=TG_ARGV[0];
 END IF;
-deleted_id=citydb_pkg.delete_cityobject_genericattrib(OLD.id, 0, p_schema_name);
+deleted_id=citydb_pkg.delete_genericattrib(OLD.id, 0, p_schema_name);
 -- RAISE NOTICE 'Deleted record with id: %', deleted_id;
 RETURN OLD;
 EXCEPTION
@@ -1446,7 +1446,7 @@ BEGIN
 IF TG_ARGV[0] IS NOT NULL THEN
 	p_schema_name=TG_ARGV[0];
 END IF;
-deleted_id=citydb_pkg.delete_cityobject_genericattrib(OLD.id, 0, p_schema_name);
+deleted_id=citydb_pkg.delete_genericattrib(OLD.id, 0, p_schema_name);
 -- RAISE NOTICE 'Deleted record with id: %', deleted_id;
 RETURN OLD;
 EXCEPTION
@@ -1561,7 +1561,7 @@ BEGIN
 IF TG_ARGV[0] IS NOT NULL THEN
 	p_schema_name=TG_ARGV[0];
 END IF;
-deleted_id=citydb_pkg.delete_cityobject_genericattrib(OLD.id, 0, p_schema_name);
+deleted_id=citydb_pkg.delete_genericattrib(OLD.id, 0, p_schema_name);
 -- RAISE NOTICE 'Deleted record with id: %', deleted_id;
 RETURN OLD;
 EXCEPTION
@@ -1676,7 +1676,7 @@ BEGIN
 IF TG_ARGV[0] IS NOT NULL THEN
 	p_schema_name=TG_ARGV[0];
 END IF;
-deleted_id=citydb_pkg.delete_cityobject_genericattrib(OLD.id, 0, p_schema_name);
+deleted_id=citydb_pkg.delete_genericattrib(OLD.id, 0, p_schema_name);
 -- RAISE NOTICE 'Deleted record with id: %', deleted_id;
 RETURN OLD;
 EXCEPTION
@@ -1791,7 +1791,7 @@ BEGIN
 IF TG_ARGV[0] IS NOT NULL THEN
 	p_schema_name=TG_ARGV[0];
 END IF;
-deleted_id=citydb_pkg.delete_cityobject_genericattrib(OLD.id, 0, p_schema_name);
+deleted_id=citydb_pkg.delete_genericattrib(OLD.id, 0, p_schema_name);
 -- RAISE NOTICE 'Deleted record with id: %', deleted_id;
 RETURN OLD;
 EXCEPTION
@@ -1906,7 +1906,7 @@ BEGIN
 IF TG_ARGV[0] IS NOT NULL THEN
 	p_schema_name=TG_ARGV[0];
 END IF;
-deleted_id=citydb_pkg.delete_cityobject_genericattrib(OLD.id, 0, p_schema_name);
+deleted_id=citydb_pkg.delete_genericattrib(OLD.id, 0, p_schema_name);
 -- RAISE NOTICE 'Deleted record with id: %', deleted_id;
 RETURN OLD;
 EXCEPTION
