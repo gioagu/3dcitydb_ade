@@ -156,9 +156,39 @@ WHERE
 --ALTER VIEW citydb_view.cityobject_member_ext OWNER TO postgres;
 
 ----------------------------------------------------------------
+-- View CITYOBJECT
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.cityobject CASCADE;
+CREATE OR REPLACE VIEW citydb_view.cityobject AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage 
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o
+WHERE 
+  o.id = co.objectclass_id;
+--ALTER VIEW citydb_view.cityobject OWNER TO postgres;
+
+----------------------------------------------------------------
 -- View CITYOBJECTGROUP
 ----------------------------------------------------------------
-DROP VIEW IF EXISTS citydb_view.cityobjectgroup CASCADE;
+DROP VIEW IF EXISTS    citydb_view.cityobjectgroup CASCADE;
 CREATE OR REPLACE VIEW citydb_view.cityobjectgroup AS
 SELECT 
   co.id, 
