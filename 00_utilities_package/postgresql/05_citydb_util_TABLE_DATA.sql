@@ -30,6 +30,29 @@
 -- ***********************************************************************
 -- ***********************************************************************
 
+TRUNCATE    citydb.lu_relative_to_terrain CASCADE;
+INSERT INTO citydb.lu_relative_to_terrain
+(id, name)
+VALUES
+('entirelyAboveTerrain'             ,'Entirely above terrain'               ),
+('substantiallyAboveTerrain'        ,'Substantially above terrain'          ),
+('substantiallyAboveAndBelowTerrain','Substantially above and below terrain'),
+('substantiallyBelowTerrain'        ,'Substantially below terrain'          ),
+('entirelyBelowTerrain'             ,'Entirely below terrain'               )
+;
+
+TRUNCATE    citydb.lu_relative_to_water CASCADE;
+INSERT INTO citydb.lu_relative_to_water
+(id, name)
+VALUES
+('entirelyAboveWaterSurface'             ,'Entirely above water surface'               ),
+('substantiallyAboveWaterSurface'        ,'Substantially above water surface'          ),
+('substantiallyAboveAndBelowWaterSurface','Substantially above and below water surface'),
+('substantiallyBelowWaterSurface'        ,'Substantially below water surface'          ),
+('entirelyBelowWaterSurface'             ,'Entirely below water surface'               ),
+('temporarilyAboveAndBelowWaterSurface'  ,'Temporarily above and below water surface'  )
+;
+
 TRUNCATE    citydb.lu_genericattrib_data_type CASCADE;
 INSERT INTO citydb.lu_genericattrib_data_type
 (id, name, description)

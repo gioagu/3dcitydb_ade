@@ -30,6 +30,34 @@
 -- ***********************************************************************
 
 ----------------------------------------------------------------
+-- Table LU_RELATIVE_TO_TERRAIN
+----------------------------------------------------------------
+DROP TABLE IF EXISTS citydb.lu_relative_to_terrain CASCADE;
+CREATE TABLE         citydb.lu_relative_to_terrain (
+id varchar PRIMARY KEY,
+name varchar,
+name_codespace varchar,
+description text
+);
+-- ALTER TABLE citydb.lu_relative_to_terrain OWNER TO postgres;
+
+CREATE INDEX lu_relter_name_inx ON citydb.lu_relative_to_terrain USING btree (name, name_codespace);
+
+----------------------------------------------------------------
+-- Table LU_RELATIVE_TO_WATER
+----------------------------------------------------------------
+DROP TABLE IF EXISTS citydb.lu_relative_to_water CASCADE;
+CREATE TABLE         citydb.lu_relative_to_water (
+id varchar PRIMARY KEY,
+name varchar,
+name_codespace varchar,
+description text
+);
+-- ALTER TABLE citydb.lu_relative_to_water OWNER TO postgres;
+
+CREATE INDEX lu_relwat_name_inx ON citydb.lu_relative_to_water USING btree (name, name_codespace);
+
+----------------------------------------------------------------
 -- Table LU_GENERICATTRIB_DATA_TYPE
 ----------------------------------------------------------------
 DROP TABLE IF EXISTS citydb.lu_genericattrib_data_type CASCADE;
