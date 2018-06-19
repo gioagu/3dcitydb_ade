@@ -1,6 +1,6 @@
 -- 3D City Database Utilities Package
 --
---                     August 2017
+--                     June 2018
 --
 -- 3D City Database: http://www.3dcitydb.org
 --
@@ -34,11 +34,2650 @@ CREATE SCHEMA IF NOT EXISTS citydb_view;
 
 
 ----------------------------------------------------------------
+-- View BRIDGE
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.bridge CASCADE;
+CREATE OR REPLACE VIEW citydb_view.bridge AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  b.bridge_parent_id, 
+  b.bridge_root_id, 
+  b.class, 
+  b.class_codespace, 
+  b.function, 
+  b.function_codespace, 
+  b.usage, 
+  b.usage_codespace, 
+  b.year_of_construction, 
+  b.year_of_demolition, 
+  b.is_movable, 
+  b.lod1_terrain_intersection, 
+  b.lod2_terrain_intersection, 
+  b.lod3_terrain_intersection, 
+  b.lod4_terrain_intersection, 
+  b.lod2_multi_curve, 
+  b.lod3_multi_curve, 
+  b.lod4_multi_curve, 
+  b.lod1_multi_surface_id, 
+  b.lod2_multi_surface_id, 
+  b.lod3_multi_surface_id, 
+  b.lod4_multi_surface_id, 
+  b.lod1_solid_id, 
+  b.lod2_solid_id, 
+  b.lod3_solid_id, 
+  b.lod4_solid_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.bridge b
+WHERE 
+  o.id = co.objectclass_id AND
+  b.id = co.id AND
+  o.classname = 'Bridge';
+--ALTER VIEW citydb_view.bridge OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View BRIDGE_PART
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.bridge_part CASCADE;
+CREATE OR REPLACE VIEW citydb_view.bridge_part AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  b.bridge_parent_id, 
+  b.bridge_root_id, 
+  b.class, 
+  b.class_codespace, 
+  b.function, 
+  b.function_codespace, 
+  b.usage, 
+  b.usage_codespace, 
+  b.year_of_construction, 
+  b.year_of_demolition, 
+  b.is_movable, 
+  b.lod1_terrain_intersection, 
+  b.lod2_terrain_intersection, 
+  b.lod3_terrain_intersection, 
+  b.lod4_terrain_intersection, 
+  b.lod2_multi_curve, 
+  b.lod3_multi_curve, 
+  b.lod4_multi_curve, 
+  b.lod1_multi_surface_id, 
+  b.lod2_multi_surface_id, 
+  b.lod3_multi_surface_id, 
+  b.lod4_multi_surface_id, 
+  b.lod1_solid_id, 
+  b.lod2_solid_id, 
+  b.lod3_solid_id, 
+  b.lod4_solid_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.bridge b
+WHERE 
+  o.id = co.objectclass_id AND
+  b.id = co.id AND
+  o.classname = 'BridgePart';
+--ALTER VIEW citydb_view.bridge OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View BRIDGE_OPENING
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.bridge_opening CASCADE;
+CREATE OR REPLACE VIEW citydb_view.bridge_opening AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  bo.address_id, 
+  bo.lod3_multi_surface_id, 
+  bo.lod4_multi_surface_id, 
+  bo.lod3_implicit_rep_id, 
+  bo.lod4_implicit_rep_id, 
+  bo.lod3_implicit_ref_point, 
+  bo.lod4_implicit_ref_point, 
+  bo.lod3_implicit_transformation, 
+  bo.lod4_implicit_transformation
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.bridge_opening bo
+WHERE 
+  o.id = co.objectclass_id AND
+  bo.id = co.id;
+--ALTER VIEW citydb_view.bridge_opening OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View BRIDGE_OPENING_DOOR
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.bridge_opening_door CASCADE;
+CREATE OR REPLACE VIEW citydb_view.bridge_opening_door AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  bo.address_id, 
+  bo.lod3_multi_surface_id, 
+  bo.lod4_multi_surface_id, 
+  bo.lod3_implicit_rep_id, 
+  bo.lod4_implicit_rep_id, 
+  bo.lod3_implicit_ref_point, 
+  bo.lod4_implicit_ref_point, 
+  bo.lod3_implicit_transformation, 
+  bo.lod4_implicit_transformation
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.bridge_opening bo
+WHERE 
+  o.id = co.objectclass_id AND
+  bo.id = co.id AND
+  o.classname = 'BridgeDoor';
+--ALTER VIEW citydb_view.bridge_opening_door OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View BRIDGE_OPENING_WINDOW
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.bridge_opening_window CASCADE;
+CREATE OR REPLACE VIEW citydb_view.bridge_opening_window AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  bo.address_id, 
+  bo.lod3_multi_surface_id, 
+  bo.lod4_multi_surface_id, 
+  bo.lod3_implicit_rep_id, 
+  bo.lod4_implicit_rep_id, 
+  bo.lod3_implicit_ref_point, 
+  bo.lod4_implicit_ref_point, 
+  bo.lod3_implicit_transformation, 
+  bo.lod4_implicit_transformation
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.bridge_opening bo
+WHERE 
+  o.id = co.objectclass_id AND
+  bo.id = co.id AND
+  o.classname = 'BridgeWindow';
+--ALTER VIEW citydb_view.bridge_opening_window OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View BRIDGE_OPEN_TO_THEM_SURFACE_EXT
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.bridge_open_to_them_surface_ext CASCADE;
+CREATE OR REPLACE VIEW citydb_view.bridge_open_to_them_surface_ext AS
+SELECT 
+  ts.id             AS themsurf_id, 
+  ts.objectclass_id AS ts_objectclass_id, 
+  o1.classname      AS ts_classname, 
+  o.id              AS opening_id, 
+  o.objectclass_id  AS o_objectclass_id, 
+  o2.classname      AS o_classname, 
+  o.address_id, 
+  o.lod3_multi_surface_id, 
+  o.lod4_multi_surface_id, 
+  o.lod3_implicit_rep_id, 
+  o.lod4_implicit_rep_id, 
+  o.lod3_implicit_ref_point, 
+  o.lod4_implicit_ref_point, 
+  o.lod3_implicit_transformation, 
+  o.lod4_implicit_transformation
+FROM 
+  citydb.bridge_open_to_them_srf o2ts, 
+  citydb.bridge_opening o, 
+  citydb.bridge_thematic_surface ts, 
+  citydb.objectclass o1, 
+  citydb.objectclass o2
+WHERE 
+  o2ts.bridge_thematic_surface_id = ts.id AND
+  o2ts.bridge_opening_id = o.id AND
+  o.objectclass_id = o2.id AND
+  ts.objectclass_id = o1.id;
+--ALTER VIEW opening_to_them_surface_ext OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View BRIDGE_CONSTRUCTION_ELEMENT
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.bridge_constr_element CASCADE;
+CREATE OR REPLACE VIEW citydb_view.bridge_constr_element AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  bce.class, 
+  bce.class_codespace, 
+  bce.function, 
+  bce.function_codespace, 
+  bce.usage, 
+  bce.usage_codespace, 
+  bce.bridge_id, 
+  bce.lod1_terrain_intersection, 
+  bce.lod2_terrain_intersection, 
+  bce.lod3_terrain_intersection, 
+  bce.lod4_terrain_intersection, 
+  bce.lod1_brep_id, 
+  bce.lod2_brep_id, 
+  bce.lod3_brep_id, 
+  bce.lod4_brep_id, 
+  bce.lod1_other_geom, 
+  bce.lod2_other_geom, 
+  bce.lod3_other_geom, 
+  bce.lod4_other_geom, 
+  bce.lod1_implicit_rep_id, 
+  bce.lod2_implicit_rep_id, 
+  bce.lod3_implicit_rep_id, 
+  bce.lod4_implicit_rep_id, 
+  bce.lod1_implicit_ref_point, 
+  bce.lod2_implicit_ref_point, 
+  bce.lod3_implicit_ref_point, 
+  bce.lod4_implicit_ref_point, 
+  bce.lod1_implicit_transformation, 
+  bce.lod2_implicit_transformation, 
+  bce.lod3_implicit_transformation, 
+  bce.lod4_implicit_transformation
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.bridge_constr_element bce
+WHERE 
+  o.id = co.objectclass_id AND
+  bce.id = co.id;
+--ALTER VIEW citydb_view.bridge_constr_element OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View BRIDGE_FURNITURE
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.bridge_furniture CASCADE;
+CREATE OR REPLACE VIEW citydb_view.bridge_furniture AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  bf.class, 
+  bf.class_codespace, 
+  bf.function, 
+  bf.function_codespace, 
+  bf.usage, 
+  bf.usage_codespace, 
+  bf.bridge_room_id, 
+  bf.lod4_brep_id, 
+  bf.lod4_other_geom, 
+  bf.lod4_implicit_rep_id, 
+  bf.lod4_implicit_ref_point, 
+  bf.lod4_implicit_transformation
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.bridge_furniture bf
+WHERE 
+  o.id = co.objectclass_id AND
+  bf.id = co.id;
+--ALTER VIEW citydb_view.bridge_FURNITURE OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View BRIDGE_INSTALLATION
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.bridge_installation CASCADE;
+CREATE OR REPLACE VIEW citydb_view.bridge_installation AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  bi.class, 
+  bi.class_codespace, 
+  bi.function, 
+  bi.function_codespace, 
+  bi.usage, 
+  bi.usage_codespace, 
+  bi.bridge_id, 
+  bi.bridge_room_id, 
+  bi.lod2_brep_id, 
+  bi.lod3_brep_id, 
+  bi.lod4_brep_id, 
+  bi.lod2_other_geom, 
+  bi.lod3_other_geom, 
+  bi.lod4_other_geom, 
+  bi.lod2_implicit_rep_id, 
+  bi.lod3_implicit_rep_id, 
+  bi.lod4_implicit_rep_id, 
+  bi.lod2_implicit_ref_point, 
+  bi.lod3_implicit_ref_point, 
+  bi.lod4_implicit_ref_point, 
+  bi.lod2_implicit_transformation, 
+  bi.lod3_implicit_transformation, 
+  bi.lod4_implicit_transformation
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.bridge_installation bi
+WHERE 
+  o.id = co.objectclass_id AND
+  bi.id = co.id;
+--ALTER VIEW citydb_view.bridge_installation OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View BRIDGE_INSTALLATION_INTERIOR
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.bridge_installation_interior CASCADE;
+CREATE OR REPLACE VIEW citydb_view.bridge_installation_interior AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  bi.class, 
+  bi.class_codespace, 
+  bi.function, 
+  bi.function_codespace, 
+  bi.usage, 
+  bi.usage_codespace, 
+  bi.bridge_id, 
+  bi.bridge_room_id, 
+  bi.lod2_brep_id, 
+  bi.lod3_brep_id, 
+  bi.lod4_brep_id, 
+  bi.lod2_other_geom, 
+  bi.lod3_other_geom, 
+  bi.lod4_other_geom, 
+  bi.lod2_implicit_rep_id, 
+  bi.lod3_implicit_rep_id, 
+  bi.lod4_implicit_rep_id, 
+  bi.lod2_implicit_ref_point, 
+  bi.lod3_implicit_ref_point, 
+  bi.lod4_implicit_ref_point, 
+  bi.lod2_implicit_transformation, 
+  bi.lod3_implicit_transformation, 
+  bi.lod4_implicit_transformation
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.bridge_installation bi
+WHERE 
+  o.id = co.objectclass_id AND
+  bi.id = co.id AND
+  o.classname = 'IntBridgeInstallation';
+--ALTER VIEW citydb_view.bridge_installation_interior OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View BRIDGE_INSTALLATION_EXTERIOR
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.bridge_installation_exterior CASCADE;
+CREATE OR REPLACE VIEW citydb_view.bridge_installation_exterior AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  bi.class, 
+  bi.class_codespace, 
+  bi.function, 
+  bi.function_codespace, 
+  bi.usage, 
+  bi.usage_codespace, 
+  bi.bridge_id, 
+  bi.bridge_room_id, 
+  bi.lod2_brep_id, 
+  bi.lod3_brep_id, 
+  bi.lod4_brep_id, 
+  bi.lod2_other_geom, 
+  bi.lod3_other_geom, 
+  bi.lod4_other_geom, 
+  bi.lod2_implicit_rep_id, 
+  bi.lod3_implicit_rep_id, 
+  bi.lod4_implicit_rep_id, 
+  bi.lod2_implicit_ref_point, 
+  bi.lod3_implicit_ref_point, 
+  bi.lod4_implicit_ref_point, 
+  bi.lod2_implicit_transformation, 
+  bi.lod3_implicit_transformation, 
+  bi.lod4_implicit_transformation
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.bridge_installation bi
+WHERE 
+  o.id = co.objectclass_id AND
+  bi.id = co.id AND
+  o.classname = 'BridgeInstallation';
+--ALTER VIEW citydb_view.bridge_installation_exterior OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View BRIDGE_ROOM
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.bridge_room CASCADE;
+CREATE OR REPLACE VIEW citydb_view.bridge_room AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  br.class, 
+  br.class_codespace, 
+  br.function, 
+  br.function_codespace, 
+  br.usage, 
+  br.usage_codespace, 
+  br.bridge_id, 
+  br.lod4_multi_surface_id, 
+  br.lod4_solid_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.bridge_room br
+WHERE 
+  o.id = co.objectclass_id AND
+  br.id = co.id;
+--ALTER VIEW citydb_view.bridge_room OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View BRIDGE_THEMATIC_SURFACE
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.bridge_thematic_surface CASCADE;
+CREATE OR REPLACE VIEW citydb_view.bridge_thematic_surface AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  ts.bridge_id, 
+  ts.bridge_room_id, 
+  ts.bridge_installation_id,
+  ts.bridge_constr_element_id,   
+  ts.lod2_multi_surface_id, 
+  ts.lod3_multi_surface_id, 
+  ts.lod4_multi_surface_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.bridge_thematic_surface ts
+WHERE 
+  o.id = co.objectclass_id AND
+  ts.id = co.id;
+--ALTER VIEW citydb_view.bridge_thematic_surface OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View BRIDGE_THEMATIC_SURFACE_CEILING
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.bridge_thematic_surface_ceiling CASCADE;
+CREATE OR REPLACE VIEW citydb_view.bridge_thematic_surface_ceiling AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  ts.bridge_id, 
+  ts.bridge_room_id, 
+  ts.bridge_installation_id,
+  ts.bridge_constr_element_id,   
+  ts.lod2_multi_surface_id, 
+  ts.lod3_multi_surface_id, 
+  ts.lod4_multi_surface_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.bridge_thematic_surface ts
+WHERE 
+  o.id = co.objectclass_id AND
+  ts.id = co.id AND
+  o.classname = 'BridgeCeilingSurface';
+--ALTER VIEW citydb_view.bridge_thematic_surface_ceiling OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View BRIDGE_THEMATIC_SURFACE_OUTER_CEILING
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.bridge_thematic_surface_outer_ceiling CASCADE;
+CREATE OR REPLACE VIEW citydb_view.bridge_thematic_surface_outer_ceiling AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  ts.bridge_id, 
+  ts.bridge_room_id, 
+  ts.bridge_installation_id,
+  ts.bridge_constr_element_id, 
+  ts.lod2_multi_surface_id, 
+  ts.lod3_multi_surface_id, 
+  ts.lod4_multi_surface_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.bridge_thematic_surface ts
+WHERE 
+  o.id = co.objectclass_id AND
+  ts.id = co.id AND
+  o.classname = 'OuterBridgeCeilingSurface';
+--ALTER VIEW citydb_view.bridge_thematic_surface_outer_ceiling OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View BRIDGE_THEMATIC_SURFACE_CLOSURE
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.bridge_thematic_surface_closure CASCADE;
+CREATE OR REPLACE VIEW citydb_view.bridge_thematic_surface_closure AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  ts.bridge_id, 
+  ts.bridge_room_id, 
+  ts.bridge_installation_id,
+  ts.bridge_constr_element_id,  
+  ts.lod2_multi_surface_id, 
+  ts.lod3_multi_surface_id, 
+  ts.lod4_multi_surface_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.bridge_thematic_surface ts
+WHERE 
+  o.id = co.objectclass_id AND
+  ts.id = co.id AND
+  o.classname = 'BridgeClosureSurface';
+--ALTER VIEW citydb_view.bridge_thematic_surface_closure OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View BRIDGE_THEMATIC_SURFACE_FLOOR
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.bridge_thematic_surface_floor CASCADE;
+CREATE OR REPLACE VIEW citydb_view.bridge_thematic_surface_floor AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  ts.bridge_id, 
+  ts.bridge_room_id, 
+  ts.bridge_installation_id,
+  ts.bridge_constr_element_id, 
+  ts.lod2_multi_surface_id, 
+  ts.lod3_multi_surface_id, 
+  ts.lod4_multi_surface_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.bridge_thematic_surface ts
+WHERE 
+  o.id = co.objectclass_id AND
+  ts.id = co.id AND
+  o.classname = 'BridgeFloorSurface';
+--ALTER VIEW citydb_view.bridge_thematic_surface_floor OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View BRIDGE_THEMATIC_SURFACE_OUTER_FLOOR
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.bridge_thematic_surface_outer_floor CASCADE;
+CREATE OR REPLACE VIEW citydb_view.bridge_thematic_surface_outer_floor AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  ts.bridge_id, 
+  ts.bridge_room_id, 
+  ts.bridge_installation_id,
+  ts.bridge_constr_element_id, 
+  ts.lod2_multi_surface_id, 
+  ts.lod3_multi_surface_id, 
+  ts.lod4_multi_surface_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.bridge_thematic_surface ts
+WHERE 
+  o.id = co.objectclass_id AND
+  ts.id = co.id AND
+  o.classname = 'OuterBridgeFloorSurface';
+--ALTER VIEW citydb_view.bridge_thematic_surface_outer_floor OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View BRIDGE_THEMATIC_SURFACE_GROUND
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.bridge_thematic_surface_ground CASCADE;
+CREATE OR REPLACE VIEW citydb_view.bridge_thematic_surface_ground AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  ts.bridge_id, 
+  ts.bridge_room_id, 
+  ts.bridge_installation_id,
+  ts.bridge_constr_element_id, 
+  ts.lod2_multi_surface_id, 
+  ts.lod3_multi_surface_id, 
+  ts.lod4_multi_surface_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.bridge_thematic_surface ts
+WHERE 
+  o.id = co.objectclass_id AND
+  ts.id = co.id AND
+  o.classname = 'BridgeGroundSurface';
+--ALTER VIEW citydb_view.bridge_thematic_surface_ground OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View BRIDGE_THEMATIC_SURFACE_ROOF
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.bridge_thematic_surface_roof CASCADE;
+CREATE OR REPLACE VIEW citydb_view.bridge_thematic_surface_roof AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  ts.bridge_id, 
+  ts.bridge_room_id, 
+  ts.bridge_installation_id,
+  ts.bridge_constr_element_id, 
+  ts.lod2_multi_surface_id, 
+  ts.lod3_multi_surface_id, 
+  ts.lod4_multi_surface_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.bridge_thematic_surface ts
+WHERE 
+  o.id = co.objectclass_id AND
+  ts.id = co.id AND
+  o.classname = 'BridgeRoofSurface';
+--ALTER VIEW citydb_view.bridge_thematic_surface_roof OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View BRIDGE_THEMATIC_SURFACE_WALL
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.bridge_thematic_surface_wall CASCADE;
+CREATE OR REPLACE VIEW citydb_view.bridge_thematic_surface_wall AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  ts.bridge_id, 
+  ts.bridge_room_id, 
+  ts.bridge_installation_id,
+  ts.bridge_constr_element_id,  
+  ts.lod2_multi_surface_id, 
+  ts.lod3_multi_surface_id, 
+  ts.lod4_multi_surface_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.bridge_thematic_surface ts
+WHERE 
+  o.id = co.objectclass_id AND
+  ts.id = co.id AND
+  o.classname = 'BridgeWallSurface';
+--ALTER VIEW citydb_view.bridge_thematic_surface_wall OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View BRIDGE_THEMATIC_SURFACE_INTERIOR_WALL
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.bridge_thematic_surface_interior_wall CASCADE;
+CREATE OR REPLACE VIEW citydb_view.bridge_thematic_surface_interior_wall AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  ts.bridge_id, 
+  ts.bridge_room_id, 
+  ts.bridge_installation_id,
+  ts.bridge_constr_element_id, 
+  ts.lod2_multi_surface_id, 
+  ts.lod3_multi_surface_id, 
+  ts.lod4_multi_surface_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.bridge_thematic_surface ts
+WHERE 
+  o.id = co.objectclass_id AND
+  ts.id = co.id AND
+  o.classname = 'InteriorBridgeWallSurface';
+--ALTER VIEW citydb_view.bridge_thematic_surface_interior_wall OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View CITY_FURNITURE
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.city_furniture CASCADE;
+CREATE OR REPLACE VIEW citydb_view.city_furniture AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  cf.class, 
+  cf.class_codespace, 
+  cf.function, 
+  cf.function_codespace, 
+  cf.usage, 
+  cf.usage_codespace, 
+  cf.lod1_terrain_intersection, 
+  cf.lod2_terrain_intersection, 
+  cf.lod3_terrain_intersection, 
+  cf.lod4_terrain_intersection, 
+  cf.lod1_brep_id, 
+  cf.lod2_brep_id, 
+  cf.lod3_brep_id, 
+  cf.lod4_brep_id, 
+  cf.lod1_other_geom, 
+  cf.lod2_other_geom, 
+  cf.lod3_other_geom, 
+  cf.lod4_other_geom, 
+  cf.lod1_implicit_rep_id, 
+  cf.lod2_implicit_rep_id, 
+  cf.lod3_implicit_rep_id, 
+  cf.lod4_implicit_rep_id, 
+  cf.lod1_implicit_ref_point, 
+  cf.lod2_implicit_ref_point, 
+  cf.lod3_implicit_ref_point, 
+  cf.lod4_implicit_ref_point, 
+  cf.lod1_implicit_transformation, 
+  cf.lod2_implicit_transformation, 
+  cf.lod3_implicit_transformation, 
+  cf.lod4_implicit_transformation
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.city_furniture cf
+WHERE 
+  o.id = co.objectclass_id AND
+  cf.id = co.id;
+--ALTER VIEW citydb_view.city_furniture OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View RELIEF_FEATURE
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.relief_feature CASCADE;
+CREATE OR REPLACE VIEW citydb_view.relief_feature AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  rf.lod
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.relief_feature rf
+WHERE 
+  o.id = co.objectclass_id AND
+  rf.id = co.id;
+--ALTER VIEW citydb_view.relief_feature OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View TIN_RELIEF
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.tin_relief CASCADE;
+CREATE OR REPLACE VIEW citydb_view.tin_relief AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  rc.lod, 
+  rc.extent, 
+  tr.max_length, 
+  tr.max_length_unit, 
+  tr.stop_lines, 
+  tr.break_lines, 
+  tr.control_points, 
+  tr.surface_geometry_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.tin_relief tr, 
+  citydb.relief_component rc
+WHERE 
+  o.id = co.objectclass_id AND
+  tr.id = rc.id AND
+  rc.id = co.id;
+--ALTER VIEW citydb_view.tin_relief OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View MASSPOINT_RELIEF
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.masspoint_relief CASCADE;
+CREATE OR REPLACE VIEW citydb_view.masspoint_relief AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  rc.lod, 
+  rc.extent, 
+  mr.relief_points
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.relief_component rc, 
+  citydb.masspoint_relief mr
+WHERE 
+  o.id = co.objectclass_id AND
+  rc.id = co.id AND
+  mr.id = rc.id;
+--ALTER VIEW citydb_view.masspoint_relief OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View BREAKLINE_RELIEF
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.breakline_relief CASCADE;
+CREATE OR REPLACE VIEW citydb_view.breakline_relief AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  rc.lod, 
+  rc.extent, 
+  br.ridge_or_valley_lines, 
+  br.break_lines
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.relief_component rc, 
+  citydb.breakline_relief br
+WHERE 
+  o.id = co.objectclass_id AND
+  rc.id = co.id AND
+  br.id = rc.id;
+--ALTER VIEW citydb_view.breakline_relief OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View RASTER_RELIEF
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.raster_relief CASCADE;
+CREATE OR REPLACE VIEW citydb_view.raster_relief AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  rc.lod, 
+  rc.extent, 
+  rr.raster_uri, 
+  rr.coverage_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.relief_component rc, 
+  citydb.raster_relief rr
+WHERE 
+  o.id = co.objectclass_id AND
+  rc.id = co.id AND
+  rr.id = rc.id;
+--ALTER VIEW citydb_view.raster_relief OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View RELIEF_COMPONENT
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.relief_component CASCADE;
+CREATE OR REPLACE VIEW citydb_view.relief_component AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  rc.lod, 
+  rc.extent
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.relief_component rc
+WHERE 
+  o.id = co.objectclass_id AND
+  rc.id = co.id;
+--ALTER VIEW citydb_view.relief_component OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View RELIEF_FEAT_TO_REL_COMP_EXT
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.relief_feat_to_rel_comp_ext CASCADE;
+CREATE OR REPLACE VIEW citydb_view.relief_feat_to_rel_comp_ext AS
+SELECT 
+  co1.id             AS rf_id, 
+  co1.objectclass_id AS rf_objectclass_id, 
+  o1.classname       AS rf_classname, 
+  co2.id             AS rc_id, 
+  co2.objectclass_id AS rc_objectclass_id, 
+  o2.classname       AS rc_classname, 
+  co2.gmlid, 
+  co2.gmlid_codespace, 
+  co2.name, 
+  co2.name_codespace, 
+  co2.description, 
+  co2.envelope, 
+  co2.creation_date, 
+  co2.termination_date, 
+  co2.relative_to_terrain, 
+  co2.relative_to_water, 
+  co2.last_modification_date, 
+  co2.updating_person, 
+  co2.reason_for_update, 
+  co2.lineage, 
+  rc.lod, 
+  rc.extent
+FROM 
+  citydb.cityobject co2, 
+  citydb.objectclass o2, 
+  citydb.relief_component rc, 
+  citydb.relief_feat_to_rel_comp rf2rc, 
+  citydb.cityobject co1, 
+  citydb.objectclass o1
+WHERE 
+  co2.id = rf2rc.relief_component_id AND
+  o2.id = co2.objectclass_id AND
+  rc.id = co2.id AND
+  rf2rc.relief_feature_id = co1.id AND
+  o1.id = co1.objectclass_id;
+--ALTER VIEW citydb_view.relief_feat_to_rel_comp_ext OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View TRAFFIC_AREA
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.traffic_area CASCADE;
+CREATE OR REPLACE VIEW citydb_view.traffic_area AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  ta.class, 
+  ta.class_codespace, 
+  ta.function, 
+  ta.function_codespace, 
+  ta.usage, 
+  ta.usage_codespace, 
+  ta.surface_material, 
+  ta.surface_material_codespace, 
+  ta.lod2_multi_surface_id, 
+  ta.lod3_multi_surface_id, 
+  ta.lod4_multi_surface_id, 
+  ta.transportation_complex_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.traffic_area ta
+WHERE 
+  o.id = co.objectclass_id AND
+  ta.id = co.id AND
+  o.classname = 'TrafficArea';
+--ALTER VIEW citydb_view.traffic_area OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View TRAFFIC_AREA_AUXILIARY
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.traffic_area_auxiliary CASCADE;
+CREATE OR REPLACE VIEW citydb_view.traffic_area_auxiliary AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  ta.class, 
+  ta.class_codespace, 
+  ta.function, 
+  ta.function_codespace, 
+  ta.usage, 
+  ta.usage_codespace, 
+  ta.surface_material, 
+  ta.surface_material_codespace, 
+  ta.lod2_multi_surface_id, 
+  ta.lod3_multi_surface_id, 
+  ta.lod4_multi_surface_id, 
+  ta.transportation_complex_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.traffic_area ta
+WHERE 
+  o.id = co.objectclass_id AND
+  ta.id = co.id AND
+  o.classname = 'AuxiliaryTrafficArea';
+--ALTER VIEW citydb_view.traffic_area_auxiliary OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View TRANSPORTATION_COMPLEX
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.transportation_complex CASCADE;
+CREATE OR REPLACE VIEW citydb_view.transportation_complex AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  tc.class, 
+  tc.class_codespace, 
+  tc.function, 
+  tc.function_codespace, 
+  tc.usage, 
+  tc.usage_codespace, 
+  tc.lod0_network, 
+  tc.lod1_multi_surface_id, 
+  tc.lod2_multi_surface_id, 
+  tc.lod3_multi_surface_id, 
+  tc.lod4_multi_surface_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.transportation_complex tc
+WHERE 
+  o.id = co.objectclass_id AND
+  tc.id = co.id AND
+  o.classname = 'TransportationComplex';
+--ALTER VIEW citydb_view.transportation_complex OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View TRANSPORTATION_COMPLEX_railway
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.transportation_complex_railway CASCADE;
+CREATE OR REPLACE VIEW citydb_view.transportation_complex_railway AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  tc.class, 
+  tc.class_codespace, 
+  tc.function, 
+  tc.function_codespace, 
+  tc.usage, 
+  tc.usage_codespace, 
+  tc.lod0_network, 
+  tc.lod1_multi_surface_id, 
+  tc.lod2_multi_surface_id, 
+  tc.lod3_multi_surface_id, 
+  tc.lod4_multi_surface_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.transportation_complex tc
+WHERE 
+  o.id = co.objectclass_id AND
+  tc.id = co.id AND
+  o.classname = 'Railway';
+--ALTER VIEW citydb_view.transportation_complex_railway OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View TRANSPORTATION_COMPLEX_road
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.transportation_complex_road CASCADE;
+CREATE OR REPLACE VIEW citydb_view.transportation_complex_road AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  tc.class, 
+  tc.class_codespace, 
+  tc.function, 
+  tc.function_codespace, 
+  tc.usage, 
+  tc.usage_codespace, 
+  tc.lod0_network, 
+  tc.lod1_multi_surface_id, 
+  tc.lod2_multi_surface_id, 
+  tc.lod3_multi_surface_id, 
+  tc.lod4_multi_surface_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.transportation_complex tc
+WHERE 
+  o.id = co.objectclass_id AND
+  tc.id = co.id AND
+  o.classname = 'Road';
+--ALTER VIEW citydb_view.transportation_complex_road OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View TRANSPORTATION_COMPLEX_square
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.transportation_complex_square CASCADE;
+CREATE OR REPLACE VIEW citydb_view.transportation_complex_square AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  tc.class, 
+  tc.class_codespace, 
+  tc.function, 
+  tc.function_codespace, 
+  tc.usage, 
+  tc.usage_codespace, 
+  tc.lod0_network, 
+  tc.lod1_multi_surface_id, 
+  tc.lod2_multi_surface_id, 
+  tc.lod3_multi_surface_id, 
+  tc.lod4_multi_surface_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.transportation_complex tc
+WHERE 
+  o.id = co.objectclass_id AND
+  tc.id = co.id AND
+  o.classname = 'Square';
+--ALTER VIEW citydb_view.transportation_complex_square OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View TRANSPORTATION_COMPLEX_track
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.transportation_complex_track CASCADE;
+CREATE OR REPLACE VIEW citydb_view.transportation_complex_track AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  tc.class, 
+  tc.class_codespace, 
+  tc.function, 
+  tc.function_codespace, 
+  tc.usage, 
+  tc.usage_codespace, 
+  tc.lod0_network, 
+  tc.lod1_multi_surface_id, 
+  tc.lod2_multi_surface_id, 
+  tc.lod3_multi_surface_id, 
+  tc.lod4_multi_surface_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.transportation_complex tc
+WHERE 
+  o.id = co.objectclass_id AND
+  tc.id = co.id AND
+  o.classname = 'Track';
+--ALTER VIEW citydb_view.transportation_complex_track OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View TUNNEL
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.tunnel CASCADE;
+CREATE OR REPLACE VIEW citydb_view.tunnel AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  t.tunnel_parent_id, 
+  t.tunnel_root_id, 
+  t.class, 
+  t.class_codespace, 
+  t.function, 
+  t.function_codespace, 
+  t.usage, 
+  t.usage_codespace, 
+  t.year_of_construction, 
+  t.year_of_demolition, 
+  t.lod1_terrain_intersection, 
+  t.lod2_terrain_intersection, 
+  t.lod3_terrain_intersection, 
+  t.lod4_terrain_intersection, 
+  t.lod2_multi_curve, 
+  t.lod3_multi_curve, 
+  t.lod4_multi_curve, 
+  t.lod1_multi_surface_id, 
+  t.lod2_multi_surface_id, 
+  t.lod3_multi_surface_id, 
+  t.lod4_multi_surface_id, 
+  t.lod1_solid_id, 
+  t.lod2_solid_id, 
+  t.lod3_solid_id, 
+  t.lod4_solid_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.tunnel t
+WHERE 
+  o.id = co.objectclass_id AND
+  t.id = co.id AND
+  o.classname = 'Tunnel';
+--ALTER VIEW citydb_view.tunnel OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View TUNNEL_PART
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.tunnel_part CASCADE;
+CREATE OR REPLACE VIEW citydb_view.tunnel_part AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  t.tunnel_parent_id, 
+  t.tunnel_root_id, 
+  t.class, 
+  t.class_codespace, 
+  t.function, 
+  t.function_codespace, 
+  t.usage, 
+  t.usage_codespace, 
+  t.year_of_construction, 
+  t.year_of_demolition, 
+  t.lod1_terrain_intersection, 
+  t.lod2_terrain_intersection, 
+  t.lod3_terrain_intersection, 
+  t.lod4_terrain_intersection, 
+  t.lod2_multi_curve, 
+  t.lod3_multi_curve, 
+  t.lod4_multi_curve, 
+  t.lod1_multi_surface_id, 
+  t.lod2_multi_surface_id, 
+  t.lod3_multi_surface_id, 
+  t.lod4_multi_surface_id, 
+  t.lod1_solid_id, 
+  t.lod2_solid_id, 
+  t.lod3_solid_id, 
+  t.lod4_solid_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.tunnel t
+WHERE 
+  o.id = co.objectclass_id AND
+  t.id = co.id AND
+  o.classname = 'TunnelPart';
+--ALTER VIEW citydb_view.tunnel_part OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View TUNNEL_INSTALLATION
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.tunnel_installation CASCADE;
+CREATE OR REPLACE VIEW citydb_view.tunnel_installation AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  t.tunnel_parent_id, 
+  t.tunnel_root_id, 
+  t.class, 
+  t.class_codespace, 
+  t.function, 
+  t.function_codespace, 
+  t.usage, 
+  t.usage_codespace, 
+  t.year_of_construction, 
+  t.year_of_demolition, 
+  t.lod1_terrain_intersection, 
+  t.lod2_terrain_intersection, 
+  t.lod3_terrain_intersection, 
+  t.lod4_terrain_intersection, 
+  t.lod2_multi_curve, 
+  t.lod3_multi_curve, 
+  t.lod4_multi_curve, 
+  t.lod1_multi_surface_id, 
+  t.lod2_multi_surface_id, 
+  t.lod3_multi_surface_id, 
+  t.lod4_multi_surface_id, 
+  t.lod1_solid_id, 
+  t.lod2_solid_id, 
+  t.lod3_solid_id, 
+  t.lod4_solid_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.tunnel t
+WHERE 
+  o.id = co.objectclass_id AND
+  t.id = co.id;
+--ALTER VIEW citydb_view.tunnel_installation OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View TUNNEL_INSTALLATION_interior
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.tunnel_installation_interior CASCADE;
+CREATE OR REPLACE VIEW citydb_view.tunnel_installation_interior AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  t.tunnel_parent_id, 
+  t.tunnel_root_id, 
+  t.class, 
+  t.class_codespace, 
+  t.function, 
+  t.function_codespace, 
+  t.usage, 
+  t.usage_codespace, 
+  t.year_of_construction, 
+  t.year_of_demolition, 
+  t.lod1_terrain_intersection, 
+  t.lod2_terrain_intersection, 
+  t.lod3_terrain_intersection, 
+  t.lod4_terrain_intersection, 
+  t.lod2_multi_curve, 
+  t.lod3_multi_curve, 
+  t.lod4_multi_curve, 
+  t.lod1_multi_surface_id, 
+  t.lod2_multi_surface_id, 
+  t.lod3_multi_surface_id, 
+  t.lod4_multi_surface_id, 
+  t.lod1_solid_id, 
+  t.lod2_solid_id, 
+  t.lod3_solid_id, 
+  t.lod4_solid_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.tunnel t
+WHERE 
+  o.id = co.objectclass_id AND
+  t.id = co.id AND
+  o.classname = 'TunnelInstallation';
+--ALTER VIEW citydb_view.tunnel_installation_interior OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View TUNNEL_INSTALLATION_exterior
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.tunnel_installation_exterior CASCADE;
+CREATE OR REPLACE VIEW citydb_view.tunnel_installation_exterior AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  t.tunnel_parent_id, 
+  t.tunnel_root_id, 
+  t.class, 
+  t.class_codespace, 
+  t.function, 
+  t.function_codespace, 
+  t.usage, 
+  t.usage_codespace, 
+  t.year_of_construction, 
+  t.year_of_demolition, 
+  t.lod1_terrain_intersection, 
+  t.lod2_terrain_intersection, 
+  t.lod3_terrain_intersection, 
+  t.lod4_terrain_intersection, 
+  t.lod2_multi_curve, 
+  t.lod3_multi_curve, 
+  t.lod4_multi_curve, 
+  t.lod1_multi_surface_id, 
+  t.lod2_multi_surface_id, 
+  t.lod3_multi_surface_id, 
+  t.lod4_multi_surface_id, 
+  t.lod1_solid_id, 
+  t.lod2_solid_id, 
+  t.lod3_solid_id, 
+  t.lod4_solid_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.tunnel t
+WHERE 
+  o.id = co.objectclass_id AND
+  t.id = co.id AND
+  o.classname = 'IntTunnelInstallation';
+--ALTER VIEW citydb_view.tunnel_installation_exterior OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View TUNNEL_FURNITURE
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.tunnel_furniture CASCADE;
+CREATE OR REPLACE VIEW citydb_view.tunnel_furniture AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  tf.class, 
+  tf.class_codespace, 
+  tf.function, 
+  tf.function_codespace, 
+  tf.usage, 
+  tf.usage_codespace, 
+  tf.tunnel_hollow_space_id, 
+  tf.lod4_brep_id, 
+  tf.lod4_other_geom, 
+  tf.lod4_implicit_rep_id, 
+  tf.lod4_implicit_ref_point, 
+  tf.lod4_implicit_transformation
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.tunnel_furniture tf
+WHERE 
+  o.id = co.objectclass_id AND
+  tf.id = co.id;
+--ALTER VIEW citydb_view.tunnel_furniture OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View TUNNEL_HOLLOW_SPACE
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.tunnel_hollow_space CASCADE;
+CREATE OR REPLACE VIEW citydb_view.tunnel_hollow_space AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  ths.class, 
+  ths.class_codespace, 
+  ths.function, 
+  ths.function_codespace, 
+  ths.usage, 
+  ths.usage_codespace, 
+  ths.tunnel_id, 
+  ths.lod4_multi_surface_id, 
+  ths.lod4_solid_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.tunnel_hollow_space ths
+WHERE 
+  o.id = co.objectclass_id AND
+  ths.id = co.id;
+--ALTER VIEW citydb_view.tunnel_hollow_space OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View TUNNEL_OPENING
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.opening_tunnel CASCADE;
+CREATE OR REPLACE VIEW citydb_view.opening_tunnel AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  top.lod3_multi_surface_id, 
+  top.lod4_multi_surface_id, 
+  top.lod3_implicit_rep_id, 
+  top.lod4_implicit_rep_id, 
+  top.lod3_implicit_ref_point, 
+  top.lod4_implicit_ref_point, 
+  top.lod3_implicit_transformation, 
+  top.lod4_implicit_transformation
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.tunnel_opening top
+WHERE 
+  o.id = co.objectclass_id AND
+  top.id = co.id;
+--ALTER VIEW citydb_view.tunnel_tunnel OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View TUNNEL_OPENING_DOOR
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.tunnel_opening_door CASCADE;
+CREATE OR REPLACE VIEW citydb_view.tunnel_opening_door AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  top.lod3_multi_surface_id, 
+  top.lod4_multi_surface_id, 
+  top.lod3_implicit_rep_id, 
+  top.lod4_implicit_rep_id, 
+  top.lod3_implicit_ref_point, 
+  top.lod4_implicit_ref_point, 
+  top.lod3_implicit_transformation, 
+  top.lod4_implicit_transformation
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.tunnel_opening top
+WHERE 
+  o.id = co.objectclass_id AND
+  top.id = co.id AND
+  o.classname = 'TunnelDoor';
+--ALTER VIEW citydb_view.tunnel_opening_door OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View TUNNEL_OPENING_WINDOW
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.tunnel_opening_window CASCADE;
+CREATE OR REPLACE VIEW citydb_view.tunnel_opening_window AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  top.lod3_multi_surface_id, 
+  top.lod4_multi_surface_id, 
+  top.lod3_implicit_rep_id, 
+  top.lod4_implicit_rep_id, 
+  top.lod3_implicit_ref_point, 
+  top.lod4_implicit_ref_point, 
+  top.lod3_implicit_transformation, 
+  top.lod4_implicit_transformation
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.tunnel_opening top
+WHERE 
+  o.id = co.objectclass_id AND
+  top.id = co.id AND
+  o.classname = 'TunnelWindow';
+--ALTER VIEW citydb_view.tunnel_opening_window OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View TUNNEL_OPEN_TO_THEM_SURFACE_EXT
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.tunnel_open_to_them_surface_ext CASCADE;
+CREATE OR REPLACE VIEW citydb_view.tunnel_open_to_them_surface_ext AS
+SELECT 
+  ts.id             AS themsurf_id, 
+  ts.objectclass_id AS ts_objectclass_id, 
+  o1.classname      AS ts_classname, 
+  o.id              AS opening_id, 
+  o.objectclass_id  AS o_objectclass_id, 
+  o2.classname      AS o_classname, 
+  o.lod3_multi_surface_id, 
+  o.lod4_multi_surface_id, 
+  o.lod3_implicit_rep_id, 
+  o.lod4_implicit_rep_id, 
+  o.lod3_implicit_ref_point, 
+  o.lod4_implicit_ref_point, 
+  o.lod3_implicit_transformation, 
+  o.lod4_implicit_transformation
+FROM 
+  citydb.tunnel_open_to_them_srf o2ts, 
+  citydb.tunnel_opening o, 
+  citydb.tunnel_thematic_surface ts, 
+  citydb.objectclass o1, 
+  citydb.objectclass o2
+WHERE 
+  o2ts.tunnel_thematic_surface_id = ts.id AND
+  o2ts.tunnel_opening_id = o.id AND
+  o.objectclass_id = o2.id AND
+  ts.objectclass_id = o1.id;
+--ALTER VIEW opening_to_them_surface_ext OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View TUNNEL_THEMATIC_SURFACE
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.tunnel_thematic_surface CASCADE;
+CREATE OR REPLACE VIEW citydb_view.tunnel_thematic_surface AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  ts.tunnel_id, 
+  ts.tunnel_hollow_space_id, 
+  ts.tunnel_installation_id, 
+  ts.lod2_multi_surface_id, 
+  ts.lod3_multi_surface_id, 
+  ts.lod4_multi_surface_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.tunnel_thematic_surface ts
+WHERE 
+  o.id = co.objectclass_id AND
+  ts.id = co.id;
+--ALTER VIEW citydb_view.tunnel_thematic_surface OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View TUNNEL_THEMATIC_SURFACE_CEILING
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.tunnel_thematic_surface_ceiling CASCADE;
+CREATE OR REPLACE VIEW citydb_view.tunnel_thematic_surface_ceiling AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  ts.tunnel_id, 
+  ts.tunnel_hollow_space_id, 
+  ts.tunnel_installation_id, 
+  ts.lod2_multi_surface_id, 
+  ts.lod3_multi_surface_id, 
+  ts.lod4_multi_surface_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.tunnel_thematic_surface ts
+WHERE 
+  o.id = co.objectclass_id AND
+  ts.id = co.id AND
+  o.classname = 'TunnelCeilingSurface';
+--ALTER VIEW citydb_view.tunnel_thematic_surface_ceiling OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View TUNNEL_THEMATIC_SURFACE_OUTER_CEILING
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.tunnel_thematic_surface_outer_ceiling CASCADE;
+CREATE OR REPLACE VIEW citydb_view.tunnel_thematic_surface_outer_ceiling AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  ts.tunnel_id, 
+  ts.tunnel_hollow_space_id, 
+  ts.tunnel_installation_id,  
+  ts.lod2_multi_surface_id, 
+  ts.lod3_multi_surface_id, 
+  ts.lod4_multi_surface_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.tunnel_thematic_surface ts
+WHERE 
+  o.id = co.objectclass_id AND
+  ts.id = co.id AND
+  o.classname = 'OuterTunnelCeilingSurface';
+--ALTER VIEW citydb_view.tunnel_thematic_surface_outer_ceiling OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View TUNNEL_THEMATIC_SURFACE_CLOSURE
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.tunnel_thematic_surface_closure CASCADE;
+CREATE OR REPLACE VIEW citydb_view.tunnel_thematic_surface_closure AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  ts.tunnel_id, 
+  ts.tunnel_hollow_space_id, 
+  ts.tunnel_installation_id,  
+  ts.lod2_multi_surface_id, 
+  ts.lod3_multi_surface_id, 
+  ts.lod4_multi_surface_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.tunnel_thematic_surface ts
+WHERE 
+  o.id = co.objectclass_id AND
+  ts.id = co.id AND
+  o.classname = 'TunnelClosureSurface';
+--ALTER VIEW citydb_view.tunnel_thematic_surface_closure OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View TUNNEL_THEMATIC_SURFACE_FLOOR
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.tunnel_thematic_surface_floor CASCADE;
+CREATE OR REPLACE VIEW citydb_view.tunnel_thematic_surface_floor AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  ts.tunnel_id, 
+  ts.tunnel_hollow_space_id, 
+  ts.tunnel_installation_id, 
+  ts.lod2_multi_surface_id, 
+  ts.lod3_multi_surface_id, 
+  ts.lod4_multi_surface_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.tunnel_thematic_surface ts
+WHERE 
+  o.id = co.objectclass_id AND
+  ts.id = co.id AND
+  o.classname = 'TunnelFloorSurface';
+--ALTER VIEW citydb_view.tunnel_thematic_surface_floor OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View TUNNEL_THEMATIC_SURFACE_OUTER_FLOOR
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.tunnel_thematic_surface_outer_floor CASCADE;
+CREATE OR REPLACE VIEW citydb_view.tunnel_thematic_surface_outer_floor AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  ts.tunnel_id, 
+  ts.tunnel_hollow_space_id, 
+  ts.tunnel_installation_id, 
+  ts.lod2_multi_surface_id, 
+  ts.lod3_multi_surface_id, 
+  ts.lod4_multi_surface_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.tunnel_thematic_surface ts
+WHERE 
+  o.id = co.objectclass_id AND
+  ts.id = co.id AND
+  o.classname = 'OuterTunnelFloorSurface';
+--ALTER VIEW citydb_view.tunnel_thematic_surface_outer_floor OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View TUNNEL_THEMATIC_SURFACE_GROUND
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.tunnel_thematic_surface_ground CASCADE;
+CREATE OR REPLACE VIEW citydb_view.tunnel_thematic_surface_ground AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  ts.tunnel_id, 
+  ts.tunnel_hollow_space_id, 
+  ts.tunnel_installation_id,  
+  ts.lod2_multi_surface_id, 
+  ts.lod3_multi_surface_id, 
+  ts.lod4_multi_surface_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.tunnel_thematic_surface ts
+WHERE 
+  o.id = co.objectclass_id AND
+  ts.id = co.id AND
+  o.classname = 'TunnelGroundSurface';
+--ALTER VIEW citydb_view.tunnel_thematic_surface_ground OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View TUNNEL_THEMATIC_SURFACE_ROOF
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.tunnel_thematic_surface_roof CASCADE;
+CREATE OR REPLACE VIEW citydb_view.tunnel_thematic_surface_roof AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  ts.tunnel_id, 
+  ts.tunnel_hollow_space_id, 
+  ts.tunnel_installation_id,  
+  ts.lod2_multi_surface_id, 
+  ts.lod3_multi_surface_id, 
+  ts.lod4_multi_surface_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.tunnel_thematic_surface ts
+WHERE 
+  o.id = co.objectclass_id AND
+  ts.id = co.id AND
+  o.classname = 'TunnelRoofSurface';
+--ALTER VIEW citydb_view.tunnel_thematic_surface_roof OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View TUNNEL_THEMATIC_SURFACE_WALL
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.tunnel_thematic_surface_wall CASCADE;
+CREATE OR REPLACE VIEW citydb_view.tunnel_thematic_surface_wall AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  ts.tunnel_id, 
+  ts.tunnel_hollow_space_id, 
+  ts.tunnel_installation_id,  
+  ts.lod2_multi_surface_id, 
+  ts.lod3_multi_surface_id, 
+  ts.lod4_multi_surface_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.tunnel_thematic_surface ts
+WHERE 
+  o.id = co.objectclass_id AND
+  ts.id = co.id AND
+  o.classname = 'TunnelWallSurface';
+--ALTER VIEW citydb_view.tunnel_thematic_surface_wall OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View TUNNEL_THEMATIC_SURFACE_INTERIOR_WALL
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.tunnel_thematic_surface_interior_wall CASCADE;
+CREATE OR REPLACE VIEW citydb_view.tunnel_thematic_surface_interior_wall AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  ts.tunnel_id, 
+  ts.tunnel_hollow_space_id, 
+  ts.tunnel_installation_id, 
+  ts.lod2_multi_surface_id, 
+  ts.lod3_multi_surface_id, 
+  ts.lod4_multi_surface_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.tunnel_thematic_surface ts
+WHERE 
+  o.id = co.objectclass_id AND
+  ts.id = co.id AND
+  o.classname = 'InteriorTunnelWallSurface';
+--ALTER VIEW citydb_view.tunnel_thematic_surface_interior_wall OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View CITYOBJECT_TO_CITYMODEL_EXT
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.cityobject_to_citymodel_ext CASCADE;
+CREATE OR REPLACE VIEW citydb_view.cityobject_to_citymodel_ext AS
+SELECT 
+  co1.id AS co_id, 
+  co1.objectclass_id AS co_objectclass_id, 
+  o1.classname AS co_classname, 
+  cm.id, 
+  cm.gmlid, 
+  cm.gmlid_codespace, 
+  cm.name, 
+  cm.name_codespace, 
+  cm.description, 
+  cm.envelope, 
+  cm.creation_date, 
+  cm.termination_date, 
+  cm.last_modification_date, 
+  cm.updating_person, 
+  cm.reason_for_update, 
+  cm.lineage
+FROM 
+  citydb.cityobject co1, 
+  citydb.objectclass o1, 
+  citydb.cityobject_member com, 
+  citydb.citymodel cm
+WHERE 
+  co1.objectclass_id = o1.id AND
+  com.cityobject_id = co1.id AND
+  com.citymodel_id = cm.id;
+--ALTER VIEW citydb_view.cityobject_to_citymodel_ext OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View GENERALIZATION_EXT
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.generalization_ext CASCADE;
+CREATE OR REPLACE VIEW citydb_view.generalization_ext AS 
+SELECT 
+  co1.id AS co_id, 
+  co1.objectclass_id AS co_objectclass_id, 
+  o1.classname AS co_classname, 
+  co2.id AS gen_id, 
+  co2.objectclass_id AS gen_objectclass_id, 
+  o2.classname AS gen_classname, 
+  co2.gmlid, 
+  co2.gmlid_codespace, 
+  co2.name, 
+  co2.name_codespace, 
+  co2.description, 
+  co2.envelope, 
+  co2.creation_date, 
+  co2.termination_date, 
+  co2.relative_to_terrain, 
+  co2.relative_to_water, 
+  co2.last_modification_date, 
+  co2.updating_person, 
+  co2.reason_for_update, 
+  co2.lineage
+FROM 
+  citydb.generalization g, 
+  citydb.cityobject co1, 
+  citydb.cityobject co2, 
+  citydb.objectclass o2, 
+  citydb.objectclass o1
+WHERE 
+  g.generalizes_to_id = co2.id AND
+  co1.id = g.cityobject_id AND
+  co1.objectclass_id = o1.id AND
+  co2.objectclass_id = o2.id;
+--ALTER VIEW citydb_view.generalization_ext OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View ADDRESS_EXT
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.address_ext CASCADE;
+CREATE OR REPLACE VIEW citydb_view.address_ext AS 
+SELECT 
+  a.id,
+  a.gmlid,
+  a.gmlid_codespace,
+  a.street,
+  a.house_number,
+  a.po_box,
+  a.zip_code,
+  a.city,
+  a.state,
+  a.country,
+  a.multi_point,
+  concat(a.street,' ',a.house_number,', ',a.po_box,', ',a.zip_code,', ',a.city,', ',a.state,', ',a.country)
+FROM
+  citydb.address a;
+--ALTER VIEW citydb_view.address_ext OWNER TO postgres;
+
+----------------------------------------------------------------
 -- View ADDRESS_TO_BUILDING_EXT
 ----------------------------------------------------------------
 DROP VIEW IF EXISTS    citydb_view.address_to_building_ext CASCADE;
 CREATE OR REPLACE VIEW citydb_view.address_to_building_ext AS 
-
 SELECT 
   a2b.building_id,
   co.objectclass_id,
@@ -1052,6 +3691,40 @@ WHERE
 --ALTER VIEW citydb_view.land_use OWNER TO postgres;
 
 ----------------------------------------------------------------
+-- View OPENING_TO_THEM_SURFACE_EXT
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.opening_to_them_surface_ext CASCADE;
+CREATE OR REPLACE VIEW citydb_view.opening_to_them_surface_ext AS
+SELECT 
+  ts.id AS themsurf_id, 
+  ts.objectclass_id AS ts_objectclass_id, 
+  o1.classname AS ts_classname, 
+  o.id AS opening_id, 
+  o.objectclass_id AS o_objectclass_id, 
+  o2.classname AS o_classname, 
+  o.address_id, 
+  o.lod3_multi_surface_id, 
+  o.lod4_multi_surface_id, 
+  o.lod3_implicit_rep_id, 
+  o.lod4_implicit_rep_id, 
+  o.lod3_implicit_ref_point, 
+  o.lod4_implicit_ref_point, 
+  o.lod3_implicit_transformation, 
+  o.lod4_implicit_transformation
+FROM 
+  citydb.opening_to_them_surface o2ts, 
+  citydb.opening o, 
+  citydb.thematic_surface ts, 
+  citydb.objectclass o1, 
+  citydb.objectclass o2
+WHERE 
+  o2ts.thematic_surface_id = ts.id AND
+  o2ts.opening_id = o.id AND
+  o.objectclass_id = o2.id AND
+  ts.objectclass_id = o1.id;
+--ALTER VIEW opening_to_them_surface_ext OWNER TO postgres;
+
+----------------------------------------------------------------
 -- View OPENING
 ----------------------------------------------------------------
 DROP VIEW IF EXISTS    citydb_view.opening CASCADE;
@@ -1115,7 +3788,6 @@ SELECT
   co.updating_person, 
   co.reason_for_update, 
   co.lineage, 
-  op.address_id, 
   op.lod3_multi_surface_id, 
   op.lod4_multi_surface_id, 
   op.lod3_implicit_rep_id, 
@@ -1763,6 +4435,151 @@ WHERE
   o.id = co.objectclass_id AND
   wb.id = co.id;
 --ALTER VIEW citydb_view.waterbody OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View WATERBOUNDARY_SURFACE
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.waterboundary_surface CASCADE;
+CREATE OR REPLACE VIEW citydb_view.waterboundary_surface AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  wbs.lod2_surface_id, 
+  wbs.lod3_surface_id, 
+  wbs.lod4_surface_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.waterboundary_surface wbs
+WHERE 
+  o.id = co.objectclass_id AND
+  wbs.id = co.id;
+--ALTER VIEW citydb_view.waterboundary_surface OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View WATERBOUNDARY_SURFACE_CLOSURE
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.waterboundary_surface_closure CASCADE;
+CREATE OR REPLACE VIEW citydb_view.waterboundary_surface_closure AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  wbs.lod2_surface_id, 
+  wbs.lod3_surface_id, 
+  wbs.lod4_surface_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.waterboundary_surface wbs
+WHERE 
+  o.id = co.objectclass_id AND
+  wbs.id = co.id AND
+  o.classname = 'WaterClosureSurface';
+--ALTER VIEW citydb_view.waterboundary_surface_closure OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View WATERBOUNDARY_SURFACE_GROUND
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.waterboundary_surface_ground CASCADE;
+CREATE OR REPLACE VIEW citydb_view.waterboundary_surface_ground AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  wbs.lod2_surface_id, 
+  wbs.lod3_surface_id, 
+  wbs.lod4_surface_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.waterboundary_surface wbs
+WHERE 
+  o.id = co.objectclass_id AND
+  wbs.id = co.id AND
+  o.classname = 'WaterGroundSurface';
+--ALTER VIEW citydb_view.waterboundary_surface_ground OWNER TO postgres;
+
+----------------------------------------------------------------
+-- View WATERBOUNDARY_SURFACE_WATER
+----------------------------------------------------------------
+DROP VIEW IF EXISTS    citydb_view.waterboundary_surface_water CASCADE;
+CREATE OR REPLACE VIEW citydb_view.waterboundary_surface_water AS
+SELECT 
+  co.id, 
+  co.objectclass_id, 
+  o.classname, 
+  co.gmlid, 
+  co.gmlid_codespace, 
+  co.name, 
+  co.name_codespace, 
+  co.description, 
+  co.envelope, 
+  co.creation_date, 
+  co.termination_date, 
+  co.relative_to_terrain, 
+  co.relative_to_water, 
+  co.last_modification_date, 
+  co.updating_person, 
+  co.reason_for_update, 
+  co.lineage, 
+  wbs.water_level, 
+  wbs.water_level_codespace, 
+  wbs.lod2_surface_id, 
+  wbs.lod3_surface_id, 
+  wbs.lod4_surface_id
+FROM 
+  citydb.cityobject co, 
+  citydb.objectclass o, 
+  citydb.waterboundary_surface wbs
+WHERE 
+  o.id = co.objectclass_id AND
+  wbs.id = co.id AND
+  o.classname = 'WaterSurface';
+--ALTER VIEW citydb_view.waterboundary_surface_water OWNER TO postgres;
 
 -- ***********************************************************************
 -- ***********************************************************************
