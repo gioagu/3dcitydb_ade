@@ -32,7 +32,7 @@ Contributing
 
 Active Developers
 --------------------
-* [Giorgio Agugiaro](mailto:giorgio.agugiaro@ait.ac.at)
+* [Giorgio Agugiaro](mailto:g.agugiaro@tudelft.nl)
 
 Acknowledgements  
 -----------------------------------
