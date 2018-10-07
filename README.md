@@ -15,7 +15,9 @@ System requirements
 -------------------
 * PostgreSQL DBMS >= 9.1 
 * PostGIS extension >= 2.0
-* 3DCityDB >= 3.3.1
+* 3DCityDB = 3.3.1
+
+Please note: the latest version of the 3DCityDB 4.0 is NOT supported (yet). If you want to use the software contained in this repository, please check that you are using version 3.3.1!
 
 Documentation
 -------------
