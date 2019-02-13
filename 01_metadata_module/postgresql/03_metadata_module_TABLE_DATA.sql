@@ -121,7 +121,7 @@ ALTER TABLE citydb.objectclass
 CREATE INDEX objectclass_is_ade_class_inx ON citydb.objectclass USING btree (is_ade_class);
 CREATE INDEX objectclass_baseclass_id_fkx ON citydb.objectclass USING btree (baseclass_id);
 
-ALTER TABLE citydb.objectclass ADD CONSTRAINT objectclass_baseclass_id_fk FOREIGN KEY (baseclass_id) REFERENCES objectclass (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
+ALTER TABLE citydb.objectclass ADD CONSTRAINT objectclass_baseclass_id_fk FOREIGN KEY (baseclass_id) REFERENCES citydb.objectclass (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
 
 ----------------------------------------------------------------
 -- UPDATE table OBJECTCLASS and enter new values for "vanilla" entries

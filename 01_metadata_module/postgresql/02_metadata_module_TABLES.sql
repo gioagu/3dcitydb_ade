@@ -120,7 +120,7 @@ ALTER TABLE citydb.objectclass
 CREATE INDEX objectclass_is_ade_class_inx ON citydb.objectclass USING btree (is_ade_class) WITH (FILLFACTOR = 90);
 CREATE INDEX objectclass_baseclass_id_fkx ON citydb.objectclass USING btree (baseclass_id) WITH (FILLFACTOR = 90);
 
-ALTER TABLE citydb.objectclass ADD CONSTRAINT objectclass_baseclass_id_fk FOREIGN KEY (baseclass_id) REFERENCES objectclass (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
+ALTER TABLE citydb.objectclass ADD CONSTRAINT objectclass_baseclass_id_fk FOREIGN KEY (baseclass_id) REFERENCES citydb.objectclass (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
 --ALTER TABLE citydb.objectclass DROP CONSTRAINT IF EXISTS objectclass_superclass_id_fk;
 --ALTER TABLE citydb.objectclass ADD CONSTRAINT objectclass_superclass_id_fk FOREIGN KEY (superclass_id) REFERENCES objectclass (id) MATCH FULL ON UPDATE CASCADE ON DELETE NO ACTION;
 
