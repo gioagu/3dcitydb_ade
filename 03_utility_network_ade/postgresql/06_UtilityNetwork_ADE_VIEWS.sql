@@ -1343,11 +1343,12 @@ CREATE OR REPLACE VIEW citydb_view.utn9_supply_area_to_cityobject AS
     co.objectclass_id AS co_objectclass_id,
     o1.classname AS co_classname,
     gtc.role
-   FROM cityobject cog,
-    objectclass o1,
-    objectclass o2,
-    group_to_cityobject gtc,
-    cityobject co
+   FROM 
+    citydb.cityobject cog,
+    citydb.objectclass o1,
+    citydb.objectclass o2,
+    citydb.group_to_cityobject gtc,
+    citydb.cityobject co
   WHERE
 	cog.id = gtc.cityobjectgroup_id AND
 	cog.objectclass_id = o2.id AND
