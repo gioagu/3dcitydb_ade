@@ -35,8 +35,8 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp" SCHEMA public;
 
 ALTER TABLE citydb.cityobject_genericattrib ALTER COLUMN datatype SET NOT NULL;
 
-DROP INDEX IF EXISTS cityobject_genericattrib_attrname_inx;
-CREATE INDEX cityobject_genericattrib_attrname_inx ON citydb.cityobject_genericattrib (attrname);
+DROP INDEX   IF EXISTS     cityobject_genericattrib_attrname_inx;
+CREATE INDEX IF NOT EXISTS cityobject_genericattrib_attrname_inx ON citydb.cityobject_genericattrib (attrname);
 
 ----------------------------------------------------------------
 -- Function INSERT_CITYMODEL
