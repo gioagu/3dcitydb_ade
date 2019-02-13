@@ -12,17 +12,17 @@ cd ..
 
 "%PGBIN%\psql" -h %PGHOST% -p %PGPORT% -d "%CITYDB%" -U %PGUSER% -c "ALTER DATABASE %CITYDB% SET search_path TO citydb, citydb_pkg, public"
 
-cd .\00_utilities_package
+cd ..\00_utilities_package
 "%PGBIN%\psql" -h %PGHOST% -p %PGPORT% -d "%CITYDB%" -U %PGUSER% -f "INSTALL_citydb_utilities.sql"
 cd ..
 REM pause
 
-cd .\01_metadata_module
+cd ..\01_metadata_module
 "%PGBIN%\psql" -h %PGHOST% -p %PGPORT% -d "%CITYDB%" -U %PGUSER% -f "INSTALL_Metadata_module.sql"
 cd ..
 REM pause
 
-cd .\02_energy_ade
+cd ..\02_energy_ade
 "%PGBIN%\psql" -h %PGHOST% -p %PGPORT% -d "%CITYDB%" -U %PGUSER% -f "INSTALL_Energy_ADE.sql"
 cd ..
 REM pause
