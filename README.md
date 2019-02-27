@@ -17,7 +17,7 @@ System requirements
 * PostGIS extension >= 2.0
 * 3DCityDB = 3.3.1
 
-**Please note:** the latest version of the **3DCityDB 4.x is NOT supported** (yet). If you want to use the software contained in this repository, please check that you are using version 3.3.1!
+**Please note:** the latest version of the **3DCityDB 4.x is NOT supported** (yet). If you want to use the software contained in this repository, please check that you are using version 3.3.1! It can be downloaded [here](https://github.com/3dcitydb/3dcitydb/releases/tag/v3.3.1).
 
 Documentation
 -------------
