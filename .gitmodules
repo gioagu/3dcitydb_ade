@@ -1,0 +1,18 @@
+[submodule "00_utilities_package"]
+	path = 00_utilities_package
+	url = git@github.com:gioagu/3dcitydb_utilities.git
+[submodule "01_metadata_module"]
+	path = 01_metadata_module
+	url = git@github.com:gioagu/3dcitydb_metadata_module.git
+[submodule "02_energy_ade"]
+	path = 02_energy_ade
+	url = git@github.com:gioagu/3dcitydb_energy_ade.git
+[submodule "03_utility_network_ade"]
+	path = 03_utility_network_ade
+	url = git@github.com:gioagu/3dcitydb_utility_network_ade.git
+[submodule "04_scenario_ade"]
+	path = 04_scenario_ade
+	url = git@github.com:gioagu/3dcitydb_scenario_ade.git
+[submodule "05_simulation_package"]
+	path = 05_simulation_package
+	url = git@github.com:gioagu/3dcitydb_simulation_pkg.git
